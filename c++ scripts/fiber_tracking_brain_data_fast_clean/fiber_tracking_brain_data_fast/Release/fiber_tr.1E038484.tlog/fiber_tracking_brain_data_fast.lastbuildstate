@@ -1,0 +1,2 @@
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v120:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit
+Release|Win32|C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\|

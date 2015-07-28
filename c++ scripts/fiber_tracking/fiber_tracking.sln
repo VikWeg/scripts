@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fiber_tracking", "fiber_tracking\fiber_tracking.vcxproj", "{EB207C07-2410-4519-9F14-9A21E1D7D00E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB207C07-2410-4519-9F14-9A21E1D7D00E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EB207C07-2410-4519-9F14-9A21E1D7D00E}.Debug|Win32.Build.0 = Debug|Win32
+		{EB207C07-2410-4519-9F14-9A21E1D7D00E}.Release|Win32.ActiveCfg = Release|Win32
+		{EB207C07-2410-4519-9F14-9A21E1D7D00E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

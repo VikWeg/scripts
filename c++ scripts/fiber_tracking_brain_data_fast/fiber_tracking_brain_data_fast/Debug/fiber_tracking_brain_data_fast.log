@@ -1,0 +1,70 @@
+﻿Der Buildvorgang wurde am 24.06.2015 23:18:41 gestartet.
+     1>Projekt "C:\ETH\Neuro\GlobalTracking\GlobalTrackingScripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast.vcxproj" auf Knoten "2", Build Ziel(e).
+     1>ClCompile:
+         C:\Apps\VisualStudio2013\VC\bin\CL.exe /c /nologo /W3 /WX- /O2 /Oy- /GL /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+     1>cl : Befehlszeile warning D9007: "/Gm" erfordert "/Zi oder /ZI"; Option wird ignoriert.
+         main.cpp
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\definitions.h(73): warning C4305: 'Initialisierung': Verkürzung von 'double' in 'float'
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\definitions.h(74): warning C4305: 'Initialisierung': Verkürzung von 'double' in 'float'
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\definitions.h(75): warning C4305: 'Initialisierung': Verkürzung von 'double' in 'float'
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\definitions.h(81): warning C4305: 'Initialisierung': Verkürzung von 'double' in 'float'
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\definitions.h(82): warning C4244: 'return': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\definitions.h(88): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\energy.h(76): warning C4244: 'return': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\energy.h(84): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\energy.h(85): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\energy.h(94): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\energy.h(95): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\energy.h(105): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\energy.h(106): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\energy.h(122): warning C4244: 'return': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\energy.h(137): warning C4244: 'return': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\monte_carlo.h(3): warning C4101: 'd': Unreferenzierte lokale Variable
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\monte_carlo.h(53): warning C4244: 'Argument': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\monte_carlo.h(55): warning C4244: 'Argument': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\monte_carlo.h(57): warning C4244: 'Argument': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\monte_carlo.h(42): warning C4101: 'y1': Unreferenzierte lokale Variable
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\monte_carlo.h(42): warning C4101: 'x1': Unreferenzierte lokale Variable
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\monte_carlo.h(42): warning C4101: 'z1': Unreferenzierte lokale Variable
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\fiber_export.h(72): warning C4244: 'Initialisierung': Konvertierung von 'std::streamoff' in 'long', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\import_data.h(3): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Apps\VisualStudio2013\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\import_data.h(22): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Apps\VisualStudio2013\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\import_data.h(51): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Apps\VisualStudio2013\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\import_data.h(80): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Apps\VisualStudio2013\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\import_data.h(109): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Apps\VisualStudio2013\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\import_data.h(138): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Apps\VisualStudio2013\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\init_ensemble.h(51): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\init_ensemble.h(52): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\init_ensemble.h(53): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\init_ensemble.h(109): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\init_ensemble.h(125): warning C4244: '=': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\init_ensemble.h(128): warning C4244: '=': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\init_ensemble.h(129): warning C4244: '=': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\init_ensemble.h(130): warning C4244: '=': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\init_ensemble.h(163): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\init_ensemble.h(164): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\init_ensemble.h(165): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\init_ensemble.h(174): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\init_ensemble.h(175): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\init_ensemble.h(176): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\fiber_tracking_cube.h(26): warning C4244: 'Initialisierung': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\fiber_tracking_cube.h(77): warning C4244: 'Initialisierung': Konvertierung von 'std::streamoff' in 'long', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\globaltrackingscripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\fiber_tracking_cube.h(9): warning C4101: 's': Unreferenzierte lokale Variable
+       Link:
+         C:\Apps\VisualStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\ETH\Neuro\GlobalTracking\GlobalTrackingScripts\fiber_tracking_brain_data_fast\Debug\fiber_tracking_brain_data_fast.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\ETH\Neuro\GlobalTracking\GlobalTrackingScripts\fiber_tracking_brain_data_fast\Debug\fiber_tracking_brain_data_fast.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\ETH\Neuro\GlobalTracking\GlobalTrackingScripts\fiber_tracking_brain_data_fast\Debug\fiber_tracking_brain_data_fast.lib" /MACHINE:X86 Debug\main.obj
+         main.obj : Es wurde ein mit /GL kompiliertes MSIL .netmodule oder module gefunden. Verknüpfung wird mit /LTCG erneut gestartet. Fügen Sie /LTCG zur Linkbefehlszeile hinzu, um die Linkerleistung zu erhöhen.
+     1>LINK : warning LNK4075: /INCREMENTAL wird aufgrund der Angabe von /LTCG ignoriert.
+         Code wird generiert.
+         Codegenerierung ist abgeschlossen.
+         fiber_tracking_brain_data_fast.vcxproj -> C:\ETH\Neuro\GlobalTracking\GlobalTrackingScripts\fiber_tracking_brain_data_fast\Debug\fiber_tracking_brain_data_fast.exe
+     1>Die Erstellung des Projekts "C:\ETH\Neuro\GlobalTracking\GlobalTrackingScripts\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast.vcxproj" ist abgeschlossen, Build Ziel(e).
+
+Build erfolgreich.
+
+Verstrichene Zeit 00:00:01.17
