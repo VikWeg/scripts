@@ -23,7 +23,14 @@ int vertex_offset(int i, int j, int k)
 }
 
 void initialize()
-{
+{	
+	cudaMemset(&dev_pixdim_0, hdr.pixdim[1], sizeof(float));
+	cudaMemset(&dev_pixdim_1, hdr.pixdim[2], sizeof(float));
+	cudaMemset(&dev_pixdim_2, hdr.pixdim[3], sizeof(float));
+
+	cudaMemset(&dev_nx, nx, sizeof(int));
+	cudaMemset(&dev_delta_x, delta_x, sizeof(float));
+
 	long coo;
 	float ten[6] = { 0, 0, 0, 0, 0, 0 };
 
@@ -105,6 +112,9 @@ void initialize()
 	}
 
 	ensemble = new vertex[scount];
+	dev_in_ensemble = new vertex[scount];
+	dev_out_ensemble = new vertex[scount];
+
 	for (int i = 0; i < cube_size[0]; i++)
 		for (int j = 0; j < cube_size[1]; j++)
 			for (int k = 0; k < cube_size[2]; k++)
@@ -135,6 +145,20 @@ void initialize()
 						ensemble[vertex_offset(i, j, k) + s].T4 = (ten[0] * ten[4] - ten[1] * ten[2])* norm;
 						ensemble[vertex_offset(i, j, k) + s].T5 = (ten[1] * ten[1] - ten[0] * ten[3])* norm;
 
+						dev_in_ensemble[vertex_offset(i, j, k) + s].T0 = (ten[4] * ten[4] - ten[3] * ten[5])* norm;
+						dev_in_ensemble[vertex_offset(i, j, k) + s].T1 = (ten[1] * ten[5] - ten[2] * ten[4])* norm;
+						dev_in_ensemble[vertex_offset(i, j, k) + s].T2 = (ten[2] * ten[3] - ten[1] * ten[4])* norm;
+						dev_in_ensemble[vertex_offset(i, j, k) + s].T3 = (ten[2] * ten[2] - ten[0] * ten[5])* norm;
+						dev_in_ensemble[vertex_offset(i, j, k) + s].T4 = (ten[0] * ten[4] - ten[1] * ten[2])* norm;
+						dev_in_ensemble[vertex_offset(i, j, k) + s].T5 = (ten[1] * ten[1] - ten[0] * ten[3])* norm;
+
+						dev_out_ensemble[vertex_offset(i, j, k) + s].T0 = (ten[4] * ten[4] - ten[3] * ten[5])* norm;
+						dev_out_ensemble[vertex_offset(i, j, k) + s].T1 = (ten[1] * ten[5] - ten[2] * ten[4])* norm;
+						dev_out_ensemble[vertex_offset(i, j, k) + s].T2 = (ten[2] * ten[3] - ten[1] * ten[4])* norm;
+						dev_out_ensemble[vertex_offset(i, j, k) + s].T3 = (ten[2] * ten[2] - ten[0] * ten[5])* norm;
+						dev_out_ensemble[vertex_offset(i, j, k) + s].T4 = (ten[0] * ten[4] - ten[1] * ten[2])* norm;
+						dev_out_ensemble[vertex_offset(i, j, k) + s].T5 = (ten[1] * ten[1] - ten[0] * ten[3])* norm;
+
 						//******** Emin & Emax ********
 						float norm2 = ten[2] * ten[2] * ten[3] + ten[1] * ten[1] * ten[5] - 2 * ten[1] * ten[2] * ten[4] + ten[0] * (ten[4] * ten[4] - ten[3] * ten[5]);
 
@@ -142,20 +166,49 @@ void initialize()
 						ensemble[vertex_offset(i, j, k) + s].Emax = norm*norm2 / L3data[coo];
 						ensemble[vertex_offset(i, j, k) + s].delta_E = 1. / (ensemble[vertex_offset(i, j, k) + s].Emax - ensemble[vertex_offset(i, j, k) + s].Emin + 0.000001);
 
+						dev_in_ensemble[vertex_offset(i, j, k) + s].Emin = norm*norm2 / L1data[coo];
+						dev_in_ensemble[vertex_offset(i, j, k) + s].Emax = norm*norm2 / L3data[coo];
+						dev_in_ensemble[vertex_offset(i, j, k) + s].delta_E = 1. / (ensemble[vertex_offset(i, j, k) + s].Emax - ensemble[vertex_offset(i, j, k) + s].Emin + 0.000001);
+
+						dev_out_ensemble[vertex_offset(i, j, k) + s].Emin = norm*norm2 / L1data[coo];
+						dev_out_ensemble[vertex_offset(i, j, k) + s].Emax = norm*norm2 / L3data[coo];
+						dev_out_ensemble[vertex_offset(i, j, k) + s].delta_E = 1. / (ensemble[vertex_offset(i, j, k) + s].Emax - ensemble[vertex_offset(i, j, k) + s].Emin + 0.000001);
+
 						//******** pos ********
 						ensemble[vertex_offset(i, j, k) + s].x = i*hdr.pixdim[1];
 						ensemble[vertex_offset(i, j, k) + s].y = j*hdr.pixdim[2];
 						ensemble[vertex_offset(i, j, k) + s].z = k*hdr.pixdim[3];
-
 						ensemble[vertex_offset(i, j, k) + s].pos_x = i*hdr.pixdim[1];
 						ensemble[vertex_offset(i, j, k) + s].pos_y = j*hdr.pixdim[2];
 						ensemble[vertex_offset(i, j, k) + s].pos_z = k*hdr.pixdim[3];
 
+						dev_in_ensemble[vertex_offset(i, j, k) + s].x = i*hdr.pixdim[1];
+						dev_in_ensemble[vertex_offset(i, j, k) + s].y = j*hdr.pixdim[2];
+						dev_in_ensemble[vertex_offset(i, j, k) + s].z = k*hdr.pixdim[3];
+						dev_in_ensemble[vertex_offset(i, j, k) + s].pos_x = i*hdr.pixdim[1];
+						dev_in_ensemble[vertex_offset(i, j, k) + s].pos_y = j*hdr.pixdim[2];
+						dev_in_ensemble[vertex_offset(i, j, k) + s].pos_z = k*hdr.pixdim[3];
+
+						dev_out_ensemble[vertex_offset(i, j, k) + s].x = i*hdr.pixdim[1];
+						dev_out_ensemble[vertex_offset(i, j, k) + s].y = j*hdr.pixdim[2];
+						dev_out_ensemble[vertex_offset(i, j, k) + s].z = k*hdr.pixdim[3];
+						dev_out_ensemble[vertex_offset(i, j, k) + s].pos_x = i*hdr.pixdim[1];
+						dev_out_ensemble[vertex_offset(i, j, k) + s].pos_y = j*hdr.pixdim[2];
+						dev_out_ensemble[vertex_offset(i, j, k) + s].pos_z = k*hdr.pixdim[3];
+
 						//******** sig ********
 						if (surf_mask[offset(i, j, k)] == 1 || i == 0 || i == cube_size[0] - 1 || j == 0 || j == cube_size[1] - 1 || k == 0 || k == cube_size[2] - 1)
+						{
 							ensemble[vertex_offset(i, j, k) + s].sig = 1;
+							dev_in_ensemble[vertex_offset(i, j, k) + s].sig = 1;
+							dev_out_ensemble[vertex_offset(i, j, k) + s].sig = 1;
+						}
 						else
+						{
 							ensemble[vertex_offset(i, j, k) + s].sig = 0;
+							dev_in_ensemble[vertex_offset(i, j, k) + s].sig = 0;
+							dev_out_ensemble[vertex_offset(i, j, k) + s].sig = 0;
+						}
 					}
 			}
 
@@ -180,8 +233,12 @@ void initialize()
 				nn += snum[offset(ii, jj, kk)];
 
 			ensemble[vertex_offset(i, j, k) + s].nn = nn;
+			dev_in_ensemble[vertex_offset(i, j, k) + s].nn = nn;
+			dev_out_ensemble[vertex_offset(i, j, k) + s].nn = nn;
 
 			ensemble[vertex_offset(i, j, k) + s].n = new vertex* [nn];
+			dev_in_ensemble[vertex_offset(i, j, k) + s].n = new vertex*[nn];
+			dev_out_ensemble[vertex_offset(i, j, k) + s].n = new vertex*[nn];
 
 			int m = 0;
 			for (int ii = fmax(0, i - 1); ii < fmin(cube_size[0], i + 2); ii++)
@@ -191,14 +248,26 @@ void initialize()
 				for (int ss = 0; ss < snum[offset(ii, jj, kk)]; ss++)
 				{
 					ensemble[vertex_offset(i, j, k) + s].n[m] = &ensemble[vertex_offset(ii, jj, kk) + ss];
+					dev_in_ensemble[vertex_offset(i, j, k) + s].n[m] = &dev_in_ensemble[vertex_offset(ii, jj, kk) + ss];
+					dev_out_ensemble[vertex_offset(i, j, k) + s].n[m] = &dev_out_ensemble[vertex_offset(ii, jj, kk) + ss];
 					m++;
 				}
 
 			//******** c ********
 			ensemble[vertex_offset(i, j, k) + s].cc = 0;
 			ensemble[vertex_offset(i, j, k) + s].c = new int[nn];
-			for (int n = 0; n < nn; n++)
-				ensemble[vertex_offset(i, j, k) + s].c[n] = 0;
-		}
 
+			dev_in_ensemble[vertex_offset(i, j, k) + s].cc = 0;
+			dev_in_ensemble[vertex_offset(i, j, k) + s].c = new int[nn];
+
+			dev_out_ensemble[vertex_offset(i, j, k) + s].cc = 0;
+			dev_out_ensemble[vertex_offset(i, j, k) + s].c = new int[nn];
+
+			for (int n = 0; n < nn; n++)
+			{
+				ensemble[vertex_offset(i, j, k) + s].c[n] = 0;
+				dev_in_ensemble[vertex_offset(i, j, k) + s].c[n] = 0;
+				dev_out_ensemble[vertex_offset(i, j, k) + s].c[n] = 0;
+			}
+		}
 }

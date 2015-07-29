@@ -162,6 +162,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="dev_monte_carlo.h" />
     <ClInclude Include="fiber_tracing.h" />
     <ClInclude Include="fiber_tracking_readout.h" />
+    <ClInclude Include="host_energy.h" />
     <ClInclude Include="import_data.h" />
     <ClInclude Include="initialization.h" />
     <ClInclude Include="track_vis.h" />

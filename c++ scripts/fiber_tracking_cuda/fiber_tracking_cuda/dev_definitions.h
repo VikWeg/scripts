@@ -1,3 +1,6 @@
+#include "cuda_runtime.h"
+#include "device_launch_parameters.h"
+
 #include <curand.h>
 #include <curand_kernel.h>
 
@@ -21,6 +24,10 @@
 #define NII_HEADER_SIZE 352
 nifti_1_header hdr;
 int dim[4] = { 0, 0, 0, 0 };
+
+__device__ float dev_pixdim_0;
+__device__ float dev_pixdim_1;
+__device__ float dev_pixdim_2;
 
 float* data;
 float* L1data;
@@ -95,17 +102,23 @@ long scount;
 /**/	float etha = 0.9;										/**/
 /**/	long tsteps_tot = ceilf(logf(Tf / Ti) / logf(etha));	/**/
 /**/															/**/
-/**/	int nx = 30;											/**/
-/**/	int S = 2;												/**/
+/**/	int nx = 30;								/**/
+		__device__ int dev_nx;
+/**/	int sweeps = 2;												/**/
 /**/	float delta_x = 0.1;									/**/
+		__device__ float dev_delta_x;
 /**/															/**/
 /**/	char* wc_str = "1 / T";									/**/
 /**/	char* wx_str = "1";						/**/
 /**/															/**/
-/**/	__global__ float wc(float T) { return 1 / T; }					/**/
-/**/	__global__ float wx(float T) { return 1; }
+/**/	float wc(float T) { return 1 / T; }					/**/
+/**/	float wx(float T) { return 1; }
+/**/	__device__ float dev_wc(float T) { return 1 / T; }					/**/
+/**/	__device__ float dev_wx(float T) { return 1; }
+
 /**/
-/**/	__global__ float wint(float cos) { return (1 + cos) / (1.01 - cos); }
+/**/	float wint(float cos) { return (1 + cos) / (1.01 - cos); }
+/**/	__device__ float dev_wint(float cos) { return (1 + cos) / (1.01 - cos); }
 /**/	char* wint_str = "(1+cos)/(1.01-cos)";
 
 char* wdata_str = "(E - Emin)/(Emax-E)";

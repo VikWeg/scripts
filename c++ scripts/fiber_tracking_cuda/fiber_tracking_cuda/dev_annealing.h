@@ -1,4 +1,4 @@
-void fiber_tracking_cube()
+void annealing()
 {
 	import_and_init_data();
 	create_log();
@@ -21,10 +21,17 @@ void fiber_tracking_cube()
 
 		/*========*/ RDTSC(start); /*========*/
 
-		mc <<<grid, 1>>> (dev_in_ensemble, dev_out_ensemble);
+		for (int i = 1; i <= sweeps; i++)
+		if (i%2)
+			mc <<<grid, 1>>> (dev_out_ensemble, dev_in_ensemble,T);
+		else
+			mc <<<grid, 1 >> > (dev_in_ensemble, dev_out_ensemble,T);
 
 		/*========*/ RDTSC(stop); /*========*/
 
+		if (sweeps%2)
+		cudaMemcpy(ensemble, dev_in_ensemble, scount*sizeof(vertex), cudaMemcpyDeviceToHost);
+		else
 		cudaMemcpy(ensemble, dev_out_ensemble, scount*sizeof(vertex), cudaMemcpyDeviceToHost);
 
 		export_fibers(tstep);

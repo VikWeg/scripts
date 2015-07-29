@@ -26,7 +26,7 @@ void create_log()
 	par_file << "Cooling rate: " << "\t\t" << etha << "\n";
 	par_file << "Number T steps: " << "\t" << tsteps_tot << "\n\n";
 
-	par_file << "Number sweeps: " << "\t\t" << S << "\n";
+	par_file << "Number sweeps: " << "\t\t" << sweeps << "\n";
 	par_file << "Number x-proposals: " << "\t" << nx << "\n";
 	par_file << "Range x-proposals: " << "\t" << delta_x << "\n\n";
 

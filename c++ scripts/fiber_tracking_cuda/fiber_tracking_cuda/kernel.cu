@@ -1,9 +1,6 @@
-
-#include "cuda_runtime.h"
-#include "device_launch_parameters.h"
-
 #include "dev_definitions.h"
 #include "dev_energy.h"
+#include "host_energy.h"
 #include "dev_monte_carlo.h"
 #include "import_data.h"
 #include "initialization.h"
@@ -16,5 +13,5 @@
 
 int main()
 {
-	fiber_tracking_cube();
+	annealing();
 }
