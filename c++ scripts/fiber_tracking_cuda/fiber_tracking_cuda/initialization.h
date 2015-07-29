@@ -115,8 +115,6 @@ void initialize()
 	dev_in_ensemble = new vertex[scount];
 	dev_out_ensemble = new vertex[scount];
 
-	cudaMallocManaged(&dev_in_ensemble, scount * sizeof(vertex));	cudaMallocManaged(&dev_out_ensemble, scount * sizeof(vertex));
-
 	for (int i = 0; i < cube_size[0]; i++)
 		for (int j = 0; j < cube_size[1]; j++)
 			for (int k = 0; k < cube_size[2]; k++)

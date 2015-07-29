@@ -8,7 +8,7 @@ void init_Efile()
 	Efile.close();
 }
 
-void calc_E(float T, vertex* curr_ensemble)
+void calc_E(float T)
 {
 	EiC = 0; EiD = 0; EiI = 0;
 	for (int i = 0; i < cube_size[0]; i++)
@@ -17,9 +17,9 @@ void calc_E(float T, vertex* curr_ensemble)
 	for (int s = 0; s < snum[offset(i, j, k)]; s++)
 	if (wmask[offset(i, j, k)] == 1 || surf_mask[offset(i, j, k)] == 1)
 	{
-		EiC += Ei_C(&curr_ensemble[vertex_offset(i, j, k) + s]);
-		EiD += Ei_D(&curr_ensemble[vertex_offset(i, j, k) + s]);
-		EiI += Ei_I(&curr_ensemble[vertex_offset(i, j, k) + s]);
+		EiC += Ei_C(&ensemble[vertex_offset(i, j, k) + s]);
+		EiD += Ei_D(&ensemble[vertex_offset(i, j, k) + s]);
+		EiI += Ei_I(&ensemble[vertex_offset(i, j, k) + s]);
 	}
 
 	EiC *= wc(T);
@@ -51,10 +51,10 @@ void import_and_init_data()
 	std::cout << "Ensemble Initialization done\n";
 }
 
-void write_E_file(int t, float T, vertex* curr_ensemble)
+void write_E_file(int t, float T)
 {
 	chdir("..\\");
-	calc_E(T, curr_ensemble);
+	calc_E(T);
 	Efile.open("energy.dat", std::ofstream::app);
 
 	Efile	<< std::fixed << t << "\t" << T << "\t" << EiC / scount << "\t"
@@ -65,9 +65,9 @@ void write_E_file(int t, float T, vertex* curr_ensemble)
 	std::cout << std::setprecision(3) << "Econstr = " << EiC / scount << " Edata = " << 0.5*EiD / scount << " Eint = " << EiI / scount << "\n\n";
 }
 
-void write_par_file(float T, vertex* curr_ensemble)
+void write_par_file(float T)
 {
-	calc_E(T, curr_ensemble);
+	calc_E(T);
 
 	par_file.open("parameters.txt", std::ofstream::app);
 
