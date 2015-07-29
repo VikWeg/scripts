@@ -1,4 +1,4 @@
-void export_fibers(int n)
+void trk_export(int n, vertex* curr_ensemble)
 {
 	chdir("fibers");
 	fiber_file = fopen(("fibers_" + std::to_string(n) + ".trk").c_str(),"w+b");
@@ -11,14 +11,14 @@ void export_fibers(int n)
 	for (int j = 0; j < cube_size[1]; j++)
 	for (int k = 0; k < cube_size[2]; k++)
 	for (int s = 0; s < snum[offset(i, j, k)]; s++)
-	if (ensemble[vertex_offset(i, j, k) + s].sig)
+	if (curr_ensemble[vertex_offset(i, j, k) + s].sig)
 	{
-		len = get_fiber_length(&ensemble[vertex_offset(i, j, k) + s]);
+		len = get_fiber_length(&curr_ensemble[vertex_offset(i, j, k) + s]);
 
 		if (len>1)
 		{
 			fwrite((char*)&len, 1, 4, fiber_file);
-			get_fiber(&ensemble[vertex_offset(i, j, k) + s]);
+			get_fiber(&curr_ensemble[vertex_offset(i, j, k) + s]);
 			fiber_num++;
 		}
 	}

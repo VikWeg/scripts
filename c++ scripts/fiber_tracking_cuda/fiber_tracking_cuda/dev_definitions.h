@@ -126,13 +126,6 @@ char* wdata_str = "(E - Emin)/(Emax-E)";
 /**/	std::string comment("");
 /******************************************************************/
 
-// **** RANDOM ****
-
-std::default_random_engine generate;
-std::uniform_int_distribution<int> u_i(0, cube_size[0] - 1);
-std::uniform_int_distribution<int> u_j(0, cube_size[1] - 1);
-std::uniform_int_distribution<int> u_k(0, cube_size[2] - 1);
-
 // **** TIMING ****
 
 float CPU_freq = 4 * pow(10., 9.);
