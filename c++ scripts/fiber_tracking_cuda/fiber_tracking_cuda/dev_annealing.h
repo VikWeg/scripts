@@ -5,12 +5,6 @@ void annealing()
 	init_Efile();
 	stats_out();
 
-	cudaMalloc((void**)&dev_in_ensemble, scount*sizeof(vertex));
-	cudaMalloc((void**)&dev_out_ensemble, scount*sizeof(vertex));
-
-	cudaMemcpy(dev_in_ensemble, ensemble, scount*sizeof(vertex), cudaMemcpyHostToDevice);
-	cudaMemcpy(dev_out_ensemble, ensemble, scount*sizeof(vertex), cudaMemcpyHostToDevice);
-
 	dim3 grid(scount);
 
 	RDTSC(start_all);
