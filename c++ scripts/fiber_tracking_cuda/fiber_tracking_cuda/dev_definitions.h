@@ -74,14 +74,10 @@ struct vertex
 };
 
 vertex* ensemble;
+vertex* temp_in_ensemble;
+vertex* temp_out_ensemble;
 vertex* dev_in_ensemble;
 vertex* dev_out_ensemble;
-
-int** dev_in_c;
-int** dev_out_c;
-
-vertex*** dev_in_n;
-vertex*** dev_out_n;
 
 int* snum;
 

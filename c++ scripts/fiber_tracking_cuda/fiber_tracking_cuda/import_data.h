@@ -160,8 +160,4 @@ void import_data()
 	}
 
 	fclose(mask_file);
-
-	dim[1] = hdr.dim[1];
-	dim[2] = hdr.dim[2];
-	dim[3] = hdr.dim[3];
 }
