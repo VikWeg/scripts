@@ -272,12 +272,12 @@ void initialize()
 
 		cudaMemcpy(dev_in_ensemble, ensemble, scount*sizeof(vertex), cudaMemcpyHostToDevice);
 		cudaMemcpy(dev_out_ensemble, ensemble, scount*sizeof(vertex), cudaMemcpyHostToDevice);
-		
+
 		dev_in_c = new int*[scount];
 		dev_out_c = new int*[scount];
 
-		dev_in_n = new vertex**[scount];
-		dev_out_n = new vertex**[scount];
+		//dev_in_n = new vertex**[scount];
+		//dev_out_n = new vertex**[scount];
 
 		for (int i = 0; i < cube_size[0]; i++)
 		for (int j = 0; j < cube_size[1]; j++)
@@ -287,22 +287,29 @@ void initialize()
 		{
 			int id = vertex_offset(i, j, k) + s;
 			int nn = ensemble[id].nn;
+			//int* c = ensemble[id].c;
 
-			int* c = ensemble[id].c;
-			for (int n = 0; n < nn; n++)
-				ensemble[id].c[n] = 0;
+			cudaMemset(&(dev_in_ensemble[id].c), 0, nn*sizeof(int));
 
+			/*
 			dev_in_c[id] = new int[nn];
 			dev_out_c[id] = new int[nn];
 
-			cudaMalloc(&dev_in_c[id], nn * sizeof(int));
-			cudaMalloc(&dev_out_c[id], nn * sizeof(int));
+			cudaMalloc(&(dev_in_c[id]), nn * sizeof(int));
+			cudaMalloc(&(dev_out_c[id]), nn * sizeof(int));
 
 			cudaMemcpy(dev_in_c[id], c, nn*sizeof(int), cudaMemcpyHostToDevice);
 			cudaMemcpy(dev_out_c[id], c, nn*sizeof(int), cudaMemcpyHostToDevice);
 
-			cudaMemcpy(&(dev_in_ensemble->c), &dev_in_c[id], sizeof(int*), cudaMemcpyHostToDevice);
-			cudaMemcpy(&(dev_out_ensemble->c), &dev_out_c[id], sizeof(int*), cudaMemcpyHostToDevice);
+			cudaMemcpy(&(dev_in_ensemble[id].c), &(dev_in_c[id]), sizeof(int*), cudaMemcpyHostToDevice);
+			cudaMemcpy(&(dev_out_ensemble[id].c), &(dev_out_c[id]), sizeof(int*), cudaMemcpyHostToDevice);
+
+			//cudaMemcpy(&(dev_in_ensemble->c), c, nn*sizeof(int), cudaMemcpyHostToDevice);
+			//cudaMemcpy(&(dev_out_ensemble->c), c, nn*sizeof(int), cudaMemcpyHostToDevice);
+
+			
+			cudaMemcpy(dev_in_c[id], c, nn*sizeof(int), cudaMemcpyHostToDevice);
+			cudaMemcpy(dev_out_c[id], c, nn*sizeof(int), cudaMemcpyHostToDevice);
 
 			//=======================================================================================//
 
@@ -319,5 +326,6 @@ void initialize()
 
 			cudaMemcpy(&dev_in_ensemble->n, &dev_in_n[id], sizeof(vertex*), cudaMemcpyHostToDevice);
 			cudaMemcpy(&dev_out_ensemble->n, &dev_out_n[id], sizeof(vertex*), cudaMemcpyHostToDevice);
+			*/
 		}
 }
