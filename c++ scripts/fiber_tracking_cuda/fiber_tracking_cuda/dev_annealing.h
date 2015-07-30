@@ -23,10 +23,10 @@ void annealing()
 
 		/*========*/ RDTSC(stop); /*========*/
 
-		if (sweeps%2)
-		cudaMemcpy(ensemble, dev_in_ensemble, scount*sizeof(vertex), cudaMemcpyDeviceToHost);
-		else
-		cudaMemcpy(ensemble, dev_out_ensemble, scount*sizeof(vertex), cudaMemcpyDeviceToHost);
+		//if (sweeps%2)
+		//cudaMemcpy(ensemble, dev_in_ensemble, scount*sizeof(vertex), cudaMemcpyDeviceToHost);
+		//else
+		//cudaMemcpy(ensemble, dev_out_ensemble, scount*sizeof(vertex), cudaMemcpyDeviceToHost);
 
 		export_fibers(tstep);
 		write_E_file(tstep, T);

@@ -103,8 +103,8 @@ long scount;
 /**/	float cutoff = 1.5;										/**/
 /**/															/**/
 /**/	float Ti = 0.05;										/**/
-/**/	float Tf = 0.0005;										/**/
-/**/	float etha = 0.9;										/**/
+/**/	float Tf = 0.005;										/**/
+/**/	float etha = 0.7;										/**/
 /**/	long tsteps_tot = ceilf(logf(Tf / Ti) / logf(etha));	/**/
 /**/															/**/
 /**/	int nx = 30;								/**/

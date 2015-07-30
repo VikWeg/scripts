@@ -281,6 +281,32 @@ void initialize()
 
 			cudaMalloc(&(temp_out_ensemble[id].c), nn*sizeof(int));
 			cudaMemcpy(temp_out_ensemble[id].c, ensemble[id].c, nn*sizeof(int), cudaMemcpyHostToDevice);
+
+			//=========================================
+
+			cudaMalloc(&(temp_in_ensemble[id].n), nn*sizeof(vertex*));
+
+			cudaMalloc(&(temp_out_ensemble[id].n), nn*sizeof(vertex*));
+
+			vertex**  dev_in_n_ptr = new vertex*;
+			vertex**  dev_out_n_ptr = new vertex*;
+
+			int m = 0;
+			for (int ii = fmax(0, i - 1); ii < fmin(cube_size[0], i + 2); ii++)
+			for (int jj = fmax(0, j - 1); jj < fmin(cube_size[1], j + 2); jj++)
+			for (int kk = fmax(0, k - 1); kk < fmin(cube_size[2], k + 2); kk++)
+			if ((ii != i || jj != j || kk != k) && (wmask[offset(ii, jj, kk)] == 1 || surf_mask[offset(ii, jj, kk)] == 1))
+			for (int ss = 0; ss < snum[offset(ii, jj, kk)]; ss++)
+			{
+				int nid = vertex_offset(ii, jj, kk) + ss;
+
+				*dev_in_n_ptr = &dev_in_ensemble[nid];
+				cudaMemcpy(&(temp_in_ensemble[id].n[m]), dev_in_n_ptr, sizeof(vertex*), cudaMemcpyHostToDevice);
+				*dev_out_n_ptr = &dev_out_ensemble[nid];
+				cudaMemcpy(&(temp_out_ensemble[id].n[m]), dev_out_n_ptr, sizeof(vertex*), cudaMemcpyHostToDevice);
+				m++;
+			}
+
 		}
 
 		cudaMemcpy(dev_in_ensemble, temp_in_ensemble, scount*sizeof(vertex), cudaMemcpyHostToDevice);
