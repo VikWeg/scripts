@@ -525,4 +525,5 @@ c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda\fiber_tracki
 c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda\fiber_tracking_cuda\fiber_tracing.h
 c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda\fiber_tracking_cuda\trk_export.h
 c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda\fiber_tracking_cuda\fiber_tracking_readout.h
+c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda\fiber_tracking_cuda\copy_dev2host.h
 c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda\fiber_tracking_cuda\dev_annealing.h

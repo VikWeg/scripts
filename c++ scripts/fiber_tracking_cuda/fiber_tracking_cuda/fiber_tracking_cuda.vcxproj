@@ -155,6 +155,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <CudaCompile Include="kernel.cu" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="copy_dev2host.h" />
     <ClInclude Include="create_log.h" />
     <ClInclude Include="dev_annealing.h" />
     <ClInclude Include="dev_definitions.h" />

@@ -9,6 +9,7 @@ void annealing()
 
 	RDTSC(start_all);
 	float T = Ti;
+	int toggle = 1;
 	for (; T > Tf; T *= etha)
 	{
 		std::cout << std::setprecision(2) << "Tstep = " << tstep << "/" << tsteps_tot << "\n";
@@ -16,17 +17,20 @@ void annealing()
 		/*========*/ RDTSC(start); /*========*/
 
 		for (int i = 1; i <= sweeps; i++)
-		if (i%2)
-			mc <<<grid, 1>>> (dev_out_ensemble, dev_in_ensemble,T);
+		if (toggle % 2)
+		{
+			mc << <grid, 1 >> > (dev_in_ensemble, dev_out_ensemble, T);
+			toggle++;
+		}
 		else
-			mc <<<grid, 1 >> > (dev_in_ensemble, dev_out_ensemble,T);
+		{
+			mc << <grid, 1 >> > (dev_out_ensemble, dev_in_ensemble, T);
+			toggle++;
+		}
 
 		/*========*/ RDTSC(stop); /*========*/
 
-		//if (sweeps%2)
-		//cudaMemcpy(ensemble, dev_in_ensemble, scount*sizeof(vertex), cudaMemcpyDeviceToHost);
-		//else
-		//cudaMemcpy(ensemble, dev_out_ensemble, scount*sizeof(vertex), cudaMemcpyDeviceToHost);
+		cpyDev2Host(toggle);
 
 		export_fibers(tstep);
 		write_E_file(tstep, T);
