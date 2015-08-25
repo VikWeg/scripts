@@ -5,8 +5,6 @@ void annealing()
 	init_Efile();
 	stats_out();
 
-	dim3 grid(scount);
-
 	RDTSC(start_all);
 	float T = Ti;
 	int toggle = 1;
@@ -19,12 +17,12 @@ void annealing()
 		for (int i = 1; i <= sweeps; i++)
 		if (toggle % 2)
 		{
-			mc << <grid, 1 >> > (dev_in_ensemble, dev_out_ensemble, T);
+			mc << <scount/32, 64 >> > (dev_in_ensemble, dev_out_ensemble, T,scount);
 			toggle++;
 		}
 		else
 		{
-			mc << <grid, 1 >> > (dev_out_ensemble, dev_in_ensemble, T);
+			mc << <scount/32, 64>> > (dev_out_ensemble, dev_in_ensemble, T,scount);
 			toggle++;
 		}
 

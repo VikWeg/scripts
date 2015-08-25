@@ -71,10 +71,13 @@ __device__ void mc_x(vertex* in, vertex* out, float T, int seed)
 	}
 }
 
-__global__ void mc(vertex* in, vertex* out,float T)
+__global__ void mc(vertex* in, vertex* out,float T,int scount)
 {
-	int id = blockIdx.x;
+	int id = blockDim.x*blockIdx.x + threadIdx.x;
 
-	mc_c(&in[id], &out[id],T,id);
-	mc_x(&in[id], &out[id],T,id);
+	if (id < scount)
+	{
+		mc_c(&in[id], &out[id], T, id);
+		mc_x(&in[id], &out[id], T, id);
+	}
 }
