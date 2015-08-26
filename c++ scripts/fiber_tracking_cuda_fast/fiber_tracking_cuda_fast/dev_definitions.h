@@ -25,9 +25,7 @@
 nifti_1_header hdr;
 int dim[4] = { 0, 0, 0, 0 };
 
-__device__ float dev_pixdim_0;
-__device__ float dev_pixdim_1;
-__device__ float dev_pixdim_2;
+__device__ float* dev_pixdim;
 
 float* data;
 float* L1data;
@@ -108,10 +106,10 @@ long scount;
 /**/	long tsteps_tot = ceilf(logf(Tf / Ti) / logf(etha));	/**/
 /**/															/**/
 /**/	int nx = 30;								/**/
-		__device__ int dev_nx;
+		__device__ int* dev_nx;
 /**/	int sweeps = 2;												/**/
 /**/	float delta_x = 0.1;									/**/
-		__device__ float dev_delta_x;
+		__device__ float* dev_delta_x;
 /**/															/**/
 /**/	char* wc_str = "1 / T";									/**/
 /**/	char* wx_str = "1";						/**/

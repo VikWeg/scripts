@@ -28,12 +28,14 @@ void initialize()
 	dim[2] = hdr.dim[2];
 	dim[3] = hdr.dim[3];
 
-	cudaMemset(&dev_pixdim_0, hdr.pixdim[1], sizeof(float));
-	cudaMemset(&dev_pixdim_1, hdr.pixdim[2], sizeof(float));
-	cudaMemset(&dev_pixdim_2, hdr.pixdim[3], sizeof(float));
+	cudaMalloc(&dev_pixdim, 3 * sizeof(float));
+	cudaMemcpy(dev_pixdim, &hdr.pixdim[1], 3 * sizeof(float), cudaMemcpyHostToDevice);
 
-	cudaMemset(&dev_nx, nx, sizeof(int));
-	cudaMemset(&dev_delta_x, delta_x, sizeof(float));
+	cudaMalloc(&dev_nx, sizeof(int));
+	cudaMemset(dev_nx, nx, sizeof(int));
+
+	cudaMalloc(&dev_delta_x, sizeof(float));
+	cudaMemset(dev_delta_x, delta_x, sizeof(float));
 
 	long coo;
 	float ten[6] = { 0, 0, 0, 0, 0, 0 };
@@ -197,9 +199,9 @@ void initialize()
 			nc[m] = 0;
 			for (int mm = 0; mm < box_num; mm++)
 			if (
-				pos_x[mm] >= fmax(0, pos_x[m] - 1) && pos_x[mm] < fmin(cube_size[0], pos_x[m] + 2)
-				&& pos_y[mm] >= fmax(0, pos_y[m] - 1) && pos_y[mm] < fmin(cube_size[1], pos_y[m] + 2)
-				&& pos_z[mm] >= fmax(0, pos_z[m] - 1) && pos_z[mm] < fmin(cube_size[2], pos_z[m] + 2)
+				   abs(pos_x[mm] - pos_x[m]) <= 1
+				&& abs(pos_y[mm] - pos_y[m]) <= 1
+				&& abs(pos_z[mm] - pos_z[m]) <= 1
 				&& (pos_x[mm] != pos_x[m] || pos_y[mm] != pos_y[m] || pos_z[mm] != pos_z[m])
 				)
 				nc[m] += snum[mm];
@@ -226,14 +228,16 @@ void initialize()
 	for (int m = 0; m < box_num; m++)
 		for (int mm = 0; mm < box_num; mm++)
 		if (
-			pos_x[mm] >= fmax(0, pos_x[m] - 1) && pos_x[mm] < fmin(cube_size[0], pos_x[m] + 2)
-			&& pos_y[mm] >= fmax(0, pos_y[m] - 1) && pos_y[mm] < fmin(cube_size[1], pos_y[m] + 2)
-			&& pos_z[mm] >= fmax(0, pos_z[m] - 1) && pos_z[mm] < fmin(cube_size[2], pos_z[m] + 2)
-			&& (pos_x[mm] != pos_x[m] || pos_y[mm] != pos_y[m] || pos_z[mm] != pos_z[m])
+			      abs(pos_x[mm] - pos_x[m]) <= 1
+			   && abs(pos_y[mm] - pos_y[m]) <= 1
+			   && abs(pos_z[mm] - pos_z[m]) <= 1
+			   && (pos_x[mm] != pos_x[m] || pos_y[mm] != pos_y[m] || pos_z[mm] != pos_z[m])
 			)
 			for (int s = 0; s < snum[mm]; s++)
-				n[n_id[m] + s] = vertex_offset(pos_x[s], pos_y[s],pos_z[s]);
+				n[n_id[m] + s] = id[mm] + s;
 
+	//******** c ********
 	for (int m = 0; m < box_num; m++)
-			c[n] = 0;
+		for (int n = 0; n < nc[m]; n++)
+			c[n_id[m] + n] = 0;
 }
