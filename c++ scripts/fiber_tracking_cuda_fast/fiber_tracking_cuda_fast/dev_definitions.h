@@ -73,8 +73,46 @@ int* sig;
 int* n_id;
 int* n; //accessed via n_id;
 
-// ==================================
+// ======================
 
+//read & write
+float* dev_in_x;
+float* dev_out_x;
+float* dev_in_y;
+float* dev_out_y;
+float* dev_in_z;
+float* dev_out_z;
+
+int* dev_in_cc;
+int* dev_out_cc;
+int* dev_in_c;
+int* dev_out_c;
+
+// read-only
+int* dev_id;
+
+float* dev_pos_x;
+float* dev_pos_y;
+float* dev_pos_z;
+
+float* dev_T0;
+float* dev_T1;
+float* dev_T2;
+float* dev_T3;
+float* dev_T4;
+float* dev_T5;
+
+float* dev_Emin;
+float* dev_Emax;
+float* dev_delta_E;
+
+int* dev_nc;
+int* dev_sig;
+
+int* dev_n_id;
+int* dev_n;
+
+// ======================
 int* snum;
 
 int* wmask;
@@ -84,6 +122,8 @@ long w_vox_num;
 long surf_vox_num;
 long box_num;
 long scount;
+
+long n_num;
 
 // How does voxel size affect cost function?
 // What if all tensors are isotropic -> no solution?

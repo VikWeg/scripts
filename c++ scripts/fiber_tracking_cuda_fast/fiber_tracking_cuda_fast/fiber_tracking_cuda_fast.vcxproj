@@ -155,24 +155,17 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <CudaCompile Include="kernel.cu" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="copy_dev2host.h" />
     <ClInclude Include="create_log.h" />
-    <ClInclude Include="definitions.h" />
     <ClInclude Include="dev_annealing.h" />
     <ClInclude Include="dev_definitions.h" />
     <ClInclude Include="dev_energy.h" />
+    <ClInclude Include="dev_init.h" />
     <ClInclude Include="dev_monte_carlo.h" />
-    <ClInclude Include="energy.h" />
-    <ClInclude Include="fiber_export.h" />
     <ClInclude Include="fiber_tracing.h" />
-    <ClInclude Include="fiber_tracking_cube.h" />
     <ClInclude Include="fiber_tracking_readout.h" />
     <ClInclude Include="host_energy.h" />
     <ClInclude Include="import_data.h" />
     <ClInclude Include="initialization.h" />
-    <ClInclude Include="init_ensemble.h" />
-    <ClInclude Include="monte_carlo.h" />
-    <ClInclude Include="nifti1.h" />
     <ClInclude Include="track_vis.h" />
     <ClInclude Include="trk_export.h" />
   </ItemGroup>

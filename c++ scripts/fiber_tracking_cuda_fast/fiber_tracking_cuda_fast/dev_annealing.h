@@ -7,7 +7,7 @@ void annealing()
 
 	RDTSC(start_all);
 	float T = Ti;
-	int toggle = 1;
+	int toggle = 0;
 	for (; T > Tf; T *= etha)
 	{
 		std::cout << std::setprecision(2) << "Tstep = " << tstep << "/" << tsteps_tot << "\n";
@@ -15,20 +15,16 @@ void annealing()
 		/*========*/ RDTSC(start); /*========*/
 
 		for (int i = 1; i <= sweeps; i++)
-		if (toggle % 2)
 		{
-			mc << <scount/32, 64 >> > (dev_in_ensemble, dev_out_ensemble, T,scount);
-			toggle++;
-		}
-		else
-		{
-			mc << <scount/32, 64>> > (dev_out_ensemble, dev_in_ensemble, T,scount);
-			toggle++;
+			if (toggle == 0)
+				mc << <scount / 32, 64 >> > (dev_in_, dev_out_ensemble, T, scount);
+			else
+				mc << <scount / 32, 64 >> > (dev_out_ensemble, dev_in_ensemble, T, scount);
+
+			toggle = 1 - toggle;
 		}
 
 		/*========*/ RDTSC(stop); /*========*/
-
-		cpyDev2Host(toggle);
 
 		export_fibers(tstep);
 		write_E_file(tstep, T);

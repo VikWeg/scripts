@@ -48,6 +48,7 @@ void import_and_init_data()
 	import_data();
 	std::cout << "Data Import done\n";
 	initialize();
+	dev_init();
 	std::cout << "Ensemble Initialization done\n";
 }
 

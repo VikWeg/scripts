@@ -112,7 +112,7 @@ void initialize()
 
 	//======== spin variables ========
 
-	id = new int [box_num];
+	id = new int[box_num];
 
 	T0 = new float[box_num];
 	T1 = new float[box_num];
@@ -223,21 +223,25 @@ void initialize()
 			n_id[i] += nc[j];
 	}
 
+	//******** n_num ********
+	n_num = n_id[box_num - 1] + nc[box_num - 1];
+
 	//******** n ********
-	n = new int[ n_id[box_num-1] + nc[box_num-1] ];
+	n = new int[n_num];
 	for (int m = 0; m < box_num; m++)
 		for (int mm = 0; mm < box_num; mm++)
 		if (
-			      abs(pos_x[mm] - pos_x[m]) <= 1
-			   && abs(pos_y[mm] - pos_y[m]) <= 1
-			   && abs(pos_z[mm] - pos_z[m]) <= 1
-			   && (pos_x[mm] != pos_x[m] || pos_y[mm] != pos_y[m] || pos_z[mm] != pos_z[m])
+			abs(pos_x[mm] - pos_x[m]) <= 1
+			&& abs(pos_y[mm] - pos_y[m]) <= 1
+			&& abs(pos_z[mm] - pos_z[m]) <= 1
+			&& (pos_x[mm] != pos_x[m] || pos_y[mm] != pos_y[m] || pos_z[mm] != pos_z[m])
 			)
 			for (int s = 0; s < snum[mm]; s++)
 				n[n_id[m] + s] = id[mm] + s;
 
 	//******** c ********
+	c = new int[n_num];
 	for (int m = 0; m < box_num; m++)
-		for (int n = 0; n < nc[m]; n++)
-			c[n_id[m] + n] = 0;
+	for (int n = 0; n < nc[m]; n++)
+		c[n_id[m] + n] = 0;
 }
