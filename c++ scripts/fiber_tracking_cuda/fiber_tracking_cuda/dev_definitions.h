@@ -89,6 +89,7 @@ long surf_vox_num;
 long scount;
 
 // How does voxel size affect cost function?
+// What if all tensors are isotropic -> no solution?
 // Make sure temperature scaling is calibrated, so that energy does not diverge at T -> 0.
 // use multiple of 32 for number of threads
 // use struct of arrays (coalesced memory)
@@ -130,13 +131,6 @@ char* wdata_str = "(E - Emin)/(Emax-E)";
 /**/
 /**/	std::string comment("");
 /******************************************************************/
-
-// **** RANDOM ****
-
-std::default_random_engine generate;
-std::uniform_int_distribution<int> u_i(0, cube_size[0] - 1);
-std::uniform_int_distribution<int> u_j(0, cube_size[1] - 1);
-std::uniform_int_distribution<int> u_k(0, cube_size[2] - 1);
 
 // **** TIMING ****
 
