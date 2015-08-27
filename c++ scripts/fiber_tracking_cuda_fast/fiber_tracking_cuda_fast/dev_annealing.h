@@ -22,7 +22,6 @@ void annealing()
 
 					dev_out_x, dev_out_y, dev_out_z, dev_out_cc, dev_out_c,
 
-					dev_id,
 					dev_pos_x, dev_pos_y, dev_pos_z,
 					dev_T0, dev_T1, dev_T2, dev_T3, dev_T4, dev_T5,
 					dev_Emin, dev_Emax, dev_delta_E,
@@ -39,7 +38,6 @@ void annealing()
 
 					dev_in_x, dev_in_y, dev_in_z, dev_in_cc, dev_in_c,
 
-					dev_id,
 					dev_pos_x, dev_pos_y, dev_pos_z,
 					dev_T0, dev_T1, dev_T2, dev_T3, dev_T4, dev_T5,
 					dev_Emin, dev_Emax, dev_delta_E,

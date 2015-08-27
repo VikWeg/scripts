@@ -1,83 +1,245 @@
-__device__ void mc_c(vertex* in, vertex* out, float T, int seed)
-{
-	float E0, E1, p;
+__device__ void mc_c
+	(
+		float* in_x, float* in_y, float* in_z, int* in_cc, int* in_c,
 
-	curandState s;
-	curand_init(seed, 0, 0, &s);
+		float* out_x, float* out_y, float* out_z, int* out_cc, int* out_c,
 
-	out->cc = in->cc;
-	for (int d = 0; d < in->nn; d++)
-		out->c[d] = in->c[d];
+		float* pos_x, float* pos_y, float* pos_z,
+		float* T0, float* T1, float* T2, float* T3, float* T4, float* T5,
+		float* Emin, float* Emax, float* delta_E,
+		int* sig,
+		int* nc,
+		int* n_id, int* n,
 
-	for (int d = 0; d < in->nn; d++)
+		float T, int id
+	)
 	{
-		E0 = dev_wc(T)*dev_Ei_c(out) + dev_wx(T)*dev_Ei_x(out, in->x, in->y, in->z);
+		float E0, E1, p;
 
-		E1 = dev_wc(T)*dev_Ei_c(out, d) + dev_wx(T)*dev_Ei_x(out, in->x, in->y, in->z);
+		curandState s;
+		curand_init(id, 0, 0, &s);
 
-		p = fminf(1., expf((E0 - E1) / T));
+		out_cc[id] = in_cc[id];
+		for (int d = n_id[id]; d < n_id[id] + nc[id]; d++)
+			out_c[d] = in_c[d];
 
-		if (curand_uniform(&s) < p)
+		for (int d = n_id[id]; d < n_id[id] + nc[id]; d++)
 		{
-			out->c[d] = 1 - in->c[d];
-			out->cc += -1 + 2 * in->c[d];
+			E0 =	dev_wc(T)*dev_Ei_c	(	
+											-1,
+											in_x, in_y, in_z, in_cc, in_c,
 
-			int j = 0;
-			for (; j < in->n[d]->nn; j++)
-			if (in == in->n[d]->n[j])
+											out_x, out_y, out_z, out_cc, out_c,
+
+											pos_x, pos_y, pos_z,
+											T0, T1, T2, T3, T4, T5,
+											Emin, Emax, delta_E,
+											sig,
+											nc,
+											n_id, n,
+
+											T, id
+										)
+				+	dev_wx(T)*dev_Ei_x	(	
+											-1,
+											in_x, in_y, in_z, in_cc, in_c,
+
+											out_x, out_y, out_z, out_cc, out_c,
+
+											pos_x, pos_y, pos_z,
+											T0, T1, T2, T3, T4, T5,
+											Emin, Emax, delta_E,
+											sig,
+											nc,
+											n_id, n,
+
+											T, id
+										);
+
+			E1 =	dev_wc(T)*dev_Ei_c	(	
+											d,
+											in_x, in_y, in_z, in_cc, in_c,
+
+											out_x, out_y, out_z, out_cc, out_c,
+
+											pos_x, pos_y, pos_z,
+											T0, T1, T2, T3, T4, T5,
+											Emin, Emax, delta_E,
+											sig,
+											nc,
+											n_id, n,
+
+											T, id
+										) 
+				+	dev_wx(T)*dev_Ei_x	(
+											d,
+											in_x, in_y, in_z, in_cc, in_c,
+
+											out_x, out_y, out_z, out_cc, out_c,
+
+											pos_x, pos_y, pos_z,
+											T0, T1, T2, T3, T4, T5,
+											Emin, Emax, delta_E,
+											sig,
+											nc,
+											n_id, n,
+
+											T, id
+										);
+
+			p = fminf(1., expf((E0 - E1) / T));
+
+			if (curand_uniform(&s) < p)
 			{
-				out->n[d]->c[j] = 1 - out->n[d]->c[j];
-				break;
+				out_c[d] = 1 - in_c[d];
+				out_cc[id] += -1 + 2 * in_c[d];
+
+				for (int j = n_id[n[d]]; j < n_id[n[d]] + nc[n[d]]; j++)
+				if (id == n[j])
+				{			
+					out_c[j] = 1 - out_c[j];
+					break;
+				}
+				out_cc[n[d]] += -1 + 2 * out_c[d];
 			}
-			out->n[d]->cc += -1 + 2 * out->c[d];
 		}
 	}
-}
 
-__device__ void mc_x(vertex* in, vertex* out, float T, int seed)
-{
-	float x0, y0, z0, x, y, z;
-	float E0, E1, p;
+__device__ void mc_x
+	(
+		float* in_x, float* in_y, float* in_z, int* in_cc, int* in_c,
 
-	curandState s;
-	curand_init(seed, 0, 0, &s);
+		float* out_x, float* out_y, float* out_z, int* out_cc, int* out_c,
 
-	x0 = in->x;
-	y0 = in->y;
-	z0 = in->z;
+		float* pos_x, float* pos_y, float* pos_z,
+		float* T0, float* T1, float* T2, float* T3, float* T4, float* T5,
+		float* Emin, float* Emax, float* delta_E,
+		int* sig,
+		int* nc,
+		int* n_id, int* n,
 
-	for (int i = 0; i < dev_nx; i++)
+		float T, int id
+	)
 	{
-		E0 = dev_wx(T)*dev_Ei_x(in, x0, y0, z0);
+		float x0, y0, z0, x, y, z;
+		float E0, E1, p;
 
-		x = x0 - (x0 - in->pos_x + dev_pixdim_0 * 0.5) * dev_delta_x + curand_uniform(&s)* dev_delta_x;
-		y = y0 - (y0 - in->pos_y + dev_pixdim_1 * 0.5) * dev_delta_x + curand_uniform(&s)* dev_delta_x;
-		z = z0 - (z0 - in->pos_z + dev_pixdim_2 * 0.5) * dev_delta_x + curand_uniform(&s)* dev_delta_x;
+		curandState s;
+		curand_init(id, 0, 0, &s); //id used as seed;
 
-		E1 = dev_wx(T)*dev_Ei_x(in, x, y, z);
+		x0 = in_x[id];
+		y0 = in_y[id];
+		z0 = in_z[id];
 
-		p = fminf(1., expf((E0 - E1) / T));
-
-		if (curand_uniform(&s) < p)
+		for (int i = 0; i < dev_nx; i++)
 		{
-			x0 = x;
-			y0 = y;
-			z0 = z;
+			E0 = dev_wx(T)*	dev_Ei_x
+							(
+								x0, y0, z0,
+								
+								in_cc, in_c,
 
-			out->x = x;
-			out->y = y;
-			out->z = z;
+								pos_x, pos_y, pos_z,
+								T0, T1, T2, T3, T4, T5,
+								Emin, Emax, delta_E,
+								sig,
+								nc,
+								n_id, n,
+
+								T, id
+							);
+
+			x = x0 - (x0 - pos_x[id] + dev_pixdim[0] * 0.5) * *dev_delta_x + curand_uniform(&s)* *dev_delta_x;
+			y = y0 - (y0 - pos_y[id] + dev_pixdim[1] * 0.5) * *dev_delta_x + curand_uniform(&s)* *dev_delta_x;
+			z = z0 - (z0 - pos_z[id] + dev_pixdim[2] * 0.5) * *dev_delta_x + curand_uniform(&s)* *dev_delta_x;
+
+			E1 = dev_wx(T)*	dev_Ei_x
+							(
+								x, y, z,
+				
+								in_cc, in_c,
+
+								pos_x, pos_y, pos_z,
+								T0, T1, T2, T3, T4, T5,
+								Emin, Emax, delta_E,
+								sig,
+								nc,
+								n_id, n,
+
+								T, id
+							);
+
+			p = fminf(1., expf((E0 - E1) / T));
+
+			if (curand_uniform(&s) < p)
+			{
+				x0 = x;
+				y0 = y;
+				z0 = z;
+
+				out_x[id] = x;
+				out_y[id] = y;
+				out_z[id] = z;
+			}
 		}
 	}
-}
 
-__global__ void mc(vertex* in, vertex* out,float T,int scount)
-{
-	int id = blockDim.x*blockIdx.x + threadIdx.x;
+__global__ void mc
+	(	
+		float* in_x, float* in_y, float* in_z, int* in_cc, int* in_c,
 
-	if (id < scount)
+		float* out_x, float* out_y, float* out_z, int* out_cc, int* out_c,
+
+		float* pos_x, float* pos_y, float* pos_z,
+		float* T0, float* T1, float* T2, float* T3, float* T4, float* T5,
+		float* Emin, float* Emax, float* delta_E,
+		int* sig,
+		int* nc,
+		int* n_id, int* n,
+
+		float T, int scount
+	)
 	{
-		mc_c(&in[id], &out[id], T, id);
-		mc_x(&in[id], &out[id], T, id);
+		int id = blockDim.x*blockIdx.x + threadIdx.x;
+
+		while (id < scount)
+		{
+			mc_c
+			(
+				in_x, in_y, in_z, in_cc, in_c,
+
+				out_x, out_y, out_z, out_cc, out_c,
+
+				pos_x, pos_y, pos_z,
+				T0, T1, T2, T3, T4, T5,
+				Emin, Emax, delta_E,
+				sig,
+				nc,
+				n_id, n,
+			
+				T, id
+			);
+
+			__syncthreads();
+
+			mc_x
+			(
+				in_x, in_y, in_z, in_cc, in_c,
+
+				out_x, out_y, out_z, out_cc, out_c,
+
+				pos_x, pos_y, pos_z,
+				T0, T1, T2, T3, T4, T5,
+				Emin, Emax, delta_E,
+				sig,
+				nc,
+				n_id, n,
+
+				T, id
+			);
+
+			__syncthreads();
+
+			id += blockDim.x * gridDim.x;
+		}
 	}
-}

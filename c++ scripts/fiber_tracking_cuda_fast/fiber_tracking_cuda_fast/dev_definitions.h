@@ -50,8 +50,6 @@ int* cc;
 int* c; //accessed via n_id;
 
 // read-only
-int* id;
-
 float* pos_x;
 float* pos_y;
 float* pos_z;
@@ -94,8 +92,6 @@ int* dev_out_cc;
 int* dev_out_c;
 
 //*** read-only ***
-int* dev_id;
-
 float* dev_pos_x;
 float* dev_pos_y;
 float* dev_pos_z;
@@ -135,6 +131,9 @@ long n_num;
 // Make sure temperature scaling is calibrated, so that energy does not diverge at T -> 0.
 // use multiple of 32 for number of threads
 // use struct of arrays (coalesced memory)
+// keep parameters (nx, delta_x, T,...) in const memory!
+// try to avoid unnecessary mc_x evaluations of E0 after rejection.
+// be aware that there is a conflict when updating c -> can be updated by different threads (leaving it for now).
 
 
 // **** PARAMETERS ************************************************/
