@@ -1,5 +1,6 @@
 float EiC, EiD, EiI;
 int tstep = 1;
+int toggle = 0;
 
 void init_Efile()
 {

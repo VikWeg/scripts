@@ -75,20 +75,25 @@ int* n; //accessed via n_id;
 
 // ======================
 
-//read & write
+//*** read & write ***
+
+// dev_in
 float* dev_in_x;
-float* dev_out_x;
 float* dev_in_y;
-float* dev_out_y;
 float* dev_in_z;
-float* dev_out_z;
 
 int* dev_in_cc;
-int* dev_out_cc;
 int* dev_in_c;
+
+//dev_out
+float* dev_out_x;
+float* dev_out_y;
+float* dev_out_z;
+
+int* dev_out_cc;
 int* dev_out_c;
 
-// read-only
+//*** read-only ***
 int* dev_id;
 
 float* dev_pos_x;

@@ -7,7 +7,6 @@ void annealing()
 
 	RDTSC(start_all);
 	float T = Ti;
-	int toggle = 0;
 	for (; T > Tf; T *= etha)
 	{
 		std::cout << std::setprecision(2) << "Tstep = " << tstep << "/" << tsteps_tot << "\n";
@@ -17,16 +16,47 @@ void annealing()
 		for (int i = 1; i <= sweeps; i++)
 		{
 			if (toggle == 0)
-				mc << <scount / 32, 64 >> > (dev_in_, dev_out_ensemble, T, scount);
+				mc << <scount / 32, 64 >> >
+				(
+					dev_in_x, dev_in_y, dev_in_z, dev_in_cc, dev_in_c,
+
+					dev_out_x, dev_out_y, dev_out_z, dev_out_cc, dev_out_c,
+
+					dev_id,
+					dev_pos_x, dev_pos_y, dev_pos_z,
+					dev_T0, dev_T1, dev_T2, dev_T3, dev_T4, dev_T5,
+					dev_Emin, dev_Emax, dev_delta_E,
+					dev_sig,
+					dev_nc,
+					dev_n_id, dev_n,
+
+					T, scount
+				);
 			else
-				mc << <scount / 32, 64 >> > (dev_out_ensemble, dev_in_ensemble, T, scount);
+				mc << <scount / 32, 64 >> >
+				(
+					dev_out_x, dev_out_y, dev_out_z, dev_out_cc, dev_out_c,
+
+					dev_in_x, dev_in_y, dev_in_z, dev_in_cc, dev_in_c,
+
+					dev_id,
+					dev_pos_x, dev_pos_y, dev_pos_z,
+					dev_T0, dev_T1, dev_T2, dev_T3, dev_T4, dev_T5,
+					dev_Emin, dev_Emax, dev_delta_E,
+					dev_sig,
+					dev_nc,
+					dev_n_id, dev_n,
+
+					T, scount
+				);
 
 			toggle = 1 - toggle;
 		}
 
 		/*========*/ RDTSC(stop); /*========*/
 
-		export_fibers(tstep);
+		cpyEnsembleDevToHost();
+		//export_fibers(tstep);
 		write_E_file(tstep, T);
 		plot_E();
 		time_out();

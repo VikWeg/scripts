@@ -6,10 +6,11 @@
 #include "import_data.h"
 #include "initialization.h"
 #include "create_log.h"
-#include "track_vis.h"
-#include "fiber_tracing.h"
-#include "trk_export.h"
+//#include "track_vis.h"
+//#include "fiber_tracing.h"
+//#include "trk_export.h"
 #include "fiber_tracking_readout.h"
+#include "cpyEnsembleDevToHost.h"
 #include "dev_annealing.h"
 
 int main()
