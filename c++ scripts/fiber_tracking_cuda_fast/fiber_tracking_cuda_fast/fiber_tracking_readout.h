@@ -12,15 +12,11 @@ void init_Efile()
 void calc_E(float T)
 {
 	EiC = 0; EiD = 0; EiI = 0;
-	for (int i = 0; i < cube_size[0]; i++)
-	for (int j = 0; j < cube_size[1]; j++)
-	for (int k = 0; k < cube_size[2]; k++)
-	for (int s = 0; s < snum[offset(i, j, k)]; s++)
-	if (wmask[offset(i, j, k)] == 1 || surf_mask[offset(i, j, k)] == 1)
+	for (int s = 0; s < scount; s++)
 	{
-		EiC += Ei_C(&ensemble[vertex_offset(i, j, k) + s]);
-		EiD += Ei_D(&ensemble[vertex_offset(i, j, k) + s]);
-		EiI += Ei_I(&ensemble[vertex_offset(i, j, k) + s]);
+		EiC += Ei_C(s);
+		EiD += Ei_D(s);
+		EiI += Ei_I(s);
 	}
 
 	EiC *= wc(T);

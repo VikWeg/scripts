@@ -120,8 +120,6 @@ void initialize()
 
 	//======== spin variables ========
 
-	id = new int[scount];
-
 	T0 = new float[scount];
 	T1 = new float[scount];
 	T2 = new float[scount];

@@ -5,9 +5,9 @@ void annealing()
 	init_Efile();
 	stats_out();
 
-	cudaEvent_t start, stop;
-	cudaEventCreate(&start);
-	cudaEventCreate(&stop);
+	cudaEvent_t dev_start, dev_stop;
+	cudaEventCreate(&dev_start);
+	cudaEventCreate(&dev_stop);
 
 	RDTSC(start_all);
 
@@ -20,7 +20,7 @@ void annealing()
 
 		for (int i = 1; i <= sweeps; i++)
 		{
-			cudaEventRecord(start, 0);
+			cudaEventRecord(dev_start, 0);
 			if (toggle == 0)
 				mc << <scount / 32, 64 >> >
 				(
@@ -53,8 +53,8 @@ void annealing()
 
 					T, scount
 				);
-			cudaEventRecord(stop, 0);
-			cudaEventSynchronize(stop);
+			cudaEventRecord(dev_stop, 0);
+			cudaEventSynchronize(dev_stop);
 
 			toggle = 1 - toggle;
 		}
@@ -62,7 +62,7 @@ void annealing()
 		/*========*/ RDTSC(stop); /*========*/
 
 		cpyEnsembleDevToHost();
-		//export_fibers(tstep);
+		export_fibers(tstep);
 		write_E_file(tstep, T);
 		plot_E();
 		time_out();

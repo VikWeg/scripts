@@ -7,18 +7,15 @@ void export_fibers(int n)
 	write_header(&trk_hdr, fiber_file);
 
 	int len, fiber_num = 0;
-	for (int i = 0; i < cube_size[0]; i++)
-	for (int j = 0; j < cube_size[1]; j++)
-	for (int k = 0; k < cube_size[2]; k++)
-	for (int s = 0; s < snum[offset(i, j, k)]; s++)
-	if (ensemble[vertex_offset(i, j, k) + s].sig)
+	for (int s = 0; s < scount; s++)
+	if (sig[s])
 	{
-		len = get_fiber_length(&ensemble[vertex_offset(i, j, k) + s]);
+		len = get_fiber_length(s);
 
 		if (len>1)
 		{
 			fwrite((char*)&len, 1, 4, fiber_file);
-			get_fiber(&ensemble[vertex_offset(i, j, k) + s]);
+			get_fiber(s);
 			fiber_num++;
 		}
 	}

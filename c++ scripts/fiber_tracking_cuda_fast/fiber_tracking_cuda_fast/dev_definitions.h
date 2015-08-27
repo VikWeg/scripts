@@ -146,7 +146,7 @@ long n_num;
 /**/															/**/
 /**/	float Ti = 0.05;										/**/
 /**/	float Tf = 0.005;										/**/
-/**/	float etha = 0.7;										/**/
+/**/	float etha = 0.95;										/**/
 /**/	long tsteps_tot = ceilf(logf(Tf / Ti) / logf(etha));	/**/
 /**/															/**/
 /**/	int nx = 30;								/**/

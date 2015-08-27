@@ -1,5 +1,4 @@
-__device__ void mc_c
-	(
+__device__ void mc_c(
 		float* in_x, float* in_y, float* in_z, int* in_cc, int* in_c,
 
 		float* out_x, float* out_y, float* out_z, int* out_cc, int* out_c,
@@ -14,7 +13,8 @@ __device__ void mc_c
 		float T, int id
 	)
 	{
-		float E0, E1, p;
+		float E0, E1;
+		float p;
 
 		curandState s;
 		curand_init(id, 0, 0, &s);
@@ -25,7 +25,7 @@ __device__ void mc_c
 
 		for (int d = n_id[id]; d < n_id[id] + nc[id]; d++)
 		{
-			E0 =	dev_wc(T)*dev_Ei_c	(	
+			E0 =	dev_wc(T)*dev_Ei_c(	
 											-1,
 											in_x, in_y, in_z, in_cc, in_c,
 
@@ -40,7 +40,7 @@ __device__ void mc_c
 
 											T, id
 										)
-				+	dev_wx(T)*dev_Ei_x	(	
+				+	dev_wx(T)*dev_Ei_x(	
 											in_x[id], in_y[id], in_z[id],
 
 											in_x, in_y, in_z,
@@ -56,7 +56,7 @@ __device__ void mc_c
 											T, id
 										);
 
-			E1 =	dev_wc(T)*dev_Ei_c	(	
+			E1 =	dev_wc(T)*dev_Ei_c(	
 											d,
 											in_x, in_y, in_z, in_cc, in_c,
 
@@ -71,7 +71,7 @@ __device__ void mc_c
 
 											T, id
 										) 
-				+	dev_wx(T)*dev_Ei_x	(
+				+	dev_wx(T)*dev_Ei_x(
 											in_x[id], in_y[id], in_z[id],
 
 											in_x, in_y, in_z,
@@ -105,8 +105,7 @@ __device__ void mc_c
 		}
 	}
 
-__device__ void mc_x
-	(
+__device__ void mc_x(
 		float* in_x, float* in_y, float* in_z, int* in_cc, int* in_c,
 
 		float* out_x, float* out_y, float* out_z, int* out_cc, int* out_c,
@@ -154,8 +153,7 @@ __device__ void mc_x
 			y = y0 - (y0 - pos_y[id] + dev_pixdim[1] * 0.5) * *dev_delta_x + curand_uniform(&s)* *dev_delta_x;
 			z = z0 - (z0 - pos_z[id] + dev_pixdim[2] * 0.5) * *dev_delta_x + curand_uniform(&s)* *dev_delta_x;
 
-			E1 = dev_wx(T)*	dev_Ei_x
-							(
+			E1 = dev_wx(T)*	dev_Ei_x(
 								x, y, z,
 
 								in_x, in_y, in_z,
@@ -186,8 +184,7 @@ __device__ void mc_x
 		}
 	}
 
-__global__ void mc
-	(	
+__global__ void mc(	
 		float* in_x, float* in_y, float* in_z, int* in_cc, int* in_c,
 
 		float* out_x, float* out_y, float* out_z, int* out_cc, int* out_c,
@@ -200,48 +197,41 @@ __global__ void mc
 		int* n_id, int* n,
 
 		float T, int scount
-	)
-	{
-		int id = blockDim.x*blockIdx.x + threadIdx.x;
-
-		while (id < scount)
+		)
 		{
-			mc_c
-			(
-				in_x, in_y, in_z, in_cc, in_c,
+			int id = blockDim.x*blockIdx.x + threadIdx.x;
 
-				out_x, out_y, out_z, out_cc, out_c,
+			while (id < scount)
+			{
+				mc_c(
+					in_x, in_y, in_z, in_cc, in_c,
 
-				pos_x, pos_y, pos_z,
-				T0, T1, T2, T3, T4, T5,
-				Emin, Emax, delta_E,
-				sig,
-				nc,
-				n_id, n,
+					out_x, out_y, out_z, out_cc, out_c,
+
+					pos_x, pos_y, pos_z,
+					T0, T1, T2, T3, T4, T5,
+					Emin, Emax, delta_E,
+					sig,
+					nc,
+					n_id, n,
 			
-				T, id
-			);
+					T, id
+				);
 
-			__syncthreads();
+				mc_x(
+					in_x, in_y, in_z, in_cc, in_c,
 
-			mc_x
-			(
-				in_x, in_y, in_z, in_cc, in_c,
+					out_x, out_y, out_z, out_cc, out_c,
 
-				out_x, out_y, out_z, out_cc, out_c,
+					pos_x, pos_y, pos_z,
+					T0, T1, T2, T3, T4, T5,
+					Emin, Emax, delta_E,
+					sig,
+					nc,
+					n_id, n,
 
-				pos_x, pos_y, pos_z,
-				T0, T1, T2, T3, T4, T5,
-				Emin, Emax, delta_E,
-				sig,
-				nc,
-				n_id, n,
+					T, id);
 
-				T, id
-			);
-
-			__syncthreads();
-
-			id += blockDim.x * gridDim.x;
+				id += blockDim.x * gridDim.x;
+			}
 		}
-	}

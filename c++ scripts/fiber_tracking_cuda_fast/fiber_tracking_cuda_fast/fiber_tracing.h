@@ -1,94 +1,94 @@
-void get_fiber(vertex* prev, vertex* curr, int n)
+void get_fiber(int prev, int curr, int nn)
 {
 	int next = -1;
-	for (int i = 0; i < (*curr).nn; i++)
-	if (curr->c[i] == 1 && curr->n[i] != prev)
+	for (int i = n_id[curr]; i < n_id[curr] + nc[curr]; i++)
+	if (c[i] == 1 && n[i] != prev)
 	{
-		next = i;
+		next = n[i];
 		break;
 	}
 
-	fwrite((char*)&(curr->x), 1, 4, fiber_file);
-	fwrite((char*)&(curr->y), 1, 4, fiber_file);
-	fwrite((char*)&(curr->z), 1, 4, fiber_file);
+	fwrite((char*)&(x[curr]), 1, 4, fiber_file);
+	fwrite((char*)&(y[curr]), 1, 4, fiber_file);
+	fwrite((char*)&(z[curr]), 1, 4, fiber_file);
 
-	if (next != -1 && n < 50)
+	if (next != -1 && nn < 50)
 	{
-		if (curr->n[next]->sig != 1)
-			get_fiber(curr, curr->n[next], n + 1);
+		if (sig[next] != 1)
+			get_fiber(curr, next, nn + 1);
 		else
 		{
-			fwrite((char*)&(curr->n[next]->x), 1, 4, fiber_file);
-			fwrite((char*)&(curr->n[next]->y), 1, 4, fiber_file);
-			fwrite((char*)&(curr->n[next]->z), 1, 4, fiber_file);
+			fwrite((char*)&(x[next]), 1, 4, fiber_file);
+			fwrite((char*)&(y[next]), 1, 4, fiber_file);
+			fwrite((char*)&(z[next]), 1, 4, fiber_file);
 		}
 	}
 }
 
-void get_fiber(vertex* v)
+void get_fiber(int s)
 {
 	int next = -1;
-	for (int i = 0; i < v->nn; i++)
-	if (v->c[i] == 1)
+	for (int i = n_id[s]; i < n_id[s] + nc[s]; i++)
+	if (c[i] == 1)
 	{
-		next = i;
+		next = n[i];
 		break;
 	}
 
-	if (next != -1 && v->n[next]->sig != 1)
+	if (next != -1 && sig[next] != 1)
 	{
-		fwrite((char*)&(v->x), 1, 4, fiber_file);
-		fwrite((char*)&(v->y), 1, 4, fiber_file);
-		fwrite((char*)&(v->z), 1, 4, fiber_file);
+		fwrite((char*)&(x[s]), 1, 4, fiber_file);
+		fwrite((char*)&(y[s]), 1, 4, fiber_file);
+		fwrite((char*)&(z[s]), 1, 4, fiber_file);
 
-		get_fiber(v, v->n[next], 1);
+		get_fiber(s, next, 1);
 	}
-	else if (next != -1 && v->n[next]->sig == 1)
+	else if (next != -1 && sig[next] == 1)
 	{
-		fwrite((char*)&(v->x), 1, 4, fiber_file);
-		fwrite((char*)&(v->y), 1, 4, fiber_file);
-		fwrite((char*)&(v->z), 1, 4, fiber_file);
+		fwrite((char*)&(x[s]), 1, 4, fiber_file);
+		fwrite((char*)&(y[s]), 1, 4, fiber_file);
+		fwrite((char*)&(z[s]), 1, 4, fiber_file);
 
-		fwrite((char*)&(v->n[next]->x), 1, 4, fiber_file);
-		fwrite((char*)&(v->n[next]->y), 1, 4, fiber_file);
-		fwrite((char*)&(v->n[next]->z), 1, 4, fiber_file);
+		fwrite((char*)&(x[next]), 1, 4, fiber_file);
+		fwrite((char*)&(y[next]), 1, 4, fiber_file);
+		fwrite((char*)&(z[next]), 1, 4, fiber_file);
 	}
 }
 
-int get_fiber_length(vertex* prev, vertex* curr, int n)
+int get_fiber_length(int prev, int curr, int nn)
 {
 	int next = -1;
-	for (int i = 0; i < curr->nn; i++)
-	if (curr->c[i] == 1 && curr->n[i] != prev)
+	for (int i = n_id[curr]; i < n_id[curr] + nc[curr]; i++)
+	if (c[i] == 1 && n[i] != prev)
 	{
-		next = i;
+		next = n[i];
 		break;
 	}
 
-	if (next != -1 && n < 50)
+	if (next != -1 && nn < 50)
 	{
-		if (curr->n[next]->sig != 1)
-			return get_fiber_length(curr, curr->n[next], n + 1);
+		if (sig[next] != 1)
+			return get_fiber_length(curr, next, nn + 1);
 		else
-			return n + 2;
+			return nn + 2;
 	}
 	else
-		return n + 1;
+		return nn + 1;
 }
 
-int get_fiber_length(vertex* v)
+int get_fiber_length(int s)
 {
 	int next = -1;
-	for (int i = 0; i < v->nn; i++)
-	if (v->c[i] == 1)
+	for (int i = n_id[s]; i < n_id[s] + nc[s]; i++)
+	if (c[i] == 1)
 	{
-		next = i;
+		next = n[i];
 		break;
 	}
 
-	if (next != -1 && v->n[next]->sig != 1)
-		return get_fiber_length(v, v->n[next], 1);
-	else if (next != -1 && v->n[next]->sig == 1)
+	if (next != -1 && sig[next] != 1)
+		return get_fiber_length(s, next, 1);
+	else if (next != -1 && sig[next] == 1)
 		return 2;
 	else
 		return 1;

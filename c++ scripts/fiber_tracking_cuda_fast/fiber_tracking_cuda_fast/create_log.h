@@ -6,7 +6,7 @@ void create_log()
 	time(&rawtime);
 	timeinfo = localtime(&rawtime);
 
-	strftime(buffer, 80, ("C:\\ETH\\Neuro\\GlobalTracking\\results\\%d_%m_%Y_%H_%M" + comment).c_str(), timeinfo);
+	strftime(buffer, 80, ("C:\\ETH\\Neuro\\GlobalTracking\\results\\%Y_%m_%d_%H_%M" + comment).c_str(), timeinfo);
 
 	mkdir(buffer);
 	chdir(buffer);

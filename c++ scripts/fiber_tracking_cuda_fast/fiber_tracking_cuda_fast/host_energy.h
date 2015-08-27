@@ -1,43 +1,43 @@
-float Edata(vertex* vi, vertex* vj)
+float Edata(int s, int nj)
 {
 	float E1, E2;
 	float xij[3];
 
-	xij[0] = vi->x - vj->x;
-	xij[1] = vi->y - vj->y;
-	xij[2] = vi->z - vj->z;
+	xij[0] = x[s] - x[nj];
+	xij[1] = y[s] - y[nj];
+	xij[2] = z[s] - z[nj];
 
 	float norm = 1 / (xij[0] * xij[0] + xij[1] * xij[1] + xij[2] * xij[2]);
 
-	E1 = ((*vi).T0 * xij[0] * xij[0]
-		+ 2 * (*vi).T1 * xij[0] * xij[1]
-		+ 2 * (*vi).T2 * xij[0] * xij[2]
-		+ (*vi).T3 * xij[1] * xij[1]
-		+ 2 * (*vi).T4 * xij[1] * xij[2]
-		+ (*vi).T5 * xij[2] * xij[2]) * norm;
+	E1 = (    T0[s] * xij[0] * xij[0]
+		+ 2 * T1[s] * xij[0] * xij[1]
+		+ 2 * T2[s] * xij[0] * xij[2]
+		+	  T3[s] * xij[1] * xij[1]
+		+ 2 * T4[s] * xij[1] * xij[2]
+		+     T5[s] * xij[2] * xij[2]) * norm;
 
 	E2 = (
-		+(*vj).T0 * xij[0] * xij[0]
-		+ 2 * (*vj).T1 * xij[0] * xij[1]
-		+ 2 * (*vj).T2 * xij[0] * xij[2]
-		+ (*vj).T3 * xij[1] * xij[1]
-		+ 2 * (*vj).T4 * xij[1] * xij[2]
-		+ (*vj).T5 * xij[2] * xij[2]) * norm;
+		+     T0[nj] * xij[0] * xij[0]
+		+ 2 * T1[nj] * xij[0] * xij[1]
+		+ 2 * T2[nj] * xij[0] * xij[2]
+		+     T3[nj] * xij[1] * xij[1]
+		+ 2 * T4[nj] * xij[1] * xij[2]
+		+     T5[nj] * xij[2] * xij[2]) * norm;
 
-	return 0.5*((E1 - vi->Emin) / (vi->Emax - E1 + 0.0000001) + (E2 - vj->Emin) / (vj->Emax - E2 + 0.0000001));
+	return 0.5*((E1 - Emin[s]) / (Emax[s] - E1 + 0.0000001) + (E2 - Emin[nj]) / (Emax[nj] - E2 + 0.0000001));
 }
 
-float Eint(vertex* vj, vertex* vi, vertex* vk)
+float Eint(int nj, int s, int nk)
 {
 	float xij[3];
-	xij[0] = vj->x - vi->x;
-	xij[1] = vj->y - vi->y;
-	xij[2] = vj->z - vi->z;
+	xij[0] = x[nj] - x[s];
+	xij[1] = y[nj] - y[s];
+	xij[2] = z[nj] - z[s];
 
 	float xik[3];
-	xik[0] = vk->x - vi->x;
-	xik[1] = vk->y - vi->y;
-	xik[2] = vk->z - vi->z;
+	xik[0] = x[nk] - x[s];
+	xik[1] = y[nk] - y[s];
+	xik[2] = z[nk] - z[s];
 
 	float norm_ij = xij[0] * xij[0] + xij[1] * xij[1] + xij[2] * xij[2];
 	float norm_ik = xik[0] * xik[0] + xik[1] * xik[1] + xik[2] * xik[2];
@@ -49,88 +49,40 @@ float Eint(vertex* vj, vertex* vi, vertex* vk)
 	return (1 + cos) / (1.0001 - cos);
 }
 
-float Ei_x(vertex* vi)
-{
-	int count = 0;
-	float E = 0;
-
-	for (int j = 0; j < vi->nn; j++)
-	{
-		E += vi->c[j] * Edata(vi, vi->n[j]);
-		count += vi->c[j];
-	}
-
-	for (int j = 0; j < vi->nn; j++)
-	for (int k = j + 1; k < vi->nn; k++)
-	{
-		E += vi->c[j] * vi->c[k] * Eint(vi->n[j], vi, vi->n[k]);
-		count += vi->c[j] * vi->c[k];
-	}
-
-	for (int j = 0; j < vi->nn; j++)
-	for (int k = 0; k < vi->n[j]->nn; k++)
-	if (vi->n[j]->n[k] != vi)
-	{
-		E += vi->c[j] * vi->n[j]->c[k] * Eint(vi, vi->n[j], vi->n[j]->n[k]);
-		count += vi->c[j] * vi->n[j]->c[k];
-	}
-
-	return E / (count + 0.0000001);
-}
-
-float Ei_c(vertex* vi)
+float Ei_C(int s)
 {
 	float E = 0;
 
-	E += (1 - vi->sig)*fabsf(vi->cc - 2) / (vi->nn - 2 + 0.0000001);
-	E += (vi->sig)*    fabsf(vi->cc - 1) / (vi->nn - 1 + 0.0000001);
-
-	int cj;
-	for (int j = 0; j < vi->nn; j++)
-	{
-		cj = vi->n[j]->cc;
-
-		E += (1 - vi->n[j]->sig)*fabsf(cj - 2) / (float)(vi->n[j]->nn - 2 + 0.0000001);
-		E += (vi->n[j]->sig)*    fabsf(cj - 1) / (float)(vi->n[j]->nn - 1 + 0.0000001);
-	}
-
-	return E / (vi->nn + 1);
-}
-
-float Ei_C(vertex* vi)
-{
-	float E = 0;
-
-	E += (1 - vi->sig)*fabsf(vi->cc - 2) / (vi->nn - 2 + 0.0000001);
-	E += (vi->sig)*    fabsf(vi->cc - 1) / (vi->nn - 1 + 0.0000001);
+	E += (1 - sig[s])*fabsf(cc[s] - 2) / (nc[s] - 2 + 0.0000001);
+	E += sig[s] * fabsf(cc[s] - 1) / (nc[s] - 1 + 0.0000001);
 
 	return E;
 }
 
-float Ei_D(vertex* vi)
+float Ei_D(int s)
 {
 	int count = 0;
 	float E = 0;
 
-	for (int j = 0; j < vi->nn; j++)
+	for (int j = n_id[s]; j < n_id[s] + nc[s]; j++)
 	{
-		E += vi->c[j] * Edata(vi, vi->n[j]);
-		count += vi->c[j];
+		E += c[j] * Edata(s, n[j]);
+		count += c[j];
 	}
 
 	return E / (count + 0.0000001);
 }
 
-float Ei_I(vertex* vi)
+float Ei_I(int s)
 {
 	int count = 0;
 	float E = 0;
 
-	for (int j = 0; j < vi->nn; j++)
-	for (int k = j + 1; k < vi->nn; k++)
+	for (int j = n_id[s]; j < n_id[s] + nc[s]; j++)
+	for (int k = j + 1; k < n_id[s] + nc[s]; k++)
 	{
-		E += vi->c[j] * vi->c[k] * Eint(vi->n[j], vi, vi->n[k]);
-		count += vi->c[j] * vi->c[k];
+		E += c[j] * c[k] * Eint(n[j], s, n[k]);
+		count += c[j] * c[k];
 	}
 
 	return E / (count + 0.0000001);

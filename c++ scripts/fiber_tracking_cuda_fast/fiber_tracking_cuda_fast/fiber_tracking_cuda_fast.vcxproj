@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6BD73497-7F99-41A9-A08B-D753EAF37969}</ProjectGuid>
+    <ProjectGuid>{7C058E9D-700F-40E6-8EB5-653C59E0B830}</ProjectGuid>
     <RootNamespace>fiber_tracking_cuda_fast</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -68,7 +68,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Apps\gnuplot\gnucpp</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Apps\gnuplot\gnucpp;</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -167,6 +167,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="host_energy.h" />
     <ClInclude Include="import_data.h" />
     <ClInclude Include="initialization.h" />
+    <ClInclude Include="nifti1.h" />
     <ClInclude Include="track_vis.h" />
     <ClInclude Include="trk_export.h" />
   </ItemGroup>
