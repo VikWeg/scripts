@@ -41,10 +41,10 @@ __device__ void mc_c
 											T, id
 										)
 				+	dev_wx(T)*dev_Ei_x	(	
-											-1,
-											in_x, in_y, in_z, in_cc, in_c,
+											in_x[id], in_y[id], in_z[id],
 
-											out_x, out_y, out_z, out_cc, out_c,
+											in_x, in_y, in_z,
+											in_cc, in_c,
 
 											pos_x, pos_y, pos_z,
 											T0, T1, T2, T3, T4, T5,
@@ -72,10 +72,10 @@ __device__ void mc_c
 											T, id
 										) 
 				+	dev_wx(T)*dev_Ei_x	(
-											d,
-											in_x, in_y, in_z, in_cc, in_c,
+											in_x[id], in_y[id], in_z[id],
 
-											out_x, out_y, out_z, out_cc, out_c,
+											in_x, in_y, in_z,
+											in_cc, in_c,
 
 											pos_x, pos_y, pos_z,
 											T0, T1, T2, T3, T4, T5,
@@ -131,12 +131,13 @@ __device__ void mc_x
 		y0 = in_y[id];
 		z0 = in_z[id];
 
-		for (int i = 0; i < dev_nx; i++)
+		for (int i = 0; i < *dev_nx; i++)
 		{
 			E0 = dev_wx(T)*	dev_Ei_x
 							(
 								x0, y0, z0,
 								
+								in_x, in_y, in_z,
 								in_cc, in_c,
 
 								pos_x, pos_y, pos_z,
@@ -156,7 +157,8 @@ __device__ void mc_x
 			E1 = dev_wx(T)*	dev_Ei_x
 							(
 								x, y, z,
-				
+
+								in_x, in_y, in_z,
 								in_cc, in_c,
 
 								pos_x, pos_y, pos_z,

@@ -5,7 +5,12 @@ void annealing()
 	init_Efile();
 	stats_out();
 
+	cudaEvent_t start, stop;
+	cudaEventCreate(&start);
+	cudaEventCreate(&stop);
+
 	RDTSC(start_all);
+
 	float T = Ti;
 	for (; T > Tf; T *= etha)
 	{
@@ -15,6 +20,7 @@ void annealing()
 
 		for (int i = 1; i <= sweeps; i++)
 		{
+			cudaEventRecord(start, 0);
 			if (toggle == 0)
 				mc << <scount / 32, 64 >> >
 				(
@@ -47,6 +53,8 @@ void annealing()
 
 					T, scount
 				);
+			cudaEventRecord(stop, 0);
+			cudaEventSynchronize(stop);
 
 			toggle = 1 - toggle;
 		}
