@@ -28,14 +28,13 @@ void initialize()
 	dim[2] = hdr.dim[2];
 	dim[3] = hdr.dim[3];
 
-	cudaMalloc(&dev_pixdim, 3 * sizeof(float));
-	cudaMemcpy(dev_pixdim, &hdr.pixdim[1], 3 * sizeof(float), cudaMemcpyHostToDevice);
+	host_params = new parameters;
 
-	cudaMalloc(&dev_nx, sizeof(int));
-	cudaMemset(dev_nx, nx, sizeof(int));
-
-	cudaMalloc(&dev_delta_x, sizeof(float));
-	cudaMemset(dev_delta_x, delta_x, sizeof(float));
+	host_params->delta_x = delta_x;
+	host_params->nx = nx;
+	host_params->pix_dim_x = hdr.pixdim[1];
+	host_params->pix_dim_y = hdr.pixdim[2];
+	host_params->pix_dim_z = hdr.pixdim[3];
 
 	long coo;
 	float ten[6] = { 0, 0, 0, 0, 0, 0 };
@@ -84,9 +83,6 @@ void initialize()
 					surf_mask[offset(i,j,k)] = 0;
 			}
 	
-	//******** box_num ********
-	box_num = surf_vox_num + w_vox_num;
-
 	//******** snum, scount ********
 	scount = 0;
 	snum = new int[cube_size[0] * cube_size[1] * cube_size[2]];
@@ -118,6 +114,8 @@ void initialize()
 		else
 			snum[offset(i, j, k)] = 0;
 
+	host_params->scount = scount;
+
 	//======== spin variables ========
 
 	T0 = new float[scount];
@@ -140,9 +138,6 @@ void initialize()
 	x = new float[scount];
 	y = new float[scount];
 	z = new float[scount];
-
-	nc = new int[scount];
-	n_id = new int[scount];
 
 	cc = new int[scount];
 
@@ -201,17 +196,21 @@ void initialize()
 	}
 
 	//******** nc ********
-	for (int s = 0; s < scount; s++)
+	nc = new int[scount];
+
+	for (int i = 0; i < cube_size[0]; i++)
+	for (int j = 0; j < cube_size[1]; j++)
+	for (int k = 0; k < cube_size[2]; k++)
+	for (int s = 0; s < snum[offset(i, j, k)]; s++)
 	{
-		nc[s] = 0;
-		for (int ss = 0; ss < scount; ss++)
-		if (
-			   abs(pos_x[ss] - pos_x[s]) <= 1
-			&& abs(pos_y[ss] - pos_y[s]) <= 1
-			&& abs(pos_z[ss] - pos_z[s]) <= 1
-			&& (pos_x[ss] != pos_x[s] || pos_y[ss] != pos_y[s] || pos_z[ss] != pos_z[s])
-			)
-			nc[s] += snum[offset(pos_x[ss], pos_y[ss], pos_z[ss])];
+		int id = vertex_offset(i, j, k) + s;
+
+		nc[id] = 0;
+		for (int ii = fmax(0, i - 1); ii < fmin(cube_size[0], i + 2); ii++)
+		for (int jj = fmax(0, j - 1); jj < fmin(cube_size[1], j + 2); jj++)
+		for (int kk = fmax(0, k - 1); kk < fmin(cube_size[2], k + 2); kk++)
+		if ((ii != i || jj != j || kk != k) && (wmask[offset(ii, jj, kk)] == 1 || surf_mask[offset(ii, jj, kk)] == 1))
+			nc[id] += snum[offset(ii, jj, kk)];
 	}
 
 	free(data);
@@ -220,6 +219,7 @@ void initialize()
 	free(L3data);
 
 	//******** n_id ********
+	n_id = new int[scount];
 	for (int s = 0; s < scount; s++)
 	{
 		n_id[s] = 0;
@@ -232,20 +232,24 @@ void initialize()
 
 	//******** n ********
 	n = new int[n_num];
-	for (int s = 0; s < scount; s++)
+
+	for (int i = 0; i < cube_size[0]; i++)
+	for (int j = 0; j < cube_size[1]; j++)
+	for (int k = 0; k < cube_size[2]; k++)
+	for (int s = 0; s < snum[offset(i, j, k)]; s++)
 	{
+		int id = vertex_offset(i, j, k) + s;
+
 		int m = 0;
-		for (int ss = 0; ss < scount; ss++)
-		if (
-			abs(pos_x[ss] - pos_x[s]) <= 1
-			&& abs(pos_y[ss] - pos_y[s]) <= 1
-			&& abs(pos_z[ss] - pos_z[s]) <= 1
-			&& (pos_x[ss] != pos_x[s] || pos_y[ss] != pos_y[s] || pos_z[ss] != pos_z[s])
-			)
-			{
-				n[n_id[s] + m] = ss;
-				m++;
-			}
+		for (int ii = fmax(0, i - 1); ii < fmin(cube_size[0], i + 2); ii++)
+		for (int jj = fmax(0, j - 1); jj < fmin(cube_size[1], j + 2); jj++)
+		for (int kk = fmax(0, k - 1); kk < fmin(cube_size[2], k + 2); kk++)
+		if (ii != i || jj != j || kk != k)
+		for (int ss = 0; ss < snum[offset(ii, jj, kk)]; ss++)
+		{
+			n[n_id[id] + m] = vertex_offset(ii,jj,kk) + ss;
+			m++;
+		}
 	}
 
 	//******** cc ********

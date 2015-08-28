@@ -1,6 +1,10 @@
 #include "cuda_runtime.h"
 #include "device_launch_parameters.h"
 
+#include "cuda.h"
+#include "cuda_runtime_api.h"
+#include "device_functions.h"
+
 #include <curand.h>
 #include <curand_kernel.h>
 
@@ -121,17 +125,29 @@ int* surf_mask;
 
 long w_vox_num;
 long surf_vox_num;
-long box_num;
 long scount;
 
 long n_num;
+
+struct parameters
+{
+	int nx;
+	float delta_x;
+	int scount;
+	float pix_dim_x;
+	float pix_dim_y;
+	float pix_dim_z;
+};
+
+parameters* host_params;
+parameters* dev_params;
 
 // How does voxel size affect cost function?
 // What if all tensors are isotropic -> no solution?
 // Make sure temperature scaling is calibrated, so that energy does not diverge at T -> 0.
 // use multiple of 32 for number of threads
 // use struct of arrays (coalesced memory)
-// keep parameters (nx, delta_x, T,...) in const memory!
+// keep parameters (nx, delta_x, T, scount...) in const memory!
 // try to avoid unnecessary mc_x evaluations of E0 after rejection.
 // be aware that there is a conflict when updating c -> can be updated by different threads (leaving it for now).
 
@@ -144,10 +160,10 @@ long n_num;
 /**/															/**/
 /**/	float cutoff = 1.5;										/**/
 /**/															/**/
-/**/	float Ti = 0.05;										/**/
-/**/	float Tf = 0.005;										/**/
-/**/	float etha = 0.95;										/**/
-/**/	long tsteps_tot = ceilf(logf(Tf / Ti) / logf(etha));	/**/
+/**/	float Ti = 0.025;										/**/
+/**/	float Tf = 0.0005;										/**/
+/**/	float etha = 0.8;										/**/
+/**/	int tsteps_tot = (int)ceilf(logf(Tf / Ti) / logf(etha));	/**/
 /**/															/**/
 /**/	int nx = 30;								/**/
 		__device__ int* dev_nx;
@@ -164,11 +180,11 @@ long n_num;
 /**/	__device__ float dev_wx(float T) { return 1; }
 
 /**/
-/**/	float wint(float cos) { return (1 + cos) / (1.01 - cos); }
-/**/	__device__ float dev_wint(float cos) { return (1 + cos) / (1.01 - cos); }
-/**/	char* wint_str = "(1+cos)/(1.01-cos)";
+/**/	float wint(float cos) { return 0.5*(1 + cos); }
+/**/	__device__ float dev_wint(float cos) { return 0.5*(1 + cos); }
+/**/	char* wint_str = "(1+cos)/2";
 
-char* wdata_str = "(E - Emin)/(Emax-E)";
+char* wdata_str = "(E - Emin)/(Emax-Emin)";
 /**/
 /**/	std::string comment("");
 /******************************************************************/

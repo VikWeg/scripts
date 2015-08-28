@@ -35,7 +35,7 @@ void annealing()
 					dev_nc,
 					dev_n_id, dev_n,
 
-					T, scount
+					T, dev_params
 				);
 			else
 				mc << <scount / 32, 64 >> >
@@ -51,7 +51,7 @@ void annealing()
 					dev_nc,
 					dev_n_id, dev_n,
 
-					T, scount
+					T, dev_params
 				);
 			cudaEventRecord(dev_stop, 0);
 			cudaEventSynchronize(dev_stop);

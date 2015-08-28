@@ -24,7 +24,7 @@ float Edata(int s, int nj)
 		+ 2 * T4[nj] * xij[1] * xij[2]
 		+     T5[nj] * xij[2] * xij[2]) * norm;
 
-	return 0.5*((E1 - Emin[s]) / (Emax[s] - E1 + 0.0000001) + (E2 - Emin[nj]) / (Emax[nj] - E2 + 0.0000001));
+	return 0.5*((E1 - Emin[s]) / (Emax[s] - Emin[s]) + (E2 - Emin[nj]) / (Emax[nj] - Emin[nj]));
 }
 
 float Eint(int nj, int s, int nk)
@@ -46,7 +46,7 @@ float Eint(int nj, int s, int nk)
 
 	float cos = dot / norm;
 
-	return (1 + cos) / (1.0001 - cos);
+	return (1 + cos) *0.5;
 }
 
 float Ei_C(int s)

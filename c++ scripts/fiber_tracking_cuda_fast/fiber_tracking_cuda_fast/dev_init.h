@@ -41,6 +41,8 @@ void dev_init()
 	cudaMalloc(&dev_n_id, scount*sizeof(int));
 	cudaMalloc(&dev_n, n_num*sizeof(int));
 
+	cudaMalloc(&dev_params, sizeof(parameters));
+
 	// =======   MemCpy ==============
 
 	//read & write
@@ -64,13 +66,6 @@ void dev_init()
 	cudaMemcpy(dev_pos_y, pos_y, scount*sizeof(float), cudaMemcpyHostToDevice);
 	cudaMemcpy(dev_pos_y, pos_z, scount*sizeof(float), cudaMemcpyHostToDevice);
 
-	cudaMalloc(&dev_T0, scount*sizeof(float));
-	cudaMalloc(&dev_T1, scount*sizeof(float));
-	cudaMalloc(&dev_T2, scount*sizeof(float));
-	cudaMalloc(&dev_T3, scount*sizeof(float));
-	cudaMalloc(&dev_T4, scount*sizeof(float));
-	cudaMalloc(&dev_T5, scount*sizeof(float));
-
 	cudaMemcpy(dev_T0, T0, scount*sizeof(float), cudaMemcpyHostToDevice);
 	cudaMemcpy(dev_T1, T1, scount*sizeof(float), cudaMemcpyHostToDevice);
 	cudaMemcpy(dev_T2, T2, scount*sizeof(float), cudaMemcpyHostToDevice);
@@ -79,12 +74,14 @@ void dev_init()
 	cudaMemcpy(dev_T5, T5, scount*sizeof(float), cudaMemcpyHostToDevice);
 
 	cudaMemcpy(dev_Emin, Emin, scount*sizeof(float), cudaMemcpyHostToDevice);
-	cudaMemcpy(dev_Emax, Emin, scount*sizeof(float), cudaMemcpyHostToDevice);
-	cudaMemcpy(dev_delta_E, Emin, scount*sizeof(float), cudaMemcpyHostToDevice);
+	cudaMemcpy(dev_Emax, Emax, scount*sizeof(float), cudaMemcpyHostToDevice);
+	cudaMemcpy(dev_delta_E, delta_E, scount*sizeof(float), cudaMemcpyHostToDevice);
 
 	cudaMemcpy(dev_nc, nc, scount*sizeof(int), cudaMemcpyHostToDevice);
 	cudaMemcpy(dev_sig, sig, scount*sizeof(int), cudaMemcpyHostToDevice);
 
 	cudaMemcpy(dev_n_id, n_id, scount*sizeof(int), cudaMemcpyHostToDevice);
 	cudaMemcpy(dev_n, n, n_num*sizeof(int), cudaMemcpyHostToDevice);
+
+	cudaMemcpy(dev_params, host_params, sizeof(parameters), cudaMemcpyHostToDevice);
 }

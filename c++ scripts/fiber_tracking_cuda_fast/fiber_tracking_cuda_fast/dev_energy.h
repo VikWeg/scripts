@@ -39,7 +39,7 @@ __device__ float dev_Edata
 		+ 2 * T4[nj] * xij[1] * xij[2]
 		+     T5[nj] * xij[2] * xij[2]) * norm;
 
-	return  0.5*((E1 - Emin[id]) / (Emax[id] - E1 + 0.0000001) + (E2 - Emin[nj]) / (Emax[nj] - E2 + 0.0000001));
+	return  (E1 - Emin[id]) / (Emax[id] - Emin[id]) + (E2 - Emin[nj]) / (Emax[nj] - Emin[nj]);
 }
 
 __device__ float dev_Eint
@@ -76,7 +76,7 @@ __device__ float dev_Eint
 
 	float cos = dot / norm;
 
-	return (1 + cos) / (1.0001 - cos);
+	return (1 + cos) *0.5;
 }
 
 __device__ float dev_Ei_x
@@ -192,8 +192,8 @@ __device__ float dev_Ei_c
 	{
 		int cc = in_cc[id] - 1 + 2 * in_c[d];
 
-		E += (1 - sig[id])*fabsf(in_cc[id] - 2) / (nc[id] - 2 + 0.0000001);
-		E += sig[id]*      fabsf(in_cc[id] - 1) / (nc[id] - 1 + 0.0000001);
+		E += (1 - sig[id])*fabsf(cc - 2) / (nc[id] - 2 + 0.0000001);
+		E += sig[id]*      fabsf(cc - 1) / (nc[id] - 1 + 0.0000001);
 
 		int cj;
 		for (int j = n_id[id]; j < n_id[id] + nc[id]; j++)
