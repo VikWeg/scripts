@@ -3,45 +3,45 @@ void dev_init()
 	// =========  Malloc ===========
 
 	//read & write
-	cudaMalloc(&dev_in_x,  scount*sizeof(float));
-	cudaMalloc(&dev_out_x, scount*sizeof(float));
+	cudaMalloc((void**)&dev_in_x, scount*sizeof(float));
+	cudaMalloc((void**)&dev_out_x, scount*sizeof(float));
 
-	cudaMalloc(&dev_in_y, scount*sizeof(float));
-	cudaMalloc(&dev_out_y, scount*sizeof(float));
+	cudaMalloc((void**)&dev_in_y, scount*sizeof(float));
+	cudaMalloc((void**)&dev_out_y, scount*sizeof(float));
 
-	cudaMalloc(&dev_in_z, scount*sizeof(float));
-	cudaMalloc(&dev_out_z, scount*sizeof(float));
+	cudaMalloc((void**)&dev_in_z, scount*sizeof(float));
+	cudaMalloc((void**)&dev_out_z, scount*sizeof(float));
 
-	cudaMalloc(&dev_in_cc, scount*sizeof(int));
-	cudaMalloc(&dev_out_cc, scount*sizeof(int));
+	cudaMalloc((void**)&dev_in_cc, scount*sizeof(int));
+	cudaMalloc((void**)&dev_out_cc, scount*sizeof(int));
 
-	cudaMalloc(&dev_in_c, n_num*sizeof(int));
-	cudaMalloc(&dev_out_c, n_num*sizeof(int));
+	cudaMalloc((void**)&dev_in_c, n_num*sizeof(int));
+	cudaMalloc((void**)&dev_out_c, n_num*sizeof(int));
 
 
 	// read-only
-	cudaMalloc(&dev_pos_x, scount*sizeof(float));
-	cudaMalloc(&dev_pos_y, scount*sizeof(float));
-	cudaMalloc(&dev_pos_z, scount*sizeof(float));
+	cudaMalloc((void**)&dev_pos_x, scount*sizeof(float));
+	cudaMalloc((void**)&dev_pos_y, scount*sizeof(float));
+	cudaMalloc((void**)&dev_pos_z, scount*sizeof(float));
 
-	cudaMalloc(&dev_T0, scount*sizeof(float));
-	cudaMalloc(&dev_T1, scount*sizeof(float));
-	cudaMalloc(&dev_T2, scount*sizeof(float));
-	cudaMalloc(&dev_T3, scount*sizeof(float));
-	cudaMalloc(&dev_T4, scount*sizeof(float));
-	cudaMalloc(&dev_T5, scount*sizeof(float));
+	cudaMalloc((void**)&dev_T0, scount*sizeof(float));
+	cudaMalloc((void**)&dev_T1, scount*sizeof(float));
+	cudaMalloc((void**)&dev_T2, scount*sizeof(float));
+	cudaMalloc((void**)&dev_T3, scount*sizeof(float));
+	cudaMalloc((void**)&dev_T4, scount*sizeof(float));
+	cudaMalloc((void**)&dev_T5, scount*sizeof(float));
 
-	cudaMalloc(&dev_Emin, scount*sizeof(float));
-	cudaMalloc(&dev_Emax, scount*sizeof(float));
-	cudaMalloc(&dev_delta_E, scount*sizeof(float));
+	cudaMalloc((void**)&dev_Emin, scount*sizeof(float));
+	cudaMalloc((void**)&dev_Emax, scount*sizeof(float));
+	cudaMalloc((void**)&dev_delta_E, scount*sizeof(float));
 
-	cudaMalloc(&dev_nc, scount*sizeof(int));
-	cudaMalloc(&dev_sig, scount*sizeof(int));
+	cudaMalloc((void**)&dev_nc, scount*sizeof(int));
+	cudaMalloc((void**)&dev_sig, scount*sizeof(int));
 
-	cudaMalloc(&dev_n_id, scount*sizeof(int));
-	cudaMalloc(&dev_n, n_num*sizeof(int));
+	cudaMalloc((void**)&dev_n_id, scount*sizeof(int));
+	cudaMalloc((void**)&dev_n, n_num*sizeof(int));
 
-	cudaMalloc(&dev_params, sizeof(parameters));
+	cudaMalloc((void**)&dev_params, sizeof(parameters));
 
 	// =======   MemCpy ==============
 

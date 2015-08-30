@@ -7,8 +7,8 @@
 #include "track_vis.h"
 #include "fiber_tracing.h"
 #include "trk_export.h"
-#include "fiber_tracking_readout.h"
-#include "fiber_tracking_cube.h"
+#include "readout.h"
+#include "annealing.h"
 
 int main()
 {

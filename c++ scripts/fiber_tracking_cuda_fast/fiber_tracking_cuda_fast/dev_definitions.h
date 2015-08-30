@@ -162,7 +162,7 @@ parameters* dev_params;
 /**/															/**/
 /**/	float Ti = 0.025;										/**/
 /**/	float Tf = 0.0005;										/**/
-/**/	float etha = 0.8;										/**/
+/**/	float etha = 0.5;										/**/
 /**/	int tsteps_tot = (int)ceilf(logf(Tf / Ti) / logf(etha));	/**/
 /**/															/**/
 /**/	int nx = 30;								/**/

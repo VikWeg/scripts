@@ -44,7 +44,7 @@ float Eint(int nj, int s, int nk)
 	float norm = sqrtf(norm_ij*norm_ik);
 	float dot = xij[0] * xik[0] + xij[1] * xik[1] + xij[2] * xik[2];
 
-	float cos = dot / norm;
+	float cos = dot / (norm + 0.0000001);
 
 	return (1 + cos) *0.5;
 }

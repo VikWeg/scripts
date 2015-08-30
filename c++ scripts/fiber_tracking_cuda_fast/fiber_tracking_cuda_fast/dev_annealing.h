@@ -22,7 +22,7 @@ void annealing()
 		{
 			cudaEventRecord(dev_start, 0);
 			if (toggle == 0)
-				mc << <scount / 32, 64 >> >
+				mc << <scount, 1 >> >
 				(
 					dev_in_x, dev_in_y, dev_in_z, dev_in_cc, dev_in_c,
 
@@ -38,7 +38,7 @@ void annealing()
 					T, dev_params
 				);
 			else
-				mc << <scount / 32, 64 >> >
+				mc << <scount, 1 >> >
 				(
 					dev_out_x, dev_out_y, dev_out_z, dev_out_cc, dev_out_c,
 

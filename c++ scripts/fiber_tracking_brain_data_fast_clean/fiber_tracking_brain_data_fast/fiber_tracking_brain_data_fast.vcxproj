@@ -74,13 +74,13 @@
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <Optimization>Disabled</Optimization>
+      <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>false</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <AdditionalUsingDirectories>
       </AdditionalUsingDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -103,8 +103,8 @@
     <ClInclude Include="definitions.h" />
     <ClInclude Include="energy.h" />
     <ClInclude Include="fiber_tracing.h" />
-    <ClInclude Include="fiber_tracking_cube.h" />
-    <ClInclude Include="fiber_tracking_readout.h" />
+    <ClInclude Include="annealing.h" />
+    <ClInclude Include="readout.h" />
     <ClInclude Include="import_data.h" />
     <ClInclude Include="init_ensemble.h" />
     <ClInclude Include="monte_carlo.h" />

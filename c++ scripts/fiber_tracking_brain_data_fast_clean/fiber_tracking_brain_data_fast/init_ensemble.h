@@ -145,6 +145,15 @@ void init_ensemble()
 			}
 		}
 	}
+
+	scount = 0;
+	for (int i = 0; i < cube_size[0]; i++)
+	for (int j = 0; j < cube_size[1]; j++)
+	for (int k = 0; k < cube_size[2]; k++)
+	if (wmask[i][j][k] == 1 || surf_mask[i][j][k] == 1)
+	for (int s = 0; s < snum[i][j][k]; s++)
+		scount++;
+
 	free(data);
 	free(L1data);
 	free(L2data);
@@ -154,46 +163,91 @@ void init_ensemble()
 	for (int i = 0; i < cube_size[0]; i++)
 	for (int j = 0; j < cube_size[1]; j++)
 	for (int k = 0; k < cube_size[2]; k++)
-			if (wmask[i][j][k] == 1 || surf_mask[i][j][k] == 1)
-			{
-				for (int s = 0; s < snum[i][j][k]; s++)
-				{
-					//******** Neighbours ********
-					nn = 0;
-					for (int ii = fmax(0, i - 1); ii < fmin(cube_size[0], i + 2); ii++)
-					for (int jj = fmax(0, j - 1); jj < fmin(cube_size[1], j + 2); jj++)
-					for (int kk = fmax(0, k - 1); kk < fmin(cube_size[2], k + 2); kk++)
-					for (int ss = 0; ss < snum[ii][jj][kk]; ss++)
-					if ((ii != i || jj != j || kk != k) && (wmask[ii][jj][kk] == 1 || surf_mask[ii][jj][kk] == 1))
-						nn++;
+	for (int s = 0; s < snum[i][j][k]; s++)
+	{
+		//******* Neighbours ********
+		nn = 0;
+		for (int ii = fmax(0, i - 1); ii < fmin(cube_size[0], i + 2); ii++)
+		for (int jj = fmax(0, j - 1); jj < fmin(cube_size[1], j + 2); jj++)
+		for (int kk = fmax(0, k - 1); kk < fmin(cube_size[2], k + 2); kk++)
+		for (int ss = 0; ss < snum[ii][jj][kk]; ss++)
+		if ((ii != i || jj != j || kk != k) && (wmask[ii][jj][kk] == 1 || surf_mask[ii][jj][kk] == 1))
+			nn++;
 
-					ensemble[i][j][k][s].nn = nn;
-					ensemble[i][j][k][s].n = new vertex*[nn];
+		ensemble[i][j][k][s].nn = nn;
+		ensemble[i][j][k][s].n = new vertex*[nn];
 
-					int m = 0;
-					for (int ii = fmax(0, i - 1); ii < fmin(cube_size[0], i + 2); ii++)
-					for (int jj = fmax(0, j - 1); jj < fmin(cube_size[1], j + 2); jj++)
-					for (int kk = fmax(0, k - 1); kk < fmin(cube_size[2], k + 2); kk++)
-					for (int ss = 0; ss < snum[ii][jj][kk]; ss++)
-					if ((ii != i || jj != j || kk != k) && (wmask[ii][jj][kk] == 1 || surf_mask[ii][jj][kk] == 1))
-					{
-						ensemble[i][j][k][s].n[m] = &ensemble[ii][jj][kk][ss];
-						m++;
-					}
+		int m = 0;
+		for (int ii = fmax(0, i - 1); ii < fmin(cube_size[0], i + 2); ii++)
+		for (int jj = fmax(0, j - 1); jj < fmin(cube_size[1], j + 2); jj++)
+		for (int kk = fmax(0, k - 1); kk < fmin(cube_size[2], k + 2); kk++)
+		for (int ss = 0; ss < snum[ii][jj][kk]; ss++)
+		if ((ii != i || jj != j || kk != k) && (wmask[ii][jj][kk] == 1 || surf_mask[ii][jj][kk] == 1))
+		{
+			ensemble[i][j][k][s].n[m] = &ensemble[ii][jj][kk][ss];
+			m++;
+		}
 
-					//******** Connected ********
-					ensemble[i][j][k][s].cc = 0;
-					ensemble[i][j][k][s].c = new int[nn];
-					for (int n = 0; n < nn; n++)
-						ensemble[i][j][k][s].c[n] = 0;
-				}
-			}
+		/* Using only face - adjacent neighbours (no diagonal neighbours)
+		nn = 0;
+		for (int ii = fmax(0, i - 1); ii < fmin(cube_size[0], i + 2); ii++)
+		if ( ii != i  && (wmask[ii][j][k] == 1 || surf_mask[ii][j][k] == 1))
+		for (int ss = 0; ss < snum[ii][j][k]; ss++)
+			nn++;
 
-	scount = 0;
+		for (int jj = fmax(0, j - 1); jj < fmin(cube_size[1], j + 2); jj++)
+		if (jj != j && (wmask[i][jj][k] == 1 || surf_mask[i][jj][k] == 1))
+		for (int ss = 0; ss < snum[i][jj][k]; ss++)
+			nn++;
+
+		for (int kk = fmax(0, k - 1); kk < fmin(cube_size[2], k + 2); kk++)
+		if ( kk != k && (wmask[i][j][kk] == 1 || surf_mask[i][j][kk] == 1))
+		for (int ss = 0; ss < snum[i][j][kk]; ss++)
+			nn++;
+
+		ensemble[i][j][k][s].nn = nn;
+		ensemble[i][j][k][s].n = new vertex*[nn];
+		
+		int m = 0;
+		for (int ii = fmax(0, i - 1); ii < fmin(cube_size[0], i + 2); ii++)
+		if (ii != i && (wmask[ii][j][k] == 1 || surf_mask[ii][j][k] == 1))
+		for (int ss = 0; ss < snum[ii][j][k]; ss++)
+		{
+			ensemble[i][j][k][s].n[m] = &ensemble[ii][j][k][ss];
+			m++;
+		}
+
+		for (int jj = fmax(0, j - 1); jj < fmin(cube_size[1], j + 2); jj++)
+		if (jj != j && (wmask[i][jj][k] == 1 || surf_mask[i][jj][k] == 1))
+		for (int ss = 0; ss < snum[i][jj][k]; ss++)
+		{
+			ensemble[i][j][k][s].n[m] = &ensemble[i][jj][k][ss];
+			m++;
+		}
+
+		for (int kk = fmax(0, k - 1); kk < fmin(cube_size[2], k + 2); kk++)
+		if (kk != k && (wmask[i][j][kk] == 1 || surf_mask[i][j][kk] == 1))
+		for (int ss = 0; ss < snum[i][j][kk]; ss++)
+		{
+			ensemble[i][j][k][s].n[m] = &ensemble[i][j][kk][ss];
+			m++;
+		}
+		*/
+
+		//******** Connected ********
+		ensemble[i][j][k][s].cc = 0;
+		ensemble[i][j][k][s].c = new int[nn];
+		for (int n = 0; n < nn; n++)
+			ensemble[i][j][k][s].c[n] = 0;
+	}
+
+	int sum = 0;
 	for (int i = 0; i < cube_size[0]; i++)
 	for (int j = 0; j < cube_size[1]; j++)
 	for (int k = 0; k < cube_size[2]; k++)
-	if (wmask[i][j][k] == 1 || surf_mask[i][j][k] == 1)
-	for (int s = 0; s < snum[i][j][k]; s++)
-		scount++;
+	for (int ss = 0; ss < snum[i][j][k]; ss++)
+	if (ensemble[i][j][k]->nn > 58)
+		sum++;
+
+	std::cout << "ratio = " << sum / scount << "\n";
 }

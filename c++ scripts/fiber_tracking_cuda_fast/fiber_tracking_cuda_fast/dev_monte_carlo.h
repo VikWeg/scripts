@@ -199,7 +199,7 @@ __global__ void mc(
 		float T, parameters* params
 		)
 		{
-			int id = blockDim.x*blockIdx.x + threadIdx.x;
+			int id = blockIdx.x;//blockDim.x*blockIdx.x + threadIdx.x;
 
 			while (id < params->scount)
 			{
@@ -360,6 +360,6 @@ __global__ void mc(
 				
 				__syncthreads();
 
-				id += blockDim.x * gridDim.x;
+				id += gridDim.x;//blockDim.x * gridDim.x;
 			}
 		}

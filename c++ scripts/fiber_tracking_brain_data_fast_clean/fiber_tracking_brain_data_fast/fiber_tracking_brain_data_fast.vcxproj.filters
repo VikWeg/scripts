@@ -21,9 +21,6 @@
     <ClInclude Include="energy.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="fiber_tracking_cube.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="import_data.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -45,7 +42,10 @@
     <ClInclude Include="fiber_tracing.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="fiber_tracking_readout.h">
+    <ClInclude Include="readout.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="annealing.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,7 +6,7 @@ void create_log()
 	time(&rawtime);
 	timeinfo = localtime(&rawtime);
 
-	strftime(buffer, 80, ("C:\\ETH\\Neuro\\GlobalTracking\\results\\%d_%m_%Y_%H_%M" + comment).c_str(), timeinfo);
+	strftime(buffer, 80, ("C:\\ETH\\Neuro\\GlobalTracking\\results\\%Y_%m_%d_%H_%M" + comment).c_str(), timeinfo);
 
 	mkdir(buffer);
 	chdir(buffer);
@@ -14,6 +14,8 @@ void create_log()
 	mkdir("fibers");
 
 	par_file.open("parameters.txt");
+
+	par_file << "Version: " << version.c_str() << "\n\n";
 
 	par_file << "Subject: " << "\t\t" << subject.c_str() << "\n";
 	par_file << "Cube center: " << "\t\t(" << vox_origin[1] << "," << vox_origin[2] << "," << vox_origin[3] << ")\n";

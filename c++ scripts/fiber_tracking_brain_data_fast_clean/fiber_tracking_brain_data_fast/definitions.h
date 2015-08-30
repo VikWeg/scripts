@@ -70,27 +70,27 @@ long w_vox_num;
 long surf_vox_num;
 long scount;
 
-// **** PARAMETERS ************************************************/
-/**/															/**/
-/**/	std::string subject ("1159T");							/**/
-/**/	int cube_size[3] = { 9, 9, 9 };							/**/
-/**/	int vox_origin[4] = { 0, 48, 64, 64 };					/**/
-/**/															/**/
-/**/	float cutoff = 1.5;										/**/
-/**/															/**/
-/**/	float Ti = 0.05;										/**/
-/**/	float Tf = 0.0005;										/**/
-/**/	float etha = 0.9;										/**/
-/**/	long tsteps_tot = ceilf(logf(Tf / Ti) / logf(etha));	/**/
-/**/															/**/
-/**/	int nx = 30;											/**/
-/**/	int S = 2;												/**/
-/**/	float delta_x = 0.1;									/**/
-/**/															/**/
-/**/	char* wc_str = "1 / T";									/**/
-/**/	char* wx_str = "1";						/**/
-/**/															/**/
-/**/	float wc(float T) { return 1 / T; }					/**/
+// **** PARAMETERS ********************************************************/
+/**/	std::string version("fiber_tracking_brain_data_fast_clean");	/**/
+/**/	std::string subject ("1159T");									/**/
+/**/	int cube_size[3] = { 70, 70,70 };									/**/
+/**/	int vox_origin[4] = { 0, 48, 64, 64 };							/**/
+/**/																	/**/
+/**/	float cutoff = 1.5;												/**/
+/**/																	/**/
+/**/	float Ti = 0.05;												/**/
+/**/	float Tf = 0.00005;												/**/
+/**/	float etha = 0.9;												/**/
+/**/	long tsteps_tot = ceilf(logf(Tf / Ti) / logf(etha));			/**/
+/**/																	/**/
+/**/	int nx = 30;													/**/
+/**/	int S = 1;														/**/
+/**/	float delta_x = 0.1;											/**/
+/**/																	/**/
+/**/	char* wc_str = "1/sqrt(T)";												/**/
+/**/	char* wx_str = "1";												/**/
+/**/																	/**/
+/**/	float wc(float T) { return 1/sqrtf(T); }								/**/
 /**/	float wx(float T) { return 1; }	
 /**/
 /**/	float wint(float cos) { return (1 + cos) / (1.01 - cos); }
@@ -99,7 +99,7 @@ long scount;
 		char* wdata_str = "(E - Emin)/(Emax-E)";
 /**/
 /**/	std::string comment("");
-/******************************************************************/
+/*************************************************************************/
 
 // **** RANDOM ****
 
