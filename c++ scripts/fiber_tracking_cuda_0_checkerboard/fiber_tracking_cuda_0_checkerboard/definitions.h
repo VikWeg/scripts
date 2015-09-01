@@ -43,7 +43,7 @@ char buffer[80];
 float* x;
 float* y;
 float* z;
-double* c;
+long long int* c;
 
 char* sig;
 float* ten;
@@ -121,6 +121,62 @@ long scount;
 /**/
 /**/	std::string comment("");
 /*************************************************************************/
+
+// **** Map Thread to Vox ****
+int threadIdToVoxNum(int threadId, int latticeId)
+{
+	int sliceOff = latticeId / 9;
+	int colOff = latticeId % 3;
+	int rowOff = (latticeId / 3) % 3;
+
+	int voxsPerRow = (cube_size[0] - colOff - 1) / 3 + 1;
+	int rowsPerSlice = (cube_size[1] - colOff - 1) / 3 + 1;
+
+	int voxsPerSlice = voxsPerRow*rowsPerSlice;
+
+	int voxsToFill = threadId + 1;
+
+	int voxsLeft = voxsToFill % voxsPerSlice;
+
+	int lastRowLeft = voxsLeft % voxsPerRow;
+
+	return		cube_size[0] * cube_size[1] * sliceOff
+
+			+	cube_size[0] * cube_size[1] * 3 * (voxsToFill / voxsPerSlice)
+
+			+	(voxsLeft == 0)?1:0*
+								(		rowOff*cube_size[0]
+									+	(rowsPerSlice - 1) * 3 * cube_size[0]
+									+	colOff
+									+	(voxsPerRow - 1) * 3
+									-	3 * cube_size[0] * cube_size[1]
+								)
+
+			+ (voxsLeft != 0)?1:0 *
+								(		rowOff*cube_size[0]
+									+	3 * cube_size[0] * (voxsLeft / voxsPerRow)
+									-	(lastRowLeft == 0)?1:0*
+															(		2 * cube_size[0]
+																+	(cube_size[0] - colOff - 1) % 3
+																+	1
+															)
+									+	(lastRowLeft != 0)?1:0*
+															(		colOff
+																+	3 * (lastRowLeft - 1)
+															)
+								);
+
+}
+
+// **** Get i-th bit
+
+int getBit(int i, long long int c)
+{
+	long long int mask = 1;
+	mask = mask << i;
+
+	return (c&mask == 0) ? 0 : 1;
+}
 
 // **** RANDOM ****
 

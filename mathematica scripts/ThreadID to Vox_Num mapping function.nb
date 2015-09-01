@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      8881,        239]
-NotebookOptionsPosition[      8520,        222]
-NotebookOutlinePosition[      8869,        237]
-CellTagsIndexPosition[      8826,        234]
+NotebookDataLength[      7201,        173]
+NotebookOptionsPosition[      6955,        160]
+NotebookOutlinePosition[      7302,        175]
+CellTagsIndexPosition[      7259,        172]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -67,34 +67,25 @@ Cell[BoxData[
      RowBox[{"VoxsLeft", " ", "=", " ", 
       RowBox[{"Mod", "[", 
        RowBox[{"VoxsToFill", ",", "VoxsPerSlice"}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
      RowBox[{"LastRowLeft", " ", "=", " ", 
       RowBox[{"Mod", "[", 
-       RowBox[{"VoxsLeft", ",", "VoxsPerRow"}], "]"}]}], ";", 
+       RowBox[{"VoxsLeft", ",", "VoxsPerRow"}], "]"}]}], "  ", ";", 
      "\[IndentingNewLine]", "\[IndentingNewLine]", 
      RowBox[{
      "sum", " ", "=", " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{"SliceOff", "*", "c0", "*", "c1"}], " ", "\[IndentingNewLine]",
-        "+", 
+        "\[IndentingNewLine]", "+", 
        RowBox[{
         RowBox[{"Quotient", "[", 
          RowBox[{"VoxsToFill", ",", "VoxsPerSlice"}], "]"}], "*", "3", "*", 
-        "c0", "*", "c1"}], "\[IndentingNewLine]", "+", 
+        "c0", "*", "c1"}], "\[IndentingNewLine]", "\[IndentingNewLine]", "+", 
        RowBox[{
         RowBox[{"If", "[", 
          RowBox[{
-          RowBox[{"VoxsPerSlice", "\[Equal]", "1"}], ",", "1", ",", "0"}], 
-         "]"}], "*", 
-        RowBox[{"(", 
-         RowBox[{"ColOff", "+", "1", "-", 
-          RowBox[{"3", "*", "c0", "*", "c1"}]}], ")"}]}], 
-       "\[IndentingNewLine]", "+", 
-       RowBox[{
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{"VoxsToFill", "\[Equal]", "VoxsPerSlice"}], ",", "1", ",", 
-          "0"}], "]"}], "*", 
+          RowBox[{"VoxsLeft", "\[Equal]", "0"}], ",", "1", ",", "0"}], "]"}], 
+        "*", 
         RowBox[{"(", 
          RowBox[{
           RowBox[{"RowOff", "*", "c0"}], " ", "+", " ", 
@@ -107,22 +98,12 @@ Cell[BoxData[
             RowBox[{"VoxsPerRow", "-", "1"}], ")"}], "*", "3"}], "  ", "-", 
           " ", 
           RowBox[{"3", "*", "c0", "*", "c1"}]}], ")"}]}], 
-       "\[IndentingNewLine]", "-", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", "+", 
        RowBox[{
         RowBox[{"If", "[", 
          RowBox[{
-          RowBox[{
-           RowBox[{"VoxsLeft", "\[Equal]", "0"}], " ", "&&", " ", 
-           RowBox[{"VoxsToFill", "!=", "VoxsPerSlice"}]}], ",", "1", ",", 
-          "0"}], "]"}], "*", 
-        RowBox[{"(", 
-         RowBox[{"2", "*", "c0", "*", "c1"}], ")"}]}], "\[IndentingNewLine]", 
-       "\[IndentingNewLine]", "+", 
-       RowBox[{
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{"VoxsToFill", "!=", "VoxsPerSlice"}], ",", "1", ",", "0"}], 
-         "]"}], "*", "\[IndentingNewLine]", 
+          RowBox[{"VoxsLeft", " ", "\[NotEqual]", "0"}], ",", "1", ",", "0"}],
+          "]"}], "*", "\[IndentingNewLine]", 
         RowBox[{"(", "\[IndentingNewLine]", 
          RowBox[{
           RowBox[{"RowOff", "*", "c0"}], "\[IndentingNewLine]", "+", 
@@ -131,12 +112,10 @@ Cell[BoxData[
             RowBox[{"VoxsLeft", ",", "VoxsPerRow"}], "]"}], "*", "3", "*", 
            "c0"}], "\[IndentingNewLine]", "-", 
           RowBox[{
-           RowBox[{"If", "[", 
+           RowBox[{"If", "[", " ", 
             RowBox[{
-             RowBox[{
-              RowBox[{"VoxsLeft", "\[Equal]", "VoxsPerRow"}], " ", "||", " ", 
-              RowBox[{"LastRowLeft", "\[Equal]", "0"}]}], ",", "1", ",", 
-             "0"}], "]"}], "*", 
+             RowBox[{"LastRowLeft", "\[Equal]", "0"}], ",", "1", ",", "0"}], 
+            "]"}], "*", 
            RowBox[{"(", 
             RowBox[{
              RowBox[{"2", "*", "c0"}], "+", 
@@ -147,18 +126,16 @@ Cell[BoxData[
           RowBox[{
            RowBox[{"If", "[", 
             RowBox[{
-             RowBox[{
-              RowBox[{"VoxsLeft", "!=", "VoxsPerRow"}], " ", "&&", " ", 
-              RowBox[{"LastRowLeft", "!=", "0"}]}], ",", "1", ",", "0"}], 
-            "]"}], "*", 
+             RowBox[{"LastRowLeft", "!=", "0"}], ",", "1", ",", "0"}], "]"}], 
+           "*", 
            RowBox[{"(", 
             RowBox[{"ColOff", "+", 
              RowBox[{
               RowBox[{"(", 
                RowBox[{"LastRowLeft", "-", "1"}], ")"}], "*", "3"}]}], 
             ")"}]}]}], "\[IndentingNewLine]", ")"}]}]}]}], 
-     "\[IndentingNewLine]", ";", "\[IndentingNewLine]", "sum"}]}], 
-   "\[IndentingNewLine]", "]"}]}]], "Input",
+     "\[IndentingNewLine]", "\[IndentingNewLine]", ";", "\[IndentingNewLine]",
+      "sum"}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
  CellChangeTimes->{{3.6501066112488747`*^9, 3.650106611390275*^9}, 
    3.6501066595171614`*^9, {3.6501067382617025`*^9, 3.6501067413545084`*^9}, {
    3.6501069741685243`*^9, 3.650106997052165*^9}, {3.6501073081655207`*^9, 
@@ -168,61 +145,22 @@ Cell[BoxData[
    3.650108329197955*^9, 3.650108381054248*^9}, {3.6501084284575324`*^9, 
    3.650108470533207*^9}, {3.650108773588349*^9, 3.6501087740875497`*^9}, {
    3.6501088048210044`*^9, 3.6501088117348166`*^9}, {3.6501088501640854`*^9, 
-   3.650108885936349*^9}, {3.6501089755653176`*^9, 3.650108991440546*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Table", "[", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"threadID", ",", 
-     RowBox[{"f", "[", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{"7", ",", "7"}], "}"}], ",", "threadID", ",", "0"}], "]"}]}], 
-    "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"threadID", ",", "0", ",", "10"}], "}"}]}], "]"}]], "Input",
- CellChangeTimes->{
-  3.6501072416100016`*^9, {3.6501076121984634`*^9, 3.650107614944068*^9}, {
-   3.650107792542186*^9, 3.6501078113572197`*^9}}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"0", ",", "0"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"1", ",", "3"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"2", ",", "6"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"3", ",", "21"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"4", ",", "24"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"5", ",", "27"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"6", ",", "42"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"7", ",", "45"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"8", ",", "48"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"9", ",", "147"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"10", ",", "150"}], "}"}]}], "}"}]], "Output",
- CellChangeTimes->{
-  3.6501072420312023`*^9, 3.650107336412571*^9, 3.6501073970732794`*^9, 
-   3.6501075707281895`*^9, {3.650107615583669*^9, 3.6501076385961103`*^9}, {
-   3.650107793010186*^9, 3.6501078119344206`*^9}, {3.650108247581409*^9, 
-   3.6501082642054386`*^9}, 3.6501084099906993`*^9, 3.650108473127812*^9}]
-}, Open  ]]
+   3.650108885936349*^9}, {3.6501089755653176`*^9, 3.650108991440546*^9}, {
+   3.6501162815297995`*^9, 3.6501162975530324`*^9}, {3.650116366837388*^9, 
+   3.6501164151834807`*^9}, {3.6501164619581738`*^9, 
+   3.6501164771404057`*^9}, {3.6501166847057924`*^9, 
+   3.6501166998404226`*^9}, {3.650116809074836*^9, 3.6501168526421223`*^9}, {
+   3.650117163316323*^9, 3.6501171706739364`*^9}, {3.6501172135332165`*^9, 
+   3.6501172441732736`*^9}, {3.6501175274147205`*^9, 3.650117527804721*^9}, 
+   3.6501176412151227`*^9, {3.650117720518463*^9, 3.650117728635478*^9}, {
+   3.6501177655445433`*^9, 3.6501177655757437`*^9}, {3.6501178038088117`*^9, 
+   3.650117813731429*^9}, {3.6501178473428884`*^9, 3.6501178511054955`*^9}, {
+   3.6501190177983704`*^9, 3.6501190212615767`*^9}, 3.650119085988892*^9, {
+   3.650119132329375*^9, 3.6501191518540096`*^9}, 3.65011935503137*^9}]
 },
-WindowSize->{1520, 773},
-WindowMargins->{{251, Automatic}, {Automatic, -845}},
-FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+WindowSize->{1000, 778},
+WindowMargins->{{Automatic, 69}, {Automatic, 53}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (September 9, 2014)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -236,11 +174,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 6398, 150, 692, "Input"],
-Cell[CellGroupData[{
-Cell[6981, 174, 488, 14, 31, "Input"],
-Cell[7472, 190, 1032, 29, 31, "Output"]
-}, Open  ]]
+Cell[558, 20, 6393, 138, 772, "Input"]
 }
 ]
 *)

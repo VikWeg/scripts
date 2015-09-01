@@ -1,44 +1,75 @@
-void mc_c(vertex* vi, float T)
+void mc_c(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* vox_ids, int spin_id, int vox_id, int vox_num)
 {
-	int d;
 	float E0, E1, p;
 
-		for (int d = 0; d < vi->nn; d++)
+	int c0 = cube_size[0];
+	int c1 = cube_size[1];
+
+	int nvox[26] = {vox_num - c0*c1 - c0 - 1,	vox_num - c0*c1 - c0,	vox_num - c0*c1 - c0 + 1,
+					vox_num - c0*c1 - 1,		vox_num - c0*c1,		vox_num - c0*c1 + 1,
+					vox_num - c0*c1 + c0 - 1,	vox_num - c0*c1 + c0,	vox_num - c0*c1 + c0 + 1,
+
+					vox_num - c0 - 1,			vox_num - c0,			vox_num - c0 + 1,
+					vox_num - 1,										vox_num + 1,
+					vox_num + c0 - 1,			vox_num + c0,			vox_num + c0 + 1,
+
+					vox_num + c0*c1 - c0 - 1,	vox_num + c0*c1 - c0,	vox_num + c0*c1 - c0 + 1,
+					vox_num + c0*c1 - 1,		vox_num + c0*c1,		vox_num + c0*c1 + 1,
+					vox_num + c0*c1 + c0 - 1,	vox_num + c0*c1 + c0,	vox_num + c0*c1 + c0 + 1};
+	
+		for (int n = 0; n < 26; n++)
 		{
-			E0 = wc(T)*Ei_c(vi) + wx(T)*Ei_x(vi);
+			int n_vox_id = vox_ids[nvox[n]];
 
-			vi->c[d] = 1 - vi->c[d];
-			vi->cc += -1 + 2 * vi->c[d];
-
-			int j = 0;
-			for (; j < vi->n[d]->nn; j++)
-				if (vi == vi->n[d]->n[j])
-				{
-					vi->n[d]->c[j] = 1 - vi->n[d]->c[j];
-					break;
-				}
-			vi->n[d]->cc += -1 + 2 * vi->c[d];
-
-			E1 = wc(T)*Ei_c(vi) + wx(T)*Ei_x(vi);
-
-			p = fminf(1., expf((E0 - E1) / T));
-			std::bernoulli_distribution acceptQ(p);
-
-			if (acceptQ(generate))
-				;
-			else
+			if (n_vox_id > 0)
 			{
-				vi->cc -= -1 + 2 * vi->c[d];
-				vi->n[d]->cc -= -1 + 2 * vi->c[d];
+				int next = nvox[n] + 1;
+				while (vox_ids[next] < 0) next++;
 
-				vi->c[d] = 1 - vi->c[d];
-				vi->n[d]->c[j] = 1 - vi->n[d]->c[j];
+
+				for (int n_spin_id = vox_ids[nvox[n]]; n_spin_id < vox_ids[next]; n_spin_id++)
+				{
+
+					E0 = wc(T)*Ei_c(x, y, z, c, ten, sig, spin_id, vox_id, vox_num, nc)
+						+ wx(T)*Ei_x(x, y, z, c, ten, sig, spin_id, vox_id, vox_num, nc);
+
+
+
+					vi->c[d] = 1 - vi->c[d];
+					vi->cc += -1 + 2 * vi->c[d];
+
+					int j = 0;
+					for (; j < vi->n[d]->nn; j++)
+					if (vi == vi->n[d]->n[j])
+					{
+						vi->n[d]->c[j] = 1 - vi->n[d]->c[j];
+						break;
+					}
+					vi->n[d]->cc += -1 + 2 * vi->c[d];
+
+					E1 = wc(T)*Ei_c(vi) + wx(T)*Ei_x(vi);
+
+					p = fminf(1., expf((E0 - E1) / T));
+					std::bernoulli_distribution acceptQ(p);
+
+					if (acceptQ(generate))
+						;
+					else
+					{
+						vi->cc -= -1 + 2 * vi->c[d];
+						vi->n[d]->cc -= -1 + 2 * vi->c[d];
+
+						vi->c[d] = 1 - vi->c[d];
+						vi->n[d]->c[j] = 1 - vi->n[d]->c[j];
+					}
+				}
 			}
 		}
 }
 
-void mc_x(vertex* vi, float T)
+void mc_x(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* vox_ids, int spin_id, int vox_id, int vox_num)
 {
+	/*
 	float x0, y0, z0, x1, y1, z1;
 	float E0, E1, p;
 
@@ -71,22 +102,25 @@ void mc_x(vertex* vi, float T)
 				vi->z = z0;
 			}
 		}
+		*/
 }
 
-void mc(float* x, float* y, float* z, double* c, float* ten, char* sig, int* vox_id, int lattice_id)
+void mc(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* vox_ids, int lattice_id)
 {
-	for (int vox = 0; vox <= cube_size[0] * cube_size[1] * cube_size[2]; vox++)
-
-
-	if (vox_id[vox] > 0)
+	for (int threadId = 0; threadId <= cube_size[0] * cube_size[1] * cube_size[2]; threadId++)
 	{
-		int next = vox + 1;
-		while (vox_id[next] < 0) next++;
+		int vox_num = threadIdToVoxNum(threadId, lattice_id);
 
-		for (char spin_id = vox_id[vox]; spin_id < vox_id[next]; spin_id++)
+		if (vox_id[vox_num] > 0)
 		{
-			mc_c(x, y, z, c, ten, sig, spin_id, vox_id);
-			mc_x(x, y, z, c, ten, sig, spin_id, vox_id);
+			int next = vox_num + 1;
+			while (vox_id[next] < 0) next++;
+
+			for (char spin_id = vox_id[vox_num]; spin_id < vox_id[next]; spin_id++)
+			{
+				mc_c(x, y, z, c, ten, sig, vox_ids, spin_id, vox_id[vox_num], vox_num);
+				mc_x(x, y, z, c, ten, sig, vox_ids, spin_id, vox_id[vox_num], vox_num);
+			}
 		}
 	}
 }
