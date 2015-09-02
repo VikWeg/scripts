@@ -62,6 +62,7 @@ void mc_c(float* x, float* y, float* z, long long int* c, float* ten, char* sig,
 
 				int s_spos = spin_id - vox_id;
 
+				// Obsolete, use GetNeighborM from Mathmatica
 				int n_n0num;
 				int n_n0voxid = -1;
 				int m = 0;
