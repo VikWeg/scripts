@@ -1,5 +1,30 @@
-float Edata(vertex* vi, vertex* vj)
+int get_nc(int vox_num)
 {
+		int c0 = cube_size[0];
+		int c1 = cube_size[1];
+
+		int nvoxnums[26] = {vox_num - c0*c1 - c0 - 1,	vox_num - c0*c1 - c0,	vox_num - c0*c1 - c0 + 1,
+							vox_num - c0*c1 - 1,		vox_num - c0*c1,		vox_num - c0*c1 + 1,
+							vox_num - c0*c1 + c0 - 1,	vox_num - c0*c1 + c0,	vox_num - c0*c1 + c0 + 1,
+
+							vox_num - c0 - 1,			vox_num - c0,			vox_num - c0 + 1,
+							vox_num - 1,										vox_num + 1,
+							vox_num + c0 - 1,			vox_num + c0,			vox_num + c0 + 1,
+
+							vox_num + c0*c1 - c0 - 1,	vox_num + c0*c1 - c0,	vox_num + c0*c1 - c0 + 1,
+							vox_num + c0*c1 - 1,		vox_num + c0*c1,		vox_num + c0*c1 + 1,
+							vox_num + c0*c1 + c0 - 1,	vox_num + c0*c1 + c0,	vox_num + c0*c1 + c0 + 1};
+
+		int nc = 0;
+
+
+
+}
+
+
+float Edata(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* vox_ids, int spin_id, int vox_id, int vox_num)
+{
+	/*
 	float E1,E2;
 	float xij [3];
 	
@@ -25,10 +50,12 @@ float Edata(vertex* vi, vertex* vj)
 		+		(*vj).T5 * xij[2] * xij[2]) * norm;
 
 	return 0.5*( (E1 - vi->Emin) / (vi->Emax - E1 + 0.0000001) + (E2 - vj->Emin) / (vj->Emax - E2 + 0.0000001) );
+	*/
 }
 
-float Eint(vertex* vj, vertex* vi, vertex* vk)
+float Eint(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* vox_ids, int spin_id, int vox_id, int vox_num)
 {
+	/*
 	float xij[3];
 	xij[0] = vj->x - vi->x;
 	xij[1] = vj->y - vi->y;
@@ -47,10 +74,12 @@ float Eint(vertex* vj, vertex* vi, vertex* vk)
 	float cos = dot / norm;
 
 	return wint(cos);
+	*/
 }
 
-float Ei_x(vertex* vi)
+float Ei_x(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* vox_ids, int spin_id, int vox_id, int vox_num)
 {
+	/*
 	int count = 0;
 	float E = 0;
 
@@ -76,15 +105,33 @@ float Ei_x(vertex* vi)
 			}
 
 	return E/(count+0.0000001);
+	*/
 }
 
-float Ei_c(vertex* vi)
+float Ei_c(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* vox_ids, int spin_id, int vox_id, int vox_num)
 {
+	int c0 = cube_size[0];
+	int c1 = cube_size[1];
 
+	int nvoxnums[26] = {vox_num - c0*c1 - c0 - 1,	vox_num - c0*c1 - c0,	vox_num - c0*c1 - c0 + 1,
+						vox_num - c0*c1 - 1,		vox_num - c0*c1,		vox_num - c0*c1 + 1,
+						vox_num - c0*c1 + c0 - 1,	vox_num - c0*c1 + c0,	vox_num - c0*c1 + c0 + 1,
+
+						vox_num - c0 - 1,			vox_num - c0,			vox_num - c0 + 1,
+						vox_num - 1,										vox_num + 1,
+						vox_num + c0 - 1,			vox_num + c0,			vox_num + c0 + 1,
+
+						vox_num + c0*c1 - c0 - 1,	vox_num + c0*c1 - c0,	vox_num + c0*c1 - c0 + 1,
+						vox_num + c0*c1 - 1,		vox_num + c0*c1,		vox_num + c0*c1 + 1,
+						vox_num + c0*c1 + c0 - 1,	vox_num + c0*c1 + c0,	vox_num + c0*c1 + c0 + 1};
 	float E = 0;
 
-	E += (1 - vi->sig)*fabsf(vi->cc - 2) / (vi->nn - 2 + 0.0000001);
-	E += (vi->sig)*    fabsf(vi->cc - 1) / (vi->nn - 1 + 0.0000001);
+	int cc = sumBits(c[spin_id]);
+
+	int nc = get_nc(vox_num);
+
+	E += (1 - sig[vox_num])	*fabsf(cc - 2) / (vi->nn - 2 + 0.0000001);
+	E += sig[vox_num]		*fabsf(cc - 1) / (vi->nn - 1 + 0.0000001);
 
 	int cj;
 	for (int j = 0; j < vi->nn; j++)
@@ -96,8 +143,10 @@ float Ei_c(vertex* vi)
 	}
 
 	return E/(vi->nn + 1);
+
 }
 
+/*
 float Ei_C(vertex* vi)
 {
 	float E = 0;
@@ -136,3 +185,4 @@ float Ei_I(vertex* vi)
 
 	return E / (count+0.0000001);
 }
+*/
