@@ -1,5 +1,6 @@
 /*TODO
 Optimize GetVoxNumFromNeighborNum, simple: abort if too many voxels (neighbor num wont be reached)
+GetNonEmptyVoxCount very inefficient, avoid repeated function call, only loop once.
 
 */
 

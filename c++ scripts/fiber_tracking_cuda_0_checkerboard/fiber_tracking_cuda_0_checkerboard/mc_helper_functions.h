@@ -116,7 +116,7 @@ int GetVoxNumFromNeighborNum(int VoxNum, int NeighborNum, int* VoxIds)
 	return -1;
 }
 
-int GetNonEmptyNeighborVoxsCount(int BaseVoxNum, int* VoxIds)
+int GetNonEmptyNeighborVoxsCount(int BaseVoxNum, int* VoxIds) //TO BE REPLACE
 {//Returns the number of voxels next to the voxel BaseVoxNum, that have voxId != -1
 
 	int NonEmptyNeighborVoxsCount = 0;

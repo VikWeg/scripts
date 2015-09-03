@@ -1,26 +1,3 @@
-int get_nc(int vox_num)
-{
-		int c0 = cube_size[0];
-		int c1 = cube_size[1];
-
-		int nvoxnums[26] = {vox_num - c0*c1 - c0 - 1,	vox_num - c0*c1 - c0,	vox_num - c0*c1 - c0 + 1,
-							vox_num - c0*c1 - 1,		vox_num - c0*c1,		vox_num - c0*c1 + 1,
-							vox_num - c0*c1 + c0 - 1,	vox_num - c0*c1 + c0,	vox_num - c0*c1 + c0 + 1,
-
-							vox_num - c0 - 1,			vox_num - c0,			vox_num - c0 + 1,
-							vox_num - 1,										vox_num + 1,
-							vox_num + c0 - 1,			vox_num + c0,			vox_num + c0 + 1,
-
-							vox_num + c0*c1 - c0 - 1,	vox_num + c0*c1 - c0,	vox_num + c0*c1 - c0 + 1,
-							vox_num + c0*c1 - 1,		vox_num + c0*c1,		vox_num + c0*c1 + 1,
-							vox_num + c0*c1 + c0 - 1,	vox_num + c0*c1 + c0,	vox_num + c0*c1 + c0 + 1};
-
-		int nc = 0;
-
-
-
-}
-
 
 float Edata(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* vox_ids, int spin_id, int vox_id, int vox_num)
 {
