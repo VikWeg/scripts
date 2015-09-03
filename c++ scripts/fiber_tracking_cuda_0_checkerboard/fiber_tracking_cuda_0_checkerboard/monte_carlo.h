@@ -4,84 +4,35 @@ void mc_c(float* x, float* y, float* z, long long int* c, float* ten, char* sig,
 
 	int c0 = cube_size[0];
 	int c1 = cube_size[1];
-
-	int nvoxnums[26] = {vox_num - c0*c1 - c0 - 1,	vox_num - c0*c1 - c0,	vox_num - c0*c1 - c0 + 1,
-						vox_num - c0*c1 - 1,		vox_num - c0*c1,		vox_num - c0*c1 + 1,
-						vox_num - c0*c1 + c0 - 1,	vox_num - c0*c1 + c0,	vox_num - c0*c1 + c0 + 1,
-
-						vox_num - c0 - 1,			vox_num - c0,			vox_num - c0 + 1,
-						vox_num - 1,										vox_num + 1,
-						vox_num + c0 - 1,			vox_num + c0,			vox_num + c0 + 1,
-
-						vox_num + c0*c1 - c0 - 1,	vox_num + c0*c1 - c0,	vox_num + c0*c1 - c0 + 1,
-						vox_num + c0*c1 - 1,		vox_num + c0*c1,		vox_num + c0*c1 + 1,
-						vox_num + c0*c1 + c0 - 1,	vox_num + c0*c1 + c0,	vox_num + c0*c1 + c0 + 1};
-
-	/* Neighbor numbering:
-
-		0, 1, 2,
-		3, 4, 5
-		6, 7, 8
-
-		9,10, 11
-		12,  ,13
-		14,15,16
-
-		17,18,19
-		20,21,22
-		23,24,25
 	
-	*/
-	
-	int spin_off = 0;
-	for (int n = 0; n < 26; n++)
+	int NonEmptyNeighborVoxsCount = GetNonEmptyNeighborVoxsCount(vox_num,vox_ids);
+
+	int NeighborSpinsCovered = 0;
+	for (int NeighborNumber = 0; NeighborNumber < NonEmptyNeighborVoxsCount; NeighborNumber++)
 	{
-		int n_vox_id = vox_ids[nvoxnums[n]];
+		int NeighborVoxNum = GetVoxNumFromNeighborNum(vox_num,NeighborNumber,vox_ids);
+		int NeighborVoxId = vox_ids[NeighborVoxNum];
 
-		int nsc = 0;
-		if (n_vox_id > 0)
-		{
-			int next = nvoxnums[n] + 1;
-			while (vox_ids[next] < 0) next++;
+		int next = NeighborVoxNum + 1;
+		while (vox_ids[next] < 0) next++;
+		int	SpinsInNeighborVoxel = vox_ids[next] - NeighborVoxId;
 
-			nsc = vox_ids[next] - n_vox_id;
-
-			for (int ns = 0; ns < nsc; ns++)
+		for (int NeighborSpinNumber = 0; NeighborSpinNumber < SpinsInNeighborVoxel; NeighborSpinNumber++)
 			{
-				int n_spin_id = n_vox_id + ns;
+			int NeighborSpinId = NeighborVoxId + NeighborSpinNumber;
 
 				E0 =	wc(T)*Ei_c(x, y, z, c, ten, sig, vox_ids, spin_id, vox_id, vox_num)
 					+	wx(T)*Ei_x(x, y, z, c, ten, sig, vox_ids, spin_id, vox_id, vox_num);
 
 				//=== Change connection between spin and neighbour ===
 
-				c[spin_id] = changeBit(spin_off + ns, c[spin_id]);
+				c[spin_id] = changeBit(NeighborSpinsCovered + NeighborSpinNumber, c[spin_id]);
 				
-				int diff = nvoxnums[n] - vox_num;
-				int n_nsnum = 13 - diff - (diff < 0) ? 1 : 0;
+				int VoxNeighborNum = GetNeighborNumFromVoxNum(NeighborVoxNum,vox_num,vox_ids);
+				int SpinNumber = spin_id - vox_id;
+				int ConnectivityPosition = GetConnectivityOffset(NeighborVoxNum, VoxNeighborNum,vox_ids) + SpinNumber;
 
-				int s_spos = spin_id - vox_id;
-
-				// Obsolete, use GetNeighborM from Mathmatica
-				int n_n0num;
-				int n_n0voxid = -1;
-				int m = 0;
-				while (n_n0voxid < 0)
-				{
-					n_n0num =	nvoxnums[n]
-								- c0*c1*((m<9) ? 1 : 0)
-								+ c0*c1*((m>16) ? 1 : 0)
-								- c0*((m + m>12?1:0)%9 < 3 ? 1 : 0)
-								+ c0*((m + m>12?1:0)%9 > 5 ? 1 : 0)
-								+	  (m + m>12?1:0)%3 > 1 ? 1 : 0
-								-	  (m + m>12?1:0)%3 < 1 ? 1 : 0
-								;
-					n_n0num = (n_n0num>0) ? n_n0num : 0;
-					n_n0voxid = vox_ids[n_n0num];
-					m++;
-				}
-
-				c[n_spin_id] = changeBit(spin_id - n_n0voxid, c[n_spin_id]);  //bullshit spin_id - n_n0voxid... mind the gaps...
+				c[NeighborSpinId] = changeBit(ConnectivityPosition, c[NeighborSpinId]);
 
 				//OCTREE???
 
@@ -97,13 +48,12 @@ void mc_c(float* x, float* y, float* z, long long int* c, float* ten, char* sig,
 					;
 				else
 				{
-					c[spin_id] =	changeBit(spin_off + ns, c[spin_id]);
-					c[n_spin_id] =	changeBit(spin_id - n_n0voxid, c[n_spin_id]);
+					c[spin_id] = changeBit(NeighborSpinsCovered + NeighborSpinNumber, c[spin_id]);
+					c[NeighborSpinId] = changeBit(ConnectivityPosition, c[NeighborSpinId]);
 				}
 			}
-			spin_off += nsc;
+			NeighborSpinsCovered += SpinsInNeighborVoxel;
 		}
-	}
 }
 
 void mc_x(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* vox_ids, int spin_id, int vox_id, int vox_num)
@@ -153,7 +103,7 @@ void mc(float* x, float* y, float* z, long long int* c, float* ten, char* sig, i
 	{
 		int vox_num = threadIdToVoxNum(threadId, lattice_id);
 
-		if (vox_id[vox_num] > 0)
+		if (vox_id[vox_num] >= 0)
 		{
 			int next = vox_num + 1;
 			while (vox_id[next] < 0) next++;

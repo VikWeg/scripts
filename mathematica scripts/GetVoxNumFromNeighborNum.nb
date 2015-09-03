@@ -1,0 +1,872 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     30415,        863]
+NotebookOptionsPosition[     29976,        844]
+NotebookOutlinePosition[     30353,        860]
+CellTagsIndexPosition[     30310,        857]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GetVoxNumFromNeighborNum", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"c0_", ",", "c1_", ",", "c2_"}], "}"}], ",", "voxnum_", ",", 
+    "m_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "nvoxnums", ",", "x", ",", "y", ",", "z", ",", "x0", ",", "y0", ",", 
+      "z0", ",", "neighbors", ",", 
+      RowBox[{"i", "=", "0"}], ",", 
+      RowBox[{"j", "=", "0"}], ",", 
+      RowBox[{"k", "=", "0"}], ",", 
+      RowBox[{"found", "=", "0"}], ",", 
+      RowBox[{"mm", "=", "0"}]}], "}"}], ",", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+      "Maybe", " ", "include", " ", "some", " ", "check", " ", "which", " ", 
+       "returns"}], " ", "-", 
+      RowBox[{
+      "1", " ", "if", " ", "neighbor", " ", "count", " ", "is", " ", 
+       "surpassed"}]}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{"If", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"Mod", "[", 
+          RowBox[{"voxnum", ",", "c0"}], "]"}], "\[Equal]", "0"}], " ", "||", 
+        " ", 
+        RowBox[{
+         RowBox[{"Mod", "[", 
+          RowBox[{
+           RowBox[{"voxnum", "+", "1"}], ",", "c0"}], "]"}], "\[Equal]", 
+         "0"}], " ", "||", " ", 
+        RowBox[{
+         RowBox[{"Mod", "[", 
+          RowBox[{"voxnum", ",", 
+           RowBox[{"c0", "*", "c1"}]}], "]"}], "<", "c0"}], " ", "||", 
+        RowBox[{
+         RowBox[{"Mod", "[", 
+          RowBox[{"voxnum", ",", 
+           RowBox[{"c0", "*", "c1"}]}], "]"}], ">", " ", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"c1", "-", "1"}], ")"}], "*", "c0"}]}]}], 
+       "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+       RowBox[{"-", "1"}], "\[IndentingNewLine]", ","}]}], "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{"voxnum", "\[IndentingNewLine]", "-", 
+      RowBox[{"c0", "*", "c1", "*", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"m", "<", "9"}], ",", "1", ",", "0"}], "]"}]}], "\n", "+", 
+      RowBox[{"c0", "*", "c1", "*", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"m", ">", "16"}], ",", "1", ",", "0"}], "]"}]}], "\n", "-", 
+      RowBox[{"c0", "*", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Mod", "[", 
+           RowBox[{
+            RowBox[{"m", "+", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"m", ">", "12"}], ",", "1", ",", "0"}], "]"}]}], ",", 
+            "9"}], "]"}], "<", "3"}], ",", "1", ",", "0"}], "]"}]}], "\n", 
+      "+", 
+      RowBox[{"c0", "*", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Mod", "[", 
+           RowBox[{
+            RowBox[{"m", "+", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"m", ">", "12"}], ",", "1", ",", "0"}], "]"}]}], ",", 
+            "9"}], "]"}], ">", "5"}], ",", "1", ",", "0"}], "]"}]}], "\n", 
+      "+", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Mod", "[", 
+          RowBox[{
+           RowBox[{"m", "+", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"m", ">", "12"}], ",", "1", ",", "0"}], "]"}]}], ",", 
+           "3"}], "]"}], ">", "1"}], ",", "1", ",", "0"}], "]"}], "\n", "-", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Mod", "[", 
+          RowBox[{
+           RowBox[{"m", "+", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"m", ">", "12"}], ",", "1", ",", "0"}], "]"}]}], ",", 
+           "3"}], "]"}], "<", "1"}], ",", "1", ",", "0"}], "]"}]}], 
+     "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+      "]", "\[IndentingNewLine]", "Add", " ", "filter", " ", "which", " ", 
+       "takes", " ", "out", " ", "m_voxnums", " ", "that", " ", "are"}], " ", 
+      "<", " ", 
+      RowBox[{"0", " ", "or"}], " ", ">", " ", "c0c1c2"}], "*)"}], 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"x", " ", "=", 
+      RowBox[{"Mod", "[", 
+       RowBox[{"voxnum", ",", "c0"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"y", " ", "=", " ", 
+      RowBox[{"Mod", "[", 
+       RowBox[{
+        RowBox[{"Quotient", "[", 
+         RowBox[{"voxnum", ",", "c0"}], "]"}], ",", "c1"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"z", "=", 
+      RowBox[{"Quotient", "[", 
+       RowBox[{"voxnum", ",", 
+        RowBox[{"c0", "*", "c1"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"x0", " ", "=", " ", 
+      RowBox[{"x", "-", "1"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"y0", " ", "=", " ", 
+      RowBox[{"y", "-", "1"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"z0", " ", "=", " ", 
+      RowBox[{"z", "-", "1"}]}], ";", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"k", "=", "0"}], ",", 
+       RowBox[{"k", "<", "3"}], ",", 
+       RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", "\t", 
+       RowBox[{
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"j", "=", "0"}], ",", 
+          RowBox[{"j", "<", "3"}], ",", 
+          RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", "\t\t", 
+          RowBox[{
+           RowBox[{"For", "[", 
+            RowBox[{
+             RowBox[{"i", "=", "0"}], ",", 
+             RowBox[{"i", "<", "3"}], ",", 
+             RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", "\t\t", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"x0", "+", "i"}], ">=", "0"}], " ", "&&", " ", 
+                RowBox[{
+                 RowBox[{"x0", "+", "i"}], "<", "c0"}], " ", "&&", 
+                RowBox[{
+                 RowBox[{"y0", "+", "j"}], ">=", " ", "0"}], " ", "&&", " ", 
+                RowBox[{
+                 RowBox[{"y0", " ", "+", "j"}], "<", " ", "c1"}], " ", "&&", 
+                " ", 
+                RowBox[{
+                 RowBox[{"z0", " ", "+", "k"}], ">=", " ", "0"}], " ", "&&", 
+                " ", 
+                RowBox[{
+                 RowBox[{"z0", "+", "k"}], " ", "<", " ", "c2"}], " ", "&&", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"x0", "+", "i"}], "\[NotEqual]", "x"}], "||", 
+                  RowBox[{
+                   RowBox[{"y0", "+", "j"}], "\[NotEqual]", "y"}], "||", 
+                  RowBox[{
+                   RowBox[{"z0", "+", "k"}], "!=", "z"}]}], ")"}]}], ",", 
+               "\[IndentingNewLine]", "\t\t", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"mm", "\[Equal]", "m"}], " ", ",", 
+                 RowBox[{
+                  RowBox[{"found", "=", "1"}], ";", 
+                  RowBox[{"Break", "[", "]"}]}], ",", 
+                 RowBox[{"mm", "++"}]}], "]"}]}], "]"}]}], 
+            "\[IndentingNewLine]", "\t\t", "]"}], ";", "\[IndentingNewLine]", 
+           "\t\t", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"found", "\[Equal]", "1"}], ",", 
+             RowBox[{"Break", "[", "]"}]}], "]"}], ";"}]}], 
+         "\[IndentingNewLine]", "\t", "]"}], ";", "\[IndentingNewLine]", "\t", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"found", "\[Equal]", "1"}], ",", 
+          RowBox[{"Break", "[", "]"}]}], "]"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"found", "\[Equal]", "1"}], ",", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"x0", "+=", "i"}], ";", 
+        RowBox[{"y0", "+=", "j"}], ";", 
+        RowBox[{"z0", "+=", "k"}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"z0", "*", "c0", "*", "c1"}], " ", "+", " ", 
+         RowBox[{"y0", "*", "c0"}], " ", "+", " ", "x0"}]}], 
+       "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+       RowBox[{"{", "}"}]}], "]"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.650189013122428*^9, 3.650189041469281*^9}, {
+   3.650189077814948*^9, 3.650189085287762*^9}, {3.6501891219156957`*^9, 
+   3.650189153664954*^9}, 3.65018918422421*^9, {3.6501892692993665`*^9, 
+   3.6501893146472535`*^9}, {3.6501893737215614`*^9, 
+   3.6501895083432117`*^9}, {3.6501905638717747`*^9, 
+   3.6501906119554644`*^9}, {3.6501919725109153`*^9, 3.650191981948936*^9}, {
+   3.6501920383360543`*^9, 3.65019224148356*^9}, {3.6501922756996393`*^9, 
+   3.650192385852897*^9}, {3.650192999308339*^9, 3.650193035367422*^9}, {
+   3.6502147669901185`*^9, 3.6502147819223447`*^9}, {3.6502149616968927`*^9, 
+   3.6502150046335692`*^9}, {3.650215120261462*^9, 3.6502152154757185`*^9}, {
+   3.650215290421916*^9, 3.650215298663931*^9}, {3.65021534882006*^9, 
+   3.650215395813182*^9}, {3.6502166723032513`*^9, 3.650216725988388*^9}, {
+   3.650216971290721*^9, 3.650217084301126*^9}, {3.6502171225485954`*^9, 
+   3.6502171273388042`*^9}, {3.6502172315249944`*^9, 
+   3.6502172700492644`*^9}, {3.650217317050349*^9, 3.650217389599081*^9}, {
+   3.650218110627267*^9, 3.6502184691475143`*^9}, {3.650218505735381*^9, 
+   3.650218609044767*^9}, {3.650218644871831*^9, 3.650218649305239*^9}, {
+   3.6502186990725293`*^9, 3.6502187759706683`*^9}, {3.6502188920100775`*^9, 
+   3.650218935857957*^9}, {3.6502190320705333`*^9, 3.65021918381081*^9}, {
+   3.650219487651759*^9, 3.6502194891105623`*^9}, {3.6502195915149484`*^9, 
+   3.6502195984095616`*^9}, {3.650219717952179*^9, 3.65021975719965*^9}, {
+   3.6502199464693937`*^9, 3.650219953088806*^9}, {3.650220002073494*^9, 
+   3.650220046733976*^9}, {3.650220146431156*^9, 3.650220176803211*^9}, {
+   3.650220211318222*^9, 3.6502202215264425`*^9}, {3.650220256194104*^9, 
+   3.6502203513642764`*^9}, {3.650220413519389*^9, 3.650220414892192*^9}, {
+   3.650256049726457*^9, 3.6502560504596586`*^9}, {3.65025762366264*^9, 
+   3.6502576544667025`*^9}, {3.6502709249347267`*^9, 3.650270972363017*^9}, 
+   3.6502793028404064`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"DrawGrid", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"c0_", ",", "c1_", ",", "c2_"}], "}"}], ",", "voxnum_"}], "]"}],
+    ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "pick", "}"}], ",", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Grid", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Table", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Item", "[", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"If", "[", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"pick", "=", 
+                 RowBox[{"Select", "[", 
+                  RowBox[{
+                   RowBox[{"Table", "[", " ", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"GetVoxNumFromNeighborNum", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"c0", ",", "c1", ",", "c2"}], "}"}], ",", 
+                    "voxnum", ",", "m"}], "]"}], ",", "m"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"m", ",", "0", ",", "25"}], "}"}]}], "]"}], ",", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"k", "*", "c0", "*", "c1"}], " ", "+", " ", 
+                    RowBox[{"j", "*", "c0"}], " ", "+", " ", "i"}], 
+                    "\[Equal]", 
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "&"}]}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"pick", "\[NotEqual]", 
+                 RowBox[{"{", "}"}]}]}], ",", "\[IndentingNewLine]", 
+               RowBox[{"pick", "[", 
+                RowBox[{"[", 
+                 RowBox[{"1", ",", "2"}], "]"}], "]"}], ",", 
+               RowBox[{
+                RowBox[{"k", "*", "c0", "*", "c1"}], " ", "+", " ", 
+                RowBox[{"j", "*", "c0"}], " ", "+", " ", "i"}]}], "]"}], ",", 
+             "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"Background", "\[Rule]", 
+              RowBox[{"If", "[", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"pick", "=", 
+                  RowBox[{"Select", "[", 
+                   RowBox[{
+                    RowBox[{"Table", "[", " ", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"GetVoxNumFromNeighborNum", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"c0", ",", "c1", ",", "c2"}], "}"}], ",", 
+                    "voxnum", ",", "m"}], "]"}], ",", "m"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"m", ",", "0", ",", "25"}], "}"}]}], "]"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"k", "*", "c0", "*", "c1"}], " ", "+", " ", 
+                    RowBox[{"j", "*", "c0"}], " ", "+", " ", "i"}], 
+                    "\[Equal]", 
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "&"}]}], "]"}]}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"pick", "\[NotEqual]", 
+                  RowBox[{"{", "}"}]}]}], ",", "\[IndentingNewLine]", "Red", 
+                ",", "White"}], "]"}]}]}], "\[IndentingNewLine]", "]"}], 
+           "\[IndentingNewLine]", ",", 
+           RowBox[{"{", 
+            RowBox[{"j", ",", "0", ",", 
+             RowBox[{"c1", "-", "1"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "0", ",", 
+             RowBox[{"c0", "-", "1"}]}], "}"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+         RowBox[{"Alignment", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Center", ",", "Center"}], "}"}]}]}], "]"}], 
+       "\[IndentingNewLine]", ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "0", ",", 
+         RowBox[{"c2", "-", "1"}]}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.6501895765429406`*^9, 3.6501896926555567`*^9}, {
+  3.650189727802621*^9, 3.650189789134338*^9}, {3.6501898880141225`*^9, 
+  3.650189961912659*^9}, {3.6501900061331415`*^9, 3.650190034159593*^9}, {
+  3.650190121296152*^9, 3.650190126879362*^9}, {3.65019017322785*^9, 
+  3.6501903131297064`*^9}, {3.650190349146773*^9, 3.650190434397931*^9}, {
+  3.650190637383311*^9, 3.650190637508111*^9}, {3.650192059055122*^9, 
+  3.6501920624501286`*^9}, {3.6502793142514277`*^9, 3.6502793169244337`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DrawGrid", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"5", ",", "5", ",", "5"}], "}"}], ",", "12"}], "]"}]], "Input",
+ CellChangeTimes->{{3.650190438913339*^9, 3.6501904591223793`*^9}, {
+   3.6501908360992875`*^9, 3.6501908382374916`*^9}, {3.6501908947209964`*^9, 
+   3.6501909145766325`*^9}, {3.650190949295496*^9, 3.6501909581905117`*^9}, 
+   3.6501911166676035`*^9, {3.65019149500718*^9, 3.6501915261432486`*^9}, 
+   3.650191559003338*^9, {3.650192094267223*^9, 3.6501920970962315`*^9}, 
+   3.6501925152265406`*^9, {3.6501926295764427`*^9, 3.6501926667655387`*^9}, {
+   3.650192811244893*^9, 3.6501928113348937`*^9}, {3.6501929004681025`*^9, 
+   3.650192922901157*^9}, {3.6502147479470844`*^9, 3.650214748105085*^9}, {
+   3.6502204957775407`*^9, 3.6502205341076097`*^9}, {3.650220616588959*^9, 
+   3.6502206167293596`*^9}, {3.650270984293439*^9, 3.650270984371439*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[GridBox[{
+      {
+       ItemBox["0",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["1",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["2",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["3",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["4",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["5",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["0",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["1",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["2",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["9",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["10",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["3",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["12",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["4",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["14",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["15",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["5",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["6",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["7",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["19",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["20",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["21",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["22",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["23",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["24",
+        Background->GrayLevel[1],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox["25",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["26",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["27",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["28",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["29",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["30",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["8",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["9",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["10",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["34",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["35",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["11",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["12",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["13",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["39",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["40",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["14",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["15",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["16",
+        Background->RGBColor[1, 0, 0],
+        StripOnInput->False], 
+       ItemBox["44",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["45",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["46",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["47",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["48",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["49",
+        Background->GrayLevel[1],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox["50",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["51",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["52",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["53",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["54",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["55",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["56",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["57",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["58",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["59",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["60",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["61",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["62",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["63",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["64",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["65",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["66",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["67",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["68",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["69",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["70",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["71",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["72",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["73",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["74",
+        Background->GrayLevel[1],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox["75",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["76",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["77",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["78",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["79",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["80",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["81",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["82",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["83",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["84",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["85",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["86",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["87",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["88",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["89",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["90",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["91",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["92",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["93",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["94",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["95",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["96",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["97",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["98",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["99",
+        Background->GrayLevel[1],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox["100",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["101",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["102",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["103",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["104",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["105",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["106",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["107",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["108",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["109",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["110",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["111",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["112",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["113",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["114",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["115",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["116",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["117",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["118",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["119",
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox["120",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["121",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["122",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["123",
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox["124",
+        Background->GrayLevel[1],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6501904487259593`*^9, 3.6501904596527805`*^9}, {
+   3.6501906200980797`*^9, 3.650190640664317*^9}, 3.6501908389238925`*^9, {
+   3.6501908953605976`*^9, 3.650190915153834*^9}, {3.6501909502938976`*^9, 
+   3.6501909586585126`*^9}, 3.6501911176056056`*^9, {3.6501914958691893`*^9, 
+   3.650191526713249*^9}, 3.6501915595783396`*^9, 3.650192097666232*^9, 
+   3.6501923659298477`*^9, 3.6501925157165413`*^9, {3.6501926159863763`*^9, 
+   3.65019266731654*^9}, 3.650192812277896*^9, {3.6501929016011047`*^9, 
+   3.650192923381158*^9}, 3.6502147485886855`*^9, 3.6502147869651537`*^9, 
+   3.6502204623654804`*^9, {3.650220496902743*^9, 3.6502205356832123`*^9}, 
+   3.650220617758961*^9, {3.650270980251032*^9, 3.650270985557041*^9}}]
+}, Open  ]]
+},
+WindowSize->{1334, 942},
+WindowMargins->{{Automatic, 354}, {Automatic, 24}},
+Magnification:>1.4 Inherited,
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 10313, 244, 1339, "Input"],
+Cell[10874, 266, 4896, 108, 664, "Input"],
+Cell[CellGroupData[{
+Cell[15795, 378, 899, 14, 42, "Input"],
+Cell[16697, 394, 13263, 447, 136, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,3 +1,8 @@
+/*TODO
+Optimize GetVoxNumFromNeighborNum, simple: abort if too many voxels (neighbor num wont be reached)
+
+*/
+
 #include "cuda_runtime.h"
 #include "device_launch_parameters.h"
 
@@ -121,89 +126,6 @@ long scount;
 /**/
 /**/	std::string comment("");
 /*************************************************************************/
-
-// **** Map Thread to Vox ****
-int threadIdToVoxNum(int threadId, int latticeId)
-{
-	int sliceOff = latticeId / 9;
-	int colOff = latticeId % 3;
-	int rowOff = (latticeId / 3) % 3;
-
-	int voxsPerRow = (cube_size[0] - colOff - 1) / 3 + 1;
-	int rowsPerSlice = (cube_size[1] - colOff - 1) / 3 + 1;
-
-	int voxsPerSlice = voxsPerRow*rowsPerSlice;
-
-	int voxsToFill = threadId + 1;
-
-	int voxsLeft = voxsToFill % voxsPerSlice;
-
-	int lastRowLeft = voxsLeft % voxsPerRow;
-
-	return		cube_size[0] * cube_size[1] * sliceOff
-
-			+	cube_size[0] * cube_size[1] * 3 * (voxsToFill / voxsPerSlice)
-
-			+	(voxsLeft == 0)?1:0*
-								(		rowOff*cube_size[0]
-									+	(rowsPerSlice - 1) * 3 * cube_size[0]
-									+	colOff
-									+	(voxsPerRow - 1) * 3
-									-	3 * cube_size[0] * cube_size[1]
-								)
-
-			+ (voxsLeft != 0)?1:0 *
-								(		rowOff*cube_size[0]
-									+	3 * cube_size[0] * (voxsLeft / voxsPerRow)
-									-	(lastRowLeft == 0)?1:0*
-															(		2 * cube_size[0]
-																+	(cube_size[0] - colOff - 1) % 3
-																+	1
-															)
-									+	(lastRowLeft != 0)?1:0*
-															(		colOff
-																+	3 * (lastRowLeft - 1)
-															)
-								);
-
-}
-
-// **** Get i-th bit ****
-
-int getBit(int i, long long int c)
-{
-	long long int mask = 1 << i;
-
-	return (c&mask == 0) ? 0 : 1;
-}
-
-// **** Change i-th bit ****
-
-int changeBit(int i, long long int c)
-{
-	long long int mask = 1 << i;
-
-	return c ^ mask;
-
-}
-
-// **** Sum all bits **** 'Hamming Weight', 'popcount' or 'sideways addition' http://bisqwit.iki.fi/source/misc/bitcounting/
-
-int sumBits(long long int c)
-{	
-	const unsigned TEST_BITS = sizeof(long long int)* sizeof(char)*8;
-
-	long long int m1 = (~(long long int)0) / 3;
-	long long int m2 = (~(long long int)0) / 5;
-	long long int m4 = (~(long long int)0) / 17;
-	long long int h01 = (~(long long int)0) / 255;
-
-	c -= (c >> 1) & m1;
-	c = (c & m2) + ((c >> 2) & m2);
-	c = (c + (c >> 4)) & m4;        
-
-	return (c * h01) >> (TEST_BITS - 8);
-}
 
 // **** RANDOM ****
 

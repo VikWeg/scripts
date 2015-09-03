@@ -1,0 +1,793 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     27347,        784]
+NotebookOptionsPosition[     26728,        759]
+NotebookOutlinePosition[     27077,        774]
+CellTagsIndexPosition[     27034,        771]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"GetConnectivityOffset", "["}]], "Input",
+ CellChangeTimes->{{3.6502793781263456`*^9, 3.6502793807783504`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Snum", "[", 
+   RowBox[{"{", 
+    RowBox[{"c0_", ",", "c1_", ",", "c2_"}], "}"}], "]"}], ":=", 
+  RowBox[{"RandomInteger", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"0", ",", "3"}], "}"}], ",", 
+    RowBox[{"c0", "*", "c1", "*", "c2"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.650279710178421*^9, 3.650279770815133*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"VoxIds", "[", "Snum_", "]"}], ":=", 
+  RowBox[{"Prepend", "[", 
+   RowBox[{
+    RowBox[{"Delete", "[", 
+     RowBox[{
+      RowBox[{"Accumulate", "[", "Snum", "]"}], ",", 
+      RowBox[{"Length", "[", "Snum", "]"}]}], "]"}], ",", "0"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.6502798303880424`*^9, 3.650279858368694*^9}, {
+   3.650279925206216*^9, 3.6502799986931562`*^9}, {3.650280115771978*^9, 
+   3.650280132896209*^9}, {3.650280164392867*^9, 3.6502801841089087`*^9}, {
+   3.650280245455221*^9, 3.6502802732280765`*^9}, 3.6502807255299263`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"snum", " ", "=", " ", 
+   RowBox[{"Snum", "[", 
+    RowBox[{"{", 
+     RowBox[{"5", ",", "5", ",", "5"}], "}"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.650280004060566*^9, 3.650280013420983*^9}, {
+  3.6502802811860905`*^9, 3.650280282856694*^9}, {3.6502805797484417`*^9, 
+  3.6502805827204475`*^9}, {3.6502807950994616`*^9, 3.650280799180069*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"VoxIds", "[", "snum", "]"}]], "Input",
+ CellChangeTimes->{{3.6502800171201897`*^9, 3.6502800223128*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "2", ",", "5", ",", "7"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.650280023498402*^9, 3.6502801901143208`*^9, {3.6502802760058813`*^9, 
+   3.6502802857476997`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DrawGrid", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"c0_", ",", "c1_", ",", "c2_"}], "}"}], ",", "snum_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "vox", "}"}], ",", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Table", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Grid", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Table", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"vox", "=", 
+            RowBox[{
+             RowBox[{"k", "*", "c0", "*", "c1"}], " ", "+", " ", 
+             RowBox[{"j", "*", "c0"}], " ", "+", " ", "i"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Item", "[", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"snum", "[", 
+                RowBox[{"[", 
+                 RowBox[{"vox", "+", "1"}], "]"}], "]"}], "\[Equal]", "0"}], 
+              ",", "\[IndentingNewLine]", 
+              SubscriptBox["vox", "\"\<\>\""], ",", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"snum", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"vox", "+", "1"}], "]"}], "]"}], "\[Equal]", "1"}],
+                 ",", "\[IndentingNewLine]", 
+                SubscriptBox["vox", "\"\<\!\(\*
+StyleBox[\"\[CenterDot]\",
+FontWeight->\"Plain\"]\)\>\""], ",", "\[IndentingNewLine]", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"snum", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"vox", "+", "1"}], "]"}], "]"}], "\[Equal]", 
+                   "2"}], ",", "\[IndentingNewLine]", 
+                  SubscriptBox["vox", "\"\<\!\(\*
+StyleBox[\"\[CenterDot]\",
+FontWeight->\"Plain\"]\)\!\(\*
+StyleBox[\"\[CenterDot]\",
+FontWeight->\"Plain\"]\)\>\""], ",", "\[IndentingNewLine]", 
+                  SubscriptBox["vox", "\"\<\[Therefore]\>\""]}], 
+                 "\[IndentingNewLine]", "]"}]}], "]"}]}], "]"}], 
+            "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "0", ",", 
+            RowBox[{"c1", "-", "1"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "0", ",", 
+            RowBox[{"c0", "-", "1"}]}], "}"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+        RowBox[{"Alignment", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"Center", ",", "Center"}], "}"}]}]}], "]"}], 
+      "\[IndentingNewLine]", ",", 
+      RowBox[{"{", 
+       RowBox[{"k", ",", "0", ",", 
+        RowBox[{"c2", "-", "1"}]}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6502803276201777`*^9, 3.65028039942391*^9}, {
+  3.650280433658573*^9, 3.650280639527953*^9}, {3.6502809192494926`*^9, 
+  3.650280924402502*^9}, {3.6502809598357687`*^9, 3.6502810506111493`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DrawGrid", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"5", ",", "5", ",", "5"}], "}"}], ",", "snum"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6502804032815175`*^9, 3.650280414005737*^9}, {
+  3.6502805858882527`*^9, 3.6502805865318537`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[GridBox[{
+      {
+       ItemBox[
+        SubscriptBox[
+         "0", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\
+\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["1", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["2", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "3", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\
+\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["4", "\<\"\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["5", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["6", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "7", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\
+\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "8", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\
+\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "9", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\
+\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "10", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "11", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["12", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["13", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["14", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "15", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "16", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "17", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["18", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "19", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["20", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["21", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["22", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "23", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "24", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox[
+        SubscriptBox[
+         "25", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "26", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "27", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "28", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["29", "\<\"\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "30", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "31", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "32", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["33", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["34", "\<\"\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["35", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "36", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "37", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "38", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["39", "\<\"\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "40", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "41", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["42", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "43", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "44", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["45", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["46", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["47", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "48", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "49", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox[
+        SubscriptBox["50", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["51", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "52", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["53", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["54", "\<\"\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["55", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["56", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "57", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["58", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "59", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["60", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "61", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["62", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["63", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["64", "\<\"\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "65", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["66", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "67", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["68", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "69", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["70", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["71", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "72", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["73", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["74", "\<\"\"\>"],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox[
+        SubscriptBox["75", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "76", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["77", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "78", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["79", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["80", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "81", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "82", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["83", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["84", "\<\"\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["85", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["86", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["87", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["88", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "89", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["90", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "91", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["92", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["93", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["94", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "95", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["96", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "97", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["98", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["99", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox[
+        SubscriptBox["100", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["101", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["102", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["103", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "104", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "105", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "106", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "107", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["108", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "109", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "110", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "111", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "112", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["113", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["114", "\<\"\[Therefore]\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "115", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "116", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "117", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "118", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "119", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["120", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "121", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["122", "\<\"\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "123", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "124", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"]}], "}"}]], "Output",
+ CellChangeTimes->{{3.650280414475738*^9, 3.6502804486456003`*^9}, 
+   3.650280500591096*^9, {3.6502806135835047`*^9, 3.6502806622921953`*^9}, 
+   3.650280733971942*^9, 3.6502810196020923`*^9, 3.6502810532943535`*^9}]
+}, Open  ]]
+},
+WindowSize->{1411, 794},
+WindowMargins->{{Automatic, 425}, {Automatic, -893}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 134, 2, 31, "Input"],
+Cell[695, 24, 365, 10, 31, "Input"],
+Cell[1063, 36, 588, 13, 31, "Input"],
+Cell[1654, 51, 391, 8, 31, "Input"],
+Cell[CellGroupData[{
+Cell[2070, 63, 128, 2, 31, "Input"],
+Cell[2201, 67, 216, 5, 31, "Output"]
+}, Open  ]],
+Cell[2432, 75, 3126, 74, 432, "Input"],
+Cell[CellGroupData[{
+Cell[5583, 153, 267, 6, 31, "Input"],
+Cell[5853, 161, 20859, 595, 100, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
