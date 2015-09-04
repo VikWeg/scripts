@@ -116,13 +116,34 @@ int GetVoxNumFromNeighborNum(int VoxNum, int NeighborNum, int* VoxIds)
 	return -1;
 }
 
-int GetNonEmptyNeighborVoxsCount(int BaseVoxNum, int* VoxIds) //TO BE REPLACE
-{//Returns the number of voxels next to the voxel BaseVoxNum, that have voxId != -1
+int GetNonEmptyNeighborVoxsCount(int BaseVoxNum, int* VoxIds)
+{//Returns the number of voxels next to the voxel BaseVoxNum, that have voxId > -1
 
 	int NonEmptyNeighborVoxsCount = 0;
 
-	for (int NeighborNum = 0; NeighborNum < 26; NeighborNum++)
-		NonEmptyNeighborVoxsCount += VoxIds[GetVoxNumFromNeighborNum(BaseVoxNum, NeighborNum, VoxIds)] >= 0 ? 1 : 0;
+	int c0 = cube_size[0];
+	int c1 = cube_size[1];
+	int c2 = cube_size[2];
+
+	int x = BaseVoxNum % c0;
+	int y = (BaseVoxNum / c0) % c1;
+	int z = BaseVoxNum / (c0*c1);
+
+	int x0 = x - 1;
+	int y0 = y - 1;
+	int z0 = z - 1;
+
+	int i, j, k;
+	int NonEmptyNeighborVoxsCount = 0;
+	for (k = 0; k < 3; k++)
+	for (j = 0; j < 3; j++)
+	for (i = 0; i < 3; i++)
+	if (
+		x0 + i >= 0 && x0 + i < c0 && y0 + j >= 0 && y0 + j < c1 && z0 + k >= 0 && z0 + k < c2
+		&& (x0 + i != x || y0 + j != y || z0 + k != z)
+		&& VoxIds[(z0 + k)*c0*c1 + (y0 + j)*c0 + (x0 + i)] >= 0
+		)
+		NonEmptyNeighborVoxsCount++;
 
 	return NonEmptyNeighborVoxsCount;
 }
@@ -161,6 +182,75 @@ int GetNeighborNumFromVoxNum(int BaseVoxNum, int VoxNum, int* VoxIds)
 int GetConnectivityOffset(int VoxNum, int NeighborNum, int* VoxIds)
 {//Returns the offset of the NeighborNum-th voxel in the connectivity of voxel VoxNum
 
+	int c0 = cube_size[0];
+	int c1 = cube_size[1];
+	int c2 = cube_size[2];
 
+	int x = VoxNum % c0;
+	int y = (VoxNum / c0) % c1;
+	int z = VoxNum / (c0*c1);
 
+	int x0 = x - 1;
+	int y0 = y - 1;
+	int z0 = z - 1;
+
+	int i, j, k;
+	int CurrentNeighborNum = 0;
+	int Offset = 0;
+	for (k = 0; k < 3; k++)
+		for (j = 0; j < 3; j++)
+			for (i = 0; i < 3; i++)
+			if (
+				x0 + i >= 0 && x0 + i < c0 && y0 + j >= 0 && y0 + j < c1 && z0 + k >= 0 && z0 + k < c2
+				&& (x0 + i != x || y0 + j != y || z0 + k != z)
+				&& VoxIds[(z0 + k)*c0*c1 + (y0 + j)*c0 + (x0 + i)] >= 0
+				)
+				{
+					if (CurrentNeighborNum == NeighborNum) return Offset;
+
+					int vox = (z0 + k)*c0*c1 + (y0 + j)*c0 + (x0 + i);
+					int next = vox + 1;
+					while (VoxIds[next] < 0) next++;
+
+					Offset += VoxIds[next] - VoxIds[vox];
+
+					CurrentNeighborNum++;
+				}
+
+	return -1;
+}
+
+int GetNeighborSpinCount(int VoxNum, int* VoxIds)
+{//Returns number of spins around VoxNum
+	int c0 = cube_size[0];
+	int c1 = cube_size[1];
+	int c2 = cube_size[2];
+
+	int x = VoxNum % c0;
+	int y = (VoxNum / c0) % c1;
+	int z = VoxNum / (c0*c1);
+
+	int x0 = x - 1;
+	int y0 = y - 1;
+	int z0 = z - 1;
+
+	int i, j, k;
+	int count = 0;
+	for (k = 0; k < 3; k++)
+	for (j = 0; j < 3; j++)
+	for (i = 0; i < 3; i++)
+	if (
+		x0 + i >= 0 && x0 + i < c0 && y0 + j >= 0 && y0 + j < c1 && z0 + k >= 0 && z0 + k < c2
+		&& (x0 + i != x || y0 + j != y || z0 + k != z)
+		&& VoxIds[(z0 + k)*c0*c1 + (y0 + j)*c0 + (x0 + i)] >= 0
+		)
+		{
+			int vox = (z0 + k)*c0*c1 + (y0 + j)*c0 + (x0 + i);
+			int next = vox + 1;
+			while (VoxIds[next] < 0) next++;
+
+			count += VoxIds[next] - VoxIds[vox];
+		}
+
+	return count;
 }

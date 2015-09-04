@@ -1,7 +1,8 @@
 /*TODO
 Optimize GetVoxNumFromNeighborNum, simple: abort if too many voxels (neighbor num wont be reached)
 GetNonEmptyVoxCount very inefficient, avoid repeated function call, only loop once.
-
+Differentiate Ei_x for mc_c and mc_x, in case of mc_c only the energy change for the changed connection needs to be calculated.
+Octree??
 */
 
 #include "cuda_runtime.h"

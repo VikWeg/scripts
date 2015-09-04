@@ -1,6 +1,6 @@
 #include "definitions.h"
-#include "energy.h"
 #include "mc_helper_functions.h"
+#include "energy.h"
 #include "monte_carlo.h"
 #include "import_data.h"
 #include "init_ensemble.h"

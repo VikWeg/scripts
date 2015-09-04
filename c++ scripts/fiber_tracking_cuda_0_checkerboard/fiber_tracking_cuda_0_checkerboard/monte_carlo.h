@@ -21,8 +21,8 @@ void mc_c(float* x, float* y, float* z, long long int* c, float* ten, char* sig,
 			{
 			int NeighborSpinId = NeighborVoxId + NeighborSpinNumber;
 
-				E0 =	wc(T)*Ei_c(x, y, z, c, ten, sig, vox_ids, spin_id, vox_id, vox_num)
-					+	wx(T)*Ei_x(x, y, z, c, ten, sig, vox_ids, spin_id, vox_id, vox_num);
+			E0 =		wc(T)*Ei_c(x, y, z, c, ten, sig, vox_ids, spin_id, vox_id, vox_num, NeighborVoxNum, NeighborSpinId)
+				+		wx(T)*Ei_x(x, y, z, c, ten, sig, vox_ids, vox_num, vox_id, spin_id);
 
 				//=== Change connection between spin and neighbour ===
 
@@ -34,12 +34,10 @@ void mc_c(float* x, float* y, float* z, long long int* c, float* ten, char* sig,
 
 				c[NeighborSpinId] = changeBit(ConnectivityPosition, c[NeighborSpinId]);
 
-				//OCTREE???
-
 				//=====================================================
 
-				E1 =	wc(T)*Ei_c(x, y, z, c, ten, sig, vox_ids, spin_id, vox_id, vox_num)
-					+	wx(T)*Ei_x(x, y, z, c, ten, sig, vox_ids, spin_id, vox_id, vox_num);
+				E1 =	wc(T)*Ei_c(x, y, z, c, ten, sig, vox_ids, spin_id, vox_id, vox_num, NeighborVoxNum, NeighborSpinId)
+					+	wx(T)*Ei_x(x, y, z, c, ten, sig, vox_ids, vox_num, vox_id, spin_id);
 
 				p = fminf(1., expf((E0 - E1) / T));
 				std::bernoulli_distribution acceptQ(p);
@@ -64,24 +62,24 @@ void mc_x(float* x, float* y, float* z, long long int* c, float* ten, char* sig,
 
 		for (int i = 0; i < nx; i++)
 		{
-			E0 = wx(T)*Ei_x(x, y, z, c, ten, sig, vox_ids, spin_id, vox_id, vox_num);
+			E0 = wx(T)*Ei_x(x, y, z, c, ten, sig, vox_ids, vox_num, vox_id, spin_id);
 
-			x0 = x[vox_id];
-			y0 = y[vox_id];
-			z0 = z[vox_id];
+			x0 = x[spin_id];
+			y0 = y[spin_id];
+			z0 = z[spin_id];
 
 			int pos_x = round(x0 / hdr.pixdim[1]);
 			int	pos_y = round(y0 / hdr.pixdim[2]);
 			int	pos_z = round(z0 / hdr.pixdim[3]);
 
 			std::uniform_real_distribution<float> u_x(x0 - (x0 - pos_x + hdr.pixdim[1] * 0.5) * delta_x, x0 + (pos_x + hdr.pixdim[1] * 0.5 - x0) * delta_x);
-			x[vox_id] = u_x(generate);
+			x[spin_id] = u_x(generate);
 			std::uniform_real_distribution<float> u_y(y0 - (y0 - pos_y + hdr.pixdim[2] * 0.5) * delta_x, y0 + (pos_y + hdr.pixdim[2] * 0.5 - y0) * delta_x);
-			y[vox_id] = u_y(generate);
+			y[spin_id] = u_y(generate);
 			std::uniform_real_distribution<float> u_z(z0 - (z0 - pos_z + hdr.pixdim[3] * 0.5) * delta_x, z0 + (pos_z + hdr.pixdim[3] * 0.5 - z0) * delta_x);
-			z[vox_id] = u_z(generate);
+			z[spin_id] = u_z(generate);
 
-			E1 = wx(T)*Ei_x(x, y, z, c, ten, sig, vox_ids, spin_id, vox_id, vox_num);
+			E1 = wx(T)*Ei_x(x, y, z, c, ten, sig, vox_ids, vox_num, vox_id, spin_id);
 
 			p = fminf(1., expf((E0 - E1) / T));
 			std::bernoulli_distribution acceptQ(p);
@@ -90,9 +88,9 @@ void mc_x(float* x, float* y, float* z, long long int* c, float* ten, char* sig,
 				;
 			else
 			{
-				x[vox_id] = x0;
-				y[vox_id] = y0;
-				z[vox_id] = z0;
+				x[spin_id] = x0;
+				y[spin_id] = y0;
+				z[spin_id] = z0;
 			}
 		}
 }
