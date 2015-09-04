@@ -1,6 +1,6 @@
 int offset(int i, int j, int k)
 {
-	return cube_size[2] * cube_size[1] * i + cube_size[2] * j + k;
+	return cube_size[1] * cube_size[0] * k + cube_size[0] * j + i;
 }
 
 int vertex_offset(int i, int j, int k)

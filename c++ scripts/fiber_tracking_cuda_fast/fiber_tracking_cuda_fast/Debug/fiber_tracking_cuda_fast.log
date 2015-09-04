@@ -1,10 +1,10 @@
-﻿Der Buildvorgang wurde am 28.08.2015 21:45:26 gestartet.
+﻿Der Buildvorgang wurde am 04.09.2015 21:57:10 gestartet.
      1>Projekt "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_fast\fiber_tracking_cuda_fast\fiber_tracking_cuda_fast.vcxproj" auf Knoten "2", Build Ziel(e).
      1>AddCudaCompileDeps:
          C:\Apps\VisualStudio2013\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /DWIN32 /D_DEBUG /D_CONSOLE /D_MBCS /IC:\Apps\CUDA\include /IC:\Apps\CUDA\bin /IC:\Apps\CUDA\include /I. /FIcuda_runtime.h /c "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_fast\fiber_tracking_cuda_fast\kernel.cu" 
        CudaBuild:
          Compiling CUDA source file kernel.cu...
-         cmd.exe /C "C:\Users\VW\AppData\Local\Temp\tmpcc8c747353af4c8cbda3d6dc88f5093a.cmd"
+         cmd.exe /C "C:\Users\VW\AppData\Local\Temp\tmp744c251a490242578cc6a461ef6f0cd8.cmd"
          "C:\Apps\CUDA\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Apps\VisualStudio2013\VC\bin"  -IC:\Apps\CUDA\include -IC:\Apps\CUDA\include  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g   -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o Debug\kernel.cu.obj "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_fast\fiber_tracking_cuda_fast\kernel.cu"
          
          C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_fast\fiber_tracking_cuda_fast>"C:\Apps\CUDA\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Apps\VisualStudio2013\VC\bin"  -IC:\Apps\CUDA\include -IC:\Apps\CUDA\include  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g   -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o Debug\kernel.cu.obj "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_fast\fiber_tracking_cuda_fast\kernel.cu" 
@@ -85,4 +85,4 @@
 
 Build erfolgreich.
 
-Verstrichene Zeit 00:00:07.92
+Verstrichene Zeit 00:00:08.62

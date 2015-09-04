@@ -2,6 +2,7 @@
 Optimize GetVoxNumFromNeighborNum, simple: abort if too many voxels (neighbor num wont be reached)
 GetNonEmptyVoxCount very inefficient, avoid repeated function call, only loop once.
 Differentiate Ei_x for mc_c and mc_x, in case of mc_c only the energy change for the changed connection needs to be calculated.
+Make ten also coalesced
 Octree??
 */
 
@@ -57,36 +58,6 @@ float* ten;
 int* VoxIds;
 
 float T;
-
-struct vertex
-{
-	float x;
-	float y;
-	float z;
-
-	int pos_x;
-	int pos_y;
-	int pos_z;
-
-	float T0;
-	float T1;
-	float T2;
-	float T3;
-	float T4;
-	float T5;
-
-	int* c;
-
-	float Emin;
-	float Emax;
-	float delta_E;
-
-	int cc;
-	int nn;
-	int sig;
-
-	vertex** n;
-};
 
 vertex**** ensemble;
 int*** snum;
