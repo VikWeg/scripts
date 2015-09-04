@@ -54,7 +54,7 @@ long long int* c;
 
 char* sig;
 float* ten;
-int* vox_id;
+int* VoxIds;
 
 float T;
 

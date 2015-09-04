@@ -65,17 +65,15 @@ void init_ensemble()
 		}
 	}
 	
-	ensemble = new vertex***[cube_size[0]];
-	snum = new int**[cube_size[0]];
+	VoxIds = 0;
 
+	snum = new int**[cube_size[0]];
 	for (int i = 0; i < cube_size[0]; i++)
 	{
-		ensemble[i] = new vertex**[cube_size[1]];
 		snum[i] = new int*[cube_size[1]];
 
 		for (int j = 0; j < cube_size[1]; j++)
 		{
-			ensemble[i][j] = new vertex*[cube_size[2]];
 			snum[i][j] = new int[cube_size[2]];
 
 			for (int k = 0; k < cube_size[2]; k++)
@@ -84,7 +82,7 @@ void init_ensemble()
 					+ (dim[2] - (vox_origin[2] + j - cube_size[1] / 2)) * dim[1]
 					+ (dim[1] - (vox_origin[1] + i - cube_size[0] / 2));
 
-				if ((wmask[i][j][k] == 1 || surf_mask[i][j][k] == 1))// && L1data[coo] > 0 && L2data[coo] > 0 && L3data[coo] > 0 && fabs(L1data[coo] / L3data[coo]) < 10)
+				if ((wmask[i][j][k] == 1 || surf_mask[i][j][k] == 1))
 				{
 					//******** Snum ********
 					if (L1data[coo] / L3data[coo] < cutoff && surf_mask[i][j][k] == 0)
@@ -93,8 +91,6 @@ void init_ensemble()
 						snum[i][j][k] = 2;
 					else
 						snum[i][j][k] = 1;
-
-					ensemble[i][j][k] = new vertex[snum[i][j][k]];
 
 					//******** Tensor ********
 					for (int t = 0; t < 6; t++)

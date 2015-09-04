@@ -1,4 +1,4 @@
-float Edata(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* vox_ids,
+float Edata(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* VoxIds,
 	int VoxNum, int VoxId, int SpinId,
 	int NeighborVoxNum, int NeighborVoxId, int NeighborSpinId)
 {
@@ -145,14 +145,14 @@ float Ei_x(float* x, float* y, float* z, long long int* c, float* ten, char* sig
 	return E;
 }
 
-float Ei_c(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* VoxIds, int spin_id, int vox_id, int VoxNum, int NeighborVoxNum, int NeighborSpinId)
+float Ei_c(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* VoxIds,int VoxNum, int VoxId, int SpinId, int NeighborVoxNum, int NeighborSpinId)
 {
 	int c0 = cube_size[0];
 	int c1 = cube_size[1];
 
 	float E = 0;
 
-	int ConnectionCount = sumBits(c[spin_id]);
+	int ConnectionCount = sumBits(c[SpinId]);
 	int NearSpinsCount = GetNeighborSpinCount(VoxNum, VoxIds);
 
 	E += (1 - sig[VoxNum])	*fabsf(ConnectionCount - 2) / (NearSpinsCount - 2 + 0.0000001);
