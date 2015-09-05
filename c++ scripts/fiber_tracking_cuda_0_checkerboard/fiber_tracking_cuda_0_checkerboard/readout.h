@@ -14,12 +14,11 @@ void calc_E(float T)
 	for (int i = 0; i < cube_size[0]; i++)
 	for (int j = 0; j < cube_size[1]; j++)
 	for (int k = 0; k < cube_size[2]; k++)
-	for (int s = 0; s < snum[i][j][k]; s++)
-	if (wmask[i][j][k] == 1 || surf_mask[i][j][k] == 1)
 	{
-		EiC += Ei_C(&ensemble[i][j][k][s]);
-		EiD += Ei_D(&ensemble[i][j][k][s]);
-		EiI += Ei_I(&ensemble[i][j][k][s]);
+		int VoxNum = k*cube_size[0] * cube_size[1] + j*cube_size[0] + i;
+		EiC += Ei_C(VoxNum);
+		EiD += Ei_D(VoxNum);
+		EiI += Ei_I(VoxNum);
 	}
 
 	//EiC *= wc(T);

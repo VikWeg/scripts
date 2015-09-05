@@ -131,7 +131,7 @@ void init_ensemble()
 	x = new float[scount];
 	y = new float[scount];
 	z = new float[scount];
-	c = new long long int[scount];
+	c = new unsigned long long[scount];
 
 	for (int i = 0; i < cube_size[0]; i++)
 	for (int j = 0; j < cube_size[1]; j++)

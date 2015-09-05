@@ -3,6 +3,7 @@ Optimize GetVoxNumFromNeighborNum, simple: abort if too many voxels (neighbor nu
 GetNonEmptyVoxCount very inefficient, avoid repeated function call, only loop once.
 Differentiate Ei_x for mc_c and mc_x, in case of mc_c only the energy change for the changed connection needs to be calculated.
 Make ten also coalesced
+Combine Edata and Eint in readout
 Octree??
 */
 
@@ -51,7 +52,7 @@ char buffer[80];
 float* x;
 float* y;
 float* z;
-long long int* c;
+unsigned long long* c;
 
 char* sig;
 float* ten;
@@ -59,7 +60,12 @@ int* VoxIds;
 
 float T;
 
-vertex**** ensemble;
+struct Next
+{
+	int VoxNum;
+	int SpinId;
+};
+
 int*** snum;
 
 int*** wmask;

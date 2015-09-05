@@ -1,4 +1,4 @@
-void mc_c(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* VoxIds, int VoxNum, int VoxId, int SpinId)
+void mc_c(float* x, float* y, float* z, unsigned long long* c, float* ten, char* sig, int* VoxIds, int VoxNum, int VoxId, int SpinId)
 {
 	float E0, E1, p;
 
@@ -54,10 +54,10 @@ void mc_c(float* x, float* y, float* z, long long int* c, float* ten, char* sig,
 		}
 }
 
-void mc_x(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* VoxIds, int VoxNum, int VoxId, int SpinId)
+void mc_x(float* x, float* y, float* z, unsigned long long* c, float* ten, char* sig, int* VoxIds, int VoxNum, int VoxId, int SpinId)
 {
 
-	float x0, y0, z0, x1, y1, z1;
+	float x0, y0, z0;
 	float E0, E1, p;
 
 		for (int i = 0; i < nx; i++)
@@ -95,7 +95,7 @@ void mc_x(float* x, float* y, float* z, long long int* c, float* ten, char* sig,
 		}
 }
 
-void mc(float* x, float* y, float* z, long long int* c, float* ten, char* sig, int* VoxIds, int lattice_id)
+void mc(float* x, float* y, float* z, unsigned long long* c, float* ten, char* sig, int* VoxIds, int lattice_id)
 {
 	for (int threadId = 0; threadId <= cube_size[0] * cube_size[1] * cube_size[2]; threadId++)
 	{

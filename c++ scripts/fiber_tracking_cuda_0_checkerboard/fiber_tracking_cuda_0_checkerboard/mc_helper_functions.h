@@ -51,38 +51,46 @@ int threadIdToVoxNum(int threadId, int latticeId)
 
 // **** Get i-th bit ****
 
-int getBit(int i, long long int c)
+int getBit(int i, unsigned long long c)
 {
-	long long int mask = 1 << i;
+	unsigned long long mask = 1 << i;
 
 	return (c&mask == 0) ? 0 : 1;
 }
 
 // **** Change i-th bit ****
 
-int changeBit(int i, long long int c)
+int changeBit(int i, unsigned long long c)
 {
-	long long int mask = 1 << i;
+	unsigned long long mask = 1 << i;
 
 	return c ^ mask;
 
 }
 // **** Sum all bits **** 'Hamming Weight', 'popcount' or 'sideways addition' http://bisqwit.iki.fi/source/misc/bitcounting/
 
-int sumBits(long long int c)
+int sumBits(unsigned long long c)
 {
-	const unsigned TEST_BITS = sizeof(long long int)* sizeof(char)* 8;
+	const unsigned TEST_BITS = sizeof(unsigned long long)* sizeof(char)* 8;
 
-	long long int m1 = (~(long long int)0) / 3;
-	long long int m2 = (~(long long int)0) / 5;
-	long long int m4 = (~(long long int)0) / 17;
-	long long int h01 = (~(long long int)0) / 255;
+	unsigned long long m1 = (~(unsigned long long)0) / 3;
+	unsigned long long m2 = (~(unsigned long long)0) / 5;
+	unsigned long long m4 = (~(unsigned long long)0) / 17;
+	unsigned long long h01 = (~(unsigned long long)0) / 255;
 
 	c -= (c >> 1) & m1;
 	c = (c & m2) + ((c >> 2) & m2);
 	c = (c + (c >> 4)) & m4;
 
 	return (c * h01) >> (TEST_BITS - 8);
+}
+
+// Find first set bit in c https://en.wikipedia.org/wiki/Find_first_set
+
+int FindFirstSet(unsigned long long c)
+{
+	if (c == 0) return 0;
+	else return sumBits(c ^ (~(-c)));
 }
 
 int GetVoxNumFromNeighborNum(int VoxNum, int NeighborNum, int* VoxIds)
@@ -110,7 +118,7 @@ int GetVoxNumFromNeighborNum(int VoxNum, int NeighborNum, int* VoxIds)
 					&&	(x0 + i != x || y0 + j != y || z0 + k != z)
 					&&	VoxIds[(z0 + k)*c0*c1 + (y0 + j)*c0 + (x0 + i)] >= 0
 					)
-				if (CurrentNeighborNum = NeighborNum) return (z0 + k)*c0*c1 + (y0 + j)*c0 + (x0 + i);
+				if (CurrentNeighborNum == NeighborNum) return (z0 + k)*c0*c1 + (y0 + j)*c0 + (x0 + i);
 				else CurrentNeighborNum++;
 
 	return -1;
@@ -134,7 +142,6 @@ int GetNonEmptyNeighborVoxsCount(int BaseVoxNum, int* VoxIds)
 	int z0 = z - 1;
 
 	int i, j, k;
-	int NonEmptyNeighborVoxsCount = 0;
 	for (k = 0; k < 3; k++)
 	for (j = 0; j < 3; j++)
 	for (i = 0; i < 3; i++)
@@ -253,4 +260,52 @@ int GetNeighborSpinCount(int VoxNum, int* VoxIds)
 		}
 
 	return count;
+}
+
+Next GetNextSpin(int VoxNum, int NextSpinOffset) //not checked in Mathematica
+{//Returns the voxnum and spin id of the spin with spin offset NextSpinOffset relative to VoxNum
+
+	Next Next;
+
+	int c0 = cube_size[0];
+	int c1 = cube_size[1];
+	int c2 = cube_size[2];
+
+	int x = VoxNum % c0;
+	int y = (VoxNum / c0) % c1;
+	int z = VoxNum / (c0*c1);
+
+	int x0 = x - 1;
+	int y0 = y - 1;
+	int z0 = z - 1;
+
+	int i, j, k;
+	int Offset = 0;
+	for (k = 0; k < 3; k++)
+	for (j = 0; j < 3; j++)
+	for (i = 0; i < 3; i++)
+	if (
+		x0 + i >= 0 && x0 + i < c0 && y0 + j >= 0 && y0 + j < c1 && z0 + k >= 0 && z0 + k < c2
+		&& (x0 + i != x || y0 + j != y || z0 + k != z)
+		&& VoxIds[(z0 + k)*c0*c1 + (y0 + j)*c0 + (x0 + i)] >= 0
+		)
+		{
+			int voxnum = (z0 + k)*c0*c1 + (y0 + j)*c0 + (x0 + i);
+
+			int next = voxnum + 1;
+			while (VoxIds[next] < 0) next++;
+
+			for (int SpinNumber = 0; SpinNumber < VoxIds[next] - VoxIds[voxnum]; SpinNumber++)
+			{
+				if (Offset == NextSpinOffset)
+				{
+					Next.VoxNum = voxnum;
+					Next.SpinId = VoxIds[voxnum] + SpinNumber;
+					return Next;
+				}
+
+				Offset++;
+			}
+
+		}
 }

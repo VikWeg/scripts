@@ -1,74 +1,76 @@
-void get_fiber(vertex* prev, vertex* curr, int n)
+void get_fiber(int PrevVoxNum, int PrevSpinId, int CurrVoxNum, int CurrSpinId, int n)
 {
-	int next = -1;
-	for (int i = 0; i < (*curr).nn; i++)
-	if (curr->c[i] == 1 && curr->n[i] != prev)
-	{
-		next = i;
-		break;
-	}
+	Next Next = { -1, -1 };
 
-	fwrite((char*)&(curr->x), 1, 4, fiber_file);
-	fwrite((char*)&(curr->y), 1, 4, fiber_file);
-	fwrite((char*)&(curr->z), 1, 4, fiber_file);
-
-	if (next != -1 && n < 50)
+	for (int i = 0; i < sizeof(unsigned long long); i++)
+	if (getBit(i, c[CurrSpinId]))
 	{
-		if (curr->n[next]->sig != 1)
-			get_fiber(curr, curr->n[next], n + 1);
+		Next = GetNextSpin(CurrVoxNum, i);
+		if (Next.VoxNum != PrevVoxNum) break;
+		else Next = { -1, -1 };
+	};
+
+
+	fwrite((char*)&(x[CurrSpinId]), 1, 4, fiber_file);
+	fwrite((char*)&(y[CurrSpinId]), 1, 4, fiber_file);
+	fwrite((char*)&(z[CurrSpinId]), 1, 4, fiber_file);
+
+	if (Next.VoxNum != -1 && n < 50)
+	{
+		if (sig[Next.VoxNum] != 1)
+			get_fiber(CurrVoxNum, CurrSpinId, Next.VoxNum, Next.SpinId, n + 1);
 		else
 		{
-			fwrite((char*)&(curr->n[next]->x), 1, 4, fiber_file);
-			fwrite((char*)&(curr->n[next]->y), 1, 4, fiber_file);
-			fwrite((char*)&(curr->n[next]->z), 1, 4, fiber_file);
+			fwrite((char*)&(x[Next.SpinId]), 1, 4, fiber_file);
+			fwrite((char*)&(y[Next.SpinId]), 1, 4, fiber_file);
+			fwrite((char*)&(z[Next.SpinId]), 1, 4, fiber_file);
 		}
 	}
 }
 
-void get_fiber(vertex* v)
+void get_fiber(int VoxNum, int SpinId)
 {
-	int next = -1;
-	for (int i = 0; i < v->nn; i++)
-	if (v->c[i] == 1)
+	Next Next = { -1, -1 };
+
+	for (int i = 0; i < sizeof(unsigned long long); i++)
+	if (getBit(i, c[SpinId])) { Next = GetNextSpin(VoxNum, i); break; };
+
+	if (Next.VoxNum != -1 && sig[Next.VoxNum] != 1)
 	{
-		next = i;
-		break;
+		fwrite((char*)&(x[SpinId]), 1, 4, fiber_file);
+		fwrite((char*)&(y[SpinId]), 1, 4, fiber_file);
+		fwrite((char*)&(z[SpinId]), 1, 4, fiber_file);
+
+		get_fiber(VoxNum, SpinId, Next.VoxNum, Next.SpinId, 1);
 	}
-
-	if (next != -1 && v->n[next]->sig != 1)
+	else if (Next.VoxNum != -1 && sig[Next.VoxNum] == 1)
 	{
-		fwrite((char*)&(v->x), 1, 4, fiber_file);
-		fwrite((char*)&(v->y), 1, 4, fiber_file);
-		fwrite((char*)&(v->z), 1, 4, fiber_file);
+		fwrite((char*)&(x[SpinId]), 1, 4, fiber_file);
+		fwrite((char*)&(y[SpinId]), 1, 4, fiber_file);
+		fwrite((char*)&(z[SpinId]), 1, 4, fiber_file);
 
-		get_fiber(v, v->n[next], 1);
-	}
-	else if (next != -1 && v->n[next]->sig == 1)
-	{
-		fwrite((char*)&(v->x), 1, 4, fiber_file);
-		fwrite((char*)&(v->y), 1, 4, fiber_file);
-		fwrite((char*)&(v->z), 1, 4, fiber_file);
-
-		fwrite((char*)&(v->n[next]->x), 1, 4, fiber_file);
-		fwrite((char*)&(v->n[next]->y), 1, 4, fiber_file);
-		fwrite((char*)&(v->n[next]->z), 1, 4, fiber_file);
+		fwrite((char*)&(x[Next.SpinId]), 1, 4, fiber_file);
+		fwrite((char*)&(y[Next.SpinId]), 1, 4, fiber_file);
+		fwrite((char*)&(z[Next.SpinId]), 1, 4, fiber_file);
 	}
 }
 
-int get_fiber_length(vertex* prev, vertex* curr, int n)
+int get_fiber_length(int PrevVoxNum, int PrevSpinId, int CurrVoxNum, int CurrSpinId, int n)
 {
-	int next = -1;
-	for (int i = 0; i < curr->nn; i++)
-	if (curr->c[i] == 1 && curr->n[i] != prev)
-	{
-		next = i;
-		break;
-	}
+	Next Next = { -1, -1 };
 
-	if (next != -1 && n < 50)
+	for (int i = 0; i < sizeof(unsigned long long); i++)
+		if (getBit(i, c[CurrSpinId]))
+		{ 
+			Next = GetNextSpin(CurrVoxNum, i);
+			if (Next.VoxNum != PrevVoxNum) break;
+			else Next = { -1, -1 };
+		};
+
+	if (Next.VoxNum != -1 && n < 50)
 	{
-		if (curr->n[next]->sig != 1)
-			return get_fiber_length(curr, curr->n[next], n + 1);
+		if (sig[Next.VoxNum] != 1)
+			return get_fiber_length(CurrVoxNum, CurrSpinId, Next.VoxNum, Next.SpinId, n + 1);
 		else
 			return n + 2;
 	}
@@ -76,19 +78,16 @@ int get_fiber_length(vertex* prev, vertex* curr, int n)
 		return n + 1;
 }
 
-int get_fiber_length(vertex* v)
+int get_fiber_length(int VoxNum, int SpinId)
 {
-	int next = -1;
-	for (int i = 0; i < v->nn; i++)
-	if (v->c[i] == 1)
-	{
-		next = i;
-		break;
-	}
+	Next Next = { -1, -1 };
 
-	if (next != -1 && v->n[next]->sig != 1)
-		return get_fiber_length(v, v->n[next], 1);
-	else if (next != -1 && v->n[next]->sig == 1)
+	for (int i = 0; i < sizeof(unsigned long long); i++)
+	if (getBit(i, c[SpinId])) { Next = GetNextSpin(VoxNum, i); break; };
+
+	if (Next.VoxNum != -1 && sig[Next.VoxNum] != 1)
+		return get_fiber_length(VoxNum, SpinId, Next.VoxNum, Next.SpinId, 1);
+	else if (Next.VoxNum != -1 && sig[Next.VoxNum] == 1)
 		return 2;
 	else
 		return 1;

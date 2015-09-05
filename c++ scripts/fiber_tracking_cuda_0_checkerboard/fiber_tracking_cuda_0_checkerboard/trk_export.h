@@ -10,16 +10,27 @@ void export_fibers(int n)
 	for (int i = 0; i < cube_size[0]; i++)
 	for (int j = 0; j < cube_size[1]; j++)
 	for (int k = 0; k < cube_size[2]; k++)
-	for (int s = 0; s < snum[i][j][k]; s++)
-	if (ensemble[i][j][k][s].sig)
 	{
-		len = get_fiber_length(&ensemble[i][j][k][s]);
+		int VoxNum = k*cube_size[0] * cube_size[1] + j*cube_size[0] + i;
 
-		if (len>1)
+		if (sig[VoxNum])
 		{
-			fwrite((char*)&len, 1, 4, fiber_file);
-			get_fiber(&ensemble[i][j][k][s]);
-			fiber_num++;
+			int VoxId = VoxIds[VoxNum];
+
+			int next = VoxNum + 1;
+			while (VoxIds[next] < 0) next++;
+			int	SpinsInVoxel = VoxIds[next] - VoxId;
+
+			for (int SpinId = VoxId; SpinId < VoxId + SpinsInVoxel; SpinId++)
+			{
+				len = get_fiber_length(VoxNum, SpinId);
+				if (len>1)
+				{
+					fwrite((char*)&len, 1, 4, fiber_file);
+					get_fiber(VoxNum, SpinId);
+					fiber_num++;
+				}
+			}
 		}
 	}
 
