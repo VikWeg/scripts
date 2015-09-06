@@ -1,0 +1,232 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9098,        223]
+NotebookOptionsPosition[      8851,        210]
+NotebookOutlinePosition[      9199,        225]
+CellTagsIndexPosition[      9156,        222]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GetNextSpin", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"c0_", ",", "c1_", ",", "c2_"}], "}"}], ",", "VoxNum_", ",", 
+    "NextSpinOffset_", ",", "VoxIds_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"x", ",", "y", ",", "z", ",", "x0", ",", "y0", ",", "z0", ",", 
+      RowBox[{"i", "=", "0"}], ",", 
+      RowBox[{"j", "=", "0"}], ",", 
+      RowBox[{"k", "=", "0"}], ",", 
+      RowBox[{"found", "=", "0"}], ",", "Offset", ",", "SpinNumber", ",", 
+      "SpinCount", ",", "next", ",", "vox"}], "}"}], ",", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"x", " ", "=", 
+      RowBox[{"Mod", "[", 
+       RowBox[{"VoxNum", ",", "c0"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"y", " ", "=", " ", 
+      RowBox[{"Mod", "[", 
+       RowBox[{
+        RowBox[{"Quotient", "[", 
+         RowBox[{"VoxNum", ",", "c0"}], "]"}], ",", "c1"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"z", "=", 
+      RowBox[{"Quotient", "[", 
+       RowBox[{"VoxNum", ",", 
+        RowBox[{"c0", "*", "c1"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"x0", " ", "=", " ", 
+      RowBox[{"x", "-", "1"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"y0", " ", "=", " ", 
+      RowBox[{"y", "-", "1"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"z0", " ", "=", " ", 
+      RowBox[{"z", "-", "1"}]}], ";", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Offset", "=", "0"}], ";", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"k", "=", "0"}], ",", 
+       RowBox[{"k", "<", "3"}], ",", 
+       RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", "\t", 
+       RowBox[{
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"j", "=", "0"}], ",", 
+          RowBox[{"j", "<", "3"}], ",", 
+          RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", "\t\t", 
+          RowBox[{
+           RowBox[{"For", "[", 
+            RowBox[{
+             RowBox[{"i", "=", "0"}], ",", 
+             RowBox[{"i", "<", "3"}], ",", 
+             RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"x0", "+", "i"}], ">=", "0"}], " ", "&&", " ", 
+                 RowBox[{
+                  RowBox[{"x0", "+", "i"}], "<", "c0"}], " ", "&&", 
+                 RowBox[{
+                  RowBox[{"y0", "+", "j"}], ">=", " ", "0"}], " ", "&&", " ", 
+                 RowBox[{
+                  RowBox[{"y0", " ", "+", "j"}], "<", " ", "c1"}], " ", "&&", 
+                 " ", 
+                 RowBox[{
+                  RowBox[{"z0", " ", "+", "k"}], ">=", " ", "0"}], " ", "&&", 
+                 " ", 
+                 RowBox[{
+                  RowBox[{"z0", "+", "k"}], " ", "<", " ", "c2"}], " ", 
+                 "\[IndentingNewLine]", "&&", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"x0", "+", "i"}], "\[NotEqual]", "x"}], "||", 
+                   RowBox[{
+                    RowBox[{"y0", "+", "j"}], "\[NotEqual]", "y"}], "||", 
+                   RowBox[{
+                    RowBox[{"z0", "+", "k"}], "!=", "z"}]}], ")"}], 
+                 "\[IndentingNewLine]", "&&", 
+                 RowBox[{
+                  RowBox[{"VoxIds", "[", 
+                   RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"z0", "+", "k"}], ")"}], "*", "c0", "*", "c1"}], 
+                    " ", "+", " ", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"y0", "+", "j"}], ")"}], "*", "c0"}], " ", "+", 
+                    " ", 
+                    RowBox[{"(", 
+                    RowBox[{"x0", "+", "i"}], ")"}], " ", "+", "1"}], "]"}], 
+                   "]"}], "\[GreaterEqual]", "0"}]}], ",", 
+                "\[IndentingNewLine]", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"vox", "=", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"z0", "+", "k"}], ")"}], "*", "c0", "*", "c1"}], 
+                   " ", "+", " ", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"y0", "+", "j"}], ")"}], "*", "c0"}], " ", "+", 
+                   " ", 
+                   RowBox[{"(", 
+                    RowBox[{"x0", "+", "i"}], ")"}]}]}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"next", "=", 
+                  RowBox[{"vox", " ", "+", "1"}]}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"While", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"VoxIds", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"next", "+", "1"}], "]"}], "]"}], "<", "0"}], ",", 
+                   RowBox[{
+                    RowBox[{"next", "++"}], ";"}]}], "]"}], ";", 
+                 "\[IndentingNewLine]", "\[IndentingNewLine]", 
+                 RowBox[{"For", "[", 
+                  RowBox[{
+                   RowBox[{"SpinNumber", " ", "=", " ", "0"}], ",", 
+                   RowBox[{"SpinNumber", " ", "<", " ", 
+                    RowBox[{
+                    RowBox[{"VoxIds", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"next", "+", "1"}], "]"}], "]"}], " ", "-", " ", 
+                    RowBox[{"VoxIds", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"vox", "+", "1"}], "]"}], "]"}]}]}], ",", 
+                   RowBox[{"SpinNumber", "++"}], ",", "\[IndentingNewLine]", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"Offset", "\[Equal]", "NextSpinOffset"}], ",", 
+                    RowBox[{
+                    RowBox[{"found", "=", "1"}], ";", 
+                    RowBox[{"Break", "[", "]"}]}]}], "]"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"Offset", "++"}], ";"}]}], "\[IndentingNewLine]", 
+                  "]"}]}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+               " ", "]"}], ";", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"found", "\[Equal]", "1"}], ",", 
+                RowBox[{"Break", "[", "]"}]}], "]"}], ";"}]}], 
+            "\[IndentingNewLine]", "\t\t", "]"}], ";", "\[IndentingNewLine]", 
+           "\t", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"found", "\[Equal]", "1"}], ",", 
+             RowBox[{"Break", "[", "]"}]}], "]"}], ";"}]}], 
+         "\[IndentingNewLine]", "\t", "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"found", "\[Equal]", "1"}], ",", 
+          RowBox[{"Break", "[", "]"}]}], "]"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"found", "\[Equal]", "1"}], ",", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"vox", ",", 
+         RowBox[{
+          RowBox[{"VoxIds", "[", 
+           RowBox[{"[", 
+            RowBox[{"vox", "+", "1"}], "]"}], "]"}], "+", "SpinNumber"}]}], 
+        "}"}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+       RowBox[{"-", "1"}]}], "\[IndentingNewLine]", "]"}]}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6505563323531246`*^9, 3.650556400913046*^9}, {
+   3.6505564415183687`*^9, 3.6505566169664035`*^9}, {3.650556652894459*^9, 
+   3.6505566909006324`*^9}, {3.650557037733893*^9, 3.6505570719939537`*^9}, {
+   3.6505571228144464`*^9, 3.6505571528051004`*^9}, {3.6505575716854534`*^9, 
+   3.650557590052686*^9}, 3.650558225405405*^9, {3.650558438158186*^9, 
+   3.6505584404513903`*^9}, {3.6505586166027055`*^9, 3.6505586182719083`*^9}}]
+},
+WindowSize->{1203, 1183},
+WindowMargins->{{Automatic, 69}, {Automatic, 94}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (September 9, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 8289, 188, 952, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

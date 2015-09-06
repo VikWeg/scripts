@@ -69,10 +69,15 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, char
 	{
 		int NeighborVoxNum = GetVoxNumFromNeighborNum(VoxNum, NeighborNumber, VoxIds);
 		int NeighborVoxId = VoxIds[NeighborVoxNum];
+		int	SpinsInNeighborVoxel;
 
-		int next = NeighborVoxNum + 1;
-		while (VoxIds[next] < 0) next++;
-		int	SpinsInNeighborVoxel = VoxIds[next] - NeighborVoxId;
+		if (NeighborVoxNum < cube_size[0] * cube_size[1] * cube_size[2] - 1)
+		{
+			int next = NeighborVoxNum + 1;
+			while (VoxIds[next] < 0) next++;
+			SpinsInNeighborVoxel = VoxIds[next] - NeighborVoxId;
+		}
+		else SpinsInNeighborVoxel = scount - NeighborVoxId; //global scount
 
 		//Loop over spins in current neighbor voxel
 		for (int NeighborSpinNumber = 0; NeighborSpinNumber < SpinsInNeighborVoxel; NeighborSpinNumber++)
@@ -91,9 +96,14 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, char
 					int OtherNeighborVoxNum = GetVoxNumFromNeighborNum(VoxNum, OtherNeighborNumber, VoxIds);
 					int OtherNeighborVoxId = VoxIds[OtherNeighborVoxNum];
 
-					int next = OtherNeighborVoxNum + 1;
-					while (VoxIds[next] < 0) next++;
-					int	SpinsInOtherNeighborVoxel = VoxIds[next] - OtherNeighborVoxId;
+					int	SpinsInOtherNeighborVoxel;
+					if (OtherNeighborVoxNum < cube_size[0] * cube_size[1] * cube_size[2] - 1)
+					{
+						int next = OtherNeighborVoxNum + 1;
+						while (VoxIds[next] < 0) next++;
+						SpinsInOtherNeighborVoxel = VoxIds[next] - OtherNeighborVoxId;
+					}
+					else SpinsInOtherNeighborVoxel = scount - OtherNeighborVoxId; //global scount
 
 					//Loop over spins in current other neighbor voxel
 					for (int OtherNeighborSpinNumber = 0; OtherNeighborSpinNumber < SpinsInOtherNeighborVoxel; OtherNeighborSpinNumber++)
@@ -118,10 +128,15 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, char
 				{
 					int NextNeighborVoxNum = GetVoxNumFromNeighborNum(NeighborVoxNum, NextNeighborNumber, VoxIds);
 					int NextNeighborVoxId = VoxIds[NextNeighborVoxNum];
+					int	SpinsInNextNeighborVoxel;
 
-					int next = NextNeighborVoxNum + 1;
-					while (VoxIds[next] < 0) next++;
-					int	SpinsInNextNeighborVoxel = VoxIds[next] - NextNeighborVoxId;
+					if (NextNeighborVoxNum < cube_size[0] * cube_size[1] * cube_size[2] - 1)
+					{
+						int next = NextNeighborVoxNum + 1;
+						while (VoxIds[next] < 0) next++;
+						SpinsInNextNeighborVoxel = VoxIds[next] - NextNeighborVoxId;
+					}
+					else SpinsInNextNeighborVoxel = scount - NextNeighborVoxId;
 
 					//Loop over spins in current next neighbor voxel
 					if (NextNeighborNumber != VoxNeighborNumber)
@@ -175,10 +190,15 @@ float Ei_C(int VoxNum)
 	if (VoxId < 0) return 0;
 
 	float E = 0;
+	int	SpinsInVoxel;
 
-	int next = VoxNum + 1;
-	while (VoxIds[next] < 0) next++;
-	int	SpinsInVoxel = VoxIds[next] - VoxId;
+	if (VoxNum < cube_size[0] * cube_size[1] * cube_size[2] - 1)
+	{
+		int next = VoxNum + 1;
+		while (VoxIds[next] < 0) next++;
+		SpinsInVoxel = VoxIds[next] - VoxId;
+	}
+	else SpinsInVoxel = scount - VoxId;
 
 	int NearSpinsCount = GetNeighborSpinCount(VoxNum, VoxIds);
 
@@ -196,12 +216,17 @@ float Ei_C(int VoxNum)
 float Ei_D(int VoxNum)
 {
 	int VoxId = VoxIds[VoxNum];
+	int	SpinsInVoxel;
 
 	if (VoxId < 0) return 0;
 
-	int next = VoxNum + 1;
-	while (VoxIds[next] < 0) next++;
-	int	SpinsInVoxel = VoxIds[next] - VoxId;
+	if (VoxNum < cube_size[0] * cube_size[1] * cube_size[2] - 1)
+	{
+		int next = VoxNum + 1;
+		while (VoxIds[next] < 0) next++;
+		SpinsInVoxel = VoxIds[next] - VoxId;
+	}
+	else SpinsInVoxel = scount - VoxId;
 
 	float E = 0;
 
@@ -215,9 +240,14 @@ float Ei_D(int VoxNum)
 		int NeighborVoxNum = GetVoxNumFromNeighborNum(VoxNum, NeighborNumber, VoxIds);
 		int NeighborVoxId = VoxIds[NeighborVoxNum];
 
-		int next = NeighborVoxNum + 1;
-		while (VoxIds[next] < 0) next++;
-		int	SpinsInNeighborVoxel = VoxIds[next] - NeighborVoxId;
+		int	SpinsInNeighborVoxel;
+		if (NeighborVoxNum < cube_size[0] * cube_size[1] * cube_size[2] - 1)
+		{
+			int next = NeighborVoxNum + 1;
+			while (VoxIds[next] < 0) next++;
+			SpinsInNeighborVoxel = VoxIds[next] - NeighborVoxId;
+		}
+		else SpinsInNeighborVoxel = scount - NeighborVoxId; //global scount
 
 		//Loop over spins in current neighbor voxel
 		for (int NeighborSpinNumber = 0; NeighborSpinNumber < SpinsInNeighborVoxel; NeighborSpinNumber++)
@@ -242,9 +272,14 @@ float Ei_I(int VoxNum)
 
 	if (VoxId < 0) return 0;
 
-	int next = VoxNum + 1;
-	while (VoxIds[next] < 0) next++;
-	int	SpinsInVoxel = VoxIds[next] - VoxId;
+	int	SpinsInVoxel;
+	if (VoxNum < cube_size[0] * cube_size[1] * cube_size[2] - 1)
+	{
+		int next = VoxNum + 1;
+		while (VoxIds[next] < 0) next++;
+		SpinsInVoxel = VoxIds[next] - VoxId;
+	}
+	else SpinsInVoxel = scount - VoxId;
 
 	float E = 0;
 
@@ -258,9 +293,14 @@ float Ei_I(int VoxNum)
 		int NeighborVoxNum = GetVoxNumFromNeighborNum(VoxNum, NeighborNumber, VoxIds);
 		int NeighborVoxId = VoxIds[NeighborVoxNum];
 
-		int next = NeighborVoxNum + 1;
-		while (VoxIds[next] < 0) next++;
-		int	SpinsInNeighborVoxel = VoxIds[next] - NeighborVoxId;
+		int	SpinsInNeighborVoxel;
+		if (NeighborVoxNum < cube_size[0] * cube_size[1] * cube_size[2] - 1)
+		{
+			int next = NeighborVoxNum + 1;
+			while (VoxIds[next] < 0) next++;
+			SpinsInNeighborVoxel = VoxIds[next] - NeighborVoxId;
+		}
+		else SpinsInNeighborVoxel = scount - NeighborVoxId; //global scount
 
 		//Loop over spins in current neighbor voxel
 		for (int NeighborSpinNumber = 0; NeighborSpinNumber < SpinsInNeighborVoxel; NeighborSpinNumber++)
@@ -277,9 +317,14 @@ float Ei_I(int VoxNum)
 					int OtherNeighborVoxNum = GetVoxNumFromNeighborNum(VoxNum, OtherNeighborNumber, VoxIds);
 					int OtherNeighborVoxId = VoxIds[OtherNeighborVoxNum];
 
-					int next = OtherNeighborVoxNum + 1;
-					while (VoxIds[next] < 0) next++;
-					int	SpinsInOtherNeighborVoxel = VoxIds[next] - OtherNeighborVoxId;
+					int	SpinsInOtherNeighborVoxel;
+					if (OtherNeighborVoxNum < cube_size[0] * cube_size[1] * cube_size[2] - 1)
+					{
+						int next = OtherNeighborVoxNum + 1;
+						while (VoxIds[next] < 0) next++;
+						SpinsInOtherNeighborVoxel = VoxIds[next] - OtherNeighborVoxId;
+					}
+					else SpinsInOtherNeighborVoxel = scount - OtherNeighborVoxId; //global scount
 
 					//Loop over spins in current other neighbor voxel
 					for (int OtherNeighborSpinNumber = 0; OtherNeighborSpinNumber < SpinsInOtherNeighborVoxel; OtherNeighborSpinNumber++)

@@ -3,8 +3,7 @@ void export_fibers(int n)
 	chdir("fibers");
 	fiber_file = fopen(("fibers_" + std::to_string(n) + ".trk").c_str(),"w+b");
 
-	trackvis_header trk_hdr;
-	write_header(trk_hdr, fiber_file);
+	write_header(fiber_file);
 
 	int len, fiber_num = 0;
 	for (int i = 0; i < cube_size[0]; i++)

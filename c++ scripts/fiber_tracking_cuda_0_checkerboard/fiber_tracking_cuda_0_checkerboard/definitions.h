@@ -1,4 +1,5 @@
 /*TODO
+change loops over neighbors by using max(...) as in init
 Optimize GetVoxNumFromNeighborNum, simple: abort if too many voxels (neighbor num wont be reached)
 GetNonEmptyVoxCount very inefficient, avoid repeated function call, only loop once.
 Differentiate Ei_x for mc_c and mc_x, in case of mc_c only the energy change for the changed connection needs to be calculated.
@@ -66,7 +67,7 @@ struct Next
 	int SpinId;
 };
 
-int*** snum;
+int* snum;
 
 int*** wmask;
 int*** surf_mask;
@@ -92,16 +93,16 @@ long scount;
 /**/	int S = 1;														/**/
 /**/	float delta_x = 0.1;											/**/
 /**/																	/**/
-/**/	char* wc_str = "1/sqrt(T)";												/**/
+/**/	char* wc_str = "1/T";												/**/
 /**/	char* wx_str = "1";												/**/
 /**/																	/**/
-/**/	float wc(float T) { return 1/sqrtf(T); }								/**/
+/**/	float wc(float T) { return 1/T; }								/**/
 /**/	float wx(float T) { return 1; }	
 /**/
 /**/	float wint(float cos) { return (1 + cos) / (1.01 - cos); }
 /**/	char* wint_str = "(1+cos)/(1.01-cos)";
 
-		char* wdata_str = "(E - Emin)/(Emax-E)";
+		char* wdata_str = "(E1 + E2)/2";
 /**/
 /**/	std::string comment("");
 /*************************************************************************/

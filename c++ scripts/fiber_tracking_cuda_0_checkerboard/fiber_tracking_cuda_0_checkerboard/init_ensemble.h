@@ -5,21 +5,21 @@ int VoxNum(int i, int j, int k)
 
 int VoxId(int i, int j, int k) //Check again
 {
-	if (snum[i][j][k] == 0) return -1;
+	if (snum[VoxNum(i, j, k)] == 0) return -1;
 
 	int count = 0;
 
 	for (int kk = 0; kk < k; kk++)
 	for (int jj = 0; jj < cube_size[1]; jj++)
 	for (int ii = 0; ii < cube_size[0]; ii++)
-		count += snum[ii][jj][kk];
+		count += snum[VoxNum(ii, jj, kk)];
 
 	for (int jj = 0; jj < j; jj++)
 	for (int ii = 0; ii < cube_size[0]; ii++)
-		count += snum[ii][jj][k];
+		count += snum[VoxNum(ii, jj, k)];
 
 	for (int ii = 0; ii < i; ii++)
-		count += snum[ii][j][k];
+		count += snum[VoxNum(ii, j, k)];
 
 	return count;
 }
@@ -92,36 +92,32 @@ void init_ensemble()
 	}
 
 	//******** Snum + Scount ********
-	snum = new int**[cube_size[0]];
+	snum = new int[cube_size[0] * cube_size[1] * cube_size[2]];
 	scount = 0;
 	for (int i = 0; i < cube_size[0]; i++)
-	{
-		snum[i] = new int*[cube_size[1]];
-
 		for (int j = 0; j < cube_size[1]; j++)
-		{
-			snum[i][j] = new int[cube_size[2]];
-
 			for (int k = 0; k < cube_size[2]; k++)
 				if (wmask[i][j][k] == 1 || surf_mask[i][j][k] == 1)
 				{
-					if (L1data[coo] / L3data[coo] < cutoff && surf_mask[i][j][k] == 0)
+					coo = (dim[3] - (vox_origin[3] + k - cube_size[2] / 2)) * dim[2] * dim[1]
+						+ (dim[2] - (vox_origin[2] + j - cube_size[1] / 2)) * dim[1]
+						+ (dim[1] - (vox_origin[1] + i - cube_size[0] / 2));
+
+					if (L1data[coo] / L3data[coo] < cutoff)
 					{
-						snum[i][j][k] = 3; scount += 3;
+						snum[VoxNum(i,j,k)] = 3; scount += 3;
 					}
-					else if ((L2data[coo] - L3data[coo]) / (L1data[coo] - L3data[coo]) > 0.5 && surf_mask[i][j][k] == 0)
+					else if ((L2data[coo] - L3data[coo]) / (L1data[coo] - L3data[coo]) > 0.5)
 					{
-						snum[i][j][k] = 2; scount += 2;
+						snum[VoxNum(i, j, k)] = 2; scount += 2;
 					}
 					else
 					{
-						snum[i][j][k] = 1; scount += 1;
+						snum[VoxNum(i, j, k)] = 1; scount += 1;
 					}
 				}
 				else
-					snum[i][j][k] = 0;
-		}
-	}
+					snum[VoxNum(i, j, k)] = 0;
 
 	//******** x, y, z, VoxIds, c, sig, ten ********
 
@@ -166,7 +162,7 @@ void init_ensemble()
 		else
 			sig[voxnum] = 0;
 
-		for (int s = 0; s < snum[i][j][k]; s++)
+		for (int s = 0; s < snum[VoxNum(i, j, k)]; s++)
 		{
 			x[voxid + s] = i*hdr.pixdim[1];
 			y[voxid + s] = j*hdr.pixdim[2];
@@ -174,6 +170,21 @@ void init_ensemble()
 
 			c[voxid + s] = 0;
 		}
+	}
+
+
+	for (int k = 0; k < cube_size[2]; k++)
+	{
+
+		for (int j = 0; j < cube_size[1]; j++)
+		{
+
+			for (int i = 0; i < cube_size[0]; i++)
+				std::cout << snum[VoxNum(i,j,k)] << " ";
+
+			std::cout << "\n";
+		}
+		std::cout << "\n";
 	}
 
 	free(data);

@@ -216,10 +216,14 @@ int GetConnectivityOffset(int VoxNum, int NeighborNum, int* VoxIds)
 					if (CurrentNeighborNum == NeighborNum) return Offset;
 
 					int vox = (z0 + k)*c0*c1 + (y0 + j)*c0 + (x0 + i);
-					int next = vox + 1;
-					while (VoxIds[next] < 0) next++;
 
-					Offset += VoxIds[next] - VoxIds[vox];
+					if (vox < c0*c1*c2 - 1)
+					{
+						int next = vox + 1;
+						while (VoxIds[next] < 0) next++;
+						Offset += VoxIds[next] - VoxIds[vox];
+					}
+					else Offset += scount - VoxIds[vox];
 
 					CurrentNeighborNum++;
 				}
@@ -253,19 +257,24 @@ int GetNeighborSpinCount(int VoxNum, int* VoxIds)
 		)
 		{
 			int vox = (z0 + k)*c0*c1 + (y0 + j)*c0 + (x0 + i);
-			int next = vox + 1;
-			while (VoxIds[next] < 0) next++;
 
-			count += VoxIds[next] - VoxIds[vox];
+			if (vox < c0*c1*c2 - 1)
+			{
+				int next = vox + 1;
+				while (VoxIds[next] < 0) next++;
+				count += VoxIds[next] - VoxIds[vox];
+			}
+			else count += scount - VoxIds[vox];
 		}
 
 	return count;
 }
 
-Next GetNextSpin(int VoxNum, int NextSpinOffset) //not checked in Mathematica
+Next GetNextSpin(int VoxNum, int NextSpinOffset)
 {//Returns the voxnum and spin id of the spin with spin offset NextSpinOffset relative to VoxNum
 
-	Next Next;
+	Next Next = { -1, -1 };
+	int SpinsInVoxel;
 
 	int c0 = cube_size[0];
 	int c1 = cube_size[1];
@@ -292,10 +301,15 @@ Next GetNextSpin(int VoxNum, int NextSpinOffset) //not checked in Mathematica
 		{
 			int voxnum = (z0 + k)*c0*c1 + (y0 + j)*c0 + (x0 + i);
 
-			int next = voxnum + 1;
-			while (VoxIds[next] < 0) next++;
+			if (voxnum < c0*c1*c1 - 1)
+			{
+				int next = voxnum + 1;
+				while (VoxIds[next] < 0) next++;
+				SpinsInVoxel = VoxIds[next] - VoxIds[voxnum];
+			}
+			else SpinsInVoxel = scount - VoxIds[voxnum];
 
-			for (int SpinNumber = 0; SpinNumber < VoxIds[next] - VoxIds[voxnum]; SpinNumber++)
+			for (int SpinNumber = 0; SpinNumber < SpinsInVoxel; SpinNumber++)
 			{
 				if (Offset == NextSpinOffset)
 				{
@@ -308,4 +322,6 @@ Next GetNextSpin(int VoxNum, int NextSpinOffset) //not checked in Mathematica
 			}
 
 		}
+
+	return Next;
 }

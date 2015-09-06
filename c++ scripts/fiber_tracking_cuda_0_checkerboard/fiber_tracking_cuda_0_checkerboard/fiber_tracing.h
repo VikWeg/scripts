@@ -10,7 +10,6 @@ void get_fiber(int PrevVoxNum, int PrevSpinId, int CurrVoxNum, int CurrSpinId, i
 		else Next = { -1, -1 };
 	};
 
-
 	fwrite((char*)&(x[CurrSpinId]), 1, 4, fiber_file);
 	fwrite((char*)&(y[CurrSpinId]), 1, 4, fiber_file);
 	fwrite((char*)&(z[CurrSpinId]), 1, 4, fiber_file);

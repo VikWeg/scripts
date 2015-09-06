@@ -14,8 +14,8 @@ void annealing()
 		/*========*/ RDTSC(start); /*========*/
 		for (int n = 1; n <= S; n++)
 		{
-			for (int lattice_id = 0; lattice_id < 27; lattice_id++)
-				mc(x, y, z, c, ten, sig, VoxIds, lattice_id);
+			//for (int lattice_id = 0; lattice_id < 27; lattice_id++)
+				mc(x, y, z, c, ten, sig, VoxIds, 0);
 
 			std::cout << "% done: " << std::setprecision(2) << std::setw(6) << std::left << std::fixed << (100. * n) / S << "\r";
 		}

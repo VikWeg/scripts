@@ -73,7 +73,7 @@ long scount;
 // **** PARAMETERS ********************************************************/
 /**/	std::string version("fiber_tracking_brain_data_fast_clean");	/**/
 /**/	std::string subject ("1159T");									/**/
-/**/	int cube_size[3] = { 70, 70,70 };									/**/
+/**/	int cube_size[3] = { 9, 9,9 };									/**/
 /**/	int vox_origin[4] = { 0, 48, 64, 64 };							/**/
 /**/																	/**/
 /**/	float cutoff = 1.5;												/**/

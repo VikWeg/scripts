@@ -24,8 +24,10 @@ struct trackvis_header
 	int 	hdr_size;
 };
 
-void write_header(trackvis_header trk_hdr, FILE* fiber_file)
+void write_header(FILE* fiber_file)
 {
+	trackvis_header trk_hdr;
+
 	sprintf(trk_hdr.id_string, "TRACK");
 
 	trk_hdr.dim[0] = cube_size[0];

@@ -4,6 +4,7 @@ void mc_c(float* x, float* y, float* z, unsigned long long* c, float* ten, char*
 
 	int c0 = cube_size[0];
 	int c1 = cube_size[1];
+	int c2 = cube_size[2];
 	
 	int NonEmptyNeighborVoxsCount = GetNonEmptyNeighborVoxsCount(VoxNum,VoxIds);
 
@@ -12,17 +13,23 @@ void mc_c(float* x, float* y, float* z, unsigned long long* c, float* ten, char*
 	{
 		int NeighborVoxNum = GetVoxNumFromNeighborNum(VoxNum,NeighborNumber,VoxIds);
 		int NeighborVoxId = VoxIds[NeighborVoxNum];
+		int	SpinsInNeighborVoxel;
 
-		int next = NeighborVoxNum + 1;
-		while (VoxIds[next] < 0) next++;
-		int	SpinsInNeighborVoxel = VoxIds[next] - NeighborVoxId;
+		if (NeighborVoxNum < c0*c1*c2 - 1)
+		{
+			int next = NeighborVoxNum + 1;
+			while (VoxIds[next] < 0) next++;
+			SpinsInNeighborVoxel = VoxIds[next] - NeighborVoxId;
+		}
+		else SpinsInNeighborVoxel = scount - NeighborVoxId; //global scount
+
 
 		for (int NeighborSpinNumber = 0; NeighborSpinNumber < SpinsInNeighborVoxel; NeighborSpinNumber++)
 			{
-			int NeighborSpinId = NeighborVoxId + NeighborSpinNumber;
+				int NeighborSpinId = NeighborVoxId + NeighborSpinNumber;
 
-			E0 =		wc(T)*Ei_c(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxId, SpinId, NeighborVoxNum, NeighborSpinId)
-				+		wx(T)*Ei_x(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxId, SpinId);
+				E0 =		wc(T)*Ei_c(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxId, SpinId, NeighborVoxNum, NeighborSpinId)
+					+		wx(T)*Ei_x(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxId, SpinId);
 
 				//=== Change connection between spin and neighbour ===
 
@@ -51,7 +58,7 @@ void mc_c(float* x, float* y, float* z, unsigned long long* c, float* ten, char*
 				}
 			}
 			NeighborSpinsCovered += SpinsInNeighborVoxel;
-		}
+	}
 }
 
 void mc_x(float* x, float* y, float* z, unsigned long long* c, float* ten, char* sig, int* VoxIds, int VoxNum, int VoxId, int SpinId)
@@ -97,16 +104,26 @@ void mc_x(float* x, float* y, float* z, unsigned long long* c, float* ten, char*
 
 void mc(float* x, float* y, float* z, unsigned long long* c, float* ten, char* sig, int* VoxIds, int lattice_id)
 {
-	for (int threadId = 0; threadId <= cube_size[0] * cube_size[1] * cube_size[2]; threadId++)
+	for (int threadId = 0; threadId < cube_size[0] * cube_size[1] * cube_size[2]; threadId++)
 	{
-		int VoxNum = threadIdToVoxNum(threadId, lattice_id);
+		int VoxNum = threadId;
+		//int VoxNum = threadIdToVoxNum(threadId, lattice_id);
 
-		if (VoxIds[VoxNum] >= 0)
+		if (VoxIds[VoxNum] >= 0 && VoxNum < cube_size[0] * cube_size[1] * cube_size[2])
 		{
-			int next = VoxNum + 1;
-			while (VoxIds[next] < 0) next++;
 
-			for (char SpinId = VoxIds[VoxNum]; SpinId < VoxIds[next]; SpinId++)
+			int SpinsInVoxel;
+
+			if (VoxNum < cube_size[0] * cube_size[1] * cube_size[2] - 1)
+			{
+				int next = VoxNum + 1;
+				while (VoxIds[next] < 0) next++;
+				SpinsInVoxel = VoxIds[next] - VoxIds[VoxNum];
+			}
+			else
+				SpinsInVoxel = scount - VoxIds[VoxNum]; //scount is global
+
+			for (int SpinId = VoxIds[VoxNum]; SpinId < VoxIds[VoxNum] + SpinsInVoxel; SpinId++)
 			{
 				mc_c(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxIds[VoxNum], SpinId);
 				mc_x(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxIds[VoxNum], SpinId);
