@@ -38,6 +38,8 @@ Octree??
 #define NII_HEADER_SIZE 352
 nifti_1_header hdr;
 
+const float eps = 10e-7;
+
 float* data;
 float* L1data;
 float* L2data;
@@ -55,7 +57,7 @@ float* y;
 float* z;
 unsigned long long* c;
 
-char* sig;
+int* sig;
 float* ten;
 int* VoxIds;
 
@@ -77,6 +79,7 @@ long surf_vox_num;
 long scount;
 
 // **** PARAMETERS ********************************************************/
+/**/	int TestFiberTrace = 0;
 /**/	std::string version("fiber_tracking_brain_data_fast_clean");	/**/
 /**/	std::string subject ("1159T");									/**/
 /**/	int cube_size[3] = { 9, 9, 9 };									/**/
@@ -99,8 +102,8 @@ long scount;
 /**/	float wc(float T) { return 1/T; }								/**/
 /**/	float wx(float T) { return 1; }	
 /**/
-/**/	float wint(float cos) { return (1 + cos) / (1.01 - cos); }
-/**/	char* wint_str = "(1+cos)/(1.01-cos)";
+/**/	float wint(float cos) { return (1 + cos) *0.5; }
+/**/	char* wint_str = "(1+cos)/2";
 
 		char* wdata_str = "(E1 + E2)/2";
 /**/

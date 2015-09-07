@@ -1,4 +1,4 @@
-float Edata(float* x, float* y, float* z, unsigned long long* c, float* ten, char* sig, int* VoxIds,
+float Edata(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds,
 	int VoxNum, int VoxId, int SpinId,
 	int NeighborVoxNum, int NeighborVoxId, int NeighborSpinId)
 {
@@ -28,10 +28,13 @@ float Edata(float* x, float* y, float* z, unsigned long long* c, float* ten, cha
 	//Calculate Emin, Emax each time from tensor (Problem with eigenvalues though...)
 	//see 3x3 matrices in https://en.wikipedia.org/wiki/Eigenvalue_algorithm#3.C3.973_matrices
 
+	if (E1 > 10) std::cout << VoxNum << " E1 too large: " << E1 << "\n";
+	if (E2 > 10) std::cout << VoxNum << " E2 too large: " << E2 << "\n";
+
 	return 0.5*(E1 + E2);
 }
 
-float Eint(	float* x, float* y, float* z, unsigned long long* c, float* ten, char* sig, int* VoxIds,
+float Eint(	float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds,
 			int VoxNum, int VoxId, int SpinId,
 			int NeighborVoxNum, int NeighborVoxId, int NeighborSpinId,
 			int OtherNeighborVoxNum, int OtherNeighborVoxId, int OtherNeighborSpinId)
@@ -53,12 +56,15 @@ float Eint(	float* x, float* y, float* z, unsigned long long* c, float* ten, cha
 
 	float cos = dot / norm;
 
+	if (cos > 1.1 || cos < -1.1) std::cout << VoxNum << " cos out of bound: " << cos << "\n";
+
 	return wint(cos);
 }
 
-float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, char* sig, int* VoxIds, int VoxNum, int VoxId, int SpinId)
+float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds, int VoxNum, int VoxId, int SpinId)
 {
 	float E = 0;
+	int count = 0;
 
 	int NonEmptyNeighborVoxsCount = GetNonEmptyNeighborVoxsCount(VoxNum, VoxIds);
 
@@ -88,7 +94,7 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, char
 			if (getBit(NeighborSpinsCovered + NeighborSpinNumber, c[SpinId]))
 			{
 				E += Edata(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxId, SpinId, NeighborVoxNum, NeighborVoxId, NeighborSpinId);
-
+				count++;
 				//Add first order smoothness energy
 				int OtherNeighborSpinsCovered = 0;
 				for (int OtherNeighborNumber = NeighborNumber + 1; OtherNeighborNumber < NonEmptyNeighborVoxsCount; OtherNeighborNumber++)
@@ -111,10 +117,13 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, char
 						int OtherNeighborSpinId = OtherNeighborVoxId + OtherNeighborSpinNumber;
 
 						if (getBit(OtherNeighborSpinsCovered + OtherNeighborSpinNumber, c[SpinId]))
-							E += Eint(	x, y, z, c, ten, sig, VoxIds,
-										VoxNum, VoxId, SpinId,
-										NeighborVoxNum, NeighborVoxId, NeighborSpinId,
-										OtherNeighborVoxNum, OtherNeighborVoxId, OtherNeighborSpinId);
+						{
+							E += Eint(x, y, z, c, ten, sig, VoxIds,
+								VoxNum, VoxId, SpinId,
+								NeighborVoxNum, NeighborVoxId, NeighborSpinId,
+								OtherNeighborVoxNum, OtherNeighborVoxId, OtherNeighborSpinId);
+							count++;
+						}
 					}
 					OtherNeighborSpinsCovered += SpinsInOtherNeighborVoxel;
 				}
@@ -145,10 +154,13 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, char
 						int NextNeighborSpinId = NextNeighborVoxId + NextNeighborSpinNumber;
 
 						if (getBit(NextNeighborSpinsCovered + NextNeighborSpinNumber, c[NeighborSpinId]))
+						{
 							E += Eint(x, y, z, c, ten, sig, VoxIds,
-										NeighborVoxNum, NeighborVoxId, NeighborSpinId,
-										VoxNum, VoxId, SpinId,
-										NextNeighborVoxNum, NextNeighborVoxId, NextNeighborSpinId);
+								NeighborVoxNum, NeighborVoxId, NeighborSpinId,
+								VoxNum, VoxId, SpinId,
+								NextNeighborVoxNum, NextNeighborVoxId, NextNeighborSpinId);
+							count++;
+						}
 					}
 					NextNeighborSpinsCovered += SpinsInNextNeighborVoxel;
 				}
@@ -157,10 +169,12 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, char
 		NeighborSpinsCovered += SpinsInNeighborVoxel;
 	}
 
-	return E;
+	if (E / (count + eps) > 1000) std::cout << VoxNum << " Ei_x too large: " << E / (count + eps) << "\n";
+
+	return E /(count + eps);
 }
 
-float Ei_c(float* x, float* y, float* z, unsigned long long* c, float* ten, char* sig, int* VoxIds,int VoxNum, int VoxId, int SpinId, int NeighborVoxNum, int NeighborSpinId)
+float Ei_c(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds,int VoxNum, int VoxId, int SpinId, int NeighborVoxNum, int NeighborSpinId)
 {
 	int c0 = cube_size[0];
 	int c1 = cube_size[1];
@@ -179,7 +193,9 @@ float Ei_c(float* x, float* y, float* z, unsigned long long* c, float* ten, char
 	E += (1 - sig[NeighborVoxNum])	*fabsf(NeighborConnectionCount - 2) / (NeighbourNearSpinsCount - 2 + 0.0000001);
 	E += sig[NeighborVoxNum] * fabsf(NeighborConnectionCount - 1) / (NeighbourNearSpinsCount - 1 + 0.0000001);
 
-	return E / (NearSpinsCount + 1);
+	if (E > 1000) std::cout << VoxNum << " Ei_c too large: " << E << "\n";
+
+	return E / (NearSpinsCount + eps);
 }
 
 
@@ -206,8 +222,8 @@ float Ei_C(int VoxNum)
 	{
 		int ConnectionCount = sumBits(c[SpinId]);
 
-		E += (1 - sig[VoxNum])	*fabsf(ConnectionCount - 2) / (NearSpinsCount - 2 + 0.0000001);
-		E += sig[VoxNum] * fabsf(ConnectionCount - 1) / (NearSpinsCount - 1 + 0.0000001);
+		E += (1 - sig[VoxNum])	*fabsf(ConnectionCount - 2)/(NearSpinsCount - 2 + 0.0000001);
+		E += sig[VoxNum] * fabsf(ConnectionCount - 1)/(NearSpinsCount - 1 + 0.0000001);
 	}
 
 	return E;
@@ -229,6 +245,7 @@ float Ei_D(int VoxNum)
 	else SpinsInVoxel = scount - VoxId;
 
 	float E = 0;
+	int count = 0;
 
 	int NonEmptyNeighborVoxsCount = GetNonEmptyNeighborVoxsCount(VoxNum, VoxIds);
 
@@ -257,13 +274,16 @@ float Ei_D(int VoxNum)
 			//Add data energy for each spin in VoxNum
 			for (int SpinId = VoxId; SpinId < VoxId + SpinsInVoxel; SpinId++)
 			if (getBit(NeighborSpinsCovered + NeighborSpinNumber, c[SpinId]))
+			{
 				E += Edata(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxId, SpinId, NeighborVoxNum, NeighborVoxId, NeighborSpinId);
+				count++;
+			}
 			
 		}
 		NeighborSpinsCovered += SpinsInNeighborVoxel;
 	}
 
-	return E;
+	return E /(count + eps);
 }
 
 float Ei_I(int VoxNum)
@@ -282,6 +302,7 @@ float Ei_I(int VoxNum)
 	else SpinsInVoxel = scount - VoxId;
 
 	float E = 0;
+	int count = 0;
 
 	int NonEmptyNeighborVoxsCount = GetNonEmptyNeighborVoxsCount(VoxNum, VoxIds);
 
@@ -332,10 +353,13 @@ float Ei_I(int VoxNum)
 						int OtherNeighborSpinId = OtherNeighborVoxId + OtherNeighborSpinNumber;
 
 						if (getBit(OtherNeighborSpinsCovered + OtherNeighborSpinNumber, c[SpinId]))
+						{
 							E += Eint(x, y, z, c, ten, sig, VoxIds,
-							VoxNum, VoxId, SpinId,
-							NeighborVoxNum, NeighborVoxId, NeighborSpinId,
-							OtherNeighborVoxNum, OtherNeighborVoxId, OtherNeighborSpinId);
+								VoxNum, VoxId, SpinId,
+								NeighborVoxNum, NeighborVoxId, NeighborSpinId,
+								OtherNeighborVoxNum, OtherNeighborVoxId, OtherNeighborSpinId);
+							count++;
+						}
 					}
 					OtherNeighborSpinsCovered += SpinsInOtherNeighborVoxel;
 				}
@@ -344,5 +368,5 @@ float Ei_I(int VoxNum)
 		NeighborSpinsCovered += SpinsInNeighborVoxel;
 	}
 
-	return E;
+	return E/(count+ eps);
 }

@@ -8,6 +8,7 @@
 #include "track_vis.h"
 #include "fiber_tracing.h"
 #include "trk_export.h"
+#include "FiberTraceTest.h"
 #include "readout.h"
 #include "annealing.h"
 

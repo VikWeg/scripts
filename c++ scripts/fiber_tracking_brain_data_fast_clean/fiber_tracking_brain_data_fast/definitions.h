@@ -87,14 +87,14 @@ long scount;
 /**/	int S = 1;														/**/
 /**/	float delta_x = 0.1;											/**/
 /**/																	/**/
-/**/	char* wc_str = "1/sqrt(T)";												/**/
+/**/	char* wc_str = "1/T";												/**/
 /**/	char* wx_str = "1";												/**/
 /**/																	/**/
-/**/	float wc(float T) { return 1/sqrtf(T); }								/**/
+/**/	float wc(float T) { return 1/T; }								/**/
 /**/	float wx(float T) { return 1; }	
 /**/
-/**/	float wint(float cos) { return (1 + cos) / (1.01 - cos); }
-/**/	char* wint_str = "(1+cos)/(1.01-cos)";
+/**/	float wint(float cos) { return (1 + cos) *0.5; }
+/**/	char* wint_str = "(1+cos)/2";
 
 		char* wdata_str = "(E - Emin)/(Emax-E)";
 /**/

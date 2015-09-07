@@ -1,4 +1,4 @@
-void mc_c(float* x, float* y, float* z, unsigned long long* c, float* ten, char* sig, int* VoxIds, int VoxNum, int VoxId, int SpinId)
+void mc_c(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds, int VoxNum, int VoxId, int SpinId)
 {
 	float E0, E1, p;
 
@@ -61,11 +61,15 @@ void mc_c(float* x, float* y, float* z, unsigned long long* c, float* ten, char*
 	}
 }
 
-void mc_x(float* x, float* y, float* z, unsigned long long* c, float* ten, char* sig, int* VoxIds, int VoxNum, int VoxId, int SpinId)
+void mc_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds, int VoxNum, int VoxId, int SpinId)
 {
 
 	float x0, y0, z0;
 	float E0, E1, p;
+
+	int pos_x = round(x[SpinId] / hdr.pixdim[1]) * hdr.pixdim[1];
+	int	pos_y = round(y[SpinId] / hdr.pixdim[2]) * hdr.pixdim[2];
+	int	pos_z = round(z[SpinId] / hdr.pixdim[3]) * hdr.pixdim[3];
 
 		for (int i = 0; i < nx; i++)
 		{
@@ -74,10 +78,6 @@ void mc_x(float* x, float* y, float* z, unsigned long long* c, float* ten, char*
 			x0 = x[SpinId];
 			y0 = y[SpinId];
 			z0 = z[SpinId];
-
-			int pos_x = round(x0 / hdr.pixdim[1]);
-			int	pos_y = round(y0 / hdr.pixdim[2]);
-			int	pos_z = round(z0 / hdr.pixdim[3]);
 
 			std::uniform_real_distribution<float> u_x(x0 - (x0 - pos_x + hdr.pixdim[1] * 0.5) * delta_x, x0 + (pos_x + hdr.pixdim[1] * 0.5 - x0) * delta_x);
 			x[SpinId] = u_x(generate);
@@ -102,7 +102,7 @@ void mc_x(float* x, float* y, float* z, unsigned long long* c, float* ten, char*
 		}
 }
 
-void mc(float* x, float* y, float* z, unsigned long long* c, float* ten, char* sig, int* VoxIds, int lattice_id)
+void mc(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds, int lattice_id)
 {
 	for (int threadId = 0; threadId < cube_size[0] * cube_size[1] * cube_size[2]; threadId++)
 	{

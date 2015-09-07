@@ -11,30 +11,6 @@ void fiber_tracking_cube()
 	{
 		std::cout << std::setprecision(2) << "Tstep = " << tstep << "/" << tsteps_tot << "\n";
 
-		/*
-		RDTSC(start);
-		for (int n = 1; n <= S * scount; n++)
-		{
-			int i = u_i(generate);
-			int j = u_j(generate);
-			int k = u_k(generate);
-			while (wmask[i][j][k] == 0 && surf_mask[i][j][k] == 0)
-			{
-				i = u_i(generate);
-				j = u_j(generate);
-				k = u_k(generate);
-			}
-
-			for (int s = 0; s < snum[i][j][k]; s++)
-			{
-				mc_c(&ensemble[i][j][k][s], T);
-				mc_x(&ensemble[i][j][k][s], T);
-			}
-
-		std::cout << "% done: " << std::setprecision(2) << std::setw(6) << std::left << std::fixed << (100. * n) / (S*scount) << "\r";
-		}
-		RDTSC(stop); */
-
 		/*========*/ RDTSC(start); /*========*/
 		for (int n = 1; n <= S; n++)
 		{
@@ -50,6 +26,17 @@ void fiber_tracking_cube()
 			std::cout << "% done: " << std::setprecision(2) << std::setw(6) << std::left << std::fixed << (100. * n) / S << "\r";
 		}
 		/*========*/ RDTSC(stop); /*========*/
+
+		float test = 0;
+		for (int i = 0; i < cube_size[0]; i++)
+		for (int j = 0; j < cube_size[1]; j++)
+		for (int k = 0; k < cube_size[2]; k++)
+		for (int s = 0; s < snum[i][j][k]; s++)
+		if (wmask[i][j][k] == 1 || surf_mask[i][j][k] == 1)
+		if (ensemble[i][j][k][s].sig) test += fabs(1. - ensemble[i][j][k][s].cc) / ensemble[i][j][k][s].nn;
+		else test += fabs(2. - ensemble[i][j][k][s].cc) / ensemble[i][j][k][s].nn;
+
+		std::cout << "test = " << test/scount << "\n";
 
 		export_fibers(tstep);
 		write_E_file(tstep,T);

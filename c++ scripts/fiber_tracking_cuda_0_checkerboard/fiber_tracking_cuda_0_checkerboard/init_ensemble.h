@@ -123,7 +123,7 @@ void init_ensemble()
 
 	VoxIds = new int[cube_size[0] * cube_size[1] * cube_size[2]];
 	ten = new float[6 * cube_size[0] * cube_size[1] * cube_size[2]];
-	sig = new char[cube_size[0] * cube_size[1] * cube_size[2]];
+	sig = new int[cube_size[0] * cube_size[1] * cube_size[2]];
 	x = new float[scount];
 	y = new float[scount];
 	z = new float[scount];
@@ -168,7 +168,7 @@ void init_ensemble()
 			y[voxid + s] = j*hdr.pixdim[2];
 			z[voxid + s] = k*hdr.pixdim[3];
 
-			c[voxid + s] = 0;
+			c[voxid + s] = (unsigned long long)0;
 		}
 	}
 

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CudaCompile Include="kernel.cu" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="fiber_tracing.h">
+      <Filter>FiberExport</Filter>
+    </ClInclude>
+    <ClInclude Include="trk_export.h">
+      <Filter>FiberExport</Filter>
+    </ClInclude>
+    <ClInclude Include="track_vis.h">
+      <Filter>FiberExport</Filter>
+    </ClInclude>
+    <ClInclude Include="create_log.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="readout.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="monte_carlo.h">
+      <Filter>MC</Filter>
+    </ClInclude>
+    <ClInclude Include="mc_helper_functions.h">
+      <Filter>MC</Filter>
+    </ClInclude>
+    <ClInclude Include="energy.h">
+      <Filter>MC</Filter>
+    </ClInclude>
+    <ClInclude Include="annealing.h">
+      <Filter>MC</Filter>
+    </ClInclude>
+    <ClInclude Include="definitions.h">
+      <Filter>SetUp</Filter>
+    </ClInclude>
+    <ClInclude Include="import_data.h">
+      <Filter>SetUp</Filter>
+    </ClInclude>
+    <ClInclude Include="init_ensemble.h">
+      <Filter>SetUp</Filter>
+    </ClInclude>
+    <ClInclude Include="nifti1.h">
+      <Filter>SetUp</Filter>
+    </ClInclude>
+    <ClInclude Include="FiberTraceTest.h">
+      <Filter>FiberExport</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="FiberExport">
+      <UniqueIdentifier>{99382b99-a5cd-4483-8070-4f40297831a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Log">
+      <UniqueIdentifier>{91074c0d-3821-483b-87eb-b3774e720a72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MC">
+      <UniqueIdentifier>{cb53e250-2b5d-47d0-b329-e10bbc7eeb43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SetUp">
+      <UniqueIdentifier>{353cb33f-cbd5-489e-8935-abe9895395ff}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

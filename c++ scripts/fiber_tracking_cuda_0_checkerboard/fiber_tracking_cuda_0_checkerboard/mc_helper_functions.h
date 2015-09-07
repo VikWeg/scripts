@@ -55,7 +55,7 @@ int getBit(int i, unsigned long long c)
 {
 	unsigned long long mask = 1 << i;
 
-	return (c&mask == 0) ? 0 : 1;
+	return ((c&mask) == 0) ? 0 : 1;
 }
 
 // **** Change i-th bit ****
@@ -270,7 +270,7 @@ int GetNeighborSpinCount(int VoxNum, int* VoxIds)
 	return count;
 }
 
-Next GetNextSpin(int VoxNum, int NextSpinOffset)
+Next GetNextSpin(int* VoxIds, int VoxNum, int NextSpinOffset)
 {//Returns the voxnum and spin id of the spin with spin offset NextSpinOffset relative to VoxNum
 
 	Next Next = { -1, -1 };

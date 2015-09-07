@@ -1,14 +1,14 @@
-﻿Der Buildvorgang wurde am 06.09.2015 23:30:41 gestartet.
+﻿Der Buildvorgang wurde am 07.09.2015 16:30:17 gestartet.
      1>Projekt "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast.vcxproj" auf Knoten "2", Build Ziel(e).
      1>ClCompile:
-         C:\Apps\VisualStudio2013\VC\bin\CL.exe /c /nologo /W3 /WX- /Ox /Ot /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         C:\Apps\Visual Studio 13\VC\bin\CL.exe /c /nologo /W3 /WX- /Ox /Ot /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
      1>C:\Apps\gnuplot\gnucpp\gnuplot_i.hpp(1601): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
      1>C:\Apps\gnuplot\gnucpp\gnuplot_i.hpp(1603): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
      1>C:\Apps\gnuplot\gnucpp\gnuplot_i.hpp(1776): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\stdlib.h(462): Siehe Deklaration von 'getenv'
+                 C:\Apps\Visual Studio 13\VC\include\stdlib.h(462): Siehe Deklaration von 'getenv'
      1>C:\Apps\gnuplot\gnucpp\gnuplot_i.hpp(1920): warning C4996: '_mktemp': This function or variable may be unsafe. Consider using _mktemp_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\io.h(201): Siehe Deklaration von '_mktemp'
+                 C:\Apps\Visual Studio 13\VC\include\io.h(201): Siehe Deklaration von '_mktemp'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\definitions.h(81): warning C4305: 'Initialisierung': Verkürzung von 'double' in 'float'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\definitions.h(82): warning C4305: 'Initialisierung': Verkürzung von 'double' in 'float'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\definitions.h(83): warning C4305: 'Initialisierung': Verkürzung von 'double' in 'float'
@@ -38,17 +38,17 @@
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\monte_carlo.h(42): warning C4101: 'x1': Unreferenzierte lokale Variable
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\monte_carlo.h(42): warning C4101: 'z1': Unreferenzierte lokale Variable
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\import_data.h(3): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
+                 C:\Apps\Visual Studio 13\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\import_data.h(22): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
+                 C:\Apps\Visual Studio 13\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\import_data.h(51): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
+                 C:\Apps\Visual Studio 13\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\import_data.h(80): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
+                 C:\Apps\Visual Studio 13\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\import_data.h(109): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
+                 C:\Apps\Visual Studio 13\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\import_data.h(138): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
+                 C:\Apps\Visual Studio 13\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\init_ensemble.h(51): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\init_ensemble.h(52): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\init_ensemble.h(53): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
@@ -64,27 +64,29 @@
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\init_ensemble.h(182): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\init_ensemble.h(183): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\create_log.h(7): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\time.inl(112): Siehe Deklaration von 'localtime'
+                 C:\Apps\Visual Studio 13\VC\include\time.inl(112): Siehe Deklaration von 'localtime'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\create_log.h(11): warning C4996: 'mkdir': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _mkdir. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\direct.h(140): Siehe Deklaration von 'mkdir'
+                 C:\Apps\Visual Studio 13\VC\include\direct.h(140): Siehe Deklaration von 'mkdir'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\create_log.h(12): warning C4996: 'chdir': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _chdir. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\direct.h(136): Siehe Deklaration von 'chdir'
+                 C:\Apps\Visual Studio 13\VC\include\direct.h(136): Siehe Deklaration von 'chdir'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\create_log.h(14): warning C4996: 'mkdir': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _mkdir. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\direct.h(140): Siehe Deklaration von 'mkdir'
+                 C:\Apps\Visual Studio 13\VC\include\direct.h(140): Siehe Deklaration von 'mkdir'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\track_vis.h(29): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\stdio.h(356): Siehe Deklaration von 'sprintf'
+                 C:\Apps\Visual Studio 13\VC\include\stdio.h(356): Siehe Deklaration von 'sprintf'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\track_vis.h(45): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\stdio.h(356): Siehe Deklaration von 'sprintf'
+                 C:\Apps\Visual Studio 13\VC\include\stdio.h(356): Siehe Deklaration von 'sprintf'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\track_vis.h(46): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\stdio.h(356): Siehe Deklaration von 'sprintf'
+                 C:\Apps\Visual Studio 13\VC\include\stdio.h(356): Siehe Deklaration von 'sprintf'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\trk_export.h(3): warning C4996: 'chdir': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _chdir. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\direct.h(136): Siehe Deklaration von 'chdir'
+                 C:\Apps\Visual Studio 13\VC\include\direct.h(136): Siehe Deklaration von 'chdir'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\trk_export.h(4): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
+                 C:\Apps\Visual Studio 13\VC\include\stdio.h(211): Siehe Deklaration von 'fopen'
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\readout.h(56): warning C4996: 'chdir': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _chdir. See online help for details.
-                 C:\Apps\VisualStudio2013\VC\include\direct.h(136): Siehe Deklaration von 'chdir'
+                 C:\Apps\Visual Studio 13\VC\include\direct.h(136): Siehe Deklaration von 'chdir'
+     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\annealing.h(36): warning C4244: '+=': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\annealing.h(37): warning C4244: '+=': Konvertierung von 'double' in 'float', möglicher Datenverlust
        Link:
-         C:\Apps\VisualStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\Release\fiber_tracking_brain_data_fast.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\Release\fiber_tracking_brain_data_fast.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\Release\fiber_tracking_brain_data_fast.lib" /MACHINE:X86 /SAFESEH Release\main.obj
+         C:\Apps\Visual Studio 13\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\Release\fiber_tracking_brain_data_fast.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\Release\fiber_tracking_brain_data_fast.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\Release\fiber_tracking_brain_data_fast.lib" /MACHINE:X86 /SAFESEH Release\main.obj
          Code wird generiert.
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\trk_export.h(7): warning C4700: Die nicht initialisierte lokale Variable "trk_hdr" wurde verwendet.
          Codegenerierung ist abgeschlossen.
@@ -93,4 +95,4 @@
 
 Build erfolgreich.
 
-Verstrichene Zeit 00:00:01.29
+Verstrichene Zeit 00:00:01.48

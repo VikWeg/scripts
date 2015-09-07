@@ -1,4 +1,4 @@
-void export_fibers(int n)
+void export_fibers(int* VoxIds, int n)
 {
 	chdir("fibers");
 	fiber_file = fopen(("fibers_" + std::to_string(n) + ".trk").c_str(),"w+b");
@@ -16,17 +16,22 @@ void export_fibers(int n)
 		{
 			int VoxId = VoxIds[VoxNum];
 
-			int next = VoxNum + 1;
-			while (VoxIds[next] < 0) next++;
-			int	SpinsInVoxel = VoxIds[next] - VoxId;
+			int	SpinsInVoxel;
+			if (VoxNum < cube_size[0] * cube_size[1] * cube_size[2] - 1)
+			{
+				int next = VoxNum + 1;
+				while (VoxIds[next] < 0) next++;
+				SpinsInVoxel = VoxIds[next] - VoxId;
+			}
+			else SpinsInVoxel = scount - VoxId;
 
 			for (int SpinId = VoxId; SpinId < VoxId + SpinsInVoxel; SpinId++)
 			{
-				len = get_fiber_length(VoxNum, SpinId);
+				len = get_fiber_length(VoxIds,VoxNum, SpinId);
 				if (len>1)
 				{
 					fwrite((char*)&len, 1, 4, fiber_file);
-					get_fiber(VoxNum, SpinId);
+					get_fiber(VoxIds,VoxNum, SpinId);
 					fiber_num++;
 				}
 			}
