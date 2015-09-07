@@ -106,8 +106,8 @@ void mc(float* x, float* y, float* z, unsigned long long* c, float* ten, int* si
 {
 	for (int threadId = 0; threadId < cube_size[0] * cube_size[1] * cube_size[2]; threadId++)
 	{
-		int VoxNum = threadId;
 		//int VoxNum = threadIdToVoxNum(threadId, lattice_id);
+		int VoxNum = threadId;
 
 		if (VoxIds[VoxNum] >= 0 && VoxNum < cube_size[0] * cube_size[1] * cube_size[2])
 		{

@@ -28,6 +28,7 @@ void export_fibers(int* VoxIds, int n)
 			for (int SpinId = VoxId; SpinId < VoxId + SpinsInVoxel; SpinId++)
 			{
 				len = get_fiber_length(VoxIds,VoxNum, SpinId);
+
 				if (len>1)
 				{
 					fwrite((char*)&len, 1, 4, fiber_file);

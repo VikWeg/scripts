@@ -172,21 +172,6 @@ void init_ensemble()
 		}
 	}
 
-
-	for (int k = 0; k < cube_size[2]; k++)
-	{
-
-		for (int j = 0; j < cube_size[1]; j++)
-		{
-
-			for (int i = 0; i < cube_size[0]; i++)
-				std::cout << snum[VoxNum(i,j,k)] << " ";
-
-			std::cout << "\n";
-		}
-		std::cout << "\n";
-	}
-
 	free(data);
 	free(L1data);
 	free(L2data);

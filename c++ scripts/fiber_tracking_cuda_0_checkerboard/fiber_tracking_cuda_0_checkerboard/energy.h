@@ -11,25 +11,22 @@ float Edata(float* x, float* y, float* z, unsigned long long* c, float* ten, int
 
 	float norm = 1/(xij[0] * xij[0] + xij[1] * xij[1] + xij[2] * xij[2]);
 
-	E1 = (		ten[VoxNum] * xij[0] * xij[0]
-		+ 2 * ten[VoxNum+1] * xij[0] * xij[1]
-		+ 2 * ten[VoxNum+2] * xij[0] * xij[2]
-		+	  ten[VoxNum+3] * xij[1] * xij[1]
-		+ 2 * ten[VoxNum+4] * xij[1] * xij[2]
-		+	  ten[VoxNum+5] * xij[2] * xij[2]) * norm;
+	E1 = (		ten[6 * VoxNum    ] * xij[0] * xij[0]
+		  + 2 * ten[6 * VoxNum + 1] * xij[0] * xij[1]
+		  + 2 * ten[6 * VoxNum + 2] * xij[0] * xij[2]
+		  +		ten[6 * VoxNum + 3] * xij[1] * xij[1]
+		  + 2 * ten[6 * VoxNum + 4] * xij[1] * xij[2]
+		  +		ten[6 * VoxNum + 5] * xij[2] * xij[2]) * norm;
 
-	E2 = (	  ten[NeighborVoxNum]     * xij[0] * xij[0]
-		+ 2 * ten[NeighborVoxNum + 1] * xij[0] * xij[1]
-		+ 2 * ten[NeighborVoxNum + 2] * xij[0] * xij[2]
-		+     ten[NeighborVoxNum + 3] * xij[1] * xij[1]
-		+ 2 * ten[NeighborVoxNum + 4] * xij[1] * xij[2]
-		+     ten[NeighborVoxNum + 5] * xij[2] * xij[2]) * norm;
+	E2 = (		ten[6 * NeighborVoxNum    ] * xij[0] * xij[0]
+		  + 2 * ten[6 * NeighborVoxNum + 1] * xij[0] * xij[1]
+		  + 2 * ten[6 * NeighborVoxNum + 2] * xij[0] * xij[2]
+		  +		ten[6 * NeighborVoxNum + 3] * xij[1] * xij[1]
+		  + 2 * ten[6 * NeighborVoxNum + 4] * xij[1] * xij[2]
+		  +		ten[6 * NeighborVoxNum + 5] * xij[2] * xij[2]) * norm;
 
 	//Calculate Emin, Emax each time from tensor (Problem with eigenvalues though...)
 	//see 3x3 matrices in https://en.wikipedia.org/wiki/Eigenvalue_algorithm#3.C3.973_matrices
-
-	if (E1 > 10) std::cout << VoxNum << " E1 too large: " << E1 << "\n";
-	if (E2 > 10) std::cout << VoxNum << " E2 too large: " << E2 << "\n";
 
 	return 0.5*(E1 + E2);
 }
@@ -55,8 +52,6 @@ float Eint(	float* x, float* y, float* z, unsigned long long* c, float* ten, int
 	float dot = xij[0] * xik[0] + xij[1] * xik[1] + xij[2] * xik[2];
 
 	float cos = dot / norm;
-
-	if (cos > 1.1 || cos < -1.1) std::cout << VoxNum << " cos out of bound: " << cos << "\n";
 
 	return wint(cos);
 }
@@ -169,8 +164,6 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int*
 		NeighborSpinsCovered += SpinsInNeighborVoxel;
 	}
 
-	if (E / (count + eps) > 1000) std::cout << VoxNum << " Ei_x too large: " << E / (count + eps) << "\n";
-
 	return E /(count + eps);
 }
 
@@ -184,18 +177,16 @@ float Ei_c(float* x, float* y, float* z, unsigned long long* c, float* ten, int*
 	int ConnectionCount = sumBits(c[SpinId]);
 	int NearSpinsCount = GetNeighborSpinCount(VoxNum, VoxIds);
 
-	E += (1 - sig[VoxNum])	*fabsf(ConnectionCount - 2) / (NearSpinsCount - 2 + 0.0000001);
-	E += sig[VoxNum] * fabsf(ConnectionCount - 1) / (NearSpinsCount - 1 + 0.0000001);
+	E += (1 - sig[VoxNum])	*fabsf(ConnectionCount - 2) / (NearSpinsCount - 2 + eps);
+	E += sig[VoxNum] * fabsf(ConnectionCount - 1) / (NearSpinsCount - 1 + eps);
 
 	int NeighborConnectionCount = sumBits(c[NeighborSpinId]);
 	int NeighbourNearSpinsCount = GetNeighborSpinCount(NeighborVoxNum, VoxIds);
 
-	E += (1 - sig[NeighborVoxNum])	*fabsf(NeighborConnectionCount - 2) / (NeighbourNearSpinsCount - 2 + 0.0000001);
-	E += sig[NeighborVoxNum] * fabsf(NeighborConnectionCount - 1) / (NeighbourNearSpinsCount - 1 + 0.0000001);
+	E += (1 - sig[NeighborVoxNum])	*fabsf(NeighborConnectionCount - 2) / (NeighbourNearSpinsCount - 2 + eps);
+	E += sig[NeighborVoxNum] * fabsf(NeighborConnectionCount - 1) / (NeighbourNearSpinsCount - 1 + eps);
 
-	if (E > 1000) std::cout << VoxNum << " Ei_c too large: " << E << "\n";
-
-	return E / (NearSpinsCount + eps);
+	return E / NeighbourNearSpinsCount;
 }
 
 

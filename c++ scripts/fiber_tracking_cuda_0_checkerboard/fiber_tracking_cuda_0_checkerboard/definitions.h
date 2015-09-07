@@ -5,6 +5,8 @@ GetNonEmptyVoxCount very inefficient, avoid repeated function call, only loop on
 Differentiate Ei_x for mc_c and mc_x, in case of mc_c only the energy change for the changed connection needs to be calculated.
 Make ten also coalesced
 Combine Edata and Eint in readout
+
+Optimize each direction in mc_x separately!
 Octree??
 */
 
@@ -80,7 +82,7 @@ long scount;
 
 // **** PARAMETERS ********************************************************/
 /**/	int TestFiberTrace = 0;
-/**/	std::string version("fiber_tracking_brain_data_fast_clean");	/**/
+/**/	std::string version("checkerboard CPU");	/**/
 /**/	std::string subject ("1159T");									/**/
 /**/	int cube_size[3] = { 9, 9, 9 };									/**/
 /**/	int vox_origin[4] = { 0, 48, 64, 64 };							/**/
@@ -102,7 +104,7 @@ long scount;
 /**/	float wc(float T) { return 1/T; }								/**/
 /**/	float wx(float T) { return 1; }	
 /**/
-/**/	float wint(float cos) { return (1 + cos) *0.5; }
+/**/	float wint(float cos) { return (1 + cos)*0.5; }
 /**/	char* wint_str = "(1+cos)/2";
 
 		char* wdata_str = "(E1 + E2)/2";

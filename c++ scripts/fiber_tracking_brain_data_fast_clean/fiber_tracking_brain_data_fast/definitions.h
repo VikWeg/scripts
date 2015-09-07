@@ -70,8 +70,10 @@ long w_vox_num;
 long surf_vox_num;
 long scount;
 
+const float eps = 10e-7;
+
 // **** PARAMETERS ********************************************************/
-/**/	std::string version("fiber_tracking_brain_data_fast_clean");	/**/
+/**/	std::string version("Linked List CPU");	/**/
 /**/	std::string subject ("1159T");									/**/
 /**/	int cube_size[3] = { 9, 9,9 };									/**/
 /**/	int vox_origin[4] = { 0, 48, 64, 64 };							/**/
@@ -93,7 +95,7 @@ long scount;
 /**/	float wc(float T) { return 1/T; }								/**/
 /**/	float wx(float T) { return 1; }	
 /**/
-/**/	float wint(float cos) { return (1 + cos) *0.5; }
+/**/	float wint(float cos) { return (1 + cos) / (1-cos + eps); }
 /**/	char* wint_str = "(1+cos)/2";
 
 		char* wdata_str = "(E - Emin)/(Emax-E)";

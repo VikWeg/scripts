@@ -241,20 +241,6 @@ void init_ensemble()
 			ensemble[i][j][k][s].c[n] = 0;
 	}
 
-	for (int k = 0; k < cube_size[2]; k++)
-	{
-
-		for (int j = 0; j < cube_size[1]; j++)
-		{
-
-			for (int i = 0; i < cube_size[0]; i++)
-				std::cout << snum[i][j][k] << " ";
-
-			std::cout << "\n";
-		}
-		std::cout << "\n";
-	}
-
 
 	int sum = 0;
 	for (int i = 0; i < cube_size[0]; i++)

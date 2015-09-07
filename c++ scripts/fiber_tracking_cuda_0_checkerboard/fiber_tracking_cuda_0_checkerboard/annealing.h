@@ -26,14 +26,6 @@ void annealing()
 			}
 			/*========*/ RDTSC(stop); /*========*/
 
-			float test = 0;
-			for (int VoxNum = 0; VoxNum < cube_size[0] * cube_size[1] * cube_size[2]; VoxNum++)
-			for (int s = 0; s < snum[VoxNum]; s++)
-			if (sig[VoxNum]) test += fabs(1. - sumBits(c[VoxIds[VoxNum] + s]));
-			else test += fabs(2. - sumBits(c[VoxIds[VoxNum] + s]));
-
-			std::cout << "test = " << test << "\n";
-
 			export_fibers(VoxIds,tstep);
 			write_E_file(tstep, T);
 			plot_E();

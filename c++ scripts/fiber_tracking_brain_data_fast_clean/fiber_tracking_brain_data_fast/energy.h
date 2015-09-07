@@ -24,7 +24,7 @@ float Edata(vertex* vi, vertex* vj)
 		+ 2 *	(*vj).T4 * xij[1] * xij[2]
 		+		(*vj).T5 * xij[2] * xij[2]) * norm;
 
-	return 0.5*( (E1 - vi->Emin) / (vi->Emax - E1 + 0.0000001) + (E2 - vj->Emin) / (vj->Emax - E2 + 0.0000001) );
+	return 0.5*( E1 + E2  );
 }
 
 float Eint(vertex* vj, vertex* vi, vertex* vk)
@@ -95,7 +95,7 @@ float Ei_c(vertex* vi)
 		E += (vi->n[j]->sig)*    fabsf(cj - 1) / (float)(vi->n[j]->nn - 1 + 0.0000001);
 	}
 
-	return E/(vi->nn + 1);
+	return E / vi->nn;
 }
 
 float Ei_C(vertex* vi)
