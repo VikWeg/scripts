@@ -22,7 +22,7 @@ void fiber_tracking_cube()
 				mc_c(&ensemble[i][j][k][s], T);
 				mc_x(&ensemble[i][j][k][s], T);
 			}
-
+			
 			std::cout << "% done: " << std::setprecision(2) << std::setw(6) << std::left << std::fixed << (100. * n) / S << "\r";
 		}
 		/*========*/ RDTSC(stop); /*========*/

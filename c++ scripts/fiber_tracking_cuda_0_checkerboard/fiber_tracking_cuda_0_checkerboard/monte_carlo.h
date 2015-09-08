@@ -37,64 +37,6 @@ void mc_c(float* x, float* y, float* z, unsigned long long* c, float* ten, int* 
 			c[Neighbor.SpinId] = changeBit(ConnectivityPosition, c[Neighbor.SpinId]);
 		}
 	}
-
-	/*
-	int NonEmptyNeighborVoxsCount = GetNonEmptyNeighborVoxsCount(VoxNum,VoxIds);
-
-	int NeighborSpinsCovered = 0;
-	for (int NeighborNumber = 0; NeighborNumber < NonEmptyNeighborVoxsCount; NeighborNumber++)
-	{
-		int NeighborVoxNum = GetVoxNumFromNeighborNum(VoxNum,NeighborNumber,VoxIds);
-
-		int NeighborVoxId = VoxIds[NeighborVoxNum];
-		int	SpinsInNeighborVoxel;
-
-		if (NeighborVoxNum < c0*c1*c2 - 1)
-		{
-			int next = NeighborVoxNum + 1;
-			while (VoxIds[next] < 0) next++;
-			SpinsInNeighborVoxel = VoxIds[next] - NeighborVoxId;
-		}
-		else SpinsInNeighborVoxel = scount - NeighborVoxId; //global scount
-
-
-		for (int NeighborSpinNumber = 0; NeighborSpinNumber < SpinsInNeighborVoxel; NeighborSpinNumber++)
-			{
-				int NeighborSpinId = NeighborVoxId + NeighborSpinNumber;
-
-				E0 =		wc(T)*Ei_c(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxId, SpinId, NeighborVoxNum, NeighborSpinId)
-					+		wx(T)*Ei_x(x, y, z, c, ten, sig, VoxIds, VoxNum, SpinId);
-
-				//=== Change connection between spin and neighbour ===
-
-				c[SpinId] = changeBit(NeighborSpinsCovered + NeighborSpinNumber, c[SpinId]);
-				
-				int VoxNeighborNum = GetNeighborNumFromVoxNum(NeighborVoxNum,VoxNum,VoxIds);
-	
-				int SpinNumber = SpinId - VoxId;
-				int ConnectivityPosition = GetConnectivityOffset(NeighborVoxNum, VoxNeighborNum,VoxIds) + SpinNumber;
-				
-				c[NeighborSpinId] = changeBit(ConnectivityPosition, c[NeighborSpinId]);
-
-				//=====================================================
-
-				E1 =	wc(T)*Ei_c(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxId, SpinId, NeighborVoxNum, NeighborSpinId)
-					+	wx(T)*Ei_x(x, y, z, c, ten, sig, VoxIds, VoxNum, SpinId);
-
-				p = fminf(1., expf((E0 - E1) / T));
-				std::bernoulli_distribution acceptQ(p);
-
-				if (acceptQ(generate))
-					;
-				else
-				{
-					c[SpinId] = changeBit(NeighborSpinsCovered + NeighborSpinNumber, c[SpinId]);
-					c[NeighborSpinId] = changeBit(ConnectivityPosition, c[NeighborSpinId]);
-				}
-			}
-			NeighborSpinsCovered += SpinsInNeighborVoxel;
-	}
-	*/
 }
 
 void mc_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds, int VoxNum, int VoxId, int SpinId)
@@ -103,9 +45,9 @@ void mc_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int* 
 	float x0, y0, z0;
 	float E0, E1, p;
 
-	int pos_x = round(x[SpinId] / hdr.pixdim[1]) * hdr.pixdim[1];
-	int	pos_y = round(y[SpinId] / hdr.pixdim[2]) * hdr.pixdim[2];
-	int	pos_z = round(z[SpinId] / hdr.pixdim[3]) * hdr.pixdim[3];
+	float pos_x = round(x[SpinId] / hdr.pixdim[1]) * hdr.pixdim[1];
+	float pos_y = round(y[SpinId] / hdr.pixdim[2]) * hdr.pixdim[2];
+	float pos_z = round(z[SpinId] / hdr.pixdim[3]) * hdr.pixdim[3];
 
 		for (int i = 0; i < nx; i++)
 		{
@@ -140,11 +82,15 @@ void mc_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int* 
 
 void mc(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds, int lattice_id)
 {
-	for (int threadId = 0; threadId < cube_size[0] * cube_size[1] * cube_size[2]; threadId++)
+	for (int i = 0; i < cube_size[0]; i++)
+	for (int j = 0; j < cube_size[1]; j++)
+	for (int k = 0; k < cube_size[2]; k++)
+	//for (int threadId = 0; threadId < cube_size[0] * cube_size[1] * cube_size[2]; threadId++)
 	{
 		//int VoxNum = threadIdToVoxNum(threadId, lattice_id);
-		int VoxNum = threadId;
+		//int VoxNum = threadId;
 		//int VoxNum = u_k(generate)*cube_size[0] * cube_size[1] + u_j(generate)*cube_size[0] + u_i(generate);
+		int VoxNum = k*cube_size[0] * cube_size[1] + j*cube_size[0] + i;
 
 		if (VoxIds[VoxNum] >= 0 && VoxNum < cube_size[0] * cube_size[1] * cube_size[2])
 		{

@@ -106,6 +106,16 @@ void init_ensemble()
 
 						ten[t] = data[coo_t];
 					}
+					
+					/* ajust snum also
+					ten[0] = 1;
+					ten[1] = 0;
+					ten[2] = 0;
+					ten[3] = 0.01;
+					ten[4] = 0;
+					ten[5] = 0.01;
+					*/
+
 					float norm = 1. / (ten[1] * ten[1] + ten[2] * ten[2] + ten[4] * ten[4] - ten[0] * ten[3] - ten[5] * (ten[0] + ten[3]));
 
 					for (int s = 0; s < snum[i][j][k]; s++)
@@ -241,14 +251,4 @@ void init_ensemble()
 			ensemble[i][j][k][s].c[n] = 0;
 	}
 
-
-	int sum = 0;
-	for (int i = 0; i < cube_size[0]; i++)
-	for (int j = 0; j < cube_size[1]; j++)
-	for (int k = 0; k < cube_size[2]; k++)
-	for (int ss = 0; ss < snum[i][j][k]; ss++)
-	if (ensemble[i][j][k]->nn > 58)
-		sum++;
-
-	std::cout << "ratio = " << sum / scount << "\n";
 }

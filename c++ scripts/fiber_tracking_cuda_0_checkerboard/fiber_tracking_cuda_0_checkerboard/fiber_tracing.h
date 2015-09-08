@@ -2,7 +2,9 @@ void get_fiber(int* VoxIds, int PrevVoxNum, int PrevSpinId, int CurrVoxNum, int 
 {
 	Next Next = { -1, -1 };
 
-	for (int i = 0; i < 8 * sizeof(unsigned long long); i++)
+	int nc = GetNeighborSpinCount(CurrVoxNum, VoxIds);
+
+	for (int i = 0; i < nc; i++)
 	if (getBit(i, c[CurrSpinId]))
 	{
 		Next = GetNextSpin(VoxIds, CurrVoxNum, i);
@@ -31,7 +33,9 @@ void get_fiber(int* VoxIds, int VoxNum, int SpinId)
 {
 	Next Next = { -1, -1 };
 
-	for (int i = 0; i < 8 * sizeof(unsigned long long); i++)
+	int nc = GetNeighborSpinCount(VoxNum, VoxIds);
+
+	for (int i = 0; i < nc; i++)
 	if (getBit(i, c[SpinId])) { Next = GetNextSpin(VoxIds, VoxNum, i); break; };
 
 	if (Next.VoxNum != -1 && sig[Next.VoxNum] != 1)
@@ -58,7 +62,9 @@ int get_fiber_length(int* VoxIds, int PrevVoxNum, int PrevSpinId, int CurrVoxNum
 {
 	Next Next = { -1, -1 };
 
-	for (int i = 0; i < 8 * sizeof(unsigned long long); i++)
+	int nc = GetNeighborSpinCount(CurrVoxNum, VoxIds);
+
+	for (int i = 0; i < nc; i++)
 		if (getBit(i, c[CurrSpinId]))
 		{ 
 			Next = GetNextSpin(VoxIds, CurrVoxNum, i);
@@ -81,7 +87,9 @@ int get_fiber_length(int* VoxIds, int VoxNum, int SpinId)
 {
 	Next Next = { -1, -1 };
 
-	for (int i = 0; i < 8*sizeof(unsigned long long); i++)
+	int nc = GetNeighborSpinCount(VoxNum, VoxIds);
+
+	for (int i = 0; i < nc; i++)
 	if (getBit(i, c[SpinId])) { Next = GetNextSpin(VoxIds, VoxNum, i); break; };
 
 	if (Next.VoxNum != -1 && sig[Next.VoxNum] != 1)

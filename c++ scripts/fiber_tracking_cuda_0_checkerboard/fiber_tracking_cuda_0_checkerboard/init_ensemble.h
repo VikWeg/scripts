@@ -103,11 +103,11 @@ void init_ensemble()
 						+ (dim[2] - (vox_origin[2] + j - cube_size[1] / 2)) * dim[1]
 						+ (dim[1] - (vox_origin[1] + i - cube_size[0] / 2));
 
-					if (L1data[coo] / L3data[coo] < cutoff)
+					if (L1data[coo] / L3data[coo] < cutoff && surf_mask[i][j][k] == 0)
 					{
 						snum[VoxNum(i,j,k)] = 3; scount += 3;
 					}
-					else if ((L2data[coo] - L3data[coo]) / (L1data[coo] - L3data[coo]) > 0.5)
+					else if ((L2data[coo] - L3data[coo]) / (L1data[coo] - L3data[coo]) > 0.5 && surf_mask[i][j][k] == 0)
 					{
 						snum[VoxNum(i, j, k)] = 2; scount += 2;
 					}
@@ -148,6 +148,16 @@ void init_ensemble()
 
 			TensorData[t] = data[coo_t];
 		}
+		
+		/* adjust snum also
+		TensorData[0] = 1;
+		TensorData[1] = 0;
+		TensorData[2] = 0;
+		TensorData[3] = 0.01;
+		TensorData[4] = 0;
+		TensorData[5] = 0.01;
+		*/
+
 		float norm = 1. / (TensorData[1] * TensorData[1] + TensorData[2] * TensorData[2] + TensorData[4] * TensorData[4] - TensorData[0] * TensorData[3] - TensorData[5] * (TensorData[0] + TensorData[3]));
 
 		ten[6 * voxnum + 0] = (TensorData[4] * TensorData[4] - TensorData[3] * TensorData[5])* norm;

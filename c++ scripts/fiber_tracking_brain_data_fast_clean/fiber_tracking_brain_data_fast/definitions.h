@@ -36,9 +36,9 @@ struct vertex
 	float y;
 	float z;
 
-	int pos_x;
-	int pos_y;
-	int pos_z;
+	float pos_x;
+	float pos_y;
+	float pos_z;
 
 	float T0;
 	float T1;
@@ -95,7 +95,7 @@ const float eps = 10e-7;
 /**/	float wc(float T) { return 1/T; }								/**/
 /**/	float wx(float T) { return 1; }	
 /**/
-/**/	float wint(float cos) { return (1 + cos) * 0.5; }
+/**/	float wint(float cos) { return (1 + cos) / (1-cos + 0.0000001); }
 /**/	char* wint_str = "(1+cos)/2";
 
 		char* wdata_str = "(E1 + E2)/2";
