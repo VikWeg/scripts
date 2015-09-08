@@ -96,7 +96,7 @@ const float eps = 10e-7;
 /**/	float wx(float T) { return 1; }	
 /**/
 /**/	float wint(float cos) { return (1 + cos) / (1-cos + 0.0000001); }
-/**/	char* wint_str = "(1+cos)/2";
+/**/	char* wint_str = "(1+cos)/(1-cos)";
 
 		char* wdata_str = "(E1 + E2)/2";
 /**/

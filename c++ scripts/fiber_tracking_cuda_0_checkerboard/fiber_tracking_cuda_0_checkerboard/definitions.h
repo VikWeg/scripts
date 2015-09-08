@@ -95,13 +95,13 @@ long scount;
 /**/	long tsteps_tot = ceilf(logf(Tf / Ti) / logf(etha));			/**/
 /**/																	/**/
 /**/	int nx = 30;													/**/
-/**/	int S = 1;														/**/
+/**/	int S = 3;														/**/
 /**/	float delta_x = 0.1;											/**/
 /**/																	/**/
-/**/	char* wc_str = "1/T";												/**/
+/**/	char* wc_str = "1";												/**/
 /**/	char* wx_str = "1";												/**/
 /**/																	/**/
-/**/	float wc(float T) { return 1/T; }								/**/
+/**/	float wc(float T) { return 1; }								/**/
 /**/	float wx(float T) { return 1; }	
 /**/
 /**/	float wint(float cos) { return (1 + cos)/(1-cos+eps); }

@@ -1,4 +1,4 @@
-﻿Der Buildvorgang wurde am 08.09.2015 22:51:01 gestartet.
+﻿Der Buildvorgang wurde am 08.09.2015 23:19:45 gestartet.
      1>Projekt "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_brain_data_fast_clean\fiber_tracking_brain_data_fast\fiber_tracking_brain_data_fast.vcxproj" auf Knoten "2", Build Ziel(e).
      1>ClCompile:
          C:\Apps\VisualStudio2013\VC\bin\CL.exe /c /nologo /W3 /WX- /Ox /Ot /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -91,4 +91,4 @@
 
 Build erfolgreich.
 
-Verstrichene Zeit 00:00:01.08
+Verstrichene Zeit 00:00:01.12

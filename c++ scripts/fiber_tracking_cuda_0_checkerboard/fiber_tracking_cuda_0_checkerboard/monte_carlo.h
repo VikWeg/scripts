@@ -8,8 +8,11 @@ void mc_c(float* x, float* y, float* z, unsigned long long* c, float* ten, int* 
 	
 	int nc = GetNeighborSpinCount(VoxNum, VoxIds);
 
-	for (int i = 0; i < nc; i++)
+	for (int j = 0; j < nc; j++)
 	{
+		std::uniform_int_distribution<int> neigh(0, nc - 1);
+		int i = neigh(generate);
+
 		Next Neighbor = GetNextSpin(VoxIds, VoxNum, i);
 
 		E0 = wc(T)*Ei_c(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxId, SpinId, Neighbor.VoxNum, Neighbor.SpinId)
@@ -82,15 +85,15 @@ void mc_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int* 
 
 void mc(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds, int lattice_id)
 {
-	for (int i = 0; i < cube_size[0]; i++)
-	for (int j = 0; j < cube_size[1]; j++)
-	for (int k = 0; k < cube_size[2]; k++)
-	//for (int threadId = 0; threadId < cube_size[0] * cube_size[1] * cube_size[2]; threadId++)
+	//for (int i = 0; i < cube_size[0]; i++)
+	//for (int j = 0; j < cube_size[1]; j++)
+	//for (int k = 0; k < cube_size[2]; k++)
+	for (int threadId = 0; threadId < cube_size[0] * cube_size[1] * cube_size[2]; threadId++)
 	{
 		//int VoxNum = threadIdToVoxNum(threadId, lattice_id);
 		//int VoxNum = threadId;
-		//int VoxNum = u_k(generate)*cube_size[0] * cube_size[1] + u_j(generate)*cube_size[0] + u_i(generate);
-		int VoxNum = k*cube_size[0] * cube_size[1] + j*cube_size[0] + i;
+		int VoxNum = u_k(generate)*cube_size[0] * cube_size[1] + u_j(generate)*cube_size[0] + u_i(generate);
+		//int VoxNum = k*cube_size[0] * cube_size[1] + j*cube_size[0] + i;
 
 		if (VoxIds[VoxNum] >= 0 && VoxNum < cube_size[0] * cube_size[1] * cube_size[2])
 		{

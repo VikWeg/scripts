@@ -1,10 +1,10 @@
-﻿Der Buildvorgang wurde am 08.09.2015 22:49:27 gestartet.
+﻿Der Buildvorgang wurde am 08.09.2015 23:24:44 gestartet.
      1>Projekt "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard.vcxproj" auf Knoten "2", Build Ziel(e).
      1>AddCudaCompileDeps:
          C:\Apps\VisualStudio2013\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /DWIN32 /D_DEBUG /D_CONSOLE /D_MBCS /IC:\Apps\CUDA\include /IC:\Apps\CUDA\bin /IC:\Apps\CUDA\include /I. /FIcuda_runtime.h /c "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\kernel.cu" 
        CudaBuild:
          Compiling CUDA source file kernel.cu...
-         cmd.exe /C "C:\Users\VW\AppData\Local\Temp\tmpc741635d1d57445aa29e25bc02e7cdcd.cmd"
+         cmd.exe /C "C:\Users\VW\AppData\Local\Temp\tmp7544cd6be9d24e3286f49bd568a11208.cmd"
          "C:\Apps\CUDA\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Apps\VisualStudio2013\VC\bin"  -IC:\Apps\CUDA\include -IC:\Apps\CUDA\include  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g  -use_fast_math -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Ox /Zi  /MDd  " -o Debug\kernel.cu.obj "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\kernel.cu"
          
          C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard>"C:\Apps\CUDA\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Apps\VisualStudio2013\VC\bin"  -IC:\Apps\CUDA\include -IC:\Apps\CUDA\include  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g  -use_fast_math -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Ox /Zi  /MDd  " -o Debug\kernel.cu.obj "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\kernel.cu" 
@@ -62,9 +62,9 @@
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\energy.h(127): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\energy.h(156): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\energy.h(157): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\monte_carlo.h(60): warning C4244: 'Argument': Konvertierung von 'double' in 'float', möglicher Datenverlust
-     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\monte_carlo.h(62): warning C4244: 'Argument': Konvertierung von 'double' in 'float', möglicher Datenverlust
-     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\monte_carlo.h(64): warning C4244: 'Argument': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\monte_carlo.h(63): warning C4244: 'Argument': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\monte_carlo.h(65): warning C4244: 'Argument': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\monte_carlo.h(67): warning C4244: 'Argument': Konvertierung von 'double' in 'float', möglicher Datenverlust
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\init_ensemble.h(77): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\init_ensemble.h(78): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\init_ensemble.h(79): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
@@ -85,4 +85,4 @@
 
 Build erfolgreich.
 
-Verstrichene Zeit 00:00:08.54
+Verstrichene Zeit 00:00:07.91
