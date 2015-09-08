@@ -27,17 +27,6 @@ void fiber_tracking_cube()
 		}
 		/*========*/ RDTSC(stop); /*========*/
 
-		float test = 0;
-		for (int i = 0; i < cube_size[0]; i++)
-		for (int j = 0; j < cube_size[1]; j++)
-		for (int k = 0; k < cube_size[2]; k++)
-		for (int s = 0; s < snum[i][j][k]; s++)
-		if (wmask[i][j][k] == 1 || surf_mask[i][j][k] == 1)
-		if (ensemble[i][j][k][s].sig) test += fabs(1. - ensemble[i][j][k][s].cc) / ensemble[i][j][k][s].nn;
-		else test += fabs(2. - ensemble[i][j][k][s].cc) / ensemble[i][j][k][s].nn;
-
-		std::cout << "test = " << test/scount << "\n";
-
 		export_fibers(tstep);
 		write_E_file(tstep,T);
 		plot_E();

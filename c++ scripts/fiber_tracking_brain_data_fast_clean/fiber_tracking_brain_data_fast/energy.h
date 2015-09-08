@@ -80,7 +80,6 @@ float Ei_x(vertex* vi)
 
 float Ei_c(vertex* vi)
 {
-
 	float E = 0;
 
 	E += (1 - vi->sig)*fabsf(vi->cc - 2) / (vi->nn - 2 + 0.0000001);

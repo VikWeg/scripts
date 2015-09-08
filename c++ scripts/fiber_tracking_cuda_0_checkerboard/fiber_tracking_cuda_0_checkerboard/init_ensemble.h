@@ -3,7 +3,7 @@ int VoxNum(int i, int j, int k)
 	return cube_size[1] * cube_size[0] * k + cube_size[0] * j + i;
 }
 
-int VoxId(int i, int j, int k) //Check again
+int VoxId(int i, int j, int k)
 {
 	if (snum[VoxNum(i, j, k)] == 0) return -1;
 
@@ -136,8 +136,8 @@ void init_ensemble()
 		int voxnum = VoxNum(i, j, k);
 		int voxid = VoxId(i, j, k);
 
-		if (wmask[i][j][k] == 0 && surf_mask[i][j][k] == 0) VoxIds[voxnum] = -1;
-		else												VoxIds[voxnum] = voxid;
+		if (wmask[i][j][k] == 0 && surf_mask[i][j][k] == 0) {VoxIds[voxnum] = -1; sig[voxnum] = 0; continue; }
+		else												 VoxIds[voxnum] = voxid;
 
 		for (int t = 0; t < 6; t++)
 		{

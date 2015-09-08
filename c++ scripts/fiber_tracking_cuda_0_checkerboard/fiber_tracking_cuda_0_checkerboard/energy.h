@@ -1,6 +1,6 @@
 float Edata(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds,
-	int VoxNum, int VoxId, int SpinId,
-	int NeighborVoxNum, int NeighborVoxId, int NeighborSpinId)
+	int VoxNum, int SpinId,
+	int NeighborVoxNum, int NeighborSpinId)
 {
 	float E1,E2;
 	float xij [3];
@@ -32,9 +32,9 @@ float Edata(float* x, float* y, float* z, unsigned long long* c, float* ten, int
 }
 
 float Eint(	float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds,
-			int VoxNum, int VoxId, int SpinId,
-			int NeighborVoxNum, int NeighborVoxId, int NeighborSpinId,
-			int OtherNeighborVoxNum, int OtherNeighborVoxId, int OtherNeighborSpinId)
+			int VoxNum, int SpinId,
+			int NeighborVoxNum, int NeighborSpinId,
+			int OtherNeighborVoxNum, int OtherNeighborSpinId)
 {
 	float xij[3];
 	xij[0] = x[NeighborSpinId] - x[SpinId];
@@ -56,19 +56,60 @@ float Eint(	float* x, float* y, float* z, unsigned long long* c, float* ten, int
 	return wint(cos);
 }
 
-float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds, int VoxNum, int VoxId, int SpinId)
+float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds, int VoxNum, int SpinId)
 {
 	float E = 0;
 	int count = 0;
 
-	int NonEmptyNeighborVoxsCount = GetNonEmptyNeighborVoxsCount(VoxNum, VoxIds);
+	int nc = GetNeighborSpinCount(VoxNum, VoxIds);
 
+	for (int i = 0; i < nc; i++)
+	if (getBit(i, c[SpinId]))
+	{
+
+		Next Neighbor = GetNextSpin(VoxIds, VoxNum, i);
+		E += Edata(x, y, z, c, ten, sig, VoxIds, VoxNum, SpinId, Neighbor.VoxNum, Neighbor.SpinId);
+		count++;
+
+		for (int j = i+1; j < nc; j++)
+		if (getBit(j, c[SpinId]))
+		{
+			Next OtherNeighbor = GetNextSpin(VoxIds, VoxNum, j);
+
+			E += Eint(x, y, z, c, ten, sig, VoxIds,
+				VoxNum, SpinId,
+				Neighbor.VoxNum, Neighbor.SpinId,
+				OtherNeighbor.VoxNum, OtherNeighbor.SpinId);
+			count++;
+		}
+
+		int nnc = GetNeighborSpinCount(Neighbor.VoxNum, VoxIds);
+
+		for (int j = 0; j < nnc; j++)
+		if (getBit(j, c[Neighbor.SpinId]))
+		{
+			Next NextNeighbor = GetNextSpin(VoxIds, Neighbor.VoxNum, j);
+
+			if (NextNeighbor.SpinId != SpinId)
+			{
+				E += Eint(x, y, z, c, ten, sig, VoxIds,
+					Neighbor.VoxNum, Neighbor.SpinId,
+					VoxNum, SpinId,
+					NextNeighbor.VoxNum, NextNeighbor.SpinId);
+				count++;
+			}
+		}
+	}
+
+	/*
+	int NonEmptyNeighborVoxsCount = GetNonEmptyNeighborVoxsCount(VoxNum, VoxIds);
 	int NeighborSpinsCovered = 0;
 
 	//Loop over neighbor voxels
 	for (int NeighborNumber = 0; NeighborNumber < NonEmptyNeighborVoxsCount; NeighborNumber++)
 	{
 		int NeighborVoxNum = GetVoxNumFromNeighborNum(VoxNum, NeighborNumber, VoxIds);
+
 		int NeighborVoxId = VoxIds[NeighborVoxNum];
 		int	SpinsInNeighborVoxel;
 
@@ -88,13 +129,14 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int*
 			//Add data and first+second order interaction energy
 			if (getBit(NeighborSpinsCovered + NeighborSpinNumber, c[SpinId]))
 			{
-				E += Edata(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxId, SpinId, NeighborVoxNum, NeighborVoxId, NeighborSpinId);
+				E += Edata(x, y, z, c, ten, sig, VoxIds, VoxNum, SpinId, NeighborVoxNum, NeighborSpinId);
 				count++;
-				//Add first order smoothness energy
-				int OtherNeighborSpinsCovered = 0;
+				//Add first order smoothness energy; Loop over other neighbors
+				int OtherNeighborSpinsCovered = NeighborSpinsCovered + SpinsInNeighborVoxel;
 				for (int OtherNeighborNumber = NeighborNumber + 1; OtherNeighborNumber < NonEmptyNeighborVoxsCount; OtherNeighborNumber++)
 				{
 					int OtherNeighborVoxNum = GetVoxNumFromNeighborNum(VoxNum, OtherNeighborNumber, VoxIds);
+
 					int OtherNeighborVoxId = VoxIds[OtherNeighborVoxNum];
 
 					int	SpinsInOtherNeighborVoxel;
@@ -114,16 +156,16 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int*
 						if (getBit(OtherNeighborSpinsCovered + OtherNeighborSpinNumber, c[SpinId]))
 						{
 							E += Eint(x, y, z, c, ten, sig, VoxIds,
-								VoxNum, VoxId, SpinId,
-								NeighborVoxNum, NeighborVoxId, NeighborSpinId,
-								OtherNeighborVoxNum, OtherNeighborVoxId, OtherNeighborSpinId);
+								VoxNum,  SpinId,
+								NeighborVoxNum,  NeighborSpinId,
+								OtherNeighborVoxNum,  OtherNeighborSpinId);
 							count++;
 						}
 					}
 					OtherNeighborSpinsCovered += SpinsInOtherNeighborVoxel;
 				}
 
-				//Add second order smoothness energy
+				//Add second order smoothness energy, Loop over next neighbors of neighbor
 				int NextNeighborSpinsCovered = 0;
 				int VoxNeighborNumber = GetNeighborNumFromVoxNum(NeighborVoxNum, VoxNum, VoxIds);
 				int NeighborNonEmptyNeighborVoxsCount = GetNonEmptyNeighborVoxsCount(NeighborVoxNum, VoxIds);
@@ -131,6 +173,7 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int*
 				for (int NextNeighborNumber = 0; NextNeighborNumber < NeighborNonEmptyNeighborVoxsCount; NextNeighborNumber++)
 				{
 					int NextNeighborVoxNum = GetVoxNumFromNeighborNum(NeighborVoxNum, NextNeighborNumber, VoxIds);
+
 					int NextNeighborVoxId = VoxIds[NextNeighborVoxNum];
 					int	SpinsInNextNeighborVoxel;
 
@@ -143,17 +186,16 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int*
 					else SpinsInNextNeighborVoxel = scount - NextNeighborVoxId;
 
 					//Loop over spins in current next neighbor voxel
-					if (NextNeighborNumber != VoxNeighborNumber)
 					for (int NextNeighborSpinNumber = 0; NextNeighborSpinNumber < SpinsInNextNeighborVoxel; NextNeighborSpinNumber++)
 					{
 						int NextNeighborSpinId = NextNeighborVoxId + NextNeighborSpinNumber;
 
-						if (getBit(NextNeighborSpinsCovered + NextNeighborSpinNumber, c[NeighborSpinId]))
+						if (NextNeighborSpinId != SpinId && getBit(NextNeighborSpinsCovered + NextNeighborSpinNumber, c[NeighborSpinId]))
 						{
 							E += Eint(x, y, z, c, ten, sig, VoxIds,
-								NeighborVoxNum, NeighborVoxId, NeighborSpinId,
-								VoxNum, VoxId, SpinId,
-								NextNeighborVoxNum, NextNeighborVoxId, NextNeighborSpinId);
+								NeighborVoxNum,  NeighborSpinId,
+								VoxNum,  SpinId,
+								NextNeighborVoxNum,  NextNeighborSpinId);
 							count++;
 						}
 					}
@@ -163,6 +205,7 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int*
 		}
 		NeighborSpinsCovered += SpinsInNeighborVoxel;
 	}
+	*/
 
 	return E /(count + eps);
 }
@@ -266,7 +309,7 @@ float Ei_D(int VoxNum)
 			for (int SpinId = VoxId; SpinId < VoxId + SpinsInVoxel; SpinId++)
 			if (getBit(NeighborSpinsCovered + NeighborSpinNumber, c[SpinId]))
 			{
-				E += Edata(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxId, SpinId, NeighborVoxNum, NeighborVoxId, NeighborSpinId);
+				E += Edata(x, y, z, c, ten, sig, VoxIds, VoxNum, SpinId, NeighborVoxNum, NeighborSpinId);
 				count++;
 			}
 			
@@ -323,7 +366,7 @@ float Ei_I(int VoxNum)
 			for (int SpinId = VoxId; SpinId < VoxId + SpinsInVoxel; SpinId++)
 			if (getBit(NeighborSpinsCovered + NeighborSpinNumber, c[SpinId]))
 			{
-				int OtherNeighborSpinsCovered = 0;
+				int OtherNeighborSpinsCovered = NeighborSpinsCovered + SpinsInNeighborVoxel;
 				for (int OtherNeighborNumber = NeighborNumber + 1; OtherNeighborNumber < NonEmptyNeighborVoxsCount; OtherNeighborNumber++)
 				{
 					int OtherNeighborVoxNum = GetVoxNumFromNeighborNum(VoxNum, OtherNeighborNumber, VoxIds);
@@ -346,9 +389,9 @@ float Ei_I(int VoxNum)
 						if (getBit(OtherNeighborSpinsCovered + OtherNeighborSpinNumber, c[SpinId]))
 						{
 							E += Eint(x, y, z, c, ten, sig, VoxIds,
-								VoxNum, VoxId, SpinId,
-								NeighborVoxNum, NeighborVoxId, NeighborSpinId,
-								OtherNeighborVoxNum, OtherNeighborVoxId, OtherNeighborSpinId);
+								VoxNum,  SpinId,
+								NeighborVoxNum,  NeighborSpinId,
+								OtherNeighborVoxNum, OtherNeighborSpinId);
 							count++;
 						}
 					}

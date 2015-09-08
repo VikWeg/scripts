@@ -95,10 +95,10 @@ const float eps = 10e-7;
 /**/	float wc(float T) { return 1/T; }								/**/
 /**/	float wx(float T) { return 1; }	
 /**/
-/**/	float wint(float cos) { return (1 + cos) / (1-cos + eps); }
+/**/	float wint(float cos) { return (1 + cos) * 0.5; }
 /**/	char* wint_str = "(1+cos)/2";
 
-		char* wdata_str = "(E - Emin)/(Emax-E)";
+		char* wdata_str = "(E1 + E2)/2";
 /**/
 /**/	std::string comment("");
 /*************************************************************************/

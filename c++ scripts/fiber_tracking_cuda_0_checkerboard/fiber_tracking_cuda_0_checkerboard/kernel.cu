@@ -13,7 +13,7 @@
 #include "annealing.h"
 
 int main()
-{
+{		
 	annealing();
 }
 

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     61977,       1634]
-NotebookOptionsPosition[     60524,       1581]
-NotebookOutlinePosition[     60873,       1596]
-CellTagsIndexPosition[     60830,       1593]
+NotebookDataLength[    182280,       5072]
+NotebookOptionsPosition[    180960,       5025]
+NotebookOutlinePosition[    181310,       5040]
+CellTagsIndexPosition[    181267,       5037]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -431,98 +431,24 @@ FontWeight->\"Plain\"]\)\>\""], ",", "\[IndentingNewLine]",
   3.650304701260456*^9, 3.6503047839852037`*^9}, {3.6503048465321145`*^9, 
   3.650304861561941*^9}, {3.6503048985968075`*^9, 3.6503049053410196`*^9}}],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
- RowBox[{"snum", " ", "=", " ", 
-  RowBox[{"Snum", "[", 
-   RowBox[{"{", 
-    RowBox[{"5", ",", "5", ",", "5"}], "}"}], "]"}]}]], "Input",
+ RowBox[{
+  RowBox[{"snum", " ", "=", " ", 
+   RowBox[{"Snum", "[", 
+    RowBox[{"{", 
+     RowBox[{"9", ",", "9", ",", "9"}], "}"}], "]"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.650280004060566*^9, 3.650280013420983*^9}, {
    3.6502802811860905`*^9, 3.650280282856694*^9}, {3.6502805797484417`*^9, 
    3.6502805827204475`*^9}, {3.6502807950994616`*^9, 3.650280799180069*^9}, {
    3.6502969831575685`*^9, 3.6502969890095787`*^9}, {3.650297851135312*^9, 
-   3.650297854653319*^9}, 3.650300946202364*^9}],
+   3.650297854653319*^9}, 3.650300946202364*^9, {3.6506905742465615`*^9, 
+   3.650690581128174*^9}}],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-  "2", ",", "1", ",", "2", ",", "3", ",", "0", ",", "2", ",", "1", ",", "2", 
-   ",", "3", ",", "1", ",", "1", ",", "1", ",", "3", ",", "0", ",", "3", ",", 
-   "1", ",", "1", ",", "3", ",", "3", ",", "1", ",", "1", ",", "0", ",", "3", 
-   ",", "0", ",", "3", ",", "1", ",", "0", ",", "3", ",", "2", ",", "3", ",", 
-   "2", ",", "3", ",", "2", ",", "2", ",", "0", ",", "0", ",", "2", ",", "3", 
-   ",", "2", ",", "3", ",", "0", ",", "3", ",", "3", ",", "1", ",", "0", ",", 
-   "3", ",", "2", ",", "1", ",", "1", ",", "3", ",", "0", ",", "2", ",", "2", 
-   ",", "3", ",", "1", ",", "2", ",", "1", ",", "1", ",", "0", ",", "2", ",", 
-   "0", ",", "2", ",", "3", ",", "0", ",", "0", ",", "0", ",", "2", ",", "3", 
-   ",", "3", ",", "2", ",", "2", ",", "0", ",", "0", ",", "2", ",", "2", ",", 
-   "1", ",", "3", ",", "2", ",", "3", ",", "3", ",", "0", ",", "3", ",", "0", 
-   ",", "3", ",", "0", ",", "3", ",", "1", ",", "2", ",", "3", ",", "2", ",", 
-   "3", ",", "3", ",", "3", ",", "0", ",", "0", ",", "0", ",", "0", ",", "2", 
-   ",", "0", ",", "3", ",", "0", ",", "3", ",", "0", ",", "2", ",", "2", ",", 
-   "0", ",", "2", ",", "0", ",", "1", ",", "1", ",", "3", ",", "3", ",", "3", 
-   ",", "2", ",", "3", ",", "1", ",", "1", ",", "0", ",", "1", ",", "2", ",", 
-   "0", ",", "3", ",", "3", ",", "2", ",", "1"}], "}"}]], "Output",
- CellChangeTimes->{3.650300946685965*^9, 3.650301497399542*^9, 
-  3.6503448756292753`*^9, 3.650395190613924*^9, 3.6505567242025375`*^9, 
-  3.650558318161172*^9, 3.650642750241727*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"VoxIds", "[", "snum", "]"}]], "Input",
- CellChangeTimes->{{3.650300948731569*^9, 3.650300952444375*^9}}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"0", ",", "2", ",", "3", ",", "5", ",", 
-   RowBox[{"-", "1"}], ",", "8", ",", "10", ",", "11", ",", "13", ",", "16", 
-   ",", "17", ",", "18", ",", "19", ",", 
-   RowBox[{"-", "1"}], ",", "22", ",", "25", ",", "26", ",", "27", ",", "30", 
-   ",", "33", ",", "34", ",", 
-   RowBox[{"-", "1"}], ",", "35", ",", 
-   RowBox[{"-", "1"}], ",", "38", ",", "41", ",", 
-   RowBox[{"-", "1"}], ",", "42", ",", "45", ",", "47", ",", "50", ",", "52", 
-   ",", "55", ",", "57", ",", 
-   RowBox[{"-", "1"}], ",", 
-   RowBox[{"-", "1"}], ",", "59", ",", "61", ",", "64", ",", "66", ",", 
-   RowBox[{"-", "1"}], ",", "69", ",", "72", ",", "75", ",", 
-   RowBox[{"-", "1"}], ",", "76", ",", "79", ",", "81", ",", "82", ",", "83", 
-   ",", 
-   RowBox[{"-", "1"}], ",", "86", ",", "88", ",", "90", ",", "93", ",", "94", 
-   ",", "96", ",", "97", ",", 
-   RowBox[{"-", "1"}], ",", "98", ",", 
-   RowBox[{"-", "1"}], ",", "100", ",", "102", ",", 
-   RowBox[{"-", "1"}], ",", 
-   RowBox[{"-", "1"}], ",", 
-   RowBox[{"-", "1"}], ",", "105", ",", "107", ",", "110", ",", "113", ",", 
-   "115", ",", 
-   RowBox[{"-", "1"}], ",", 
-   RowBox[{"-", "1"}], ",", "117", ",", "119", ",", "121", ",", "122", ",", 
-   "125", ",", "127", ",", "130", ",", 
-   RowBox[{"-", "1"}], ",", "133", ",", 
-   RowBox[{"-", "1"}], ",", "136", ",", 
-   RowBox[{"-", "1"}], ",", "139", ",", "142", ",", "143", ",", "145", ",", 
-   "148", ",", "150", ",", "153", ",", "156", ",", 
-   RowBox[{"-", "1"}], ",", 
-   RowBox[{"-", "1"}], ",", 
-   RowBox[{"-", "1"}], ",", 
-   RowBox[{"-", "1"}], ",", "159", ",", 
-   RowBox[{"-", "1"}], ",", "161", ",", 
-   RowBox[{"-", "1"}], ",", "164", ",", 
-   RowBox[{"-", "1"}], ",", "167", ",", "169", ",", 
-   RowBox[{"-", "1"}], ",", "171", ",", 
-   RowBox[{"-", "1"}], ",", "173", ",", "174", ",", "175", ",", "178", ",", 
-   "181", ",", "184", ",", "186", ",", "189", ",", "190", ",", 
-   RowBox[{"-", "1"}], ",", "191", ",", "192", ",", 
-   RowBox[{"-", "1"}], ",", "194", ",", "197", ",", "200", ",", "202"}], 
-  "}"}]], "Output",
- CellChangeTimes->{3.650300952865576*^9, 3.6503014984603434`*^9, 
-  3.6503448776456785`*^9, 3.650395192095927*^9, 3.6505567250335846`*^9, 
-  3.6505583190191736`*^9, 3.6506427513493285`*^9}]
-}, Open  ]],
+ RowBox[{
+  RowBox[{"VoxIds", "[", "snum", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.650300948731569*^9, 3.650300952444375*^9}, 
+   3.650690583515978*^9}],
 
 Cell[CellGroupData[{
 
@@ -580,11 +506,13 @@ Cell[BoxData[
  RowBox[{"DrawGrid", "[", 
   RowBox[{
    RowBox[{"{", 
-    RowBox[{"5", ",", "5", ",", "5"}], "}"}], ",", "13", ",", "snum"}], 
+    RowBox[{"9", ",", "9", ",", "9"}], "}"}], ",", "31", ",", "snum"}], 
   "]"}]], "Input",
  CellChangeTimes->{{3.6502804032815175`*^9, 3.650280414005737*^9}, {
   3.6502805858882527`*^9, 3.6502805865318537`*^9}, {3.650297872642151*^9, 
-  3.6502978746077538`*^9}, {3.650304790942816*^9, 3.6503047920816174`*^9}}],
+  3.6502978746077538`*^9}, {3.650304790942816*^9, 3.6503047920816174`*^9}, {
+  3.6506905930203953`*^9, 3.6506905957191997`*^9}, {3.6506906538165035`*^9, 
+  3.650690653925704*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -607,8 +535,7 @@ Plain\\\"]\\)\"\>"],
        ItemBox[
         SubscriptBox[
          "2", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\
-\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
-Plain\\\"]\\)\"\>"],
+\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -616,15 +543,15 @@ Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["4", "\<\"\"\>"],
+        SubscriptBox[
+         "4", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\
+\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
-        StripOnInput->False]},
-      {
+        StripOnInput->False], 
        ItemBox[
         SubscriptBox[
          "5", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\
-\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
-Plain\\\"]\\)\"\>"],
+\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -634,52 +561,48 @@ Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
+        SubscriptBox["7", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["8", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["9", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
         SubscriptBox[
-         "7", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\
-\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+         "10", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
 Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["8", "\<\"\[Therefore]\"\>"],
+        SubscriptBox["11", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["12", "\<\"\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
         SubscriptBox[
-         "9", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\
-\"Plain\\\"]\\)\"\>"],
+         "13", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
-        StripOnInput->False]},
-      {
+        StripOnInput->False], 
        ItemBox[
         SubscriptBox[
-         "10", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+         "14", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox[
-         "11", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["12", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["13", "\<\"\"\>"],
-        Background->RGBColor[1, 0, 0],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["14", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False]},
-      {
-       ItemBox[
-        SubscriptBox[
-         "15", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\"\>"],
+        SubscriptBox["15", "\<\"\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -691,108 +614,103 @@ Plain\\\"]\\)\"\>"],
        ItemBox[
         SubscriptBox["17", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
-        StripOnInput->False], 
+        StripOnInput->False]},
+      {
        ItemBox[
         SubscriptBox["18", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox[
-         "19", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\"\>"],
+        SubscriptBox["19", "\<\"\"\>"],
         Background->GrayLevel[1],
-        StripOnInput->False]},
-      {
+        StripOnInput->False], 
        ItemBox[
         SubscriptBox[
          "20", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["21", "\<\"\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["22", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["23", "\<\"\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["24", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False]}
-     },
-     AutoDelete->False,
-     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Grid"], ",", 
-   TagBox[GridBox[{
-      {
-       ItemBox[
-        SubscriptBox[
-         "25", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["26", "\<\"\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["27", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox[
-         "28", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
 Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["29", "\<\"\[Therefore]\"\>"],
+        SubscriptBox[
+         "21", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["22", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["23", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "24", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["25", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["26", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False]},
       {
        ItemBox[
         SubscriptBox[
-         "30", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+         "27", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["28", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "29", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
 Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["30", "\<\"\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
         SubscriptBox["31", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
+        Background->RGBColor[1, 0, 0],
         StripOnInput->False], 
        ItemBox[
         SubscriptBox[
          "32", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["33", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "34", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
 Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
         SubscriptBox[
-         "33", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
-Plain\\\"]\\)\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["34", "\<\"\"\>"],
+         "35", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False]},
       {
-       ItemBox[
-        SubscriptBox["35", "\<\"\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
        ItemBox[
         SubscriptBox[
          "36", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
@@ -801,23 +719,28 @@ Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["37", "\<\"\[Therefore]\"\>"],
+        SubscriptBox[
+         "37", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
         SubscriptBox[
          "38", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
-Plain\\\"]\\)\"\>"],
+\\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["39", "\<\"\[Therefore]\"\>"],
+        SubscriptBox[
+         "39", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
-        StripOnInput->False]},
-      {
+        StripOnInput->False], 
        ItemBox[
-        SubscriptBox["40", "\<\"\"\>"],
+        SubscriptBox[
+         "40", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -825,13 +748,11 @@ Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["42", "\<\"\[Therefore]\"\>"],
+        SubscriptBox["42", "\<\"\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox[
-         "43", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\"\>"],
+        SubscriptBox["43", "\<\"\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -840,14 +761,14 @@ Plain\\\"]\\)\"\>"],
         StripOnInput->False]},
       {
        ItemBox[
-        SubscriptBox["45", "\<\"\[Therefore]\"\>"],
+        SubscriptBox[
+         "45", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox[
-         "46", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
-Plain\\\"]\\)\"\>"],
+        SubscriptBox["46", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -859,55 +780,39 @@ Plain\\\"]\\)\"\>"],
        ItemBox[
         SubscriptBox[
          "48", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\"\>"],
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["49", "\<\"\[Therefore]\"\>"],
+        SubscriptBox["49", "\<\"\"\>"],
         Background->GrayLevel[1],
-        StripOnInput->False]}
-     },
-     AutoDelete->False,
-     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Grid"], ",", 
-   TagBox[GridBox[{
-      {
+        StripOnInput->False], 
        ItemBox[
         SubscriptBox["50", "\<\"\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox[
-         "51", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
-Plain\\\"]\\)\"\>"],
+        SubscriptBox["51", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox[
-         "52", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
-Plain\\\"]\\)\"\>"],
+        SubscriptBox["52", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["53", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox[
-         "54", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\"\>"],
+        SubscriptBox["53", "\<\"\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False]},
       {
        ItemBox[
+        SubscriptBox["54", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
         SubscriptBox[
          "55", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
-Plain\\\"]\\)\"\>"],
+\\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -917,23 +822,19 @@ Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
+        SubscriptBox["57", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
         SubscriptBox[
-         "57", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+         "58", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["58", "\<\"\"\>"],
+        SubscriptBox["59", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
-       ItemBox[
-        SubscriptBox[
-         "59", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
-Plain\\\"]\\)\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False]},
-      {
        ItemBox[
         SubscriptBox["60", "\<\"\"\>"],
         Background->GrayLevel[1],
@@ -941,36 +842,37 @@ Plain\\\"]\\)\"\>"],
        ItemBox[
         SubscriptBox[
          "61", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
-Plain\\\"]\\)\"\>"],
+\\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["62", "\<\"\[Therefore]\"\>"],
+        SubscriptBox[
+         "62", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
-        StripOnInput->False], 
+        StripOnInput->False]},
+      {
        ItemBox[
-        SubscriptBox["63", "\<\"\"\>"],
+        SubscriptBox["63", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
         SubscriptBox["64", "\<\"\"\>"],
         Background->GrayLevel[1],
-        StripOnInput->False]},
-      {
+        StripOnInput->False], 
        ItemBox[
-        SubscriptBox["65", "\<\"\"\>"],
+        SubscriptBox["65", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["66", "\<\"\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
         SubscriptBox[
-         "66", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+         "67", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
 Plain\\\"]\\)\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["67", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -983,21 +885,24 @@ Plain\\\"]\\)\"\>"],
 \\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
 Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["70", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "71", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
         StripOnInput->False]},
       {
        ItemBox[
         SubscriptBox[
-         "70", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+         "72", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
 Plain\\\"]\\)\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["71", "\<\"\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["72", "\<\"\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -1008,10 +913,39 @@ Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
+        SubscriptBox["74", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
         SubscriptBox[
-         "74", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+         "75", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "76", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
 Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["77", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["78", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "79", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["80", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False]}
      },
@@ -1024,40 +958,12 @@ Plain\\\"]\\)\"\>"],
       {
        ItemBox[
         SubscriptBox[
-         "75", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+         "81", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["76", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox[
-         "77", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
-Plain\\\"]\\)\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["78", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["79", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False]},
-      {
-       ItemBox[
-        SubscriptBox["80", "\<\"\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["81", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["82", "\<\"\"\>"],
+        SubscriptBox["82", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -1067,16 +973,16 @@ Plain\\\"]\\)\"\>"],
        ItemBox[
         SubscriptBox["84", "\<\"\"\>"],
         Background->GrayLevel[1],
-        StripOnInput->False]},
-      {
-       ItemBox[
-        SubscriptBox["85", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
         SubscriptBox[
-         "86", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\"\>"],
+         "85", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["86", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -1087,23 +993,22 @@ Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["88", "\<\"\[Therefore]\"\>"],
+        SubscriptBox["88", "\<\"\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox[
-         "89", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
-Plain\\\"]\\)\"\>"],
+        SubscriptBox["89", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False]},
       {
        ItemBox[
-        SubscriptBox["90", "\<\"\[Therefore]\"\>"],
+        SubscriptBox[
+         "90", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["91", "\<\"\[Therefore]\"\>"],
+        SubscriptBox["91", "\<\"\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -1115,16 +1020,20 @@ Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["94", "\<\"\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False]},
-      {
-       ItemBox[
-        SubscriptBox["95", "\<\"\"\>"],
+        SubscriptBox["94", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["96", "\<\"\"\>"],
+        SubscriptBox[
+         "95", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "96", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -1137,25 +1046,24 @@ Plain\\\"]\\)\"\>"],
        ItemBox[
         SubscriptBox["98", "\<\"\"\>"],
         Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["99", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False]}
-     },
-     AutoDelete->False,
-     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Grid"], ",", 
-   TagBox[GridBox[{
+        StripOnInput->False]},
       {
        ItemBox[
-        SubscriptBox["100", "\<\"\"\>"],
+        SubscriptBox[
+         "99", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["101", "\<\"\[Therefore]\"\>"],
+        SubscriptBox["100", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "101", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -1172,30 +1080,31 @@ Plain\\\"]\\)\"\>"],
        ItemBox[
         SubscriptBox[
          "104", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "105", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
 Plain\\\"]\\)\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False]},
-      {
-       ItemBox[
-        SubscriptBox["105", "\<\"\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
         SubscriptBox[
          "106", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
-Plain\\\"]\\)\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["107", "\<\"\"\>"],
+\\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
         SubscriptBox[
-         "108", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+         "107", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["108", "\<\"\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -1203,32 +1112,30 @@ Plain\\\"]\\)\"\>"],
          "109", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
-        StripOnInput->False]},
-      {
+        StripOnInput->False], 
        ItemBox[
         SubscriptBox["110", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["111", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox["112", "\<\"\[Therefore]\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
         SubscriptBox[
-         "113", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+         "111", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
 Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
+        SubscriptBox["112", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["113", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
         SubscriptBox["114", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
-        StripOnInput->False]},
-      {
+        StripOnInput->False], 
        ItemBox[
         SubscriptBox[
          "115", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
@@ -1236,11 +1143,10 @@ Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox[
-         "116", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\"\>"],
+        SubscriptBox["116", "\<\"\"\>"],
         Background->GrayLevel[1],
-        StripOnInput->False], 
+        StripOnInput->False]},
+      {
        ItemBox[
         SubscriptBox["117", "\<\"\"\>"],
         Background->GrayLevel[1],
@@ -1248,19 +1154,16 @@ Plain\\\"]\\)\"\>"],
        ItemBox[
         SubscriptBox[
          "118", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
-\\\"Plain\\\"]\\)\"\>"],
-        Background->GrayLevel[1],
-        StripOnInput->False], 
-       ItemBox[
-        SubscriptBox[
-         "119", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
 Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
-        StripOnInput->False]},
-      {
+        StripOnInput->False], 
        ItemBox[
-        SubscriptBox["120", "\<\"\"\>"],
+        SubscriptBox["119", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["120", "\<\"\[Therefore]\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -1268,7 +1171,7 @@ Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
-        SubscriptBox["122", "\<\"\[Therefore]\"\>"],
+        SubscriptBox["122", "\<\"\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False], 
        ItemBox[
@@ -1281,6 +1184,3285 @@ Plain\\\"]\\)\"\>"],
        ItemBox[
         SubscriptBox[
          "124", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "125", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["126", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["127", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["128", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["129", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "130", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "131", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["132", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "133", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["134", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["135", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["136", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "137", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "138", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["139", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["140", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "141", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "142", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "143", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "144", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "145", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["146", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "147", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["148", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "149", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["150", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["151", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "152", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["153", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["154", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["155", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["156", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["157", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["158", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "159", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "160", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "161", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox[
+        SubscriptBox["162", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "163", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "164", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["165", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "166", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "167", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "168", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["169", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["170", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["171", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["172", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["173", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "174", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["175", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["176", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "177", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["178", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "179", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["180", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["181", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "182", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["183", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["184", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["185", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["186", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["187", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "188", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["189", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "190", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["191", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "192", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["193", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "194", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "195", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "196", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["197", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "198", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["199", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["200", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["201", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "202", \
+"\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"Plain\\\"]\\\
+)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["203", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["204", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["205", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["206", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "207", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["208", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["209", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["210", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["211", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["212", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "213", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["214", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "215", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["216", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "217", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "218", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["219", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["220", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "221", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["222", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["223", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "224", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "225", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "226", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "227", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["228", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "229", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["230", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["231", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["232", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "233", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "234", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["235", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "236", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["237", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "238", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "239", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "240", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "241", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "242", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox[
+        SubscriptBox["243", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "244", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["245", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["246", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "247", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["248", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["249", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["250", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "251", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["252", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["253", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "254", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "255", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["256", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["257", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["258", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "259", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "260", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["261", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["262", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["263", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "264", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "265", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "266", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "267", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "268", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "269", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["270", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "271", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "272", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "273", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["274", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["275", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["276", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "277", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "278", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["279", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["280", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "281", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["282", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "283", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["284", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "285", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "286", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["287", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "288", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["289", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "290", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["291", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["292", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["293", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "294", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "295", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "296", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "297", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "298", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["299", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["300", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["301", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "302", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "303", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "304", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["305", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "306", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["307", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["308", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "309", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["310", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "311", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["312", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "313", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["314", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["315", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["316", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["317", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "318", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["319", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["320", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "321", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["322", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["323", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox[
+        SubscriptBox[
+         "324", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "325", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["326", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["327", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "328", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["329", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "330", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["331", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["332", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["333", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "334", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["335", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "336", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "337", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["338", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["339", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "340", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "341", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["342", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["343", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "344", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["345", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "346", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["347", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "348", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "349", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["350", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["351", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["352", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "353", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "354", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "355", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "356", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["357", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "358", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "359", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["360", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "361", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "362", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "363", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["364", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["365", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "366", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["367", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "368", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["369", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["370", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "371", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "372", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["373", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "374", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "375", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["376", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "377", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["378", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "379", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["380", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["381", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "382", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["383", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "384", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "385", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["386", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "387", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["388", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["389", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "390", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "391", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["392", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "393", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["394", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["395", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "396", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["397", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["398", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["399", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["400", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["401", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["402", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "403", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "404", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox[
+        SubscriptBox[
+         "405", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["406", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "407", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["408", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "409", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "410", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "411", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "412", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["413", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "414", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["415", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "416", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "417", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "418", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["419", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "420", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["421", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "422", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "423", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "424", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "425", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "426", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["427", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["428", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["429", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "430", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "431", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "432", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["433", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "434", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["435", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["436", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "437", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "438", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "439", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["440", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "441", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["442", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "443", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "444", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "445", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "446", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "447", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "448", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["449", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "450", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "451", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "452", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "453", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "454", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["455", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "456", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["457", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "458", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["459", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "460", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["461", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["462", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["463", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["464", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["465", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "466", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "467", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "468", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["469", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["470", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["471", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "472", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "473", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "474", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "475", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["476", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["477", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["478", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["479", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "480", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "481", \
+"\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"Plain\\\"]\\\
+)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["482", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["483", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "484", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["485", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox[
+        SubscriptBox[
+         "486", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["487", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["488", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["489", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["490", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "491", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["492", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "493", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "494", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "495", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "496", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["497", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "498", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["499", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["500", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["501", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "502", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "503", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["504", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["505", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "506", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["507", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "508", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "509", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["510", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "511", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["512", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["513", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["514", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["515", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "516", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "517", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "518", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "519", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["520", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "521", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "522", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "523", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["524", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "525", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["526", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "527", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["528", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["529", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "530", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["531", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["532", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "533", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "534", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["535", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["536", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "537", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["538", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "539", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "540", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["541", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["542", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["543", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["544", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["545", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "546", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["547", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "548", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "549", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["550", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["551", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "552", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "553", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "554", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "555", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "556", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "557", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "558", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["559", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "560", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "561", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["562", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "563", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "564", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "565", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "566", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox[
+        SubscriptBox["567", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "568", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["569", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "570", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["571", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["572", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "573", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["574", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "575", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["576", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "577", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "578", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["579", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["580", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["581", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "582", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "583", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "584", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["585", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["586", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["587", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["588", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["589", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "590", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["591", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "592", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["593", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["594", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["595", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "596", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["597", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["598", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["599", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["600", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "601", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "602", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "603", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["604", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["605", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "606", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["607", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "608", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["609", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "610", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["611", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["612", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["613", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["614", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "615", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["616", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["617", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "618", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["619", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "620", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "621", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "622", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["623", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["624", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "625", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["626", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["627", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "628", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["629", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "630", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["631", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "632", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "633", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "634", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "635", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["636", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "637", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["638", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "639", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["640", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "641", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "642", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["643", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["644", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["645", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["646", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "647", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]}
+     },
+     AutoDelete->False,
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {
+       ItemBox[
+        SubscriptBox[
+         "648", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["649", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "650", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "651", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "652", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["653", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["654", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "655", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "656", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "657", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["658", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["659", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "660", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["661", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["662", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "663", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "664", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "665", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "666", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "667", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "668", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["669", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "670", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "671", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "672", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "673", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "674", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["675", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["676", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["677", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "678", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "679", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "680", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "681", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "682", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["683", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["684", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["685", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["686", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["687", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["688", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["689", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["690", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "691", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "692", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["693", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["694", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "695", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["696", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "697", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["698", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["699", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["700", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["701", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "702", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["703", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "704", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["705", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "706", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["707", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "708", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["709", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "710", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox["711", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "712", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["713", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["714", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["715", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "716", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["717", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["718", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "719", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False]},
+      {
+       ItemBox[
+        SubscriptBox[
+         "720", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["721", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "722", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["723", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["724", "\<\"\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "725", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\\\"\
+Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "726", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
+\\\"Plain\\\"]\\)\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox["727", "\<\"\[Therefore]\"\>"],
+        Background->GrayLevel[1],
+        StripOnInput->False], 
+       ItemBox[
+        SubscriptBox[
+         "728", "\<\"\\!\\(\\*\\nStyleBox[\\\"\[CenterDot]\\\",\\nFontWeight->\
 \\\"Plain\\\"]\\)\"\>"],
         Background->GrayLevel[1],
         StripOnInput->False]}
@@ -1297,7 +4479,79 @@ Plain\\\"]\\)\"\>"],
    3.650301499662546*^9, 3.6503047968758264`*^9, 3.650304865196748*^9, 
    3.6503049092878265`*^9, 3.650344878690881*^9, 3.6503956563069353`*^9, 
    3.650556726126647*^9, 3.65055832271738*^9, 3.6506427525661306`*^9, 
-   3.650643003441375*^9}]
+   3.650643003441375*^9, {3.650690588509987*^9, 3.650690596483601*^9}, 
+   3.650690654596505*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"GetNextSpin", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"9", ",", "9", ",", "9"}], "}"}], ",", "486", ",", "i", ",", 
+     RowBox[{"VoxIds", "[", "snum", "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "0", ",", "20"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.650556760564617*^9, 3.6505567858860655`*^9}, {
+   3.650556821049076*^9, 3.650556843401355*^9}, 3.6505587417331285`*^9, 
+   3.650558830916688*^9, {3.650558900995813*^9, 3.650558903445017*^9}, {
+   3.6506430123403907`*^9, 3.650643012558791*^9}, {3.6506431468412495`*^9, 
+   3.6506431469348493`*^9}, {3.6506906173362384`*^9, 3.650690619259042*^9}, {
+   3.650690731716243*^9, 3.650690751154278*^9}, {3.65069080850938*^9, 
+   3.6506908265022116`*^9}, {3.6507120406500072`*^9, 3.650712041430009*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"405", ",", "612"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"405", ",", "613"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"406", ",", "614"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"406", ",", "615"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"406", ",", "616"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"414", ",", "626"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"415", ",", "627"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"415", ",", "628"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"415", ",", "629"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"495", ",", "739"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"496", ",", "740"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"496", ",", "741"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"568", ",", "846"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"576", ",", "856"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"576", ",", "857"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"576", ",", "858"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"577", ",", "859"}], "}"}], ",", 
+   RowBox[{"-", "1"}], ",", 
+   RowBox[{"-", "1"}], ",", 
+   RowBox[{"-", "1"}], ",", 
+   RowBox[{"-", "1"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.650556786913124*^9, {3.650556821676112*^9, 3.6505568439873886`*^9}, 
+   3.6505570815595727`*^9, 3.650557129273858*^9, 3.6505573501840525`*^9, 
+   3.6505575947482944`*^9, 3.6505582303360133`*^9, 3.6505583335985994`*^9, 
+   3.650558628012326*^9, 3.6505587422947297`*^9, 3.6505588319930897`*^9, 
+   3.6505589041626186`*^9, 3.650643013213992*^9, 3.6506431474496503`*^9, 
+   3.6506906255956535`*^9, {3.6506907325586443`*^9, 3.6506907515910783`*^9}, {
+   3.6506908093205814`*^9, 3.650690826907812*^9}, 3.6507120421320095`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1420,48 +4674,92 @@ Cell[BoxData[
        RowBox[{"VoxIds", "[", 
         RowBox[{
          RowBox[{"{", 
-          RowBox[{"5", ",", "5", ",", "5"}], "}"}], ",", "i", ",", "j", ",", 
+          RowBox[{"9", ",", "9", ",", "9"}], "}"}], ",", "i", ",", "j", ",", 
          "k", ",", "snum"}], "]"}], ",", 
        RowBox[{"{", 
-        RowBox[{"j", ",", "0", ",", "4"}], "}"}], ",", 
+        RowBox[{"j", ",", "0", ",", "8"}], "}"}], ",", 
        RowBox[{"{", 
-        RowBox[{"i", ",", "0", ",", "4"}], "}"}]}], "]"}], ",", 
+        RowBox[{"i", ",", "0", ",", "8"}], "}"}]}], "]"}], ",", 
      RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}], ",", 
    RowBox[{"{", 
-    RowBox[{"k", ",", "0", ",", "4"}], "}"}]}], "]"}]], "Input",
+    RowBox[{"k", ",", "0", ",", "8"}], "}"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.6503956607549434`*^9, 3.6503956981166167`*^9}, {
   3.650395728356673*^9, 3.6503958142016277`*^9}, {3.6503962770442767`*^9, 
-  3.6503962819280853`*^9}, {3.6503963294079695`*^9, 3.650396332077574*^9}}],
+  3.6503962819280853`*^9}, {3.6503963294079695`*^9, 3.650396332077574*^9}, {
+  3.6506906783673477`*^9, 3.6506907028361907`*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
    TagBox[GridBox[{
-      {"0", "2", "3", "5", 
+      {"0", "2", "3", "4", "7", "8", "9", "10", 
        RowBox[{"-", "1"}]},
-      {"8", "10", "11", "13", "16"},
-      {"17", "18", "19", 
-       RowBox[{"-", "1"}], "22"},
-      {"25", "26", "27", "30", "33"},
-      {"34", 
-       RowBox[{"-", "1"}], "35", 
-       RowBox[{"-", "1"}], "38"}
+      {"13", "16", "18", 
+       RowBox[{"-", "1"}], "21", "23", 
+       RowBox[{"-", "1"}], "24", "25"},
+      {"28", 
+       RowBox[{"-", "1"}], "31", "33", 
+       RowBox[{"-", "1"}], "35", "38", 
+       RowBox[{"-", "1"}], "40"},
+      {"43", 
+       RowBox[{"-", "1"}], "44", 
+       RowBox[{"-", "1"}], "46", "49", "50", "53", "55"},
+      {"56", "58", "59", "60", "61", "63", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}]},
+      {"66", "68", "71", "72", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "74", "77", 
+       RowBox[{"-", "1"}]},
+      {
+       RowBox[{"-", "1"}], "80", "81", 
+       RowBox[{"-", "1"}], "82", "83", 
+       RowBox[{"-", "1"}], "86", "87"},
+      {"88", 
+       RowBox[{"-", "1"}], "91", 
+       RowBox[{"-", "1"}], "94", "96", "99", "101", "104"},
+      {"106", "108", 
+       RowBox[{"-", "1"}], "110", "111", 
+       RowBox[{"-", "1"}], "113", "116", "118"}
      },
      AutoDelete->False,
      GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
      GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
     "Grid"], ",", 
    TagBox[GridBox[{
-      {"41", 
-       RowBox[{"-", "1"}], "42", "45", "47"},
-      {"50", "52", "55", "57", 
+      {"121", "122", "125", 
+       RowBox[{"-", "1"}], "128", "130", "133", 
+       RowBox[{"-", "1"}], "135"},
+      {"138", 
+       RowBox[{"-", "1"}], "139", 
+       RowBox[{"-", "1"}], "142", "145", "147", "148", 
+       RowBox[{"-", "1"}]},
+      {"150", "152", "155", 
+       RowBox[{"-", "1"}], "157", "159", "160", "162", "163"},
+      {
+       RowBox[{"-", "1"}], "164", "165", "168", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "170", "173", 
        RowBox[{"-", "1"}]},
       {
-       RowBox[{"-", "1"}], "59", "61", "64", "66"},
+       RowBox[{"-", "1"}], "174", 
+       RowBox[{"-", "1"}], "176", "179", 
+       RowBox[{"-", "1"}], "182", "184", "186"},
       {
-       RowBox[{"-", "1"}], "69", "72", "75", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "188", 
+       RowBox[{"-", "1"}], "191", "193", "194", "197", 
        RowBox[{"-", "1"}]},
-      {"76", "79", "81", "82", "83"}
+      {"199", 
+       RowBox[{"-", "1"}], "202", "204", 
+       RowBox[{"-", "1"}], "206", "209", "211", "212"},
+      {"214", "216", 
+       RowBox[{"-", "1"}], "217", "218", "221", "222", "225", "228"},
+      {"229", "232", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "235", 
+       RowBox[{"-", "1"}], "238", "239", "241"}
      },
      AutoDelete->False,
      GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
@@ -1469,37 +4767,177 @@ Cell[BoxData[
     "Grid"], ",", 
    TagBox[GridBox[{
       {
-       RowBox[{"-", "1"}], "86", "88", "90", "93"},
-      {"94", "96", "97", 
-       RowBox[{"-", "1"}], "98"},
+       RowBox[{"-", "1"}], "243", "244", "245", "248", "250", "252", "254", 
+       "257"},
       {
-       RowBox[{"-", "1"}], "100", "102", 
        RowBox[{"-", "1"}], 
-       RowBox[{"-", "1"}]},
+       RowBox[{"-", "1"}], "260", "263", "265", "268", "271", "273", "276"},
+      {"278", "281", "284", "286", 
+       RowBox[{"-", "1"}], "289", "292", 
+       RowBox[{"-", "1"}], "295"},
       {
-       RowBox[{"-", "1"}], "105", "107", "110", "113"},
-      {"115", 
+       RowBox[{"-", "1"}], "296", 
+       RowBox[{"-", "1"}], "297", 
+       RowBox[{"-", "1"}], "298", "300", "301", "303"},
+      {"306", "307", "310", 
+       RowBox[{"-", "1"}], "313", "314", 
        RowBox[{"-", "1"}], 
-       RowBox[{"-", "1"}], "117", "119"}
+       RowBox[{"-", "1"}], "317"},
+      {"320", "321", 
+       RowBox[{"-", "1"}], "324", "327", 
+       RowBox[{"-", "1"}], "330", "331", "334"},
+      {
+       RowBox[{"-", "1"}], "336", "338", 
+       RowBox[{"-", "1"}], "339", "342", "344", "347", "350"},
+      {"351", "353", "354", 
+       RowBox[{"-", "1"}], "355", 
+       RowBox[{"-", "1"}], "356", 
+       RowBox[{"-", "1"}], "359"},
+      {"360", 
+       RowBox[{"-", "1"}], "361", 
+       RowBox[{"-", "1"}], "363", "364", "365", "367", "368"}
      },
      AutoDelete->False,
      GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
      GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
     "Grid"], ",", 
    TagBox[GridBox[{
-      {"121", "122", "125", "127", "130"},
+      {"370", "373", "374", "377", "380", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "381"},
       {
-       RowBox[{"-", "1"}], "133", 
-       RowBox[{"-", "1"}], "136", 
+       RowBox[{"-", "1"}], "382", "385", "386", "387", 
+       RowBox[{"-", "1"}], "390", "393", "395"},
+      {"397", "400", "403", "406", "407", "409", "411", "413", "415"},
+      {
+       RowBox[{"-", "1"}], "416", "417", "418", "419", "422", "425", "428", 
+       "429"},
+      {
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "431", 
+       RowBox[{"-", "1"}], "433", 
+       RowBox[{"-", "1"}], "435", "437", 
        RowBox[{"-", "1"}]},
-      {"139", "142", "143", "145", "148"},
-      {"150", "153", "156", 
+      {"439", "441", "444", "446", 
+       RowBox[{"-", "1"}], "449", "452", "454", "456"},
+      {"457", "458", 
+       RowBox[{"-", "1"}], "459", 
+       RowBox[{"-", "1"}], "462", "463", "465", 
+       RowBox[{"-", "1"}]},
+      {"466", "467", 
+       RowBox[{"-", "1"}], "470", 
+       RowBox[{"-", "1"}], "471", "473", "476", 
+       RowBox[{"-", "1"}]},
+      {
+       RowBox[{"-", "1"}], "478", "481", "484", "486", "489", "492", 
+       RowBox[{"-", "1"}], "493"}
+     },
+     AutoDelete->False,
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {"496", "498", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "499", 
+       RowBox[{"-", "1"}], "500", 
        RowBox[{"-", "1"}], 
        RowBox[{"-", "1"}]},
       {
+       RowBox[{"-", "1"}], "501", 
+       RowBox[{"-", "1"}], "502", "504", 
+       RowBox[{"-", "1"}], "506", "509", "510"},
+      {
+       RowBox[{"-", "1"}], "512", "515", "517", "520", 
+       RowBox[{"-", "1"}], "521", "522", 
+       RowBox[{"-", "1"}]},
+      {
        RowBox[{"-", "1"}], 
-       RowBox[{"-", "1"}], "159", 
-       RowBox[{"-", "1"}], "161"}
+       RowBox[{"-", "1"}], "524", "526", "528", "530", "532", "535", "537"},
+      {
+       RowBox[{"-", "1"}], "539", "540", "541", "543", 
+       RowBox[{"-", "1"}], "546", "548", "551"},
+      {"553", "556", "559", "560", "562", "565", "566", 
+       RowBox[{"-", "1"}], "568"},
+      {"569", "572", "573", 
+       RowBox[{"-", "1"}], "576", "577", "580", "582", 
+       RowBox[{"-", "1"}]},
+      {"583", "584", 
+       RowBox[{"-", "1"}], "587", "588", 
+       RowBox[{"-", "1"}], "589", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}]},
+      {"591", "592", "595", "598", "601", "604", "607", "610", "611"}
+     },
+     AutoDelete->False,
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {"612", "614", "617", 
+       RowBox[{"-", "1"}], "619", "620", "621", "622", "623"},
+      {"626", "627", "630", "632", "634", 
+       RowBox[{"-", "1"}], "636", "637", "640"},
+      {"642", "644", "646", "647", "648", "651", 
+       RowBox[{"-", "1"}], "654", "655"},
+      {"657", 
+       RowBox[{"-", "1"}], "658", "659", "662", "665", "666", "668", 
+       RowBox[{"-", "1"}]},
+      {"670", 
+       RowBox[{"-", "1"}], "672", "673", "674", "675", "676", "677", 
+       RowBox[{"-", "1"}]},
+      {"679", "680", "682", "683", "684", 
+       RowBox[{"-", "1"}], "685", "687", "690"},
+      {
+       RowBox[{"-", "1"}], "692", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "694", "695"},
+      {"697", 
+       RowBox[{"-", "1"}], "698", "701", "704", "706", "708", "709", "710"},
+      {
+       RowBox[{"-", "1"}], "713", "716", "719", "720", 
+       RowBox[{"-", "1"}], "721", "724", 
+       RowBox[{"-", "1"}]}
+     },
+     AutoDelete->False,
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {"725", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "727", "730", "733", "734", "737", "738"},
+      {"739", "740", 
+       RowBox[{"-", "1"}], "742", "743", "746", 
+       RowBox[{"-", "1"}], "749", "750"},
+      {
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "752", 
+       RowBox[{"-", "1"}], "753", "755", 
+       RowBox[{"-", "1"}], "756", "758"},
+      {
+       RowBox[{"-", "1"}], "761", "764", "767", "769", "771", "772", "774", 
+       "777"},
+      {"779", "780", "782", "785", 
+       RowBox[{"-", "1"}], "787", 
+       RowBox[{"-", "1"}], "788", "791"},
+      {
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "792", "794", 
+       RowBox[{"-", "1"}], "795", "798", 
+       RowBox[{"-", "1"}], "800"},
+      {"802", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "804", 
+       RowBox[{"-", "1"}], "807", "809", "812"},
+      {"814", 
+       RowBox[{"-", "1"}], "816", "819", "821", "822", "824", "826", "828"},
+      {"830", "832", "835", "837", "838", "841", "842", "844", "845"}
      },
      AutoDelete->False,
      GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
@@ -1507,16 +4945,73 @@ Cell[BoxData[
     "Grid"], ",", 
    TagBox[GridBox[{
       {
-       RowBox[{"-", "1"}], "164", 
-       RowBox[{"-", "1"}], "167", "169"},
+       RowBox[{"-", "1"}], "846", 
+       RowBox[{"-", "1"}], "847", "848", 
+       RowBox[{"-", "1"}], "851", "852", "855"},
+      {"856", "859", "860", "861", "864", 
+       RowBox[{"-", "1"}], "867", "869", "870"},
+      {"872", "875", "878", "881", 
+       RowBox[{"-", "1"}], "884", "886", "889", 
+       RowBox[{"-", "1"}]},
       {
-       RowBox[{"-", "1"}], "171", 
-       RowBox[{"-", "1"}], "173", "174"},
-      {"175", "178", "181", "184", "186"},
-      {"189", "190", 
-       RowBox[{"-", "1"}], "191", "192"},
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "891", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "892", "895", "898", "899"},
+      {"901", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "903", 
+       RowBox[{"-", "1"}], "905", "907", "910", 
+       RowBox[{"-", "1"}]},
+      {"911", 
+       RowBox[{"-", "1"}], "914", "917", 
+       RowBox[{"-", "1"}], "919", "922", 
+       RowBox[{"-", "1"}], "924"},
+      {"925", "926", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "927", "928", 
+       RowBox[{"-", "1"}], "931", "932"},
+      {"935", 
+       RowBox[{"-", "1"}], "937", "938", "940", "941", "943", "946", 
+       RowBox[{"-", "1"}]},
+      {"948", 
+       RowBox[{"-", "1"}], "949", "950", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "951", "954", "957"}
+     },
+     AutoDelete->False,
+     GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"], ",", 
+   TagBox[GridBox[{
+      {"958", "959", "962", "964", "966", 
+       RowBox[{"-", "1"}], "967", "970", "972"},
+      {"974", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "975", 
+       RowBox[{"-", "1"}], "976", "979", "980", "982"},
+      {"984", "986", "988", 
+       RowBox[{"-", "1"}], "989", "991", "992", "994", "995"},
+      {"997", "1000", 
+       RowBox[{"-", "1"}], "1003", "1005", "1007", "1009", "1011", 
+       RowBox[{"-", "1"}]},
       {
-       RowBox[{"-", "1"}], "194", "197", "200", "202"}
+       RowBox[{"-", "1"}], "1013", "1016", "1019", "1022", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "1025", "1026"},
+      {
+       RowBox[{"-", "1"}], "1027", "1030", "1031", "1034", "1036", 
+       RowBox[{"-", "1"}], 
+       RowBox[{"-", "1"}], "1039"},
+      {"1042", 
+       RowBox[{"-", "1"}], "1044", "1045", "1048", 
+       RowBox[{"-", "1"}], "1050", "1052", "1055"},
+      {
+       RowBox[{"-", "1"}], "1056", "1057", "1060", "1063", "1066", 
+       RowBox[{"-", "1"}], "1067", "1070"},
+      {"1071", 
+       RowBox[{"-", "1"}], "1073", "1074", 
+       RowBox[{"-", "1"}], "1077", "1079", "1080", "1083"}
      },
      AutoDelete->False,
      GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
@@ -1525,63 +5020,12 @@ Cell[BoxData[
  CellChangeTimes->{
   3.650395752713316*^9, 3.650395785647974*^9, 3.650395816136031*^9, {
    3.650396271100666*^9, 3.650396282271286*^9}, 3.6503963324675746`*^9, 
-   3.6506430479310536`*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Table", "[", 
-  RowBox[{
-   RowBox[{"GetNextSpin", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"5", ",", "5", ",", "5"}], "}"}], ",", "31", ",", "i", ",", 
-     RowBox[{"VoxIds", "[", "snum", "]"}]}], "]"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"i", ",", "0", ",", "10"}], "}"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.650556760564617*^9, 3.6505567858860655`*^9}, {
-   3.650556821049076*^9, 3.650556843401355*^9}, 3.6505587417331285`*^9, 
-   3.650558830916688*^9, {3.650558900995813*^9, 3.650558903445017*^9}, {
-   3.6506430123403907`*^9, 3.650643012558791*^9}, {3.6506431468412495`*^9, 
-   3.6506431469348493`*^9}}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"0", ",", "0"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"0", ",", "1"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"1", ",", "2"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"2", ",", "3"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"2", ",", "4"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"5", ",", "8"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"5", ",", "9"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"6", ",", "10"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"7", ",", "11"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"7", ",", "12"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"10", ",", "17"}], "}"}]}], "}"}]], "Output",
- CellChangeTimes->{
-  3.650556786913124*^9, {3.650556821676112*^9, 3.6505568439873886`*^9}, 
-   3.6505570815595727`*^9, 3.650557129273858*^9, 3.6505573501840525`*^9, 
-   3.6505575947482944`*^9, 3.6505582303360133`*^9, 3.6505583335985994`*^9, 
-   3.650558628012326*^9, 3.6505587422947297`*^9, 3.6505588319930897`*^9, 
-   3.6505589041626186`*^9, 3.650643013213992*^9, 3.6506431474496503`*^9}]
+   3.6506430479310536`*^9, {3.6506906959097786`*^9, 3.6506907036473923`*^9}}]
 }, Open  ]]
 },
-WindowSize->{1203, 1138},
-WindowMargins->{{51, Automatic}, {Automatic, 104}},
-FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (September 9, 2014)",
+WindowSize->{1468, 1136},
+WindowMargins->{{Automatic, 398}, {Automatic, -960}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -1600,41 +5044,35 @@ Cell[9175, 208, 365, 10, 31, "Input"],
 Cell[9543, 220, 1435, 33, 72, "Input"],
 Cell[10981, 255, 3841, 87, 472, "Input"],
 Cell[14825, 344, 3760, 87, 452, "Input"],
+Cell[18588, 433, 571, 11, 31, "Input"],
+Cell[19162, 446, 172, 4, 31, "Input"],
 Cell[CellGroupData[{
-Cell[18610, 435, 498, 9, 31, "Input"],
-Cell[19111, 446, 1554, 22, 72, "Output"]
+Cell[19359, 454, 775, 22, 31, "Input"],
+Cell[20137, 478, 1465, 21, 52, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[20702, 473, 128, 2, 31, "Input"],
-Cell[20833, 477, 2255, 46, 92, "Output"]
+Cell[21639, 504, 484, 10, 31, "Input"],
+Cell[22126, 516, 139135, 3966, 522, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23125, 528, 775, 22, 31, "Input"],
-Cell[23903, 552, 1465, 21, 72, "Output"]
+Cell[161298, 4487, 846, 16, 31, "Input"],
+Cell[162147, 4505, 1785, 48, 52, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25405, 578, 380, 8, 31, "Input"],
-Cell[25788, 588, 24905, 711, 100, "Output"]
+Cell[163969, 4558, 608, 13, 31, "Input"],
+Cell[164580, 4573, 1112, 27, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[50730, 1304, 608, 13, 31, "Input"],
-Cell[51341, 1319, 1112, 27, 31, "Output"]
+Cell[165729, 4605, 1025, 25, 72, "Input"],
+Cell[166757, 4632, 936, 15, 52, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[52490, 1351, 1025, 25, 92, "Input"],
-Cell[53518, 1378, 936, 15, 52, "Output"]
+Cell[167730, 4652, 269, 6, 31, "Input"],
+Cell[168002, 4660, 99, 1, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[54491, 1398, 269, 6, 31, "Input"],
-Cell[54763, 1406, 99, 1, 31, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[54899, 1412, 844, 21, 31, "Input"],
-Cell[55746, 1435, 2976, 92, 100, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[58759, 1532, 648, 14, 31, "Input"],
-Cell[59410, 1548, 1098, 30, 31, "Output"]
+Cell[168138, 4666, 897, 22, 31, "Input"],
+Cell[169038, 4690, 11906, 332, 522, "Output"]
 }, Open  ]]
 }
 ]

@@ -209,8 +209,8 @@ Cell[BoxData[
    3.6505584404513903`*^9}, {3.6505586166027055`*^9, 3.6505586182719083`*^9}}]
 },
 WindowSize->{1203, 1183},
-WindowMargins->{{Automatic, 69}, {Automatic, 94}},
-FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (September 9, 2014)",
+WindowMargins->{{Automatic, 69}, {-39, Automatic}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
