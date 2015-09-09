@@ -70,7 +70,7 @@ long w_vox_num;
 long surf_vox_num;
 long scount;
 
-const float eps = 10e-7;
+float eps = 10e-7;
 
 // **** PARAMETERS ********************************************************/
 /**/	std::string version("Linked List CPU");	/**/
@@ -89,13 +89,13 @@ const float eps = 10e-7;
 /**/	int S = 1;														/**/
 /**/	float delta_x = 0.1;											/**/
 /**/																	/**/
-/**/	char* wc_str = "1/T";												/**/
+/**/	char* wc_str = "1/T";											/**/
 /**/	char* wx_str = "1";												/**/
 /**/																	/**/
 /**/	float wc(float T) { return 1/T; }								/**/
 /**/	float wx(float T) { return 1; }	
 /**/
-/**/	float wint(float cos) { return (1 + cos) / (1-cos + 0.0000001); }
+/**/	float wint(float cos) { return (1 + cos) / (1-cos + eps); }
 /**/	char* wint_str = "(1+cos)/(1-cos)";
 
 		char* wdata_str = "(E1 + E2)/2";

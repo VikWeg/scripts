@@ -78,21 +78,18 @@ float Ei_x(vertex* vi)
 	return E/(count+0.0000001);
 }
 
-float Ei_c(vertex* vi)
+float Ei_c(vertex* vi,int d)
 {
 	float E = 0;
 
 	E += (1 - vi->sig)*fabsf(vi->cc - 2) / (vi->nn - 2 + 0.0000001);
 	E += (vi->sig)*    fabsf(vi->cc - 1) / (vi->nn - 1 + 0.0000001);
 
-	int cj;
-	for (int j = 0; j < vi->nn; j++)
-	{
-		cj = vi->n[j]->cc;
 
-		E += (1 - vi->n[j]->sig)*fabsf(cj - 2) / (float)(vi->n[j]->nn - 2 + 0.0000001);
-		E += (vi->n[j]->sig)*    fabsf(cj - 1) / (float)(vi->n[j]->nn - 1 + 0.0000001);
-	}
+	int cj = vi->n[d]->cc;
+
+	E += (1 - vi->n[d]->sig)*fabsf(cj - 2) / (float)(vi->n[d]->nn - 2 + 0.0000001);
+	E += (vi->n[d]->sig)*    fabsf(cj - 1) / (float)(vi->n[d]->nn - 1 + 0.0000001);
 
 	return E / vi->nn;
 }

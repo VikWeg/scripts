@@ -172,7 +172,7 @@ void init_ensemble()
 		else
 			sig[voxnum] = 0;
 
-		for (int s = 0; s < snum[VoxNum(i, j, k)]; s++)
+		for (int s = 0; s < snum[voxnum]; s++)
 		{
 			x[voxid + s] = i*hdr.pixdim[1];
 			y[voxid + s] = j*hdr.pixdim[2];

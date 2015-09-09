@@ -40,7 +40,7 @@ Octree??
 #define NII_HEADER_SIZE 352
 nifti_1_header hdr;
 
-const float eps = 10.0e-7;
+float eps = 10e-7;
 
 float* data;
 float* L1data;
@@ -95,13 +95,13 @@ long scount;
 /**/	long tsteps_tot = ceilf(logf(Tf / Ti) / logf(etha));			/**/
 /**/																	/**/
 /**/	int nx = 30;													/**/
-/**/	int S = 3;														/**/
+/**/	int S = 1;														/**/
 /**/	float delta_x = 0.1;											/**/
 /**/																	/**/
-/**/	char* wc_str = "1";												/**/
+/**/	char* wc_str = "1/T";												/**/
 /**/	char* wx_str = "1";												/**/
 /**/																	/**/
-/**/	float wc(float T) { return 1; }								/**/
+/**/	float wc(float T) { return 1/T; }								/**/
 /**/	float wx(float T) { return 1; }	
 /**/
 /**/	float wint(float cos) { return (1 + cos)/(1-cos+eps); }

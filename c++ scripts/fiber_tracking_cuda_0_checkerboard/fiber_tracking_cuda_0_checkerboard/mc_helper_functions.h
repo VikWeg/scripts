@@ -53,7 +53,7 @@ int threadIdToVoxNum(int threadId, int latticeId)
 
 int getBit(int i, unsigned long long c)
 {
-	unsigned long long mask = 1 << i;
+	unsigned long long mask =  1ull << i;
 
 	return ((c&mask) == 0) ? 0 : 1;
 }
@@ -62,7 +62,7 @@ int getBit(int i, unsigned long long c)
 
 int changeBit(int i, unsigned long long c)
 {
-	unsigned long long mask = 1 << i;
+	unsigned long long mask = 1ull << i;
 
 	return c ^ mask;
 
@@ -301,7 +301,7 @@ Next GetNextSpin(int* VoxIds, int VoxNum, int NextSpinOffset)
 		{
 			int voxnum = (z0 + k)*c0*c1 + (y0 + j)*c0 + (x0 + i);
 
-			if (voxnum < c0*c1*c1 - 1)
+			if (voxnum < c0*c1*c2 - 1)
 			{
 				int next = voxnum + 1;
 				while (VoxIds[next] < 0) next++;

@@ -188,9 +188,9 @@ void init_ensemble()
 		ensemble[i][j][k][s].n = new vertex*[nn];
 
 		int m = 0;
-		for (int ii = fmax(0, i - 1); ii < fmin(cube_size[0], i + 2); ii++)
-		for (int jj = fmax(0, j - 1); jj < fmin(cube_size[1], j + 2); jj++)
 		for (int kk = fmax(0, k - 1); kk < fmin(cube_size[2], k + 2); kk++)
+		for (int jj = fmax(0, j - 1); jj < fmin(cube_size[1], j + 2); jj++)
+		for (int ii = fmax(0, i - 1); ii < fmin(cube_size[0], i + 2); ii++)
 		for (int ss = 0; ss < snum[ii][jj][kk]; ss++)
 		if ((ii != i || jj != j || kk != k) && (wmask[ii][jj][kk] == 1 || surf_mask[ii][jj][kk] == 1))
 		{

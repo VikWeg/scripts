@@ -5,7 +5,7 @@ void mc_c(vertex* vi, float T)
 
 		for (int d = 0; d < vi->nn; d++)
 		{
-			E0 = wc(T)*Ei_c(vi) + wx(T)*Ei_x(vi);
+			E0 = wc(T)*Ei_c(vi,d) + wx(T)*Ei_x(vi);
 
 			vi->c[d] = 1 - vi->c[d];
 			vi->cc += -1 + 2 * vi->c[d];
@@ -19,7 +19,7 @@ void mc_c(vertex* vi, float T)
 				}
 			vi->n[d]->cc += -1 + 2 * vi->c[d];
 
-			E1 = wc(T)*Ei_c(vi) + wx(T)*Ei_x(vi);
+			E1 = wc(T)*Ei_c(vi,d) + wx(T)*Ei_x(vi);
 
 			p = fminf(1., expf((E0 - E1) / T));
 			std::bernoulli_distribution acceptQ(p);
