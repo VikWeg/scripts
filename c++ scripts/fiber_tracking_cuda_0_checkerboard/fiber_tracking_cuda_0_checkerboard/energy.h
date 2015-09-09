@@ -28,6 +28,7 @@ float Edata(float* x, float* y, float* z, unsigned long long* c, float* ten, int
 	//Calculate Emin, Emax each time from tensor (Problem with eigenvalues though...)
 	//see 3x3 matrices in https://en.wikipedia.org/wiki/Eigenvalue_algorithm#3.C3.973_matrices
 
+
 	return 0.5f*(E1 + E2);
 }
 
@@ -71,12 +72,6 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int*
 		//Add Edata
 		E += Edata(x, y, z, c, ten, sig, VoxIds, VoxNum, SpinId, Neighbor.VoxNum, Neighbor.SpinId);
 		count++;
-	}
-
-	for (int i = 0; i < nc; i++)
-	if (getBit(i, c[SpinId]))
-	{
-		Next Neighbor = GetNextSpin(VoxIds, VoxNum, i);
 
 		//Add Eint_1
 		for (int j = i + 1; j < nc; j++)
@@ -90,12 +85,6 @@ float Ei_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int*
 				OtherNeighbor.VoxNum, OtherNeighbor.SpinId);
 			count++;
 		}
-	}
-
-	for (int i = 0; i < nc; i++)
-	if (getBit(i, c[SpinId]))
-	{
-		Next Neighbor = GetNextSpin(VoxIds, VoxNum, i);
 
 		//Add Eint_2
 		int nnc = GetNeighborSpinCount(Neighbor.VoxNum, VoxIds);
@@ -125,14 +114,18 @@ float Ei_c(float* x, float* y, float* z, unsigned long long* c, float* ten, int*
 	int ConnectionCount = sumBits(c[SpinId]);
 	int NearSpinsCount = GetNeighborSpinCount(VoxNum, VoxIds);
 
-	E += (1 - sig[VoxNum])	*fabsf(ConnectionCount - 2) / (NearSpinsCount - 2 + eps);
-	E += sig[VoxNum] * fabsf(ConnectionCount - 1) / (NearSpinsCount - 1 + eps);
+	if (sig[VoxNum])
+	E += fabsf(ConnectionCount - 1) / (NearSpinsCount - 1 + eps);
+	else
+	E += fabsf(ConnectionCount - 2) / (NearSpinsCount - 2 + eps);
 
 	int NeighborConnectionCount = sumBits(c[NeighborSpinId]);
 	int NeighbourNearSpinsCount = GetNeighborSpinCount(NeighborVoxNum, VoxIds);
 
-	E += (1 - sig[NeighborVoxNum])	*fabsf(NeighborConnectionCount - 2) / (NeighbourNearSpinsCount - 2 + eps);
-	E += sig[NeighborVoxNum] * fabsf(NeighborConnectionCount - 1) / (NeighbourNearSpinsCount - 1 + eps);
+	if (sig[NeighborVoxNum])
+	E += fabsf(NeighborConnectionCount - 1) / (NeighbourNearSpinsCount - 1 + eps);
+	else
+	E += fabsf(NeighborConnectionCount - 2) / (NeighbourNearSpinsCount - 2 + eps);
 
 	return E / NearSpinsCount;
 }

@@ -3,7 +3,7 @@ change loops over neighbors by using max(...) as in init
 Optimize GetVoxNumFromNeighborNum, simple: abort if too many voxels (neighbor num wont be reached)
 GetNonEmptyVoxCount very inefficient, avoid repeated function call, only loop once.
 Differentiate Ei_x for mc_c and mc_x, in case of mc_c only the energy change for the changed connection needs to be calculated.
-Make ten also coalesced
+Make ten also coalesced (one array for each t0, t1,...)
 Combine Edata and Eint in readout
 
 Optimize each direction in mc_x separately!
