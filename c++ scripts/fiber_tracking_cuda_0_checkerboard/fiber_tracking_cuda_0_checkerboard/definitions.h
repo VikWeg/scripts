@@ -92,7 +92,7 @@ long scount;
 /**/	float Ti = 0.05;												/**/
 /**/	float Tf = 0.00005;												/**/
 /**/	float etha = 0.9;												/**/
-/**/	long tsteps_tot = ceilf(logf(Tf / Ti) / logf(etha));			/**/
+/**/	int tsteps_tot = (int)ceil(logf(Tf / Ti) / logf(etha));			/**/
 /**/																	/**/
 /**/	int nx = 30;													/**/
 /**/	int S = 1;														/**/
@@ -121,7 +121,7 @@ std::uniform_int_distribution<int> u_k(0, cube_size[2] - 1);
 
 // **** TIMING ****
 
-float CPU_freq = 4*pow(10., 9.);
+float CPU_freq = 4*powf(10., 9.);
 
 typedef union
 {

@@ -1,10 +1,6 @@
 void mc_c(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds, int VoxNum, int VoxId, int SpinId)
 {
 	float E0, E1, p;
-
-	int c0 = cube_size[0];
-	int c1 = cube_size[1];
-	int c2 = cube_size[2];
 	
 	int nc = GetNeighborSpinCount(VoxNum, VoxIds);
 
@@ -57,11 +53,11 @@ void mc_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int* 
 			y0 = y[SpinId];
 			z0 = z[SpinId];
 
-			std::uniform_real_distribution<float> u_x(x0 - (x0 - pos_x + hdr.pixdim[1] * 0.5) * delta_x, x0 + (pos_x + hdr.pixdim[1] * 0.5 - x0) * delta_x);
+			std::uniform_real_distribution<float> u_x(x0 - (x0 - pos_x + hdr.pixdim[1] * 0.5f) * delta_x, x0 + (pos_x + hdr.pixdim[1] * 0.5f - x0) * delta_x);
 			x[SpinId] = u_x(generate);
-			std::uniform_real_distribution<float> u_y(y0 - (y0 - pos_y + hdr.pixdim[2] * 0.5) * delta_x, y0 + (pos_y + hdr.pixdim[2] * 0.5 - y0) * delta_x);
+			std::uniform_real_distribution<float> u_y(y0 - (y0 - pos_y + hdr.pixdim[2] * 0.5f) * delta_x, y0 + (pos_y + hdr.pixdim[2] * 0.5f - y0) * delta_x);
 			y[SpinId] = u_y(generate);
-			std::uniform_real_distribution<float> u_z(z0 - (z0 - pos_z + hdr.pixdim[3] * 0.5) * delta_x, z0 + (pos_z + hdr.pixdim[3] * 0.5 - z0) * delta_x);
+			std::uniform_real_distribution<float> u_z(z0 - (z0 - pos_z + hdr.pixdim[3] * 0.5f) * delta_x, z0 + (pos_z + hdr.pixdim[3] * 0.5f - z0) * delta_x);
 			z[SpinId] = u_z(generate);
 
 			E1 = wx(T)*Ei_x(x, y, z, c, ten, sig, VoxIds, VoxNum, SpinId);

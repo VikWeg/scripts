@@ -60,7 +60,7 @@ int getBit(int i, unsigned long long c)
 
 // **** Change i-th bit ****
 
-int changeBit(int i, unsigned long long c)
+unsigned long long changeBit(int i, unsigned long long c)
 {
 	unsigned long long mask = 1ull << i;
 
@@ -85,13 +85,6 @@ int sumBits(unsigned long long c)
 	return (c * h01) >> (TEST_BITS - 8);
 }
 
-// Find first set bit in c https://en.wikipedia.org/wiki/Find_first_set
-
-int FindFirstSet(unsigned long long c)
-{
-	if (c == 0) return 0;
-	else return sumBits(c ^ (~(-c)));
-}
 
 int GetVoxNumFromNeighborNum(int VoxNum, int NeighborNum, int* VoxIds)
 {//Returns the voxel number of the NeighborNum-th neighbor of the voxel VoxNum
