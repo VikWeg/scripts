@@ -26,9 +26,9 @@ int VoxId(int i, int j, int k)
 
 void init_ensemble()
 {
-	long coo;
+	int coo;
 	int dim[4] = { 0, hdr.dim[1], hdr.dim[2], hdr.dim[3] };
-	float TensorData[6] = { 0, 0, 0, 0, 0, 0 };
+	float TenDat[6] = { 0, 0, 0, 0, 0, 0 };
 	
 	//******** WMask ********
 	w_vox_num = 0;
@@ -122,7 +122,7 @@ void init_ensemble()
 	//******** x, y, z, VoxIds, c, sig, ten ********
 
 	VoxIds = new int[cube_size[0] * cube_size[1] * cube_size[2]];
-	ten = new float[6 * cube_size[0] * cube_size[1] * cube_size[2]];
+	ten = new float[8 * cube_size[0] * cube_size[1] * cube_size[2]];
 	sig = new int[cube_size[0] * cube_size[1] * cube_size[2]];
 	x = new float[scount];
 	y = new float[scount];
@@ -133,6 +133,10 @@ void init_ensemble()
 	for (int j = 0; j < cube_size[1]; j++)
 	for (int k = 0; k < cube_size[2]; k++)
 	{
+		coo = (dim[3] - (vox_origin[3] + k - cube_size[2] / 2)) * dim[2] * dim[1]
+			+ (dim[2] - (vox_origin[2] + j - cube_size[1] / 2)) * dim[1]
+			+ (dim[1] - (vox_origin[1] + i - cube_size[0] / 2));
+
 		int voxnum = VoxNum(i, j, k);
 		int voxid = VoxId(i, j, k);
 
@@ -146,26 +150,28 @@ void init_ensemble()
 				+ (dim[2] - (vox_origin[2] + j - cube_size[1] / 2)) * dim[1]
 				+ (dim[1] - (vox_origin[1] + i - cube_size[0] / 2));
 
-			TensorData[t] = data[coo_t];
+			TenDat[t] = data[coo_t];
 		}
 		
-		/* adjust snum also
-		TensorData[0] = 1;
-		TensorData[1] = 0;
-		TensorData[2] = 0;
-		TensorData[3] = 0.01;
-		TensorData[4] = 0;
-		TensorData[5] = 0.01;
-		*/
+		float Li3 = 1. / L1data[coo];
+		float Li2 = 1. / L2data[coo];
+		float Li1 = 1. / L3data[coo];
 
-		float norm = 1. / (TensorData[1] * TensorData[1] + TensorData[2] * TensorData[2] + TensorData[4] * TensorData[4] - TensorData[0] * TensorData[3] - TensorData[5] * (TensorData[0] + TensorData[3]));
+		float norm = (Li1 + Li2 + Li3)*(  TenDat[2] * TenDat[2] * TenDat[3]
+									- 2 * TenDat[1] * TenDat[2] * TenDat[4]
+										+ TenDat[0] * TenDat[4] * TenDat[4]
+										+ TenDat[1] * TenDat[1] * TenDat[5]
+										- TenDat[0] * TenDat[3] * TenDat[5]);
 
-		ten[6 * voxnum + 0] = (TensorData[4] * TensorData[4] - TensorData[3] * TensorData[5])* norm;
-		ten[6 * voxnum + 1] = (TensorData[1] * TensorData[5] - TensorData[2] * TensorData[4])* norm;
-		ten[6 * voxnum + 2] = (TensorData[2] * TensorData[3] - TensorData[1] * TensorData[4])* norm;
-		ten[6 * voxnum + 3] = (TensorData[2] * TensorData[2] - TensorData[0] * TensorData[5])* norm;
-		ten[6 * voxnum + 4] = (TensorData[0] * TensorData[4] - TensorData[1] * TensorData[2])* norm;
-		ten[6 * voxnum + 5] = (TensorData[1] * TensorData[1] - TensorData[0] * TensorData[3])* norm;
+		ten[8 * voxnum + 0] = (TenDat[4] * TenDat[4] - TenDat[3] * TenDat[5]) / norm;
+		ten[8 * voxnum + 1] = (TenDat[1] * TenDat[5] - TenDat[2] * TenDat[4]) / norm;
+		ten[8 * voxnum + 2] = (TenDat[2] * TenDat[3] - TenDat[1] * TenDat[4]) / norm;
+		ten[8 * voxnum + 3] = (TenDat[2] * TenDat[2] - TenDat[0] * TenDat[5]) / norm;
+		ten[8 * voxnum + 4] = (TenDat[0] * TenDat[4] - TenDat[1] * TenDat[2]) / norm;
+		ten[8 * voxnum + 5] = (TenDat[1] * TenDat[1] - TenDat[0] * TenDat[3]) / norm;
+
+		ten[8 * voxnum + 6] = Li3 / (Li1 + Li2 + Li3);
+		ten[8 * voxnum + 7] = Li1 / (Li1 + Li2 + Li3);
 
 		if (surf_mask[i][j][k] == 1 || i == 0 || i == cube_size[0] - 1 || j == 0 || j == cube_size[1] - 1 || k == 0 || k == cube_size[2] - 1)
 			sig[voxnum] = 1;

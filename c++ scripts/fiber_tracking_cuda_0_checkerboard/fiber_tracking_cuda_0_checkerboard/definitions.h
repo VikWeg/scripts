@@ -6,6 +6,8 @@ Differentiate Ei_x for mc_c and mc_x, in case of mc_c only the energy change for
 Make ten also coalesced (one array for each t0, t1,...)
 Combine Edata and Eint in readout
 
+Check if neighbornum does not exceed 64... (theoretically 78...)
+
 Optimize each direction in mc_x separately!
 Octree??
 */
@@ -50,6 +52,7 @@ float* mask;
 
 std::ofstream par_file;
 std::ofstream Efile;
+std::ofstream LogFile;
 FILE* fiber_file;
 
 char buffer[80];
@@ -84,8 +87,8 @@ long scount;
 /**/	int TestFiberTrace = 0;
 /**/	std::string version("checkerboard CPU");	/**/
 /**/	std::string subject ("1159T");									/**/
-/**/	int cube_size[3] = { 9, 9, 9 };									/**/
-/**/	int vox_origin[4] = { 0, 48, 64, 64 };							/**/
+/**/	int cube_size[3] = { 87, 104, 88 };									/**/
+/**/	int vox_origin[4] = { 0, 64, 64, 45 };							/**/
 /**/																	/**/
 /**/	float cutoff = 1.5;												/**/
 /**/																	/**/
@@ -107,7 +110,7 @@ long scount;
 /**/	float wint(float cos) { return (1 + cos)/(1-cos+eps); }
 /**/	char* wint_str = "(1+cos)/(1-cos)";
 
-		char* wdata_str = "(E1 + E2)/2";
+		char* wdata_str = "( (E1 - E1min)/(E1max - E1) + (E2 - E2min)/(E2max - E2) )/2";
 /**/
 /**/	std::string comment("");
 /*************************************************************************/

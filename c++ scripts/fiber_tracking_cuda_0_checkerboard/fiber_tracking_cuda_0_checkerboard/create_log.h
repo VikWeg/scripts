@@ -14,6 +14,7 @@ void create_log()
 	mkdir("fibers");
 
 	par_file.open("parameters.txt");
+	LogFile.open("LogFile.txt");
 
 	par_file << "Version: " << version.c_str() << "\n\n";
 
