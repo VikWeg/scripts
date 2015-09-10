@@ -1,13 +1,13 @@
-﻿Der Buildvorgang wurde am 10.09.2015 16:36:19 gestartet.
+﻿Der Buildvorgang wurde am 10.09.2015 22:39:01 gestartet.
      1>Projekt "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard.vcxproj" auf Knoten "2", Build Ziel(e).
      1>AddCudaCompileDeps:
-         C:\Apps\Visual Studio 13\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /DWIN32 /D_DEBUG /D_CONSOLE /D_MBCS /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" /I. /FIcuda_runtime.h /c "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\kernel.cu" 
+         C:\Apps\VisualStudio2013\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /DWIN32 /D_DEBUG /D_CONSOLE /D_MBCS /IC:\Apps\CUDA\include /IC:\Apps\CUDA\bin /IC:\Apps\CUDA\include /I. /FIcuda_runtime.h /c "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\kernel.cu" 
        CudaBuild:
          Compiling CUDA source file kernel.cu...
-         cmd.exe /C "C:\Users\vikweg\AppData\Local\Temp\tmpb7ba5fdce29046a182e7fa0e66e0b2d0.cmd"
-         "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Apps\Visual Studio 13\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include"  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g  -use_fast_math -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Ox /Zi  /MDd  " -o Debug\kernel.cu.obj "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\kernel.cu"
+         cmd.exe /C "C:\Users\VW\AppData\Local\Temp\tmp75f947a2dfef46769a4525b9bb049607.cmd"
+         "C:\Apps\CUDA\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Apps\VisualStudio2013\VC\bin"  -IC:\Apps\CUDA\include -IC:\Apps\CUDA\include  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g  -use_fast_math -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Ox /Zi  /MDd  " -o Debug\kernel.cu.obj "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\kernel.cu"
          
-         C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Apps\Visual Studio 13\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include"  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g  -use_fast_math -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Ox /Zi  /MDd  " -o Debug\kernel.cu.obj "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\kernel.cu" 
+         C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard>"C:\Apps\CUDA\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Apps\VisualStudio2013\VC\bin"  -IC:\Apps\CUDA\include -IC:\Apps\CUDA\include  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g  -use_fast_math -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Ox /Zi  /MDd  " -o Debug\kernel.cu.obj "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\kernel.cu" 
      1>C:\Apps\gnuplot\gnucpp\gnuplot_i.hpp(1782): warning : statement is unreachable
      1>C:\Apps\gnuplot\gnucpp\gnuplot_i.hpp(1815): warning : statement is unreachable
      1>C:\Apps\gnuplot\gnucpp\gnuplot_i.hpp(1832): warning : statement is unreachable
@@ -54,18 +54,19 @@
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\init_ensemble.h(158): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'float', möglicher Datenverlust
      1>c:\apps\gnuplot\gnucpp\gnuplot_i.hpp(1875): warning C4715: "Gnuplot::file_available": Nicht alle Steuerelementpfade geben einen Wert zurück.
        Link:
-         C:\Apps\Visual Studio 13\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\Debug\fiber_tracking_cuda_0_checkerboard.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\lib\Win32" cudart.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\Debug\fiber_tracking_cuda_0_checkerboard.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\Debug\fiber_tracking_cuda_0_checkerboard.lib" /MACHINE:X86 Debug\kernel.cu.obj
+         C:\Apps\VisualStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\Debug\fiber_tracking_cuda_0_checkerboard.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Apps\CUDA\lib\Win32 cudart.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\Debug\fiber_tracking_cuda_0_checkerboard.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\Debug\fiber_tracking_cuda_0_checkerboard.lib" /MACHINE:X86 Debug\kernel.cu.obj
+         LINK : C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\Debug\fiber_tracking_cuda_0_checkerboard.exe wurde nicht gefunden oder beim letzten inkrementellen Linkvorgang nicht erstellt; vollständiger Link wird durchgeführt.
          fiber_tracking_cuda_0_checkerboard.vcxproj -> C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\Debug\fiber_tracking_cuda_0_checkerboard.exe
        PostBuildEvent:
-         echo copy "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\cudart*.dll" "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\Debug\"
-         copy "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\cudart*.dll" "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\Debug\"
+         echo copy "C:\Apps\CUDA\bin\cudart*.dll" "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\Debug\"
+         copy "C:\Apps\CUDA\bin\cudart*.dll" "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\Debug\"
          :VCEnd
-         copy "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\cudart*.dll" "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\Debug\"
-         C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\cudart32_70.dll
-         C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\cudart64_70.dll
+         copy "C:\Apps\CUDA\bin\cudart*.dll" "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\Debug\"
+         C:\Apps\CUDA\bin\cudart32_70.dll
+         C:\Apps\CUDA\bin\cudart64_70.dll
                  2 Datei(en) kopiert.
      1>Die Erstellung des Projekts "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard.vcxproj" ist abgeschlossen, Build Ziel(e).
 
 Build erfolgreich.
 
-Verstrichene Zeit 00:00:07.02
+Verstrichene Zeit 00:00:08.66
