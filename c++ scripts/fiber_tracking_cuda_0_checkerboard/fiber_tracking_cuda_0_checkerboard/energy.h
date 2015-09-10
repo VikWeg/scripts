@@ -69,7 +69,8 @@ float Edata(float* x, float* y, float* z, unsigned long long* c, float* ten, int
 	float E2min = ten[8 * NeighborVoxNum + 6];
 	float E2max = ten[8 * NeighborVoxNum + 7];
 
-	return 0.5f*( (E1 - E1min) / (E1max - E1) + (E2 - E2min) / (E2max - E2) );
+	return	((E1 > E1min) ? (E1 - E1min) : 0) / (((E1 < E1max) ? (E1max - E1) : 0) + eps)
+		+	((E2 > E2min) ? (E2 - E2min) : 0) / (((E2 < E2max) ? (E2max - E2) : 0) + eps);
 }
 
 float Eint(	float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds,

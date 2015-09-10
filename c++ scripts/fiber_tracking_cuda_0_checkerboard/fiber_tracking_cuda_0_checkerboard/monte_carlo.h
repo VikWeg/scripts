@@ -90,7 +90,6 @@ void mc(float* x, float* y, float* z, unsigned long long* c, float* ten, int* si
 
 		if (VoxIds[VoxNum] >= 0 && VoxNum < cube_size[0] * cube_size[1] * cube_size[2])
 		{
-
 			int SpinsInVoxel;
 
 			if (VoxNum < cube_size[0] * cube_size[1] * cube_size[2] - 1)

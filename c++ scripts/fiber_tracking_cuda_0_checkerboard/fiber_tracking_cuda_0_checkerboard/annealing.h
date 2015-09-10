@@ -34,7 +34,7 @@ void annealing()
 		RDTSC(stop_all);
 
 		write_par_file(T / etha);
-
+		LogFile.close();
 		cudaDeviceReset();
 	}
 }
