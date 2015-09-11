@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      7201,        173]
-NotebookOptionsPosition[      6955,        160]
-NotebookOutlinePosition[      7302,        175]
-CellTagsIndexPosition[      7259,        172]
+NotebookDataLength[      8346,        204]
+NotebookOptionsPosition[      7989,        187]
+NotebookOutlinePosition[      8335,        202]
+CellTagsIndexPosition[      8292,        199]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -156,11 +156,38 @@ Cell[BoxData[
    3.6501177655445433`*^9, 3.6501177655757437`*^9}, {3.6501178038088117`*^9, 
    3.650117813731429*^9}, {3.6501178473428884`*^9, 3.6501178511054955`*^9}, {
    3.6501190177983704`*^9, 3.6501190212615767`*^9}, 3.650119085988892*^9, {
-   3.650119132329375*^9, 3.6501191518540096`*^9}, 3.65011935503137*^9}]
+   3.650119132329375*^9, 3.6501191518540096`*^9}, 3.65011935503137*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"9", ",", "9"}], "}"}], ",", "threadID", ",", "2"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"threadID", ",", "0", ",", "40"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6509473734225497`*^9, 3.650947404044205*^9}, 
+   3.6509508845389323`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2", ",", "5", ",", "8", ",", "29", ",", "32", ",", "35", ",", "56", ",", 
+   "59", ",", "62", ",", "245", ",", "248", ",", "251", ",", "272", ",", 
+   "275", ",", "278", ",", "299", ",", "302", ",", "305", ",", "488", ",", 
+   "491", ",", "494", ",", "515", ",", "518", ",", "521", ",", "542", ",", 
+   "545", ",", "548", ",", "731", ",", "734", ",", "737", ",", "758", ",", 
+   "761", ",", "764", ",", "785", ",", "788", ",", "791", ",", "974", ",", 
+   "977", ",", "980", ",", "1001", ",", "1004"}], "}"}]], "Output",
+ CellChangeTimes->{3.650947404949007*^9, 3.650950885006933*^9}]
+}, Open  ]]
 },
 WindowSize->{1000, 778},
 WindowMargins->{{Automatic, 69}, {Automatic, 53}},
-FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (September 9, 2014)",
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -174,7 +201,11 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 6393, 138, 772, "Input"]
+Cell[558, 20, 6393, 138, 772, "Input"],
+Cell[CellGroupData[{
+Cell[6976, 162, 368, 10, 31, "Input"],
+Cell[7347, 174, 626, 10, 52, "Output"]
+}, Open  ]]
 }
 ]
 *)

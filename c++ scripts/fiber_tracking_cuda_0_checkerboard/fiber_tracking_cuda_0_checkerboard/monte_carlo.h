@@ -76,19 +76,22 @@ void mc_x(float* x, float* y, float* z, unsigned long long* c, float* ten, int* 
 		}
 }
 
-void mc(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds, int lattice_id)
+void mc(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds, int LatticeId)
 {
-	for (int i = 0; i < cube_size[0]; i++)
-	for (int j = 0; j < cube_size[1]; j++)
-	for (int k = 0; k < cube_size[2]; k++)
-	//for (int threadId = 0; threadId < cube_size[0] * cube_size[1] * cube_size[2]; threadId++)
+	//for (int i = 0; i < cube_size[0]; i++)
+	//for (int j = 0; j < cube_size[1]; j++)
+	//for (int k = 0; k < cube_size[2]; k++)
+
+	int MaxThreadId = getMaxThreadId(LatticeId);
+
+	for (int threadId = 0; threadId < MaxThreadId; threadId++)
 	{
-		//int VoxNum = threadIdToVoxNum(threadId, lattice_id);
+		int VoxNum = threadIdToVoxNum(threadId, LatticeId);
 		//int VoxNum = threadId;
 		//int VoxNum = u_k(generate)*cube_size[0] * cube_size[1] + u_j(generate)*cube_size[0] + u_i(generate);
-		int VoxNum = k*cube_size[0] * cube_size[1] + j*cube_size[0] + i;
+		//int VoxNum = k*cube_size[0] * cube_size[1] + j*cube_size[0] + i;
 
-		if (VoxIds[VoxNum] >= 0 && VoxNum < cube_size[0] * cube_size[1] * cube_size[2])
+		if (VoxIds[VoxNum] >= 0)
 		{
 			int SpinsInVoxel;
 

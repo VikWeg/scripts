@@ -1,12 +1,15 @@
 // **** Map Thread to Vox ****
 int threadIdToVoxNum(int threadId, int latticeId)
 {
+	int c0 = cube_size[0];
+	int c1 = cube_size[1];
+
 	int sliceOff = latticeId / 9;
 	int colOff = latticeId % 3;
 	int rowOff = (latticeId / 3) % 3;
 
-	int voxsPerRow = (cube_size[0] - colOff - 1) / 3 + 1;
-	int rowsPerSlice = (cube_size[1] - colOff - 1) / 3 + 1;
+	int voxsPerRow = (c0 - colOff - 1) / 3 + 1;
+	int rowsPerSlice = (c1 - rowOff - 1) / 3 + 1;
 
 	int voxsPerSlice = voxsPerRow*rowsPerSlice;
 
@@ -16,37 +19,17 @@ int threadIdToVoxNum(int threadId, int latticeId)
 
 	int lastRowLeft = voxsLeft % voxsPerRow;
 
-	return	cube_size[0] * cube_size[1] * sliceOff
+	return	c0 * c1 * sliceOff
 
-			+cube_size[0] * cube_size[1] * 3 * (voxsToFill / voxsPerSlice)
+		+ 3 * c0*c1* (voxsToFill / voxsPerSlice)
 
-			+(voxsLeft == 0) ? 1 : 0 *
-									(
-										rowOff*cube_size[0]
-										+(rowsPerSlice - 1) * 3 * cube_size[0]
-										+colOff
-										+(voxsPerRow - 1) * 3
-										-3 * cube_size[0] * cube_size[1]
-									)
+		+ ( (voxsLeft == 0) ? (rowOff*c0 + (rowsPerSlice - 1) * 3 * c0 + colOff + (voxsPerRow - 1) * 3 - 3 * c0 * c1) : 0 )
 
-			+(voxsLeft != 0) ? 1 : 0 *
-									(
-										rowOff*cube_size[0]
-										+3 * cube_size[0] * (voxsLeft / voxsPerRow)
-										-(lastRowLeft == 0) ? 1 : 0 *
-																	(
-																		2 * cube_size[0]
-																		+(cube_size[0] - colOff - 1) % 3
-																		+ 1
-																	)
-
-										+(lastRowLeft != 0) ? 1 : 0 *
-																	(
-																		colOff
-																		+3 * (lastRowLeft - 1)
-																	)
-									);
-
+		+ (	(voxsLeft != 0) ? (	rowOff*c0 + 3*c0*(voxsLeft / voxsPerRow)
+								-((lastRowLeft == 0) ? (2*c0 + (c0 - colOff - 1) % 3 + 1) :0)
+								+((lastRowLeft != 0) ? (colOff + 3*(lastRowLeft - 1)    ) :0)
+							  )
+							 : 0);
 }
 
 // **** Get i-th bit ****
@@ -317,4 +300,22 @@ Next GetNextSpin(int* VoxIds, int VoxNum, int NextSpinOffset)
 		}
 
 	return Next;
+}
+
+int getMaxThreadId(int LatticeId)
+{
+	int c0 = cube_size[0];
+	int c1 = cube_size[1];
+	int c2 = cube_size[2];
+
+	int sliceOff = LatticeId / 9;
+	int colOff = LatticeId % 3;
+	int rowOff = (LatticeId / 3) % 3;
+
+	int voxsPerRow = (c0 - colOff - 1) / 3 + 1;
+	int rowsPerSlice = (c1 - rowOff - 1) / 3 + 1;
+
+	int voxsPerSlice = voxsPerRow*rowsPerSlice;
+
+	return voxsPerSlice*((c2 - sliceOff) / 3 + (((c2 - sliceOff) % 3)>0?1:0) );
 }

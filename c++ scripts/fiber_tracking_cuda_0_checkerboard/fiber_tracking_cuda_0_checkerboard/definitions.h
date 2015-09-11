@@ -87,8 +87,8 @@ long scount;
 /**/	int TestFiberTrace = 0;
 /**/	std::string version("checkerboard CPU");	/**/
 /**/	std::string subject ("1159T");									/**/
-/**/	int cube_size[3] = { 87, 104, 88 };									/**/
-/**/	int vox_origin[4] = { 0, 64, 64, 45 };							/**/
+/**/	int cube_size[3] = { 9, 9, 9 };									/**/
+/**/	int vox_origin[4] = { 0, 48, 64, 64 };							/**/
 /**/																	/**/
 /**/	float cutoff = 1.5;												/**/
 /**/																	/**/
