@@ -1,0 +1,2 @@
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v120:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit
+Debug|Win32|C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\0_checkerboard_gpu\|

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CudaCompile Include="kernel.cu" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Data Import">
+      <UniqueIdentifier>{a9711619-b726-4029-9fcc-d0121a4bf73b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Monte Carlo">
+      <UniqueIdentifier>{19f1a3aa-7a6f-425e-9ce5-409636825140}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Export">
+      <UniqueIdentifier>{412c9c80-a5b7-4c7d-9749-b4b62e955677}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="import_data.h">
+      <Filter>Data Import</Filter>
+    </ClInclude>
+    <ClInclude Include="init_ensemble.h">
+      <Filter>Data Import</Filter>
+    </ClInclude>
+    <ClInclude Include="definitions.h">
+      <Filter>Data Import</Filter>
+    </ClInclude>
+    <ClInclude Include="annealing.h">
+      <Filter>Monte Carlo</Filter>
+    </ClInclude>
+    <ClInclude Include="monte_carlo.h">
+      <Filter>Monte Carlo</Filter>
+    </ClInclude>
+    <ClInclude Include="mc_helper_functions.h">
+      <Filter>Monte Carlo</Filter>
+    </ClInclude>
+    <ClInclude Include="energy.h">
+      <Filter>Monte Carlo</Filter>
+    </ClInclude>
+    <ClInclude Include="create_log.h">
+      <Filter>Export</Filter>
+    </ClInclude>
+    <ClInclude Include="fiber_tracing.h">
+      <Filter>Export</Filter>
+    </ClInclude>
+    <ClInclude Include="readout.h">
+      <Filter>Export</Filter>
+    </ClInclude>
+    <ClInclude Include="track_vis.h">
+      <Filter>Export</Filter>
+    </ClInclude>
+    <ClInclude Include="trk_export.h">
+      <Filter>Export</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyDeviceToHost.h">
+      <Filter>Export</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyHostToDevice.h">
+      <Filter>Data Import</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
