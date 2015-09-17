@@ -1,10 +1,10 @@
-﻿Der Buildvorgang wurde am 11.09.2015 11:21:33 gestartet.
+﻿Der Buildvorgang wurde am 17.09.2015 14:50:39 gestartet.
      1>Projekt "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard.vcxproj" auf Knoten "2", Build Ziel(e).
      1>AddCudaCompileDeps:
          C:\Apps\Visual Studio 13\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /DWIN32 /D_DEBUG /D_CONSOLE /D_MBCS /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" /I. /FIcuda_runtime.h /c "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\kernel.cu" 
        CudaBuild:
          Compiling CUDA source file kernel.cu...
-         cmd.exe /C "C:\Users\vikweg\AppData\Local\Temp\tmp02a907dd019a4d52ae89d934f3aa9145.cmd"
+         cmd.exe /C "C:\Users\vikweg\AppData\Local\Temp\tmp15c7aaab462341bca1e2a0b865bdf3f3.cmd"
          "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Apps\Visual Studio 13\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include"  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g  -use_fast_math -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Ox /Zi  /MDd  " -o Debug\kernel.cu.obj "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\kernel.cu"
          
          C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Apps\Visual Studio 13\VC\bin"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include"  -G   --keep-dir Debug -maxrregcount=0  --machine 32 --compile -cudart static  -g  -use_fast_math -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Ox /Zi  /MDd  " -o Debug\kernel.cu.obj "C:\ETH\Neuro\GlobalTracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\kernel.cu" 
@@ -41,11 +41,10 @@
          kernel.cu
      1>C:\Apps\gnuplot\gnucpp\gnuplot_i.hpp(1601): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
      1>C:\Apps\gnuplot\gnucpp\gnuplot_i.hpp(1603): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
-     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\energy.h(23): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'float', möglicher Datenverlust
-     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\energy.h(159): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\energy.h(161): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\energy.h(167): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\energy.h(169): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\energy.h(120): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\energy.h(122): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\energy.h(128): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\energy.h(130): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\init_ensemble.h(77): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\init_ensemble.h(78): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
      1>c:\eth\neuro\globaltracking\scripts\c++ scripts\fiber_tracking_cuda_0_checkerboard\fiber_tracking_cuda_0_checkerboard\init_ensemble.h(79): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
@@ -68,4 +67,4 @@
 
 Build erfolgreich.
 
-Verstrichene Zeit 00:00:06.79
+Verstrichene Zeit 00:00:10.12

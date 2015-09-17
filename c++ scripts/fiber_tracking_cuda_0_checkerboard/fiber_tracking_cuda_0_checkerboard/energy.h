@@ -1,38 +1,3 @@
-struct EigVals
-{
-	float L1;
-	float L3;
-};
-
-EigVals calcEigVals(int VoxNum, float* ten)
-{
-	EigVals EigVals;
-
-	float a11 = ten[8 * VoxNum];
-	float a12 = ten[8 * VoxNum+1];
-	float a13 = ten[8 * VoxNum+2];
-	float a22 = ten[8 * VoxNum+3];
-	float a23 = ten[8 * VoxNum+4];
-	float a33 = ten[8 * VoxNum+5];
-
-	float p1 = a12*a12 + a13*a13 + a23*a23;
-	float q = (a11 + a22 + a33)*0.33333333f;
-	float p2 = (a11 - q)*(a11 - q) + (a22 - q)*(a22 - q) + (a33 - q)*(a33 - q) + 2 * p1;
-	float p = sqrtf(p2*0.16666666f);
-
-	float r = 0.5*(1 / (p*p*p)) * (2 * a12*a13*a23 + (a11-q)*( (a22 - q)*(a33 - q) - a23*a23 ) + a13*a13*(q - a22) + a12*a12*(q - a33) );
-
-	//Check for r missing
-
-	float phi = acosf(r)*0.33333333f;
-
-	EigVals.L1 = q + 2 * p*cosf(phi);
-	EigVals.L3 = q + 2 * p*cosf(phi + 4.71238898f);
-
-	return EigVals;
-}
-
-
 float Edata(float* x, float* y, float* z, unsigned long long* c, float* ten, int* sig, int* VoxIds,
 	int VoxNum, int SpinId,
 	int NeighborVoxNum, int NeighborSpinId)
@@ -59,10 +24,6 @@ float Edata(float* x, float* y, float* z, unsigned long long* c, float* ten, int
 		  +		ten[8 * NeighborVoxNum + 3] * xij[1] * xij[1]
 		  + 2 * ten[8 * NeighborVoxNum + 4] * xij[1] * xij[2]
 		  +		ten[8 * NeighborVoxNum + 5] * xij[2] * xij[2]) * norm;
-
-	//Calculate Emin, Emax each time from tensor (Problem with eigenvalues though...)
-	//see 3x3 matrices in https://en.wikipedia.org/wiki/Eigenvalue_algorithm#3.C3.973_matrices
-	// http://arxiv.org/pdf/physics/0610206v3.pdf
 
 	float E1min = ten[8 * VoxNum + 6];
 	float E1max = ten[8 * VoxNum + 7];
@@ -93,7 +54,7 @@ float Eint(	float* x, float* y, float* z, unsigned long long* c, float* ten, int
 	float norm = sqrtf(norm_ij*norm_ik);
 	float dot = xij[0] * xik[0] + xij[1] * xik[1] + xij[2] * xik[2];
 
-	float cos = dot / norm;
+	float cos = dot / (norm+eps);
 
 	return wint(cos);
 }

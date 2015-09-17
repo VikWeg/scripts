@@ -82,33 +82,32 @@ void mc(float* x, float* y, float* z, unsigned long long* c, float* ten, int* si
 	//for (int j = 0; j < cube_size[1]; j++)
 	//for (int k = 0; k < cube_size[2]; k++)
 
-	int MaxThreadId = getMaxThreadId(LatticeId);
+	//int MaxThreadId = getMaxThreadId(LatticeId);
 
-	for (int threadId = 0; threadId < MaxThreadId; threadId++)
-	{
-		int VoxNum = threadIdToVoxNum(threadId, LatticeId);
+	//for (int threadId = 0; threadId < MaxThreadId; threadId++)
+	//{
+		//int VoxNum = threadIdToVoxNum(threadId, LatticeId);
 		//int VoxNum = threadId;
 		//int VoxNum = u_k(generate)*cube_size[0] * cube_size[1] + u_j(generate)*cube_size[0] + u_i(generate);
 		//int VoxNum = k*cube_size[0] * cube_size[1] + j*cube_size[0] + i;
+	for (int VoxNum = 0; VoxNum < cube_size[0] * cube_size[1] * cube_size[2]; VoxNum++)
+	if (VoxIds[VoxNum] >= 0)
+	{
+		int SpinsInVoxel;
 
-		if (VoxIds[VoxNum] >= 0)
+		if (VoxNum < cube_size[0] * cube_size[1] * cube_size[2] - 1)
 		{
-			int SpinsInVoxel;
+			int next = VoxNum + 1;
+			while (VoxIds[next] < 0) next++;
+			SpinsInVoxel = VoxIds[next] - VoxIds[VoxNum];
+		}
+		else
+			SpinsInVoxel = scount - VoxIds[VoxNum]; //scount is global
 
-			if (VoxNum < cube_size[0] * cube_size[1] * cube_size[2] - 1)
-			{
-				int next = VoxNum + 1;
-				while (VoxIds[next] < 0) next++;
-				SpinsInVoxel = VoxIds[next] - VoxIds[VoxNum];
-			}
-			else
-				SpinsInVoxel = scount - VoxIds[VoxNum]; //scount is global
-
-			for (int SpinId = VoxIds[VoxNum]; SpinId < VoxIds[VoxNum] + SpinsInVoxel; SpinId++)
-			{
-				mc_c(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxIds[VoxNum], SpinId);
-				mc_x(x, y, z, c, ten, sig, VoxIds, VoxNum, SpinId);
-			}
+		for (int SpinId = VoxIds[VoxNum]; SpinId < VoxIds[VoxNum] + SpinsInVoxel; SpinId++)
+		{
+			mc_c(x, y, z, c, ten, sig, VoxIds, VoxNum, VoxIds[VoxNum], SpinId);
+			mc_x(x, y, z, c, ten, sig, VoxIds, VoxNum, SpinId);
 		}
 	}
 }
