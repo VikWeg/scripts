@@ -1,5 +1,5 @@
 
-nii = load_nii('C:/ETH/Neuro/Global Tractography/data_moco.nii');
+nii = load_nii('C:/ETH/Neuro/Global Tractography/subjects/1159T/data_moco.nii');
 dims = size(nii.img);
 
 i=50;
